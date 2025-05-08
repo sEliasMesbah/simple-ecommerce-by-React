@@ -25,8 +25,8 @@ Follow these steps to run the project locally:
 1. Clone the Repository
 
    ```bash
-   git clone https://github.com/sEliasMesbah/simple-ecommerce.git
-   cd simple-ecommerce
+   git clone https://github.com/sEliasMesbah/simple-ecommerce-by-React.git
+   cd simple-ecommerce-by-React
    ```
 
 2. Install Dependencies
@@ -57,7 +57,7 @@ Follow these steps to run the project locally:
 ## 📁 Project Structure
 
 ```bash
-📦 simple-ecommerce
+📦 simple-ecommerce-by-React
 ├── db.json               # Fake backend data (products, etc.)
 ├── public/
 │   ├── images/           # Product images
