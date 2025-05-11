@@ -1,0 +1,134 @@
+@font-face {
+    font-family: "flaticon";
+    src: url("flaticon.ttf@1dc0d7e59f2ded59220372e89f70f7dc") format("truetype"),
+url("flaticon.woff@1dc0d7e59f2ded59220372e89f70f7dc") format("woff"),
+url("flaticon.woff2@1dc0d7e59f2ded59220372e89f70f7dc") format("woff2"),
+url("flaticon.eot@1dc0d7e59f2ded59220372e89f70f7dc#iefix") format("embedded-opentype"),
+url("flaticon.svg@1dc0d7e59f2ded59220372e89f70f7dc.xml#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-right-arrow:before {
+    content: "\f101";
+}
+.flaticon-view:before {
+    content: "\f102";
+}
+.flaticon-check:before {
+    content: "\f103";
+}
+.flaticon-question:before {
+    content: "\f104";
+}
+.flaticon-flash:before {
+    content: "\f105";
+}
+.flaticon-flash-1:before {
+    content: "\f106";
+}
+.flaticon-pen:before {
+    content: "\f107";
+}
+.flaticon-language:before {
+    content: "\f108";
+}
+.flaticon-programming-code-signs:before {
+    content: "\f109";
+}
+.flaticon-wrench:before {
+    content: "\f10a";
+}
+.flaticon-more-information:before {
+    content: "\f10b";
+}
+.flaticon-more:before {
+    content: "\f10c";
+}
+.flaticon-select:before {
+    content: "\f10d";
+}
+.flaticon-coins:before {
+    content: "\f10e";
+}
+.flaticon-shopping-bag:before {
+    content: "\f10f";
+}
+.flaticon-home:before {
+    content: "\f110";
+}
+.flaticon-agenda:before {
+    content: "\f111";
+}
+.flaticon-email:before {
+    content: "\f112";
+}
+.flaticon-message:before {
+    content: "\f113";
+}
+.flaticon-account:before {
+    content: "\f114";
+}
+.flaticon-cross:before {
+    content: "\f115";
+}
+.flaticon-bookmark:before {
+    content: "\f116";
+}
+.flaticon-phone-call:before {
+    content: "\f117";
+}
+.flaticon-email-1:before {
+    content: "\f118";
+}
+.flaticon-send:before {
+    content: "\f119";
+}
+.flaticon-dots:before {
+    content: "\f11a";
+}
+.flaticon-clock:before {
+    content: "\f11b";
+}
+.flaticon-filter:before {
+    content: "\f11c";
+}
+.flaticon-option:before {
+    content: "\f11d";
+}
+.flaticon-filter-1:before {
+    content: "\f11e";
+}
+.flaticon-filter-2:before {
+    content: "\f11f";
+}
+.flaticon-location:before {
+    content: "\f120";
+}
+.flaticon-pin:before {
+    content: "\f121";
+}
+.flaticon-location-pin:before {
+    content: "\f122";
+}
+.flaticon-file:before {
+    content: "\f123";
+}
+.flaticon-file-upload:before {
+    content: "\f124";
+}
+.flaticon-checked:before {
+    content: "\f125";
+}
+.flaticon-coins-1:before {
+    content: "\f126";
+}
