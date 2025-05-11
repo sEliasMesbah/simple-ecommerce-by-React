@@ -60,7 +60,7 @@ const DownSlider = () => {
                 spaceBetween={15}
                 slidesPerView={3}
                 loop={true}
-                autoplay={{ delay: 3000, disableOnInteraction: false }}
+                autoplay={{ delay: 1350, disableOnInteraction: false }}
                 breakpoints={{
                     640: { slidesPerView: 1 },
                     768: { slidesPerView: 2 },
