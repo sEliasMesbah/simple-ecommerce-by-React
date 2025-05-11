@@ -58,7 +58,7 @@ const DownSlider = () => {
             <Swiper
                 modules={[Autoplay]}
                 spaceBetween={15}
-                slidesPerView={3}
+                slidesPerView={2.23}
                 loop={true}
                 autoplay={{ delay: 1350, disableOnInteraction: false }}
                 breakpoints={{
@@ -68,11 +68,11 @@ const DownSlider = () => {
                 }}
             >
                 {ProductCards.map((product, index) => (
-                    <SwiperSlide key={index}>
+                    <SwiperSlide key={index} style={{width:"443px"}}>
                         <div className="shop-card style-2">
                             <div className="dz-media">
                                 <a href="product-detail.html">
-                                    <img src={product.url} alt="image" />
+                                    <img src={product.url} alt="image" style={{height:"381px"}} />
                                 </a>
                                 <div className="product-tag">
                                     <span className="review me-2">
