@@ -1,12 +1,3 @@
-// <<<<<<< HEAD
-// function App() {
-// return<>
-    
-// </>
-// }
-
-// export default App;
-// =======
 import { useState } from "react";
 import Header from "./components/Header";
 import MenuBar from "./components/MenuBar";
