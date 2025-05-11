@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Header from "./components/home/Header";
-import MenuBar from "./components/home/MenuBar";
-import SideBar from "./components/home/SideBar";
+import Header from "./components/Header";
+import MenuBar from "./components/MenuBar";
+import SideBar from "./components/SideBar";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
