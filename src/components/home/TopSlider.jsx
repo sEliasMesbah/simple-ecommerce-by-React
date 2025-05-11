@@ -26,7 +26,7 @@ export default function CustomSwiper() {
       offer: '35% Off',
       desc: 'Discover our latest Products',
       link: '/product.html',
-    },    {
+    },{
         image: '/images/banner/pic4.png',
         title: '#FASHION DAY',
         offer: '35% Off',
@@ -42,6 +42,17 @@ export default function CustomSwiper() {
         spaceBetween={0}
         slidesPerView={3}
         slidesPerGroup={1}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+          },
+          400: {
+            slidesPerView: 2,
+          },
+          639: {
+            slidesPerView: 3,
+          },
+        }}
         loop={true}
         autoplay={{
           delay: 1700,
