@@ -2,6 +2,7 @@ import SideBar from "../SideBar";
 import TopSwiper from "./TopSlider";
 import TopCategory from "./TopCategory";
 import TitleBar from "./TitleBar";
+import ProductCards from "./ProductCards";
 
 export default function Main() {
   return (
@@ -10,7 +11,10 @@ export default function Main() {
         <div className="container p-0">
           <TopSwiper />
           <TopCategory />
-          <TitleBar />
+          <TitleBar title={"Most Popular"}/>
+          <ProductCards />
+          <TitleBar title={"Trending Now"}/>
+
         </div>
       </div>
     </>
