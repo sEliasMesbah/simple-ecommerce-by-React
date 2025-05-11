@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Header from "./components/home/Header";
+import MenuBar from "./components/home/MenuBar";
 import SideBar from "./components/home/SideBar";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           onClick={closeSidebar}
         ></div>
       )}
+      <MenuBar />
     </>
   );
 }
