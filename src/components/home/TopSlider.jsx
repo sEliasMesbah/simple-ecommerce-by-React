@@ -27,7 +27,7 @@ export default function CustomSwiper() {
       desc: 'Discover our latest Products',
       link: '/product.html',
     },    {
-        image: '/images/banner/pic3.png',
+        image: '/images/banner/pic4.png',
         title: '#FASHION DAY',
         offer: '35% Off',
         desc: 'Discover our latest Products',
@@ -47,6 +47,7 @@ export default function CustomSwiper() {
           delay: 1700,
           disableOnInteraction: false,
         }}
+        speed={500}
         pagination={{
           clickable: true,
           el: '.swiper-pagination',
@@ -63,15 +64,15 @@ export default function CustomSwiper() {
                 height: '100%',
                 position: 'relative',
                 margin:'0',
-                padding:'0'
+                padding:'10px'
               }}
-              className="relative p-4 text-white flex items-end"
+              className="relative text-white flex items-end banner-bg"
             >
-              <div className="banner-content bg-black/60 p-3 rounded">
+              <div className="banner-content bg-black/60 p-2 rounded">
                 <span className="font-medium text-sm">{slide.title}</span>
                 <h2 className="text-xl font-bold">{slide.offer}</h2>
                 <p className="text-sm">{slide.desc}</p>
-                <a href={slide.link} className="inline-block mt-2 px-3 py-1 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 transition">
+                <a href={slide.link} className="btn btn-primary btn-sm margin">
                   Shop Now
                 </a>
               </div>

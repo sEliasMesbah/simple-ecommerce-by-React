@@ -18331,7 +18331,54 @@ span{
 }
 p{
   color: black;
+  font-size: 12px;
 }
 a{
   color: black !important;
+}
+.swiper-wrap {
+  display: flex;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.swiper-wrap::-webkit-scrollbar {
+  display: none; /* برای کروم و سافاری */
+}
+
+.swiper-sliding {
+  width: 218.222px;
+  margin-right: 12px;
+  padding-left: 15px;
+}
+
+.category-btn {
+  display: block;
+  text-align: center;
+  padding: 12px 10px;
+  text-decoration: none;
+  color: #333;
+  width: 218.222px;
+  margin-right: 12px;
+  margin-top: 13px;
+  margin-bottom: 13px;
+  cursor: pointer;
+} 
+.category-btn:hover{
+  color: white !important;
+  cursor: pointer;
+}
+.margin{
+  margin-bottom: 7px;
+  color: white !important;
+}
+.text-sm{
+  margin-bottom: 12px;
+}
+.banner-content{
+  margin: 0px;
+}
+.font-bold{
+  font-weight: 800;
+  font-size: 1.5rem;
 }
