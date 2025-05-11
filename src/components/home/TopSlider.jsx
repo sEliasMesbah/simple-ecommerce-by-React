@@ -26,13 +26,13 @@ export default function CustomSwiper() {
       offer: '35% Off',
       desc: 'Discover our latest Products',
       link: '/product.html',
-    },    {
-        image: '/images/banner/pic3.png',
-        title: '#FASHION DAY',
-        offer: '35% Off',
-        desc: 'Discover our latest Products',
-        link: '/product.html',
-      },
+    }, {
+      image: '/images/banner/pic3.png',
+      title: '#FASHION DAY',
+      offer: '35% Off',
+      desc: 'Discover our latest Products',
+      link: '/product.html',
+    },
   ];
 
   return (
@@ -42,6 +42,17 @@ export default function CustomSwiper() {
         spaceBetween={0}
         slidesPerView={3}
         slidesPerGroup={1}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+          },
+          400: {
+            slidesPerView: 2,
+          },
+          639: {
+            slidesPerView: 3,
+          },
+        }}
         loop={true}
         autoplay={{
           delay: 3000,
@@ -62,8 +73,8 @@ export default function CustomSwiper() {
                 backgroundPosition: 'center',
                 height: '100%',
                 position: 'relative',
-                margin:'0',
-                padding:'0'
+                margin: '0',
+                padding: '0'
               }}
               className="relative p-4 text-white flex items-end"
             >
