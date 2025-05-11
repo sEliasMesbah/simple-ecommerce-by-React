@@ -18385,3 +18385,16 @@ a{
 .a-title{
   color: green !important;
 }
+.TCard{
+  width: 443px !important;
+}
+.trending-swiper{
+  /* right: 14px; */
+  padding-left: 29px !important;
+  margin-top: 13px;
+  width: 97%;
+}
+.trending-swiper{
+  width: 100%;
+  right: 13px;
+}

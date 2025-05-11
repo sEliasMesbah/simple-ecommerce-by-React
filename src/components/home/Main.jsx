@@ -3,6 +3,7 @@ import TopSwiper from "./TopSlider";
 import TopCategory from "./TopCategory";
 import TitleBar from "./TitleBar";
 import ProductCards from "./ProductCards";
+import DownSlider from "./DownSlider";
 
 export default function Main() {
   return (
@@ -14,7 +15,7 @@ export default function Main() {
           <TitleBar title={"Most Popular"}/>
           <ProductCards />
           <TitleBar title={"Trending Now"}/>
-
+          <DownSlider />
         </div>
       </div>
     </>
