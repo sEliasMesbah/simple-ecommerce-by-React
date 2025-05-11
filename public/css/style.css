@@ -7015,7 +7015,7 @@ textarea.form-control-lg {
 
 .text-white {
   --bs-text-opacity: 1;
-  color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important; }
+  color: rgba(var(--bs-black-rgb), var(--bs-text-opacity)) !important; }
 
 .text-body {
   --bs-text-opacity: 1;
@@ -18296,4 +18296,42 @@ label input {
   background-color: rgba(0, 0, 0, 0.4); /* نیمه شفاف */
   z-index: 999; /* بالاتر از اکثر عناصر */
   transition: opacity 0.3s ease;
+}
+.swiper-pagination {
+  position: absolute;
+  top: 0;
+  right: -25px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  width: 15px !important;
+  left: 1000px !important;
+}
+
+.swiper-pagination-bullet {
+  margin: 5px 0 !important;
+}
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.custom-swiper-container {
+  position: relative;
+}
+.swiper-pagination-bullet {
+  display: block;
+  margin: 4px 0 !important; /* بالا و پایین فاصله بگیره */
+}
+span{
+  color: green;
+}
+p{
+  color: black;
+}
+a{
+  color: black !important;
 }
