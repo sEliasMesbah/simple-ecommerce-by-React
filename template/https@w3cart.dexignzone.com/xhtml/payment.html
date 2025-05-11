@@ -1,0 +1,451 @@
+<!DOCTYPE html><!-- saved from url=(0048)https://w3cart.dexignzone.com/xhtml/payment.html --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html lang="en">
+<head>
+	
+	<!-- Title -->
+	<title>W3Cart - Ecommerce Mobile App Template ( Bootstrap + PWA )</title>
+	
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui, viewport-fit=cover">
+	<meta name="theme-color" content="#009688">
+	<meta name="author" content="DexignZone">
+	<meta name="robots" content="index, follow"> 
+	<meta name="keywords" content="android, ios, mobile, application template, progressive web app, ui kit, multiple color, dark layout">
+	<meta name="description" content="Revolutionize your online store with our Ecommerce App Template. Seamless shopping, secure payments, and personalized recommendations for an exceptional user experience">
+	<meta property="og:title" content="W3Cart: Ecommerce Mobile App Template ( Bootstrap + PWA )">
+	<meta property="og:description" content="Revolutionize your online store with our Ecommerce App Template. Seamless shopping, secure payments, and personalized recommendations for an exceptional user experience.">
+	<meta property="og:image" content="https://w3cart.dexignzone.com/xhtml/social-image.png">
+	<meta name="format-detection" content="telephone=no">
+
+	<!-- Favicons Icon -->
+	<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+	
+    
+    <!-- Global CSS -->
+	<link href="assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="assets/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css">
+	<link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css">
+    
+	<!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	
+    <!-- Google Fonts -->
+	<link rel="preconnect" href="../../https@fonts.googleapis.com/default.htm">
+	<link rel="preconnect" href="../../https@fonts.gstatic.com/default.htm" crossorigin>
+	<link href="../../https@fonts.googleapis.com/css2@family=dm+sans_3awght_40100;200;300;400;500;600;700;800;900;1000&family=roboto_3awght_40100;300;400;500;700;900&display=swap.css" rel="stylesheet">
+
+</head>   
+<body>
+<div class="page-wrapper">
+    
+	<!-- Preloader -->
+	<div id="preloader">
+		<div class="loader">
+			<div class="load-circle"><div></div><div></div></div>
+		</div>
+	</div>
+    <!-- Preloader end-->
+	
+	<!-- Header -->
+		<header class="header shadow header-fixed border-0">
+			<div class="container">
+				<div class="header-content">
+					<div class="left-content">
+						<a href="javascript:void(0);" class="back-btn">
+							<i class="icon feather icon-chevron-left"></i>
+						</a>
+						<h6 class="title">Payment</h6>
+					</div>
+					<div class="mid-content">
+					</div>
+					<div class="right-content">
+					</div>
+				</div>
+			</div>
+		</header>
+	<!-- Header -->
+	
+	<!-- Page Content Start -->
+	<div class="page-content space-top p-b50">
+		<div class="container">
+			<div class="title-bar justify-content-start">
+				<span class="media media-20 me-2">
+					<img src="assets/images/icons/discount.png" alt="/">
+				</span>
+				<h6 class="mb-0 font-w700">Bank Offer</h6>
+			</div>
+			<div class="d-flex mb-3">
+				<i class="icon feather icon-arrow-right mt-1 me-2"></i>
+				<p class="mb-0">10% instant Savings on Citi Credit and Debit Cards on a min spend of Rs 3,0000. TCA</p>
+			</div>
+			<div class="accordion dz-accordion accordion-full" id="accordionExample">
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingOne">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							<span class="media media-25 me-3">
+								<img src="assets/images/icons/cash.png" alt="/">
+							</span>
+							Cash on Delivery(Cash/UPI)
+						</button>
+					</h2>
+					<div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+						<div class="accordion-body">
+							Carry on your cash payment..
+							<br>
+							Thanx!
+						</div>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingTwo">
+						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+							<span class="media media-25 me-3">
+								<img src="assets/images/icons/card.png" alt="/">
+							</span>
+							Credit/Debit Card
+						</button>
+					</h2>
+					<div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+						<div class="accordion-body">
+							<small class="font-w600 mb-2 text-dark">Saved Cards</small>
+							<!-- Card Select -->
+							<div class="d-flex align-items-center mb-3">
+								<button type="button" class="dz-modal-btn text-dark" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Add Card +</button>
+								<!-- Card Select -->
+								<div class="short-tag style-4" role="group" aria-label="radio toggle button">
+									<div class="clearfix">
+										<input type="radio" class="btn-check" name="btnradio" id="btnradio1" checked="">
+										<label class="btn ms-2 mb-0 tag-btn" for="btnradio1">
+											<img src="assets/images/payment/visa.png" alt="">
+										</label>
+									</div>
+
+									<div class="clearfix">
+										<input type="radio" class="btn-check" name="btnradio" id="btnradio2">
+										<label class="btn mb-0 tag-btn" for="btnradio2">
+											<img src="assets/images/payment/mastercard.png" alt="">
+										</label>
+									</div>
+									
+									<div class="clearfix">
+										<input type="radio" class="btn-check" name="btnradio" id="btnradio3">
+										<label class="btn mb-0 me-0 tag-btn" for="btnradio3">
+											<img src="assets/images/payment/discover.png" alt="">
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="payment-card">
+								<div class="card-media">
+									<img src="assets/images/payment/card.png" alt="">
+								</div>
+								<div class="card-info">
+									<div class="clearfix">
+										<h5 class="card-name">Credit Card</h5>
+										<p class="card-number">4532 **** **** ****</p>
+									</div>
+									<div class="bottom-info">
+										<p>04 / 25</p>
+										<p>KEVIN HARD</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingThree">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+							<span class="media media-25 me-3">
+								<img src="assets/images/icons/pay.png" alt="/">
+							</span>
+							Google Pay/Phone Pay/BHIM UPI
+						</button>
+					</h2>
+					<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+						<div class="accordion-body pt-0">
+							<div class="form">
+								<div class="form-item">
+									<label class="form-label" >Link via UPI</label>
+									<input type="number" class="form-control"  placeholder="Enter your UPI ID" autocomplete="off" required>
+								</div>
+								<a href="javascrpit_3avoid%280%29;" class="btn btn-primary btn-block">Continue</a>	
+								<div class="d-flex align-items-center mt-3">
+									<i class="fa-solid fa-shield me-3 text-dark"></i>
+									<p class="info-line">Your UPI ID Will be encrypted and is 100% safe with us.</p>
+								</div>	
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingFive">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+							<span class="media media-25 me-3">
+								<img src="assets/images/icons/wallet.png" alt="/">
+							</span>
+							Payments/Wallet
+						</button>
+					</h2>
+					<div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+						<div class="accordion-body pt-0">
+							<div class="mb-3">
+								<label class="form-label" >Link Your Wallet</label>
+								<input type="number" class="form-control"  autocomplete="off" required placeholder="+91">
+							</div>
+							<a href="javascript:void(0);" class="btn btn-primary btn-block">Continue</a>		
+						</div>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingFour">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+							<span class="media media-25 me-3">
+								<img src="assets/images/icons/bank.png" alt="/">
+							</span>
+							Netbanking
+						</button>
+					</h2>
+					<div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+						<div class="accordion-body">
+							<button class="btn btn-outline-primary w-100" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Netbannking</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a class="coupon-bx style-2 mb-3" href="javascript:void(0);">
+				<i class="fa-solid fa-gift me-3"></i>
+				<span class="title font-w500">Have a Gift Card?</span>	
+				<span class="ms-auto font-w600">Apply</span>	
+			</a>
+			<div class="view-cart style-2">
+				<h6 class="title border-bottom pb-2">Price Title(1 item)</h6>
+				<ul>
+					<li>
+						<span class="name">Total MRP</span>
+						<span class="font-w500">1599</span>
+					</li>
+					<li>
+						<span class="name">Discount on MRP</span>
+						<span class="font-w500">-640</span>
+					</li>
+					<li>
+						<span class="name">Coupon Discount</span>
+						<span class="font-w500">-200</span>
+					</li>
+					<div class="divider style-2 mt-0"></div>
+					<li>
+						<span class="name">Total Amount</span>
+						<h4 class="price">759</h4>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Page Content End -->
+	<!-- Footer Start -->
+	<div class="footer fixed bg-white border-top">
+		<div class="container py-2">
+			<div class="total-cart">
+				<div class="price-area">
+					<h5 class="price text-secondary">$759</h5>
+					<span>View Details</span>
+				</div>
+				<a href="tracking-order.html" class="btn btn-primary w-100">Pay now</a>
+			</div>
+		</div>
+	</div>
+	<!-- Footer End -->
+	
+	<!-- Add Card Modal -->
+	<div class="modal fade" id="exampleModalCenter">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content rounded-0">
+				<div class="modal-header border-0 pb-0">
+					<h5 class="modal-title font-w700">ADD CARD</h5>
+					<button class="btn-close" data-bs-dismiss="modal">
+						<i class="fa-solid fa-xmark"></i>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>Please ensure your card can be used for online transactions</p>
+					<div class="form">
+						<div class="form-item">
+							<label class="form-label" >Card holder Name</label>
+							<input type="text" class="form-control"  autocomplete="off" required>
+						</div>
+						<div class="form-item">
+							<label class="form-label" >Card Number</label>
+							<input type="number" class="form-control"  autocomplete="off" placeholder="**** **** **** ****" required>
+						</div>
+						<div class="row gx-3">		
+							<div class="form-item col-6">
+								<label class="form-label" >Expiry Date</label>
+								<input type="date" class="form-control"  autocomplete="off" value="MM / YY" required>
+							</div>
+							<div class="form-item col-6">
+								<label class="form-label" >Security Code</label>
+								<input type="password" class="form-control"  autocomplete="off" placeholder="CVV" required>
+							</div>
+						</div>	
+					</div>
+					<a href="javascript:void(0);" class="btn btn-primary d-block" data-bs-dismiss="modal">Added</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Add Card Modal -->
+	
+	<!-- NET BANKING OFFCANVAS -->
+	<div class="offcanvas offcanvas-end add-bank" tabindex="-1" id="offcanvasRight">
+		<div class="container p-0">
+			<div class="offcanvas-header">
+				<div class="input-group search-input">
+					<a href="javascript:void(0);" class="search-icon">
+						<i class="icon feather icon-search"></i>
+					</a>
+					<input type="search" placeholder="Search by bank name" class="form-control">
+				</div>
+			</div>
+			<div class="offcanvas-body">	
+				<div class="card">
+					<div class="card-header">
+						<h5 class="card-title">Popular Banks</h5>					
+					</div>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-4">
+								<a href="javascript:void(0):" class="media media-50">
+									<img src="assets/images/bank/bank1.svg" alt="">
+								</a>
+							</div>
+							<div class="col-4">
+								<a href="javascript:void(0):" class="media media-50">
+									<img src="assets/images/bank/bank2.svg" alt="">
+								</a>
+							</div>
+							<div class="col-4">
+								<a href="javascript:void(0):" class="media media-50">
+									<img src="assets/images/bank/bank3.svg" alt="">
+								</a>
+							</div>
+							<div class="col-4">
+								<a href="javascript:void(0):" class="media media-50">
+									<img src="assets/images/bank/bank4.svg" alt="">
+								</a>
+							</div>
+							<div class="col-4">
+								<a href="javascript:void(0):" class="media media-50">
+									<img src="assets/images/bank/bank5.svg" alt="">
+								</a>
+							</div>
+							<div class="col-4">
+								<a href="javascript:void(0):" class="media media-50">
+									<img src="assets/images/bank/bank6.svg" alt="">
+								</a>
+							</div>
+							<div class="col-4">
+								<a href="javascript:void(0):" class="media media-50">
+									<img src="assets/images/bank/bank7.svg" alt="">
+								</a>
+							</div>
+							<div class="col-4">
+								<a href="javascript:void(0):" class="media media-50">
+									<img src="assets/images/bank/bank8.svg" alt="">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<h5 class="title-bar">All Banks</h5>
+				<ul class="item-list mb-3">
+					<li class="list">
+						<a href="javascript:void(0);">
+							<i class="icon feather icon-arrow-right mt-1 me-2"></i>
+							Bank Of india
+						</a>
+					</li>
+					<li class="list">
+						<a href="javascript:void(0);">
+							<i class="icon feather icon-arrow-right mt-1 me-2"></i>
+							Bank Of Maharasthra
+						</a>
+					</li>
+					<li class="list">
+						<a href="javascript:void(0);">
+							<i class="icon feather icon-arrow-right mt-1 me-2"></i>
+							Canara Bank
+						</a>
+					</li>
+					<li class="list">
+						<a href="javascript:void(0);">
+							<i class="icon feather icon-arrow-right mt-1 me-2"></i>
+							HDFC Bank
+						</a>
+					</li>
+					<li class="list">
+						<a href="javascript:void(0);">
+							<i class="icon feather icon-arrow-right mt-1 me-2"></i>
+							IDFC Bank
+						</a>
+					</li>
+					<li class="list">
+						<a href="javascript:void(0);">
+							<i class="icon feather icon-arrow-right mt-1 me-2"></i>
+							Catholic Syrian Bank
+						</a>
+					</li>
+					<li class="list">
+						<a href="javascript:void(0);">
+							<i class="icon feather icon-arrow-right mt-1 me-2"></i>
+							Catholic Syrian Bank
+						</a>
+					</li>
+					<li class="list">
+						<a href="javascript:void(0);">
+							<i class="icon feather icon-arrow-right mt-1 me-2"></i>
+							Central Bank of India
+						</a>
+					</li>
+					<li class="list">
+						<a href="javascript:void(0);">
+							<i class="icon feather icon-arrow-right mt-1 me-2"></i>
+							City Union Bank
+						</a>
+					</li>
+					<li class="list">
+						<a href="javascript:void(0);">
+							<i class="icon feather icon-arrow-right mt-1 me-2"></i>
+							Corporation Bank
+						</a>
+					</li>
+					<li class="list">
+						<a href="javascript:void(0);">
+							<i class="icon feather icon-arrow-right mt-1 me-2"></i>
+							Cosmos Bank
+						</a>
+					</li>
+				</ul>
+				<button type="button" class="btn btn-outline-primary d-block w-100 mt-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+					<i class="icon feather icon-arrow-left mt-1 me-2"></i>
+					<span class="title">Return</span>
+				</button>
+			</div>	
+		</div>	
+	</div>
+	<!-- NET BANKING OFFCANVAS -->
+</div>  
+<!--**********************************
+    Scripts
+***********************************-->
+<script src="../../https@w3cart.dexignzone.com\xhtml\assets\js\jquery.js"></script>
+<script src="../../https@w3cart.dexignzone.com\xhtml\assets\vendor\bootstrap\js\bootstrap.bundle.min.js"></script>
+<script src="../../https@w3cart.dexignzone.com\xhtml\assets\vendor\swiper\swiper-bundle.min.js"></script><!-- Swiper -->
+<script src="../../https@w3cart.dexignzone.com\xhtml\assets\vendor\bootstrap-touchspin\dist\jquery.bootstrap-touchspin.min.js"></script><!-- Swiper -->
+<script src="../../https@w3cart.dexignzone.com\xhtml\assets\js\dz.carousel.js"></script><!-- Swiper -->
+<script src="../../https@w3cart.dexignzone.com\xhtml\assets\js\settings.js"></script>
+<script src="../../https@w3cart.dexignzone.com\xhtml\assets\js\custom.js"></script>
+</body>
+</html>

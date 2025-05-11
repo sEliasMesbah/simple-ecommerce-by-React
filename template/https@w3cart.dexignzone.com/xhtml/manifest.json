@@ -1,0 +1,15 @@
+{
+  "background_color": "#0D775E",
+  "description": "W3Cart Ecommerce Mobile App Template ( Bootstrap + PWA )",
+  "display": "standalone",
+  "icons": [
+	{
+	  "src": "assets/images/pwa150x150.png",
+	  "sizes": "150x150",
+	  "type": "image/png"
+	}
+  ],
+  "name": "W3Cart Ecommerce Mobile App",
+  "short_name": "W3Cart",
+  "start_url": "index.html"
+}

@@ -1,0 +1,707 @@
+<!DOCTYPE html><!-- saved from url=(0047)https://w3cart.dexignzone.com/xhtml/filter.html --><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+<html lang="en">
+<head>
+	
+	<!-- Title -->
+	<title>W3Cart - Ecommerce Mobile App Template ( Bootstrap + PWA )</title>
+	
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui, viewport-fit=cover">
+	<meta name="theme-color" content="#009688">
+	<meta name="author" content="DexignZone">
+	<meta name="robots" content="index, follow"> 
+	<meta name="keywords" content="android, ios, mobile, application template, progressive web app, ui kit, multiple color, dark layout">
+	<meta name="description" content="Revolutionize your online store with our Ecommerce App Template. Seamless shopping, secure payments, and personalized recommendations for an exceptional user experience">
+	<meta property="og:title" content="W3Cart: Ecommerce Mobile App Template ( Bootstrap + PWA )">
+	<meta property="og:description" content="Revolutionize your online store with our Ecommerce App Template. Seamless shopping, secure payments, and personalized recommendations for an exceptional user experience.">
+	<meta property="og:image" content="https://w3cart.dexignzone.com/xhtml/social-image.png">
+	<meta name="format-detection" content="telephone=no">
+
+	<!-- Favicons Icon -->
+	<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+	
+    
+    <!-- Global CSS -->
+	<link href="assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="assets/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css">
+	<link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css">
+    
+	<!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	
+    <!-- Google Fonts -->
+	<link rel="preconnect" href="../../https@fonts.googleapis.com/default.htm">
+	<link rel="preconnect" href="../../https@fonts.gstatic.com/default.htm" crossorigin>
+	<link href="../../https@fonts.googleapis.com/css2@family=dm+sans_3awght_40100;200;300;400;500;600;700;800;900;1000&family=roboto_3awght_40100;300;400;500;700;900&display=swap.css" rel="stylesheet">
+
+</head>   
+<body class="bg-white-2">
+<div class="page-wrapper">
+    
+	<!-- Preloader -->
+	<div id="preloader">
+		<div class="loader">
+			<div class="load-circle"><div></div><div></div></div>
+		</div>
+	</div>
+    <!-- Preloader end-->
+	
+	<!-- Header -->
+		<header class="header shadow header-fixed border-0">
+			<div class="container">
+				<div class="header-content">
+					<div class="left-content">
+						<a href="javascript:void(0);" class="back-btn">
+							<i class="icon feather icon-chevron-left"></i>
+						</a>
+						<h6 class="title">Filter</h6>
+					</div>
+					<div class="mid-content">
+					</div>
+					<div class="right-content">
+					</div>
+				</div>
+			</div>
+		</header>
+	<!-- Header -->
+	
+	<!-- Page Content Start -->
+	<div class="page-content space-top p-b70">
+		<div class="container p-0">
+			<div class="d-flex align-items-start dz-filter">
+				<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+					<button class="nav-link active" id="v-pills-filter-tab" data-bs-toggle="pill" data-bs-target="#v-pills-filter" type="button" role="tab" aria-controls="v-pills-filter" aria-selected="true">Gender</button>
+					<button class="nav-link" id="v-pills-filter-tab2" data-bs-toggle="pill" data-bs-target="#v-pills-filter2" type="button" role="tab" aria-controls="#v-pills-filter2" aria-selected="true">Discount</button>
+					<button class="nav-link" id="v-pills-filter-tab3" data-bs-toggle="pill" data-bs-target="#v-pills-filter3" type="button" role="tab" aria-controls="#v-pills-filter3" aria-selected="true">Size</button>
+					<button class="nav-link" id="v-pills-filter-tab4" data-bs-toggle="pill" data-bs-target="#v-pills-filter4" type="button" role="tab" aria-controls="#v-pills-filter4" aria-selected="true">Price</button>
+					<button class="nav-link" id="v-pills-filter-tab5" data-bs-toggle="pill" data-bs-target="#v-pills-filter5" type="button" role="tab" aria-controls="#v-pills-filter5" aria-selected="true">Customer Ratings</button>
+					<button class="nav-link" id="v-pills-filter-tab6" data-bs-toggle="pill" data-bs-target="#v-pills-filter6" type="button" role="tab" aria-controls="#v-pills-filter6" aria-selected="true">Type</button>
+					<button class="nav-link" id="v-pills-filter-tab7" data-bs-toggle="pill" data-bs-target="#v-pills-filter7" type="button" role="tab" aria-controls="#v-pills-filter7" aria-selected="true">Occasion</button>
+					<button class="nav-link" id="v-pills-filter-tab8" data-bs-toggle="pill" data-bs-target="#v-pills-filter8" type="button" role="tab" aria-controls="#v-pills-filter8" aria-selected="true">Brand</button>
+					<button class="nav-link" id="v-pills-filter-tab9" data-bs-toggle="pill" data-bs-target="#v-pills-filter9" type="button" role="tab" aria-controls="#v-pills-filter9" aria-selected="true">Color</button>
+					<button class="nav-link" id="v-pills-filter-tab10" data-bs-toggle="pill" data-bs-target="#v-pills-filter10" type="button" role="tab" aria-controls="#v-pills-filter10" aria-selected="true">Sleeve</button>
+					<button class="nav-link" id="v-pills-filter-tab11" data-bs-toggle="pill" data-bs-target="#v-pills-filter11" type="button" role="tab" aria-controls="#v-pills-filter11" aria-selected="true">Fabric</button>
+					<button class="nav-link" id="v-pills-filter-tab12" data-bs-toggle="pill" data-bs-target="#v-pills-filter12" type="button" role="tab" aria-controls="#v-pills-filter12" aria-selected="true">Offers</button>
+					<button class="nav-link" id="v-pills-filter-tab13" data-bs-toggle="pill" data-bs-target="#v-pills-filter13" type="button" role="tab" aria-controls="#v-pills-filter13" aria-selected="true">Theme</button>
+					<button class="nav-link" id="v-pills-filter-tab14" data-bs-toggle="pill" data-bs-target="#v-pills-filter14" type="button" role="tab" aria-controls="#v-pills-filter14" aria-selected="true">Reversible</button>
+					<button class="nav-link" id="v-pills-filter-tab15" data-bs-toggle="pill" data-bs-target="#v-pills-filter15" type="button" role="tab" aria-controls="#v-pills-filter15" aria-selected="true">Pattern</button>
+					<button class="nav-link" id="v-pills-filter-tab16" data-bs-toggle="pill" data-bs-target="#v-pills-filter16" type="button" role="tab" aria-controls="#v-pills-filter16" aria-selected="true">Availability</button>
+				</div>
+				<div class="tab-content" id="v-pills-tabContent">
+					<div class="tab-pane fade show active" id="v-pills-filter" role="tabpanel" aria-labelledby="v-pills-filter-tab" tabindex="0">
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="item1">
+								Man
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="item1">
+						</div>
+					</div>
+					<div class="tab-pane fade" id="v-pills-filter2" role="tabpanel" aria-labelledby="v-pills-filter-tab2" tabindex="0">
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="item2">
+								50% or more
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="item2">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="item3">
+								30% or more
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="item3">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="item4">
+								40% or more
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="item4">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="item5">
+								60% or more
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="item5">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="item6">
+								70% or more
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="item6">
+						</div>
+					</div>
+					<div class="tab-pane fade" id="v-pills-filter3" role="tabpanel" aria-labelledby="v-pills-filter-tab3" tabindex="0">
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="size1">
+								2XS
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="size1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="size2">
+								XS
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="size2">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="size3">
+								S
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="size3">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="size4">
+								M
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="size4">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="size5">
+								L
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="size5">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="size6">
+								XL
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="size6">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="size7">
+								2XL
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="size7">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="size8">
+								3XL
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="size8">
+						</div>
+					</div>
+					<div class="tab-pane fade" id="v-pills-filter4" role="tabpanel" aria-labelledby="v-pills-filter-tab4" tabindex="0">
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="price1">
+								Under Rs. 499
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="price1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="price1">
+								Rs. 500-699
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="price1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="price1">
+								Rs. 700-999
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="price1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="price1">
+								Rs. 1000-1499
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="price1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="price1">
+								Rs. 1500-1999
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="price1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="price1">
+								Rs. 2000 and above
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="price1">
+						</div>
+					</div>
+					<div class="tab-pane fade" id="v-pills-filter5" role="tabpanel" aria-labelledby="v-pills-filter-tab5" tabindex="0">
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="rate1">
+								4★ & above
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="rate1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="rate2">
+								3★ & above
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="rate2">
+						</div>
+					</div>
+					<div class="tab-pane fade" id="v-pills-filter6" role="tabpanel" aria-labelledby="v-pills-filter-tab6" tabindex="0">
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="cloth1">
+								Leather Jacket
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="cloth1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="cloth2">
+								Bombet Jacke
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="cloth2">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="cloth3">
+								Nehru Jacket
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="cloth3">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="cloth4">
+								Denim Jacket
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="cloth4">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="cloth5">
+								Puffer Jacket
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="cloth5">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="cloth6">
+								Fleece Jacket
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="cloth6">
+						</div>
+					</div>
+					<div class="tab-pane fade" id="v-pills-filter7" role="tabpanel" aria-labelledby="v-pills-filter-tab7" tabindex="0">
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="type1">
+								Casual
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="type1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="type2">
+								Sports
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="type2">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="type3">
+								Formal
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="type3">
+						</div>
+					</div>
+					<div class="tab-pane fade" id="v-pills-filter8" role="tabpanel" aria-labelledby="v-pills-filter-tab8" tabindex="0">
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="brand1">
+								Roadster
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="brand1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="brand2">
+								Peter England
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="brand2">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="brand3">
+								Flying Machine
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="brand3">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="brand4">
+								Killer
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="brand4">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="brand5">
+								Levi's
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="brand5">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="brand6">
+								Puma
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="brand6">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="brand7">
+								Wildcraft
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="brand7">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="brand8">
+								Ndet
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="brand8">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="brand9">
+								Woodland
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="brand9">
+						</div>
+					</div>
+					<div class="tab-pane fade" id="v-pills-filter9" role="tabpanel" aria-labelledby="v-pills-filter-tab9" tabindex="0">
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="color1">
+								Black
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="color1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="color2">
+								Blue
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="color2">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="color3">
+								Maroon
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="color3">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="color4">
+								Green
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="color4">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="color5">
+								White
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="color5">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="color6">
+								Light Blue
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="color6">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="color7">
+								Beige
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="color7">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="color8">
+								Brown
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="color8">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="color8">
+								Gold
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="color8">
+						</div>
+					</div>
+					<div class="tab-pane fade" id="v-pills-filter10" role="tabpanel" aria-labelledby="v-pills-filter-tab10" tabindex="0">
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="sleeve1">
+								Full Sleeve
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="sleeve1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="sleeve2">
+								Sleeveless
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="sleeve2">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="sleeve3">
+								Short Sleeve
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="sleeve3">
+						</div>
+					</div>
+					<div class="tab-pane fade" id="v-pills-filter11" role="tabpanel" aria-labelledby="v-pills-filter-tab11" tabindex="0">
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="fabric1">
+								Genuine Leather
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="fabric1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="fabric2">
+								Cotton Blend
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="fabric2">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="fabric3">
+								Poly Silk
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="fabric3">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="fabric4">
+								Pure Linen
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="fabric4">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="fabric5">
+								Lycra Blend
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="fabric5">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="fabric6">
+								Velvet
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="fabric6">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="fabric7">
+								Cotton Linen
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="fabric7">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="fabric8">
+								Cotton Lycra
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="fabric8">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="fabric9">
+								Denim
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="fabric9">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="fabric10">
+								Faux Leather
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="fabric10">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="fabric11">
+								Nylon
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="fabric11">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="fabric12">
+								Polycotton
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="fabric12">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="fabric13">
+								Wool Blend
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="fabric13">
+						</div>
+					</div>
+					<div class="tab-pane fade" id="v-pills-filter12" role="tabpanel" aria-labelledby="v-pills-filter-tab12" tabindex="0">
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="offer1">
+								Buy More, Save More
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="offer1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="offer2">
+								No Cost EMI
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="offer2">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="offer3">
+								Special Price
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="offer3">
+						</div>
+					</div>
+					<div class="tab-pane fade" id="v-pills-filter13" role="tabpanel" aria-labelledby="v-pills-filter-tab13" tabindex="0">
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="theme1">
+								Leather Jackets
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="theme1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="theme2">
+								Mandarian Collar
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="theme2">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="theme3">
+								Sporty Jacket
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="theme3">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="theme4">
+								Quited Quotient
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="theme4">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="theme5">
+								Modern Classics
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="theme5">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="theme6">
+								Bomber
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="theme6">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="theme7">
+								Light Weight Bombers
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="theme7">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="theme8">
+								Everyday Bombers
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="theme8">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="theme9">
+								Florals
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="theme9">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="theme10">
+								Open Front
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="theme11">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="theme12">
+								Puffer Jacket
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="theme12">
+						</div>
+					</div>
+					<div class="tab-pane fade" id="v-pills-filter14" role="tabpanel" aria-labelledby="v-pills-filter-tab14" tabindex="0">
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="revers1">
+								Yes
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="revers1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="revers2">
+								No
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="revers2">
+						</div>
+					</div>
+					<div class="tab-pane fade" id="v-pills-filter15" role="tabpanel" aria-labelledby="v-pills-filter-tab15" tabindex="0">
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="pattern1">
+								Chevron
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="pattern1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="pattern1">
+								Embossed
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="pattern1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="pattern1">
+								Perforation
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="pattern1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="pattern1">
+								Animal Print
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="pattern1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="pattern1">
+								Embellished
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="pattern1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="pattern1">
+								Holographic
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="pattern1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="pattern1">
+								Applique
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="pattern1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="pattern1">
+								Colorblock
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="pattern1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="pattern1">
+								Printed
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="pattern1">
+						</div>
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="pattern1">
+								Solid
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="pattern1">
+						</div>
+					</div>
+					<div class="tab-pane fade" id="v-pills-filter16" role="tabpanel" aria-labelledby="v-pills-filter-tab16" tabindex="0">
+						<div class="form-check">
+							<label class="form-check-label stretched-link" for="Avail">
+								Include Out of Stock
+							</label>
+							<input class="form-check-input" type="checkbox" value="" id="Avail">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Page Content End -->
+	<!-- Footer Start -->	
+	<div class="footer fixed bg-white border-top">
+		<div class="container py-2">
+			<div class="total-cart">
+				<div class="price-area">
+					<h5 class="price text-secondary">16,020</h5>
+					<span>products found</span>
+				</div>
+				<a href="product.html" class="btn btn-primary w-100">Apply</a>
+			</div>
+		</div>
+	</div>
+	<!-- Footer End -->
+</div>  
+<!--**********************************
+    Scripts
+***********************************-->
+<script src="../../https@w3cart.dexignzone.com\xhtml\assets\js\jquery.js"></script>
+<script src="../../https@w3cart.dexignzone.com\xhtml\assets\vendor\bootstrap\js\bootstrap.bundle.min.js"></script>
+<script src="../../https@w3cart.dexignzone.com\xhtml\assets\vendor\swiper\swiper-bundle.min.js"></script><!-- Swiper -->
+<script src="../../https@w3cart.dexignzone.com\xhtml\assets\vendor\bootstrap-touchspin\dist\jquery.bootstrap-touchspin.min.js"></script><!-- Swiper -->
+<script src="../../https@w3cart.dexignzone.com\xhtml\assets\js\dz.carousel.js"></script><!-- Swiper -->
+<script src="../../https@w3cart.dexignzone.com\xhtml\assets\js\settings.js"></script>
+<script src="../../https@w3cart.dexignzone.com\xhtml\assets\js\custom.js"></script>
+</body>
+</html>
