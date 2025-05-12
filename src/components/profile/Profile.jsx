@@ -2,9 +2,6 @@ export default function Profile() {
     return <>
         <div class="page-wrapper">
             <div id="preloader">
-                <div class="loader">
-                    <div class="load-circle"><div></div><div></div></div>
-                </div>
             </div>
             <header class="header shadow header-fixed border-0">
                 <div class="container">
