@@ -1,30 +1,24 @@
 import { useState } from "react";
-import Header from "./components/Header";
+import Header from "./components/home/HomeHeader";
 import MenuBar from "./components/MenuBar";
-import SideBar from "./components/SideBar";
-import Main from "./components/home/Main";
+import SideBar from "./components/home/SideBar";
 import { BrowserRouter } from "react-router-dom";
 import Routes from "./utils/Routes";
+import Main from "./components/home/Main";
+import HomePage from "./components/home/HomePage";
+import CategoriMain from "./components/Categories/CategoriMain";
+import CategoriPage from "./components/Categories/CategoriPage";
 
 function App() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
-  const closeSidebar = () => setIsSidebarOpen(false);
 
   return (
     <>
       <BrowserRouter>
         <Routes/>
-
-        <Header onToggleSidebar={toggleSidebar} />
-        <SideBar isOpen={isSidebarOpen} />
-        {isSidebarOpen && (
-          <div
-            className="overlay"
-            onClick={closeSidebar}
-          ></div>
-        )}
+        {/* برای صفحه هوم که علی الحساب کامنت شده تا بقیه صفحات تکمیل شه */}
+        {/* <HomePage /> */}
+        <CategoriPage />
         <MenuBar />
       </BrowserRouter>
     </>

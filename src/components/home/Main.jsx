@@ -1,4 +1,4 @@
-import SideBar from "../SideBar";
+import SideBar from "./SideBar";
 import TopSwiper from "./TopSlider";
 import TopCategory from "./TopCategory";
 import TitleBar from "./TitleBar";
