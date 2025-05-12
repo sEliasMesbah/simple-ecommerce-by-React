@@ -9,6 +9,7 @@ import HomePage from "./components/home/HomePage";
 import CategoriMain from "./components/Categories/CategoriMain";
 import CategoriPage from "./components/Categories/CategoriPage";
 import Profile from "./components/profile/Profile";
+import WishListPage from "./components/Wishlist/WishListPage";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/categori" element={<CategoriPage />} />
           <Route path="/profile" element={<Profile/>}/>
-
+          <Route path="/wishlist" element={<WishListPage/>}/>
         </Routes>
       </BrowserRouter>
     </>
