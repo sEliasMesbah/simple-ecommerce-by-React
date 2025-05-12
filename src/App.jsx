@@ -9,16 +9,19 @@ import HomePage from "./components/home/HomePage";
 import CategoriMain from "./components/Categories/CategoriMain";
 import CategoriPage from "./components/Categories/CategoriPage";
 import Profile from "./components/profile/Profile";
+import EditProfile from "./components/profile/EditProfile";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-      <MenuBar />
+        <MenuBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/categori" element={<CategoriPage />} />
-          <Route path="/profile" element={<Profile/>}/>
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/EditProfile" element={<EditProfile />} />
+
 
         </Routes>
       </BrowserRouter>
