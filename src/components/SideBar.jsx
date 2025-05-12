@@ -25,6 +25,70 @@ export default function SideBar({ isOpen }) {
             <span>Home</span>
           </a>
         </li>
+        <li>
+          <a className="nav-link active" href="index.html">
+            <span className="dz-icon">
+              <i className="icon feather icon-grid"></i>
+            </span>
+            <span>Components</span>
+          </a>
+        </li>
+        <li>
+          <a className="nav-link active" href="index.html">
+            <span className="dz-icon">
+              <i className="icon feather icon-grid"></i>
+            </span>
+            <span>Pages</span>
+          </a>
+        </li>
+        <li>
+          <a className="nav-link active" href="index.html">
+            <span className="dz-icon">
+              <i className="icon feather icon-list"></i>
+            </span>
+            <span>Featured</span>
+          </a>
+        </li>
+        <li>
+          <a className="nav-link active" href="index.html">
+            <span className="dz-icon">
+              <i className="icon feather icon-heart"></i>
+            </span>
+            <span>Wishlist</span>
+          </a>
+        </li>
+        <li>
+          <a className="nav-link active" href="index.html">
+            <span className="dz-icon">
+              <i className="icon feather icon-repeat"></i>
+            </span>
+            <span>Orders</span>
+          </a>
+        </li>
+        <li>
+          <a className="nav-link active" href="index.html">
+            <span className="dz-icon">
+              <i className="icon feather icon-shopping-cart"></i>
+            </span>
+            <span>My Cart</span>
+          </a>
+        </li>
+        <li>
+          <a className="nav-link active" href="index.html">
+            <span className="dz-icon">
+              <i className="icon feather icon-user"></i>
+            </span>
+            <span>Profile</span>
+          </a>
+        </li>
+        <li>
+          <a className="nav-link active" href="index.html">
+            <span className="dz-icon">
+              <i className="icon feather icon-log-out"></i>
+            </span>
+            <span>Logout</span>
+          </a>
+        </li>
         {/* بقیه آیتم‌ها همینطور ادامه دارن */}
       </ul>
 
