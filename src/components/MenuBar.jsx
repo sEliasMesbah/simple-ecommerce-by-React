@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function MenuBar(){
     return<>
     <div className="menubar-area footer-fixed rounded-0">
@@ -6,10 +8,10 @@ export default function MenuBar(){
 				<i className="icon feather icon-home"></i>
 				<span>Home</span>
 			</a>
-			<a href="category.html" className="nav-link">
+			<Link to="/categori" className="nav-link">
 				<i className="icon feather icon-grid"></i>
 				<span>Categories</span>
-			</a>
+			</Link>
 			<a href="cart.html" className="nav-link cart-handle">
 				<div className="hexad-menu">
 					<img src="images/menu-shape-dark.svg" className="shape-dark" alt="" />
