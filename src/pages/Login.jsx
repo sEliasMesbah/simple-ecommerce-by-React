@@ -66,13 +66,29 @@ export default function Login() {
                       </span>
                     </div>
                   </div>
-						<Link className="btn btn-primary w-100" to="/register">Login</Link> 
+                  <Link className="btn btn-primary w-100" to="/register">
+                    Login
+                  </Link>
                   <div className="d-flex justify-content-between align-items-center mb-4">
-							<Link className="btn-link" to="/forgot-password">Forgot password?</Link>
-							<Link className="btn-link" to="/reset-password">Reset here</Link> 
+                    <Link className="btn-link" to="/forgot-password">
+                      Forgot password?
+                    </Link>
+                    <Link className="btn-link" to="/reset-password">
+                      Reset here
+                    </Link>
                   </div>
-                  <Link className="btn-link text-center mb-3 text-dark" to="/register">Don’t have an account?</Link>
-                  <Link className="btn mb-3 btn-outline-primary w-100" to="/register">Register now</Link>
+                  <Link
+                    className="btn-link text-center mb-3 text-dark"
+                    to="/register"
+                  >
+                    Don’t have an account?
+                  </Link>
+                  <Link
+                    className="btn mb-3 btn-outline-primary w-100"
+                    to="/register"
+                  >
+                    Register now
+                  </Link>
                 </form>
               </div>
             </div>
