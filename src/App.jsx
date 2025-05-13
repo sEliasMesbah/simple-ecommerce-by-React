@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      <MenuBar />
+        <MenuBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/categori" element={<CategoriPage />} />
