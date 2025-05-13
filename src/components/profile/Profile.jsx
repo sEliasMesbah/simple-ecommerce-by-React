@@ -26,7 +26,7 @@ export default function Profile() {
                     <div class="profile-area">
                         <div class="main-profile">
                             <div class="media media-60 me-3 rounded-circle">
-                                <img src="assets/images/user-profile.jpg" alt="profile-image" />
+                                <img src="/images/user-profile.jpg" alt="profile-image" />
                             </div>
                             <div class="profile-detail">
                                 <h6 class="name">Thomas Djono</h6>
