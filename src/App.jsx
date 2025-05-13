@@ -10,6 +10,7 @@ import CategoriMain from "./components/Categories/CategoriMain";
 import CategoriPage from "./components/Categories/CategoriPage";
 import Profile from "./components/profile/Profile";
 import WishListPage from "./components/Wishlist/WishListPage";
+import EditProfile from "./components/profile/EditProfile";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/categori" element={<CategoriPage />} />
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/wishlist" element={<WishListPage/>}/>
+          <Route path="/EditProfile" element={<EditProfile/>}/>
         </Routes>
       </BrowserRouter>
     </>

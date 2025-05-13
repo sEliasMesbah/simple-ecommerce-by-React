@@ -3,18 +3,13 @@ import { Link } from "react-router-dom";
 export default function Profile() {
     return <>
         <div class="page-wrapper">
-            <div id="preloader">
-                <div class="loader">
-                    <div class="load-circle"><div></div><div></div></div>
-                </div>
-            </div>
             <header class="header shadow header-fixed border-0">
                 <div class="container">
                     <div class="header-content">
                         <div class="left-content">
-                            <a href="javascript:void(0);" class="back-btn">
+                            <Link to="/" class="back-btn">
                                 <i class="icon feather icon-chevron-left"></i>
-                            </a>
+                            </Link>
                         </div>
                         <div className="mid-content">
                             <h6 className="title">Profile</h6>
@@ -43,7 +38,7 @@ export default function Profile() {
                             <Link to="/EditProfile" className="edit-profile">
                                 <i className="icon feather icon-edit-2"></i>
                             </Link>
-            
+
                         </div>
                         <div className="content-box">
                             <ul className="row g-2">
