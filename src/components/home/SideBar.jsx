@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function SideBar({ isOpen }) {
   return (
@@ -18,12 +19,13 @@ export default function SideBar({ isOpen }) {
 
       <ul className="nav navbar-nav">
         <li>
-          <a className="nav-link active" href="index.html">
+          <Link to="/" className="nav-link active" href="index.html">
             <span className="dz-icon">
               <i className="icon feather icon-home"></i>
             </span>
             <span>Home</span>
-          </a>
+          </Link>
+          
         </li>
         <li>
           <a className="nav-link active" href="index.html">
@@ -50,12 +52,12 @@ export default function SideBar({ isOpen }) {
           </a>
         </li>
         <li>
-          <a className="nav-link active" href="index.html">
+          <Link to="/wishlist" className="nav-link active" href="index.html">
             <span className="dz-icon">
               <i className="icon feather icon-heart"></i>
             </span>
             <span>Wishlist</span>
-          </a>
+          </Link>
         </li>
         <li>
           <a className="nav-link active" href="index.html">
@@ -74,12 +76,12 @@ export default function SideBar({ isOpen }) {
           </a>
         </li>
         <li>
-          <a className="nav-link active" href="index.html">
+          <Link to="/profile" className="nav-link active" href="index.html">
             <span className="dz-icon">
               <i className="icon feather icon-user"></i>
             </span>
             <span>Profile</span>
-          </a>
+          </Link>
         </li>
         <li>
           <a className="nav-link active" href="index.html">
