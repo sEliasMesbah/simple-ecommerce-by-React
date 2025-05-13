@@ -43,28 +43,29 @@ export default function Profile() {
                         <div className="content-box">
                             <ul className="row g-2">
                                 <li className="col-6">
-                                    <a href="order.html">
+                                    <Link to="/OrderPage">
                                         <div className="dz-icon-box">
                                             <i className="icon feather icon-package"></i>
                                         </div>
                                         <span>Order</span>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="col-6">
-                                    <a href="wishlist.html">
+                                    <Link to="/WishListPage">
                                         <div className="dz-icon-box">
                                             <i className="icon feather icon-heart"></i>
                                         </div>
                                         <span>Wishlist</span>
-                                    </a>
+                                    </Link>
+
                                 </li>
                                 <li className="col-6">
-                                    <a href="coupon.html">
+                                    <Link to="/coupon">
                                         <div className="dz-icon-box">
                                             <i className="icon feather icon-gift"></i>
                                         </div>
                                         <span>Coupons</span>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="col-6">
                                     <a href="javascript:void(0);">
@@ -147,17 +148,19 @@ export default function Profile() {
                         <i className="icon feather icon-grid"></i>
                         <span>Categories</span>
                     </Link>
-                    <a href="cart.html" className="nav-link cart-handle">
+
+                    <Link to="/CartPage" className="nav-link cart-handle">
                         <div className="hexad-menu">
                             <img src="assets/images/menu-shape-dark.svg" className="shape-dark" alt="" />
                             <img src="assets/images/menu-shape-light.svg" className="shape-light" alt="" />
                             <i className="icon feather icon-shopping-bag"></i>
                         </div>
-                    </a>
-                    <a href="wishlist.html" className="nav-link">
+                    </Link>
+
+                    <Link to="/WishListPage" className="nav-link">
                         <i className="icon feather icon-heart"></i>
                         <span>Wishlist</span>
-                    </a>
+                    </Link>
                     <Link to="/profile" className="nav-link">
                         <i className="icon feather icon-user"></i>
                         <span>Profile</span>
