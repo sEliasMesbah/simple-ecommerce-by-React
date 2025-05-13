@@ -14,7 +14,6 @@ export default function Login() {
             </div>
           </div>
         </div>
-        {/* <!-- Preloader end--> */}
 
         {/* <!-- Page Content --> */}
         <div className="page-content">
