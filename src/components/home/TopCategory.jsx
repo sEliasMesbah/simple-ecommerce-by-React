@@ -13,13 +13,15 @@ export default function TopCategory() {
   // 💡 واکشی داده‌ها از API
   const fetchCategories = async () => {
     try {
+      setLoading(true);
+      setError(null);
       const res = await fetch('http://localhost:3001/categories');
       if (!res.ok) throw new Error('خطا در دریافت کتگوری‌ها');
 
       const data = await res.json();
       setCategories(data);
     } catch (err) {
-      setError(err.message);
+      setError(err);
     } finally {
       setLoading(false);
     }
@@ -31,9 +33,25 @@ export default function TopCategory() {
 
   if (loading) {
     return (
-      <div className="text-center my-4">
-        <div className="spinner-border text-primary" role="status">
-          <span className="visually-hidden">در حال بارگذاری...</span>
+      <div
+        className="custom-swiper-container d-flex"
+        style={{
+          position: 'relative',
+          width: '100%',
+          height: '160px',
+          alignItems:"center",
+          justifyContent:"center"
+        }}
+      >
+        <div
+          className="spinner-border text-primary"
+          role="status"
+        >
+          <span
+            className="visually-hidden"
+          >
+            در حال بارگذاری...
+          </span>
         </div>
       </div>
     );
@@ -41,8 +59,28 @@ export default function TopCategory() {
 
   if (error) {
     return (
-      <div className="alert alert-danger text-center" role="alert">
-        {error}
+      <div
+        className="custom-swiper-container d-flex"
+        style={{
+          position: 'relative',
+          width: '100%',
+          height: '160px',
+          alignItems:"center",
+          justifyContent:"center",
+          flexDirection:"column"
+        }}
+      >
+        <div
+          className="alert alert-danger"
+          role="alert">
+            {error.message}
+        </div>
+        <button
+          className="btn btn-outline-danger"
+          onClick={fetchCategories}
+        >
+          🔁 تلاش مجدد
+        </button>
       </div>
     );
   }
