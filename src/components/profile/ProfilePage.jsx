@@ -6,6 +6,5 @@ export default function ProfilePage(){
     return<>
     <HeaderProfile />
     <MainProfile />
-    {/* <MenuBar /> */}
     </>
 }

@@ -151,8 +151,8 @@ export default function Profile() {
 
                     <Link to="/CartPage" className="nav-link cart-handle">
                         <div className="hexad-menu">
-                            <img src="assets/images/menu-shape-dark.svg" className="shape-dark" alt="" />
-                            <img src="assets/images/menu-shape-light.svg" className="shape-light" alt="" />
+                            <img src="/images/menu-shape-dark.svg" className="shape-dark" alt="" />
+                            <img src="/images/menu-shape-light.svg" className="shape-light" alt="" />
                             <i className="icon feather icon-shopping-bag"></i>
                         </div>
                     </Link>
