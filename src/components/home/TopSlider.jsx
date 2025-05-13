@@ -102,6 +102,7 @@ export default function CustomSwiper() {
         slidesPerView={3}
         slidesPerGroup={1}
         breakpoints={{
+          0:   { slidesPerView: 1 },
           400: { slidesPerView: 1 },
           639: { slidesPerView: 2 },
           995: { slidesPerView: 3 }
