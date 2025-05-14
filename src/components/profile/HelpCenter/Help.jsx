@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const faqData = [
     {
@@ -55,8 +56,28 @@ const FAQ = () => {
     };
 
     return (
+        <>
+        <header className="header shadow header-fixed border-0">
+        <div className="container">
+            <div className="header-content">
+                <div className="left-content">
+                    <Link to="/profile" className="back-btn">
+                        <i className="icon feather icon-chevron-left"></i>
+                    </Link>
+                    <h6 className="title">Help center</h6>
+                </div>
+                <div className="mid-content">
+                </div>
+                <div className="right-content">
+                    <a href="search.html" className="search-icon">
+                        <i className="icon feather icon-search"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
         <div style={containerStyle}>
-            
             <h2> FAQ</h2>
             {faqData.map((item, index) => (
                 <div
@@ -72,6 +93,7 @@ const FAQ = () => {
                 </div>
             ))}
         </div>
+    </>
     );
 };
 
