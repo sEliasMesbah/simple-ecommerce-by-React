@@ -57,7 +57,7 @@ const FAQ = () => {
     return (
         <div style={containerStyle}>
             
-            <h2>پرسش‌های متداول</h2>
+            <h2> FAQ</h2>
             {faqData.map((item, index) => (
                 <div
                     key={index}
