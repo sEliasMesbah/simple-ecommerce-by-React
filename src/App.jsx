@@ -15,6 +15,8 @@ import CartPage from "./components/cart/CartPage";
 import OrderPage from "./components/profile/order/OrderPage";
 import Coupon from "./components/profile/coupon/Coupon";
 import Help from "./components/profile/HelpCenter/Help";
+import Address from "./components/profile/address/Address";
+import CheckOut from "./components/profile/address/Checkout";
 
 function App() {
   return (
@@ -32,6 +34,9 @@ function App() {
           <Route path="/OrderPage" element={<OrderPage/>}/>
           <Route path="/coupon" element={<Coupon/>}/>
           <Route path="/Help" element={<Help/>}/>
+          <Route path="/address" element={<Address/>}/>
+          <Route path="/checkout" element={<CheckOut/>}/>
+
         </Routes>
       </BrowserRouter>
     </>

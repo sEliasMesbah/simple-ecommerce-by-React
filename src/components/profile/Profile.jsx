@@ -68,12 +68,12 @@ export default function Profile() {
                                     </Link>
                                 </li>
                                 <li className="col-6">
-                                        <Link to="/Help">                      
+                                    <Link to="/Help">
                                         <div className="dz-icon-box">
                                             <i className="icon feather icon-headphones"></i>
                                         </div>
                                         <span>Help Center</span>
-                                        </Link>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
@@ -93,14 +93,15 @@ export default function Profile() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <a href="address.html" className="item-content item-link">
+                                    <Link to="/address" className="item-content item-link">
                                         <div className="dz-icon">
                                             <i className="icon feather icon-map-pin"></i>
                                         </div>
                                         <div className="dz-inner">
                                             <span className="title">Saved Addresses</span>
                                         </div>
-                                    </a>
+                                    </Link>
+
                                 </li>
                                 <li>
                                     <a href="javascript:void(0);" className="item-content item-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLang" aria-controls="offcanvasLang">
@@ -230,6 +231,6 @@ export default function Profile() {
                 </div>
             </div>
 
-        </div>
+        </div >
     </>
 }
