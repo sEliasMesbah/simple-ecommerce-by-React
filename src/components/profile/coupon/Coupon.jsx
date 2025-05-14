@@ -60,24 +60,23 @@ export default function Coupon() {
 						<div className="swiper-wrapper">
 							<div className="swiper-slide">
 								<div className="dz-media">
-									<img src="assets/images/offer/offer3.png" />
+									<img src="/images/offer/offer3.png" />
 								</div>
 							</div>
 							<div className="swiper-slide">
 								<div className="dz-media">
-									<img src="assets/images/offer/offer2.png" />
+									<img src="/images/offer/offer2.png" />
 								</div>
 							</div>
 							<div className="swiper-slide">
 								<div className="dz-media">
-									<img src="assets/images/offer/offer1.png" />
+									<img src="/images/offer/offer1.png" />
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</>
 }
