@@ -54,7 +54,7 @@ const OrderPage = () => {
                                                     <h6 className="title"><a href="product-detail.html">Brown Women Shirts by Coklat Cloth</a></h6>
                                                 </div>
                                                 <div className="media media-70">
-                                                    <img src="assets/images/popular/small/pic1.png" />
+                                                    <img src="/images/popular/small/pic1.png" />
                                                 </div>
                                             </div>
                                             <div className="order-detail">
@@ -78,7 +78,7 @@ const OrderPage = () => {
                                                     <h6 className="title"><a href="product-detail.html">Women Sleep Suits by Femall Clothings</a></h6>
                                                 </div>
                                                 <div className="media media-70">
-                                                    <img src="assets/images/popular/small/pic2.png" />
+                                                    <img src="/images/popular/small/pic2.png" />
                                                 </div>
                                             </div>
                                             <div className="order-detail">
@@ -102,7 +102,7 @@ const OrderPage = () => {
                                                     <h6 className="title"><a href="product-detail.html">Red Candy Handy Bag with Random Accessories</a></h6>
                                                 </div>
                                                 <div className="media media-70">
-                                                    <img src="assets/images/popular/small/pic3.png" />
+                                                    <img src="/images/popular/small/pic3.png" />
                                                 </div>
                                             </div>
                                             <div className="order-detail">
@@ -126,7 +126,7 @@ const OrderPage = () => {
                                                     <h6 className="title"><a href="product-detail.html">Women Sleep Suits by Femall Clothings</a></h6>
                                                 </div>
                                                 <div className="media media-70">
-                                                    <img src="assets/images/popular/small/pic1.png" />
+                                                    <img src="/images/popular/small/pic1.png" />
                                                 </div>
                                             </div>
                                             <div className="order-detail">
@@ -154,7 +154,7 @@ const OrderPage = () => {
                                                     <h6 className="title"><a href="product-detail.html">Red Candy Handy Bag with Random Accessories</a></h6>
                                                 </div>
                                                 <div className="media media-70">
-                                                    <img src="assets/images/popular/small/pic3.png" />
+                                                    <img src="/images/popular/small/pic3.png" />
                                                 </div>
                                             </div>
                                             <div className="order-detail">
@@ -182,7 +182,7 @@ const OrderPage = () => {
                                                     <h6 className="title"><a href="product-detail.html">Brown Women Shirts by Coklat Cloth</a></h6>
                                                 </div>
                                                 <div className="media media-70">
-                                                    <img src="assets/images/popular/small/pic1.png" />
+                                                    <img src="/images/popular/small/pic1.png" />
                                                 </div>
                                             </div>
                                             <div className="order-detail">
@@ -210,7 +210,7 @@ const OrderPage = () => {
                                                     <h6 className="title"><a href="product-detail.html">Women Sleep Suits by Femall Clothings</a></h6>
                                                 </div>
                                                 <div className="media media-70">
-                                                    <img src="assets/images/popular/small/pic2.png" />
+                                                    <img src="/images/popular/small/pic2.png" />
                                                 </div>
                                             </div>
                                             <div className="order-detail">
