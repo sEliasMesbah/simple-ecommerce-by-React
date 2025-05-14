@@ -40,11 +40,12 @@ export default function EditProfile() {
                     </div>
                 </div>
             </div>
-            <div className="container">
-                <Link to="/Profile" className="btn btn-primary w-100" >
-                    Save
-                </Link>
-            </div>
+
+                <div className="container">
+                    <Link to="/Profile" className="btn btn-primary w-100" >
+                        Save
+                    </Link>
+                </div>
         </div>
     </>
 }

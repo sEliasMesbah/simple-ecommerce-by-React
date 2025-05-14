@@ -2,34 +2,34 @@ import { Link } from "react-router-dom";
 
 export default function Address() {
     return <>
-        <div class="page-wrapper">
-            <header class="header shadow header-fixed border-0">
-                <div class="container">
-                    <div class="header-content">
-                        <div class="left-content">
-                            <Link to='/profile' class="back-btn">
-                                <i class="icon feather icon-chevron-left"></i>
+        <div className="page-wrapper">
+            <header className="header shadow header-fixed border-0">
+                <div className="container">
+                    <div className="header-content">
+                        <div className="left-content">
+                            <Link to='/profile' className="back-btn">
+                                <i className="icon feather icon-chevron-left"></i>
                             </Link>
-                            <h6 class="title">Address</h6>
+                            <h6 className="title">Address</h6>
                         </div>
-                        <div class="mid-content">
+                        <div className="mid-content">
                         </div>
-                        <div class="right-content">
+                        <div className="right-content">
                         </div>
                     </div>
                 </div>
             </header>
-            <div class="page-content space-top p-b80">
-                <div class="container">
-                    <Link to='/checkout' class="btn btn-outline-primary btn-block mb-3">+ Add New Address</Link>
+            <div className="page-content space-top p-b80">
+                <div className="container">
+                    <Link to='/checkout' className="btn btn-outline-primary btn-block mb-3">+ Add New Address</Link>
                     <a href="checkout.html"></a>
-                    <h6 class="title">Default Address</h6>
-                    <div class="card address-card">
-                        <div class="card-header border-0">
-                            <span class="name text-secondary font-w500">Tushar</span>
-                            <div class="badge badge-primary">OFFICE</div>
+                    <h6 className="title">Default Address</h6>
+                    <div className="card address-card">
+                        <div className="card-header border-0">
+                            <span className="name text-secondary font-w500">Tushar</span>
+                            <div className="badge badge-primary">OFFICE</div>
                         </div>
-                        <div class="card-body">
+                        <div className="card-body">
                             <ul>
                                 <li>Mokshita dairy near bsnl circle</li>
                                 <li>Rk puram</li>
@@ -38,9 +38,9 @@ export default function Address() {
                             </ul>
                             <span>Mobile: 0123456789</span>
                         </div>
-                        <div class="card-footer">
-                            <a class="footer-link text-danger" href="javascript:void(0);">Remove</a>
-                            <a class="footer-link" href="javascript:void(0);">Edit</a>
+                        <div className="card-footer">
+                            <a className="footer-link text-danger" href="javascript:void(0);">Remove</a>
+                            <a className="footer-link" href="javascript:void(0);">Edit</a>
                         </div>
                     </div>
                 </div>
