@@ -23,13 +23,13 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/categori" element={<CategoriPage />} />
-          <Route path="/profile" element={<Profile/>}/>
-          <Route path="/wishlist" element={<WishListPage/>}/>
-          <Route path="/EditProfile" element={<EditProfile/>}/>
-          <Route path="/CartPage" element={<CartPage/>}/>
-          <Route path="/WishListPage" element={<WishListPage/>}/>
-          <Route path="/OrderPage" element={<OrderPage/>}/>
-          <Route path="/coupon" element={<Coupon/>}/>
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/wishlist" element={<WishListPage />} />
+          <Route path="/EditProfile" element={<EditProfile />} />
+          <Route path="/CartPage" element={<CartPage />} />
+          <Route path="/WishListPage" element={<WishListPage />} />
+          <Route path="/OrderPage" element={<OrderPage />} />
+          <Route path="/coupon" element={<Coupon />} />
         </Routes>
       </BrowserRouter>
     </>
