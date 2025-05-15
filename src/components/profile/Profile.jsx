@@ -68,12 +68,14 @@ export default function Profile() {
                                     </Link>
                                 </li>
                                 <li className="col-6">
-                                    <a href="javascript:void(0);">
+                                    <Link to="/help">
+                                        
                                         <div className="dz-icon-box">
                                             <i className="icon feather icon-headphones"></i>
                                         </div>
                                         <span>Help Center</span>
-                                    </a>
+                              
+                                        </Link>
                                 </li>
                             </ul>
                         </div>
