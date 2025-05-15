@@ -14,6 +14,9 @@ import EditProfile from "./components/profile/EditProfile";
 import CartPage from "./components/cart/CartPage";
 import OrderPage from "./components/profile/order/OrderPage";
 import Coupon from "./components/profile/coupon/Coupon";
+import Help from "./components/profile/HelpCenter/Help";
+import Address from "./components/profile/address/Address";
+import CheckOut from "./components/profile/address/Checkout";
 
 function App() {
   return (
@@ -23,13 +26,17 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/categori" element={<CategoriPage />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/wishlist" element={<WishListPage />} />
-          <Route path="/EditProfile" element={<EditProfile />} />
-          <Route path="/CartPage" element={<CartPage />} />
-          <Route path="/WishListPage" element={<WishListPage />} />
-          <Route path="/OrderPage" element={<OrderPage />} />
-          <Route path="/coupon" element={<Coupon />} />
+          <Route path="/profile" element={<Profile/>}/>
+          <Route path="/wishlist" element={<WishListPage/>}/>
+          <Route path="/EditProfile" element={<EditProfile/>}/>
+          <Route path="/CartPage" element={<CartPage/>}/>
+          <Route path="/WishListPage" element={<WishListPage/>}/>
+          <Route path="/OrderPage" element={<OrderPage/>}/>
+          <Route path="/coupon" element={<Coupon/>}/>
+          <Route path="/Help" element={<Help/>}/>
+          <Route path="/address" element={<Address/>}/>
+          <Route path="/checkout" element={<CheckOut/>}/>
+
         </Routes>
       </BrowserRouter>
     </>
