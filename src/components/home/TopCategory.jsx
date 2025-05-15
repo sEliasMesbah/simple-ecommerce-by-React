@@ -50,7 +50,7 @@ export default function TopCategory() {
           <span
             className="visually-hidden"
           >
-            در حال بارگذاری...
+            loading...
           </span>
         </div>
       </div>
@@ -79,7 +79,7 @@ export default function TopCategory() {
           className="btn btn-outline-danger"
           onClick={fetchCategories}
         >
-          🔁 تلاش مجدد
+          Try Again 🔁
         </button>
       </div>
     );
@@ -102,7 +102,7 @@ export default function TopCategory() {
         {/* 📦 کتگوری "همه" */}
         <SwiperSlide>
           <Link to="/categori" className="category-btn w-100 h-100 d-block text-center">
-            <strong> همه </strong>
+            <strong> All </strong>
           </Link>
         </SwiperSlide>
 

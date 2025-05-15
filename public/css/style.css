@@ -18326,9 +18326,6 @@ label input {
   display: block;
   margin: 4px 0 !important; /* بالا و پایین فاصله بگیره */
 }
-span{
-  color: green;
-}
 p{
   color: black;
   font-size: 12px;
@@ -18397,7 +18394,4 @@ a{
 .trending-swiper{
   width: 100%;
   right: 13px;
-}
-.container{
-  padding: 15px 0px;
 }
