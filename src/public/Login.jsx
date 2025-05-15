@@ -48,25 +48,28 @@ export default function Login() {
                     </span>
                   </div>
                 </div>
-                <a href="index.html" className="btn mb-3 btn-primary w-100">
-                  Login
-                </a>
                 <div className="d-flex justify-content-between align-items-center mb-4">
-                  <Link to="/forgot-password" className="btn-link">
+                  <Link to="/forgot-password" className="btn-link text-primary">
                     Forgot password?
                   </Link>
-                  <Link to="/register" className="btn-link">
+                  <Link
+                    to="//forgot-password"
+                    className="btn-link text-primary"
+                  >
                     Reset Here
                   </Link>
                 </div>
-                <Link to="/register" className="btn-link text-center mb-3">
+                <Link to="/" className="btn btn-primary mb-3 w-100 gear">
+                  Login
+                </Link>
+                <Link to="/register" className="btn-link text-center mb-3 mt-4">
                   Don’t have an account?
                 </Link>
                 <Link
                   to="/register"
-                  className="btn mb-3 btn-outline-primary w-100"
+                  className="btn mb-3 btn-outline-primary text-primary w-100 gear2"
                 >
-                  Register now
+                  Register Now
                 </Link>
               </form>
             </div>

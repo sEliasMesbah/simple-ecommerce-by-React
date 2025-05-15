@@ -6979,7 +6979,7 @@ textarea.form-control-lg {
 /* rtl:end:remove */
 .text-primary {
   --bs-text-opacity: 1;
-  color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important; }
+  color: rgba(var(--bs-light), var(--bs-text-opacity)) !important; }
 
 .text-secondary {
   --bs-text-opacity: 1;
@@ -18402,4 +18402,12 @@ a{
   bottom: 66px !important;
   z-index: 2 !important;
   opacity: 1 !important;
+}
+
+.gear{
+  color: white !important;
+}
+
+.gear2:hover{
+  color: white !important;
 }
