@@ -14,6 +14,7 @@ import EditProfile from "./components/profile/EditProfile";
 import CartPage from "./components/cart/CartPage";
 import OrderPage from "./components/profile/order/OrderPage";
 import Coupon from "./components/profile/coupon/Coupon";
+import Login from "./public/Login";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/WishListPage" element={<WishListPage />} />
           <Route path="/OrderPage" element={<OrderPage />} />
           <Route path="/coupon" element={<Coupon />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </>
