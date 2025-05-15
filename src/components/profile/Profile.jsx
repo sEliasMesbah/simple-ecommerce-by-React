@@ -124,14 +124,14 @@ export default function Profile() {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="welcome.html" className="item-content item-link">
+                                    <Link to="/welcome" className="item-content item-link">
                                         <div className="dz-icon">
                                             <i className="icon feather icon-log-out"></i>
                                         </div>
                                         <div className="dz-inner">
                                             <span className="title">Log Out</span>
                                         </div>
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
@@ -177,8 +177,9 @@ export default function Profile() {
                         <ul className="mb-2 confirm-lang">
                             <li data-lang="indian">
                                 <a href="javascript:void(0);" className="item-content py-2 item-link">
+
                                     <div className="media media-30 me-3">
-                                        <img src="assets/images/flags/india.svg" alt="/" />
+                                        <img src="/images/flags/india.svg" alt="/" />
                                     </div>
                                     <div className="dz-inner">
                                         <span className="title">Indian</span>
@@ -188,7 +189,7 @@ export default function Profile() {
                             <li data-lang="English">
                                 <a href="javascript:void(0);" className="item-content py-2 item-link">
                                     <div className="media media-30 me-3">
-                                        <img src="assets/images/flags/united-states.svg" alt="/" />
+                                        <img src="/images/flags/united-states.svg" alt="/" />
                                     </div>
                                     <div className="dz-inner">
                                         <span className="title">English</span>
@@ -198,7 +199,7 @@ export default function Profile() {
                             <li data-lang="German">
                                 <a href="javascript:void(0);" className="item-content py-2 item-link">
                                     <div className="media media-30 me-3">
-                                        <img src="assets/images/flags/germany.svg" alt="/" />
+                                        <img src="/images/flags/germany.svg" alt="/" />
                                     </div>
                                     <div className="dz-inner">
                                         <span className="title">German</span>
@@ -208,7 +209,7 @@ export default function Profile() {
                             <li data-lang="Italian">
                                 <a href="javascript:void(0);" className="item-content py-2 item-link">
                                     <div className="media media-30 me-3">
-                                        <img src="assets/images/flags/italy.svg" alt="/" />
+                                        <img src="/images/flags/italy.svg" alt="/" />
                                     </div>
                                     <div className="dz-inner">
                                         <span className="title">Italian</span>
@@ -218,7 +219,7 @@ export default function Profile() {
                             <li className="border-0" data-lang="Spainsh">
                                 <a href="javascript:void(0);" className="item-content py-2 item-link">
                                     <div className="media media-30 me-3">
-                                        <img src="assets/images/flags/spain.svg" alt="/" />
+                                        <img src="/images/flags/spain.svg" alt="/" />
                                     </div>
                                     <div className="dz-inner">
                                         <span className="title">Spainsh</span>

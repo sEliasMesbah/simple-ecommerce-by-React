@@ -12,7 +12,7 @@ export default function MenuBar() {
 					<i className="icon feather icon-grid"></i>
 					<span>Categories</span>
 				</Link>
-				<Link className="nav-link cart-handle">
+				<Link to="/CartPage" className="nav-link cart-handle">
 					<div className="hexad-menu">
 						<img src="images/menu-shape-dark.svg" className="shape-dark" alt="" />
 						<img src="images/menu-shape-light.svg" className="shape-light" alt="" />

@@ -17653,7 +17653,7 @@ label input {
     bottom: 100px; }
   .welcome-area .bottom-btn {
     position: fixed;
-    bottom: 10px;
+    bottom: 80px;
     width: 100%;
     left: 50%;
     z-index: 9;
@@ -18394,4 +18394,12 @@ a{
 .trending-swiper{
   width: 100%;
   right: 13px;
+}
+.container{
+  padding: 15px 0px;
+}
+.footer{
+  bottom: 66px !important;
+  z-index: 2 !important;
+  opacity: 1 !important;
 }
