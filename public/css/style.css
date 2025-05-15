@@ -26803,14 +26803,9 @@ a {
   width: 100%;
   right: 13px;
 }
-<<<<<<< HEAD
-
-.container {
+.container{
   padding: 15px 0px;
 }
-
-.footer {
-=======
 .footer{
 >>>>>>> dev
   bottom: 66px !important;

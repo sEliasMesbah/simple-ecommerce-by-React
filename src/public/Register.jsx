@@ -7,10 +7,10 @@ export default function Register() {
         <div className="account-box">
           <div className="container">
             <div className="logo-area">
-              <img className="logo-dark" src="assets/images/logo.png" alt="" />
+              <img className="logo-dark" src="/images/logos/light/logo1.svg" alt="" />
               <img
                 className="logo-light"
-                src="assets/images/logo-white.png"
+                src="/images/logos/light/logo1.svg"
                 alt=""
               />
             </div>

@@ -7,10 +7,10 @@ export default function Login() {
         <div className="account-box">
           <div className="container">
             <div className="logo-area">
-              <img className="logo-dark" src="assets/images/logo.png" alt="" />
+              <img className="logo-dark" src="/images/logos/light/logo1.svg" alt="" />
               <img
                 className="logo-light"
-                src="assets/images/logo-white.png"
+                src="/images/logos/light/logo1.svg"
                 alt=""
               />
             </div>
@@ -49,11 +49,11 @@ export default function Login() {
                   </div>
                 </div>
                 <div className="d-flex justify-content-between align-items-center mb-4">
-                  <Link to="/forgot-password" className="btn-link text-primary">
+                  <Link to="/forgetPassword" className="btn-link text-primary">
                     Forgot password?
                   </Link>
                   <Link
-                    to="//forgot-password"
+                    to="/forgetPassword"
                     className="btn-link text-primary"
                   >
                     Reset Here
