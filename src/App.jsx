@@ -16,6 +16,7 @@ import OrderPage from "./components/profile/order/OrderPage";
 import Coupon from "./components/profile/coupon/Coupon";
 import Login from "./public/Login";
 import Welcome from "./public/Welcome";
+import Register from "./public/Register";
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route path="/coupon" element={<Coupon />} />
           <Route path="/login" element={<Login />} />
           <Route path="/welcome" element={<Welcome />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
     </>
