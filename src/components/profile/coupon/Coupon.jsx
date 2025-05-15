@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Coupon() {
     return <>
     <div class="page-wrapper">
@@ -6,8 +8,10 @@ export default function Coupon() {
 			<div class="container">
 				<div class="header-content">
 					<div class="left-content">
-						<a href="javascript:void(0);" class="back-btn">
+						<a href="javascript:void(0);">
+							<Link to="/profile" class="back-btn">
 							<i class="icon feather icon-chevron-left"></i>
+							</Link>
 						</a>
 						<h6 class="title">My Coupons</h6>
 					</div>
@@ -58,17 +62,17 @@ export default function Coupon() {
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
 						<div class="dz-media">
-							<img src="assets/images/offer/offer3.png" />
+							<img src="/images/offer/offer3.png" />
 						</div>
 					</div>
 					<div class="swiper-slide">
 						<div class="dz-media">
-							<img src="assets/images/offer/offer2.png" />
+							<img src="/images/offer/offer2.png" />
 						</div>
 					</div>
 					<div class="swiper-slide">
 						<div class="dz-media">
-							<img src="assets/images/offer/offer1.png" />
+							<img src="/images/offer/offer1.png" />
 						</div>
 					</div>	
 				</div>	

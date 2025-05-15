@@ -21358,6 +21358,8 @@ button:focus {
   display: flex;
   align-items: center;
   position: relative;
+  transition: .5s;
+
 }
 
 .dz-list>ul>li .item-content .dz-title {
@@ -21392,6 +21394,11 @@ button:focus {
 
 .dz-list.style-1 ul li {
   border-bottom: 1px solid var(--border-color);
+}
+
+.dz-list.style-1 ul li :hover {
+  background-color: #bdbdbd;
+  bottom: 5px;
 }
 
 .dz-list.style-1 ul li a {
@@ -26803,12 +26810,13 @@ a {
   width: 100%;
   right: 13px;
 }
-.container{
+
+.container {
   padding: 15px 0px;
 }
-.footer{
->>>>>>> dev
-  bottom: 66px !important;
+
+.footer {
+  >>>>>>>dev bottom: 66px !important;
   z-index: 2 !important;
   opacity: 1 !important;
 }
