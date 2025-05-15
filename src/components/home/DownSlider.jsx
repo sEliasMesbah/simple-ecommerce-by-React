@@ -73,7 +73,7 @@ export default function DownSlider() {
           <span
             className="visually-hidden"
           >
-            loading...
+            Loading...
           </span>
         </div>
       </div>
@@ -102,7 +102,7 @@ export default function DownSlider() {
           className="btn btn-outline-danger"
           onClick={fetchData}
         >
-          try again 🔁
+          Try Again 🔁
         </button>
       </div>
     );

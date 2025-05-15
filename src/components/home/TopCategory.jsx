@@ -50,7 +50,7 @@ export default function TopCategory() {
           <span
             className="visually-hidden"
           >
-            loading...
+            Loading...
           </span>
         </div>
       </div>
