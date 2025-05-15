@@ -25,7 +25,7 @@ export default function Welcome() {
                                 <div className="swiper-slide">
                                     <div className="slide-info">
                                         <div className="started">
-                                            <h3 className="title font-w700">Start Your Shopping Journey Now</h3>
+                                            <h3 className="title font-w700">Start Your Shopping Journey right now</h3>
                                             <p>Start exploring now and let your shopping desires take flight. Find the perfect items that resonate with your style and needs.</p>
                                         </div>
                                     </div>
