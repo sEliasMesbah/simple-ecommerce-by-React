@@ -125,14 +125,14 @@ export default function Profile() {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="welcome.html" className="item-content item-link">
+                                    <Link to="/welcome" className="item-content item-link">
                                         <div className="dz-icon">
                                             <i className="icon feather icon-log-out"></i>
                                         </div>
                                         <div className="dz-inner">
                                             <span className="title">Log Out</span>
                                         </div>
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
@@ -178,7 +178,7 @@ export default function Profile() {
                         <ul className="mb-2 confirm-lang">
                             <li data-lang="indian">
                                 <a href="javascript:void(0);" className="item-content py-2 item-link">
-                                    
+
                                     <div className="media media-30 me-3">
                                         <img src="/images/flags/india.svg" alt="/" />
                                     </div>

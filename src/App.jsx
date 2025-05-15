@@ -17,6 +17,7 @@ import Coupon from "./components/profile/coupon/Coupon";
 import Help from "./components/profile/HelpCenter/Help";
 import Address from "./components/profile/address/Address";
 import CheckOut from "./components/profile/address/Checkout";
+import Welcome from "./components/profile/logout/Welcome";
  
 
 function App() {
@@ -37,6 +38,8 @@ function App() {
           <Route path="/Help" element={<Help />} />
           <Route path="/address" element={<Address />} />
           <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/welcome" element={<Welcome/>} />
+
 
         </Routes>
       </BrowserRouter>
