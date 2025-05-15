@@ -98,11 +98,11 @@ export default function CustomSwiper() {
         slidesPerGroup={1}
         breakpoints={{
           0:   { slidesPerView: 1 },
-          400: { slidesPerView: 2 },
+          624: { slidesPerView: 2 },
           1024: { slidesPerView: 3 }
         }}
         loop={true}
-        // autoplay={{delay: 4000,disableOnInteraction: false,}}
+        autoplay={{delay: 4000,disableOnInteraction: false,}}
         speed={500}
         pagination={{
           clickable: true,

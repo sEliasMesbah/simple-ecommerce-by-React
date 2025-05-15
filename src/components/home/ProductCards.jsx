@@ -57,7 +57,7 @@ export default function ProductCards() {
             }}
         >
         <div className="spinner-border text-primary" role="status">
-          <span className="visually-hidden">در حال بارگذاری...</span>
+          <span className="visually-hidden">Loading...</span>
         </div>
       </div>
     );
@@ -78,7 +78,7 @@ export default function ProductCards() {
         >
             <div className="alert alert-danger">{error}</div>
             <button className="btn btn-outline-danger" onClick={fetchAllData}>
-            🔁 تلاش مجدد
+             Try Again 🔁
             </button>
         </div>
     );
