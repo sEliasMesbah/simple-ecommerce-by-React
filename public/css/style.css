@@ -18401,3 +18401,8 @@ a{
 .container{
   padding: 15px 0px;
 }
+.footer{
+  bottom: 66px !important;
+  z-index: 2 !important;
+  opacity: 1 !important;
+}
