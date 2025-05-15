@@ -73,7 +73,7 @@ export default function DownSlider() {
           <span
             className="visually-hidden"
           >
-            در حال بارگذاری...
+            Loading...
           </span>
         </div>
       </div>
@@ -102,7 +102,7 @@ export default function DownSlider() {
           className="btn btn-outline-danger"
           onClick={fetchData}
         >
-          🔁 تلاش مجدد
+          Try Again 🔁
         </button>
       </div>
     );
@@ -113,35 +113,33 @@ export default function DownSlider() {
       <Swiper
         modules={[Autoplay]}
         spaceBetween={15}
-        slidesPerView={2.23}
+        slidesPerView={2.2}
         loop={true}
         autoplay={{ delay: 2000, disableOnInteraction: false }}
         breakpoints={{
-          640: { slidesPerView: 1 },
-          768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
+          0: { slidesPerView: 2.2 }
         }}
       >
         {products.map((product) => (
-          <SwiperSlide key={product.id} style={{ width: '443px' }}>
+          <SwiperSlide key={product.id}>
             <div className="shop-card style-2">
               <div className="dz-media">
                 <a href={`product/${product?.id}`}>
                   <img
                     src={product.images[0]}
                     alt={product.name}
-                    style={{ height: '381px', objectFit: 'cover' }}
+                    style={{objectFit: 'cover' }}
                   />
                 </a>
                 <div className="product-tag">
                   <span className="review me-2">
                     <i className="fa-solid fa-star"></i>4.5
                   </span>
-                  <span className="total" dir='rtl'>{product?.offer}% تخفیف</span>
+                  <span className="total">{product?.offer}% Off</span>
                 </div>
               </div>
 
-                <div className="dz-content" dir='rtl'>
+                <div className="dz-content">
                     {/* نام دسته‌بندی */}
                     {product.category && (
                         <span className='font-12'>
@@ -158,7 +156,6 @@ export default function DownSlider() {
                             overflow: "hidden",
                             textOverflow: "ellipsis",
                             fontSize: "0.9rem",
-                            fontWeight: "600",
                         }}
                     >
                         <a
@@ -170,8 +167,8 @@ export default function DownSlider() {
 
                     {/* قیمت و تخفیف */}
                     <h6 className="price">
-                        <span>{getDiscountedPrice(product.price, product.offer).toLocaleString()} تومان </span>
-                        <del>{product.price.toLocaleString()} تومان</del>
+                        <span>${getDiscountedPrice(product.price, product.offer).toLocaleString()}</span>
+                        <del>${product.price.toLocaleString()}</del>
                     </h6>
                 </div>
                 </div>

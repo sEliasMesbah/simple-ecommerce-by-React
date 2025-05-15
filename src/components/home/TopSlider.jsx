@@ -35,11 +35,6 @@ export default function CustomSwiper() {
     fetchProducts();
   }, []);
 
-  // 💡 تابع برای محاسبه قیمت نهایی
-  const getDiscountedPrice = (price, offer) => {
-    return Math.floor(price * (1 - offer / 100));
-  };
-
   if (error) {
     return (
       <div
@@ -62,7 +57,7 @@ export default function CustomSwiper() {
           className="btn btn-outline-danger"
           onClick={fetchProducts}
         >
-          🔁 تلاش مجدد
+          Try again 🔁
         </button>
       </div>
     );
@@ -87,7 +82,7 @@ export default function CustomSwiper() {
           <span
             className="visually-hidden"
           >
-            در حال بارگذاری...
+            loading...
           </span>
         </div>
       </div>
@@ -103,15 +98,11 @@ export default function CustomSwiper() {
         slidesPerGroup={1}
         breakpoints={{
           0:   { slidesPerView: 1 },
-          400: { slidesPerView: 1 },
-          639: { slidesPerView: 2 },
-          995: { slidesPerView: 3 }
+          624: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 }
         }}
         loop={true}
-        autoplay={{
-          delay: 4000,
-          disableOnInteraction: false,
-        }}
+        autoplay={{delay: 4000,disableOnInteraction: false,}}
         speed={500}
         pagination={{
           clickable: true,
@@ -122,74 +113,30 @@ export default function CustomSwiper() {
         {offers.map((product, index) => (
           <SwiperSlide key={index}>
             <div
+              className="relative text-white flex items-end banner-bg"
+              title={`${product?.name}`}
               style={{
-                backgroundImage: `url(${product.images[0]})`,
-                backgroundSize: 'auto 100%',
-                backgroundPosition: 'center left',
-                backgroundRepeat: 'no-repeat',
+                backgroundImage: `url(${product.banner})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center center',
                 height: '100%',
                 position: 'relative',
-                margin: '0',
-                padding: '10px',
-                direction: 'rtl'
+                margin:'0',
+                padding:'10px'
               }}
-              className="position-relative flex items-end banner-bg"
-              title={`${product?.name}`}
             >
-              <span
-                className="font-medium text-sm position-absolute rounded"
-                style={{
-                  bottom: '0.25rem',
-                  left: '2rem',
-                  background: 'rgba(13, 119, 94, 0.8)',
-                  color: 'white',
-                  padding: '2px 10px'
-                }}
-              >
-                <strong>{product.offer}</strong> درصد تخفیف
-              </span>
-              <div
-                className="banner-content bg-black/60 p-3 rounded flex-column list-item gap-2"
-              >
-                <div
-                  style={{
-                    display: '-webkit-box',
-                    width: '150px',
-                    WebkitLineClamp: '2',
-                    WebkitLineBreak: '2',
-                    WebkitBoxOrient: 'vertical',
-                    overflow: 'hidden',
-                    lineHeight: '1.17',
-                    fontWeight: '600',
-                    fontSize: '0.9rem'
-                  }}
-                >
-                  {product?.name}
-                </div>
-                <h6
-                  className="m-0 p-0"
-                >
-                  <span>
-                    {getDiscountedPrice(product.price, product.offer).toLocaleString()} تومان
-                  </span>
-                  <br />
-                  <del
-                    style={{
-                      color: '#999999',
-                      fontWeight: '100'
-                    }}
+                <div className="banner-content bg-black/60 p-2 rounded">
+                  <span style={{color:"#0D775E",fontWeight: "600"}}>#FASHION DAY</span>
+                  <h2  className="offer">{product.offer}% Off</h2>
+                  <p className='text-sm'>{product?.name.slice(0, 23)}...</p>
+                  <Link
+                    to={`/product/${product.id}`}
+                    className="btn btn-primary btn-sm m-0 margin"
                   >
-                    {product.price.toLocaleString()}
-                  </del>
-                </h6>
-                <Link
-                  to={`/product/${product.id}`}
-                  className="btn btn-primary btn-sm m-0 margin"
-                >
-                  خرید محصول
-                </Link>
+                    Shop Now
+                  </Link>
+                </div>
               </div>
-            </div>
           </SwiperSlide>
         ))}
       </Swiper>
@@ -199,7 +146,8 @@ export default function CustomSwiper() {
         className="swiper-pagination"
         style={{
           position: 'absolute',
-          right: '0',
+          right: '6px',
+          left: "inherit !important",
           top: '50%',
           transform: 'translateY(-50%)',
           display: 'flex',

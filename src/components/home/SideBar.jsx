@@ -25,7 +25,6 @@ export default function SideBar({ isOpen }) {
             </span>
             <span>Home</span>
           </Link>
-          
         </li>
         <li>
           <a className="nav-link active" href="index.html">
@@ -84,12 +83,18 @@ export default function SideBar({ isOpen }) {
           </Link>
         </li>
         <li>
-          <a className="nav-link active" href="index.html">
+          <Link to="/welcome" className="nav-link active" href="index.html">
             <span className="dz-icon">
               <i className="icon feather icon-log-out"></i>
             </span>
             <span>Logout</span>
-          </a>
+          </Link>
+          {/* <a className="nav-link active" href="index.html">
+            <span className="dz-icon">
+              <i className="icon feather icon-log-out"></i>
+            </span>
+            <span>Logout</span>
+          </a> */}
         </li>
         {/* بقیه آیتم‌ها همینطور ادامه دارن */}
       </ul>
