@@ -17653,7 +17653,7 @@ label input {
     bottom: 100px; }
   .welcome-area .bottom-btn {
     position: fixed;
-    bottom: 10px;
+    bottom: 80px;
     width: 100%;
     left: 50%;
     z-index: 9;
@@ -18325,9 +18325,6 @@ label input {
 .swiper-pagination-bullet {
   display: block;
   margin: 4px 0 !important; /* بالا و پایین فاصله بگیره */
-}
-span{
-  color: green;
 }
 p{
   color: black;
