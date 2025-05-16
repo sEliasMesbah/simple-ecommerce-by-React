@@ -1,9 +1,65 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
+import OrderCard from "./OrderCard";
 import { Link } from "react-router-dom";
 
 const OrderPage = () => {
-    return <>
-        <div className="page-wrapper">
-            <header className="header shadow header-fixed border-0">
+    const [images, setImages] = useState([]);
+    const [activeTab, setActiveTab] = useState("All");
+
+    // تب‌های قابل انتخاب
+    const tabs = ["All", "On Delivery", "Completed", "Canceled"];
+
+    // اطلاعات کارت‌ها (ثابت)
+    const orders = [
+        {
+            title: "Brown Women Shirts by Coklat Cloth ",
+            quantity: 1,
+            price: 47.6,
+            status: "Completed",
+            description: "Order Received by [Louis Simatupang]",
+            class: "btn btn-sm btn-success light me-4"
+        },
+        {
+            title: "Women Sleep Suits by Femall Clothings",
+            quantity: 2,
+            price: 47.6,
+            status: "Canceled",
+            description: "Reach on payment due date",
+            class: "btn btn-sm btn-info light me-4"
+        },
+        {
+            title: "Red Candy Handy Bag with Random Accessories",
+            quantity: 1,
+            price: 50.6,
+            status: "On Delivery",
+            description: "On the way by Courir [H. Stefanus]",
+            class: "btn btn-sm btn-success light me-4"
+        },
+        {
+            title: "Women Sleep Suits by Femall Clothings",
+            quantity: 1,
+            price: 47.6,
+            status: "Completed",
+            description: "Order Received by [Louis Simatupang]",
+            class: "btn btn-sm btn-danger light me-4"
+        }
+    ];
+
+    useEffect(() => {
+        axios.get("http://localhost:3001/products")
+            .then(res => setImages(res.data))
+            .catch(err => console.error("Error fetching images:", err));
+    }, []);
+
+    // فیلتر کارت‌ها براساس تب فعال
+    const filteredOrders = activeTab === "All"
+        ? orders
+        : orders.filter(order => order.status === activeTab);
+
+    return (
+        <>
+            <header style={{ padding: "0px 10px" }} className="header shadow header-fixed border-0">
                 <div className="container">
                     <div className="header-content">
                         <div className="left-content">
@@ -22,218 +78,57 @@ const OrderPage = () => {
                     </div>
                 </div>
             </header>
-
-            <div className="page-content space-top">
-                <div className="container p-0">
-                    <div className="dz-tab style-1">
-                        <div className="tab-slide-effect">
-                            <ul className="nav nav-tabs" id="myTab2" role="tablist">
-                                <li className="tab-active-indicator" style={{ width: "90.7188px", transform: "translateX(0px)" }}></li>
-                                <li className="nav-item active" role="presentation">
-                                    <button className="nav-link active" id="home-tab2" data-bs-toggle="tab" data-bs-target="#home-tab-pane2" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">All</button>
-                                </li>
-                                <li className="nav-item" role="presentation">
-                                    <button className="nav-link" id="profile-tab2" data-bs-toggle="tab" data-bs-target="#profile-tab-pane2" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">On Delivery</button>
-                                </li>
-                                <li className="nav-item" role="presentation">
-                                    <button className="nav-link" id="content-tab2" data-bs-toggle="tab" data-bs-target="#contact-tab-pane2" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Completed</button>
-                                </li>
-                                <li className="nav-item" role="presentation">
-                                    <button className="nav-link" id="order-tab2" data-bs-toggle="tab" data-bs-target="#order-tab-pane2" type="button" role="tab" aria-controls="order-tab-pane" aria-selected="false">Completed</button>
-                                </li>
+            <div style={{ marginBottom: "60px" }} className="page-wrapper">
+                <div className="page-content space-top">
+                    <div className="container p-0">
+                        <div className="dz-tab style-1 ">
+                            {/* تب‌ها */}
+                            <ul className="nav nav-tabs   tab-slide-effect" role="tablist">
+                                {tabs.map((tab, idx) => (
+                                    <li
+                                        key={idx}
+                                        role="presentation"
+                                        className={`nav-item ${activeTab === tab ? "active-tab" : ""}`}
+                                    >
+                                        <button
+                                            className={`nav-link ${activeTab === tab ? "active" : ""}`}
+                                            onClick={() => setActiveTab(tab)}
+                                            type="button"
+                                            role="tab"
+                                        >
+                                            {tab}
+                                        </button>
+                                    </li>
+                                ))}
                             </ul>
-                        </div>
-                        <div className="tab-content" id="myTabContent2">
-                            <div className="tab-pane fade active show" id="home-tab-pane2" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-                                <div className="row">
-                                    <div className="col-12">
-                                        <div className="dz-order">
-                                            <div className="order-info">
-                                                <div className="pe-2">
-                                                    <span className="productId">#12451245</span>
-                                                    <h6 className="title"><a href="product-detail.html">Brown Women Shirts by Coklat Cloth</a></h6>
-                                                </div>
-                                                <div className="media media-70">
-                                                    <img src="assets/images/popular/small/pic1.png" />
-                                                </div>
-                                            </div>
-                                            <div className="order-detail">
-                                                <span>GREY Variant</span>
-                                                <div className="d-flex gap-5">
-                                                    <span className="quantity">1x</span>
-                                                    <h5 className="price">$47.6</h5>
-                                                </div>
-                                            </div>
-                                            <div className="status">
-                                                <a href="javascript:void(0);" className="btn btn-sm btn-success light me-4">Completed</a>
-                                                <p className="mb-0 description">Order Received by [Louis Simatupang]</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-12">
-                                        <div className="dz-order">
-                                            <div className="order-info">
-                                                <div className="pe-2">
-                                                    <span className="productId">#12451245</span>
-                                                    <h6 className="title"><a href="product-detail.html">Women Sleep Suits by Femall Clothings</a></h6>
-                                                </div>
-                                                <div className="media media-70">
-                                                    <img src="assets/images/popular/small/pic2.png" />
-                                                </div>
-                                            </div>
-                                            <div className="order-detail">
-                                                <span>GREY Variant</span>
-                                                <div className="d-flex gap-5">
-                                                    <span className="quantity">2x</span>
-                                                    <h5 className="price">$47.6</h5>
-                                                </div>
-                                            </div>
-                                            <div className="status">
-                                                <a href="javascript:void(0);" className="btn btn-sm btn-danger light me-4">Canceled</a>
-                                                <p className="mb-0 description">Reach on payment due date</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-12">
-                                        <div className="dz-order">
-                                            <div className="order-info">
-                                                <div className="pe-2">
-                                                    <span className="productId">#12451245</span>
-                                                    <h6 className="title"><a href="product-detail.html">Red Candy Handy Bag with Random Accessories</a></h6>
-                                                </div>
-                                                <div className="media media-70">
-                                                    <img src="assets/images/popular/small/pic3.png" />
-                                                </div>
-                                            </div>
-                                            <div className="order-detail">
-                                                <span>GREY Variant</span>
-                                                <div className="d-flex gap-5">
-                                                    <span className="quantity">1x</span>
-                                                    <h5 className="price">$50.6</h5>
-                                                </div>
-                                            </div>
-                                            <div className="status">
-                                                <a href="javascript:void(0);" className="btn btn-sm btn-info light me-4">On Delivery</a>
-                                                <p className="mb-0 description">On the way by Courir  [H. Stefanus]</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-12">
-                                        <div className="dz-order">
-                                            <div className="order-info">
-                                                <div className="pe-2">
-                                                    <span className="productId">#12451245</span>
-                                                    <h6 className="title"><a href="product-detail.html">Women Sleep Suits by Femall Clothings</a></h6>
-                                                </div>
-                                                <div className="media media-70">
-                                                    <img src="assets/images/popular/small/pic1.png" />
-                                                </div>
-                                            </div>
-                                            <div className="order-detail">
-                                                <span>GREY Variant</span>
-                                                <div className="d-flex gap-5">
-                                                    <span className="quantity">1x</span>
-                                                    <h5 className="price">$47.6</h5>
-                                                </div>
-                                            </div>
-                                            <div className="status">
-                                                <a href="javascript:void(0);" className="btn btn-sm btn-success light me-4">Completed</a>
-                                                <p className="mb-0 description">Order Received by [Louis Simatupang]</p>
-                                            </div>
-                                        </div>
+
+
+                            {/* محتوای کارت‌ها */}
+                            <div className="tab-content">
+                                <div className="tab-pane fade active show">
+                                    <div className="row">
+                                        {filteredOrders.map((order, index) => (
+                                            <OrderCard
+                                                key={index}
+                                                title={order.title}
+                                                quantity={order.quantity}
+                                                price={images[index]?.price}
+                                                status={order.status}
+                                                cls={order.class}
+                                                description={order.description}
+                                                image={images[index]?.images?.[0] || "default.jpg"}
+                                            />
+                                        ))}
                                     </div>
                                 </div>
                             </div>
-                            <div className="tab-pane fade" id="profile-tab-pane2" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                                <div className="row">
-                                    <div className="col-12">
-                                        <div className="dz-order">
-                                            <div className="order-info">
-                                                <div className="pe-2">
-                                                    <span className="productId">#12451245</span>
-                                                    <h6 className="title"><a href="product-detail.html">Red Candy Handy Bag with Random Accessories</a></h6>
-                                                </div>
-                                                <div className="media media-70">
-                                                    <img src="assets/images/popular/small/pic3.png" />
-                                                </div>
-                                            </div>
-                                            <div className="order-detail">
-                                                <span>GREY Variant</span>
-                                                <div className="d-flex gap-5">
-                                                    <span className="quantity">1x</span>
-                                                    <h5 className="price">$50.6</h5>
-                                                </div>
-                                            </div>
-                                            <div className="status">
-                                                <a href="javascript:void(0);" className="btn btn-sm btn-info light me-4">On Delivery</a>
-                                                <p className="mb-0 description">On the way by Courir  [H. Stefanus]</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="tab-pane fade" id="contact-tab-pane2" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
-                                <div className="row">
-                                    <div className="col-12">
-                                        <div className="dz-order">
-                                            <div className="order-info">
-                                                <div className="pe-2">
-                                                    <span className="productId">#12451245</span>
-                                                    <h6 className="title"><a href="product-detail.html">Brown Women Shirts by Coklat Cloth</a></h6>
-                                                </div>
-                                                <div className="media media-70">
-                                                    <img src="assets/images/popular/small/pic1.png" />
-                                                </div>
-                                            </div>
-                                            <div className="order-detail">
-                                                <span>GREY Variant</span>
-                                                <div className="d-flex gap-5">
-                                                    <span className="quantity">1x</span>
-                                                    <h5 className="price">$47.6</h5>
-                                                </div>
-                                            </div>
-                                            <div className="status">
-                                                <a href="javascript:void(0);" className="btn btn-sm btn-success light me-4">Completed</a>
-                                                <p className="mb-0 description">Order Received by [Louis Simatupang]</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="tab-pane fade" id="order-tab-pane2" role="tabpanel" aria-labelledby="order-tab" tabindex="0">
-                                <div className="row">
-                                    <div className="col-12">
-                                        <div className="dz-order">
-                                            <div className="order-info">
-                                                <div className="pe-2">
-                                                    <span className="productId">#12451245</span>
-                                                    <h6 className="title"><a href="product-detail.html">Women Sleep Suits by Femall Clothings</a></h6>
-                                                </div>
-                                                <div className="media media-70">
-                                                    <img src="assets/images/popular/small/pic2.png" />
-                                                </div>
-                                            </div>
-                                            <div className="order-detail">
-                                                <span>GREY Variant</span>
-                                                <div className="d-flex gap-5">
-                                                    <span className="quantity">2x</span>
-                                                    <h5 className="price">$47.6</h5>
-                                                </div>
-                                            </div>
-                                            <div className="status">
-                                                <a href="javascript:void(0);" className="btn btn-sm btn-danger light me-4">Canceled</a>
-                                                <p className="mb-0 description">Reach on payment due date</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
+        </>
+    );
+};
 
-        </div>
-    </>
-}
 export default OrderPage;

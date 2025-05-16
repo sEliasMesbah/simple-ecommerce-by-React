@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Login() {
+export default function Register() {
   return (
     <>
       <div className="page-content">
@@ -15,8 +15,8 @@ export default function Login() {
               />
             </div>
             <div className="section-head text-center pt-0">
-              <h2>Welcome back!</h2>
-              <p>Welcome back you've been missed!</p>
+              <h2>Create your account</h2>
+              <p>Create an account to continue!</p>
             </div>
             <div className="account-area">
               <form>
@@ -48,29 +48,51 @@ export default function Login() {
                     </span>
                   </div>
                 </div>
-                <div className="d-flex justify-content-between align-items-center mb-4">
-                  <Link to="/forgetPassword" className="btn-link text-primary">
-                    Forgot password?
-                  </Link>
+                <div>
+                  <label className="form-label" for="confirm_password">
+                    Confirm Password
+                  </label>
+                  <div className="mb-3 input-group input-group-icon">
+                    <input
+                      type="password"
+                      id="confirm_password"
+                      className="form-control dz-password"
+                      placeholder="Confirm Password"
+                    />
+                    <span className="input-group-text show-pass">
+                      <i className="icon feather icon-eye-off eye-close"></i>
+                      <i className="icon feather icon-eye eye-open"></i>
+                    </span>
+                  </div>
+                </div>
+                <div className="form-check mb-4">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="Checked-1"
+                  />
+                  <label className="form-check-label" for="Checked-1">
+                    I agree to all Terms, Privacy Policy and fees
+                  </label>
+                </div>
+                <Link
+                  to="/login"
+                  className="btn bg-primary mb-3 text gear w-100"
+                >
+                  Register
+                </Link>
+
+                <div className="text-primary">
+                  <span>Already have an account ? </span>
                   <Link
-                    to="/forgetPassword"
-                    className="btn-link text-primary"
+                    to="/login"
+                    className="text-primary gear3"
+                    style={{ fontWeight: "600" }}
                   >
-                    Reset Here
+                    Log in
                   </Link>
                 </div>
-                <Link to="/" className="btn btn-primary mb-3 w-100 gear">
-                  Login
-                </Link>
-                <Link to="/register" className="btn-link text-center mb-3 mt-4">
-                  Don’t have an account?
-                </Link>
-                <Link
-                  to="/register"
-                  className="btn mb-3 btn-outline-primary text-primary w-100 gear2"
-                >
-                  Register Now
-                </Link>
               </form>
             </div>
           </div>
