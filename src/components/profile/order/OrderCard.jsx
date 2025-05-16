@@ -1,4 +1,4 @@
-const OrderCard = ({ title, quantity, price, status, description, image, style,cls}) => {
+const OrderCard = ({ title, quantity, price, status, description, image, style,cls,offerPrice}) => {
     return (<>
         {/* <div className="col-12">
             <div className="card dz-card style-2">
@@ -31,7 +31,7 @@ const OrderCard = ({ title, quantity, price, status, description, image, style,c
                     <span>GREY Variant</span>
                     <div className="d-flex gap-5">
                         <span className="quantity">{quantity}x</span>
-                        <h5 className="price">${price}</h5>
+                        <h5 className="price">${offerPrice} <span><del>{price}</del></span></h5>
                     </div>
                 </div>
                 <div className="status">
