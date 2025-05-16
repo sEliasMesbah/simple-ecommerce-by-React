@@ -7,6 +7,15 @@ const OrderPage = () => {
     const [images, setImages] = useState([]);
     const [activeTab, setActiveTab] = useState("All");
 
+
+    // محاسبه قیمت تخفیف‌خورده
+    const getDiscountedPrice = (price, offer) => {
+        return Math.floor(price * (1 - offer / 100));
+    };
+
+    // const finalPrice = getDiscountedPrice(images.products.price, images.products.offer);
+    // console.log(finalPrice); // خروجی: 170000
+
     // تب‌های قابل انتخاب
     const tabs = ["All", "On Delivery", "Completed", "Canceled"];
 
@@ -113,6 +122,7 @@ const OrderPage = () => {
                                                 title={order.title}
                                                 quantity={order.quantity}
                                                 price={images[index]?.price}
+                                                offerPrice={(getDiscountedPrice(images[index]?.price, images[index]?.offer))}
                                                 status={order.status}
                                                 cls={order.class}
                                                 description={order.description}
