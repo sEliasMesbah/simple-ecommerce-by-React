@@ -81,10 +81,9 @@ const OrderPage = () => {
             <div style={{ marginBottom: "60px" }} className="page-wrapper">
                 <div className="page-content space-top">
                     <div className="container p-0">
-                        <div className="dz-tab style-1">
-
+                        <div className="dz-tab style-1 ">
                             {/* تب‌ها */}
-                            <ul className="nav nav-tabs" role="tablist">
+                            <ul className="nav nav-tabs   tab-slide-effect" role="tablist">
                                 {tabs.map((tab, idx) => (
                                     <li
                                         key={idx}
