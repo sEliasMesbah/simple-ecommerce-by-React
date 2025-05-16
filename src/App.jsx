@@ -18,6 +18,9 @@ import Login from "./public/Login";
 import Welcome from "./public/Welcome";
 import Register from "./public/Register";
 import ForgetPassword from "./public/ForgetPassword";
+import FAQ from "./components/profile/HelpCenter/Help";
+import Address from "./components/profile/address/Address";
+import CheckOut from "./components/profile/address/checkout";
 
 
 function App() {
@@ -39,6 +42,11 @@ function App() {
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/register" element={<Register />} />
           <Route path="/forgetPassword" element={<ForgetPassword />} />
+          <Route path="/help" element={<FAQ/>} />
+          <Route path="/address" element={<Address/>} />
+          <Route path="/checkout" element={<CheckOut/>} />
+          
+
         </Routes>
       </BrowserRouter>
     </>
