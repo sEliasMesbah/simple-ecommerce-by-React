@@ -26814,9 +26814,9 @@ a {
 .container {
   padding: 15px 0px;
 }
-
-.footer {
-  >>>>>>>dev bottom: 66px !important;
+.footer{
+/* >>>>>>> dev */
+  bottom: 66px !important;
   z-index: 2 !important;
   opacity: 1 !important;
 }
@@ -26835,4 +26835,26 @@ a {
 
 .gear3:hover {
   color: var(--primary-hover) !important;
+}
+/* استایل عمومی دکمه‌ها */
+.nav-tabs .nav-link {
+  color: #000; /* رنگ معمولی */
+  background: transparent;
+  border: none;
+  transition: color 0.3s ease; /* ترنزیشن رنگ متن */
+}
+
+/* وقتی دکمه فعال است، رنگش سبز شود */
+.nav-tabs .nav-link.active {
+  color: #0d775e !important;
+}
+
+/* li فعال بردر پایین سبز داشته باشد */
+.nav-tabs .nav-item {
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.nav-tabs .nav-item.active-tab {
+  border-bottom: 2px solid #0d775e;
 }
