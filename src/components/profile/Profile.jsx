@@ -30,7 +30,15 @@ export default function Profile() {
                     <div class="profile-area">
                         <div class="main-profile">
                             <div class="media media-60 me-3 rounded-circle">
-                                <img src="/images/user-profile.jpg" alt="profile-image" />
+                                <img id="profile-img" src="/images/user-profile.jpg" alt="profile-image" style={{
+                                    cursor: "pointer", maxWidth: "100px",
+                                    borderRadius: "50%"
+                                }} />
+                                <div id="imgModal" class="img-modal">
+                                    <span class="close">&times;</span>
+                                    <img class="img-modal-content" id="modal-img" />
+                                </div>
+
                             </div>
                             <div className="profile-detail">
                                 <h6 className="name">Thomas Djono</h6>
@@ -237,5 +245,6 @@ export default function Profile() {
             </div>
 
         </div>
+        
     </>
 }

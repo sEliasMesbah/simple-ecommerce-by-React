@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function CheckOut() {
     return <>
         <div className="page-wrapper">
@@ -6,9 +8,10 @@ export default function CheckOut() {
                 <div className="container">
                     <div className="header-content">
                         <div className="left-content">
-                            <a href="javascript:void(0);" className="back-btn">
+                            <Link to="/address" className="back-btn">
                                 <i className="icon feather icon-chevron-left"></i>
-                            </a>
+                            </Link>
+
                             <h6 className="title">Add delivery address</h6>
                         </div>
                         <div className="mid-content">

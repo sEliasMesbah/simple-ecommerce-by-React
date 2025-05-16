@@ -21397,8 +21397,10 @@ button:focus {
 }
 
 .dz-list.style-1 ul li :hover {
-  background-color: #bdbdbd;
-  bottom: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  border-radius: 5px;
 }
 
 .dz-list.style-1 ul li a {
