@@ -20018,7 +20018,7 @@ button:focus {
 .light.btn-success {
   background-color: #e4f8ee;
   border-color: #e4f8ee;
-  color: #43CD8B;
+  color: #43CD8B !important;
 }
 
 .light.btn-success g [fill] {
@@ -20028,17 +20028,17 @@ button:focus {
 .light.btn-success:hover {
   background-color: #43CD8B;
   border-color: #43CD8B;
-  color: #fff;
+  color: #fff !important;
 }
 
 .light.btn-success:hover g [fill] {
-  fill: #fff;
+  fill: #fff !important;
 }
 
 .light.btn-info {
   background-color: #e8beec;
   border-color: #e8beec;
-  color: #A131AD;
+  color: #A131AD !important;
 }
 
 .light.btn-info g [fill] {
@@ -20048,7 +20048,7 @@ button:focus {
 .light.btn-info:hover {
   background-color: #A131AD;
   border-color: #A131AD;
-  color: #fff;
+  color: #fff !important;
 }
 
 .light.btn-info:hover g [fill] {
@@ -20111,7 +20111,7 @@ button:focus {
 
 .light.btn-danger {
   background-color: #f9d7dd;
-  color: #E12344;
+  color: #E12344 !important;
 }
 
 .light.btn-danger g [fill] {
@@ -20120,7 +20120,7 @@ button:focus {
 
 .light.btn-danger:hover {
   background-color: #E12344;
-  color: #fff;
+  color: #fff !important;
 }
 
 .light.btn-danger:hover g [fill] {
