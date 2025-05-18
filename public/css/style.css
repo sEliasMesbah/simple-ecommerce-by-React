@@ -26376,7 +26376,9 @@ label input {
   color: var(--title);
   font-weight: 600;
 }
-
+.content-box ul li a:hover{
+  background-color: wheat;
+}
 .card.address-card {
   border-radius: 0;
   box-shadow: var(--box-shadow);

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Input from "../form/Input";
 
 export default function EditProfile() {
     return <>
@@ -22,22 +23,10 @@ export default function EditProfile() {
             </header>
             <div className="page-content space-top">
                 <div className="container">
-                    <div className="mb-3">
-                        <label className="form-label" for="phone">Mobile Number</label>
-                        <input type="tel" id="phone" className="form-control" value="0123456789" />
-                    </div>
-                    <div className="mb-3">
-                        <label className="form-label" for="name">Full Name</label>
-                        <input type="text" id="name" className="form-control" value="John Doe" />
-                    </div>
-                    <div className="mb-3">
-                        <label className="form-label" for="email">Email</label>
-                        <input type="email" id="email" className="form-control" value="Example@gmail.com" />
-                    </div>
-                    <div className="mb-3">
-                        <label className="form-label" for="address">Location</label>
-                        <input type="text" id="address" className="form-control" value="LH-12, East Wally USA" />
-                    </div>
+                    <Input label="Mobile Number" id="phone" type="tel" classInput="bg-success text-white"/>
+                    <Input label="Full Name" id="name" value="John Doe"/>
+                    <Input label="Email" id="eamil" type="email" value="Example@gmail.com" required={true}/>
+                    <Input label="Location" id="loc" type="email"  value="LH-12, East Wally USA" required={true} />
                 </div>
             </div>
             <div className="footer fixed">
