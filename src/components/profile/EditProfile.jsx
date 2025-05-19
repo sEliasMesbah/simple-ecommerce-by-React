@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Input from "../form/Input";
+import Input from "../public/Input";
 
 export default function EditProfile() {
     return <>
