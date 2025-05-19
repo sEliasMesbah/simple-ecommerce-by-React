@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import Input from "../components/public/Input";
 export default function Register() {
   return (
     <>
@@ -7,7 +7,11 @@ export default function Register() {
         <div className="account-box">
           <div className="container">
             <div className="logo-area">
-              <img className="logo-dark" src="/images/logos/light/logo1.svg" alt="" />
+              <img
+                className="logo-dark"
+                src="/images/logos/light/logo1.svg"
+                alt=""
+              />
               <img
                 className="logo-light"
                 src="/images/logos/light/logo1.svg"
@@ -21,49 +25,28 @@ export default function Register() {
             <div className="account-area">
               <form>
                 <div className="mb-3">
-                  <label className="form-label" for="name">
-                    Username
-                  </label>
-                  <input
-                    type="text"
+                  <Input
+                    label="username"
                     id="name"
-                    className="form-control"
+                    type="text"
                     placeholder="Type Username Here"
                   />
                 </div>
                 <div>
-                  <label className="form-label" for="password">
-                    Password
-                  </label>
-                  <div className="mb-3 input-group input-group-icon">
-                    <input
-                      type="password"
-                      id="password"
-                      className="form-control dz-password"
-                      placeholder="Type Password Here"
-                    />
-                    <span className="input-group-text show-pass">
-                      <i className="icon feather icon-eye-off eye-close"></i>
-                      <i className="icon feather icon-eye eye-open"></i>
-                    </span>
-                  </div>
+                  <Input
+                    label="Password"
+                    id="password"
+                    type="password"
+                    placeholder="Type Password Here"
+                  />
                 </div>
                 <div>
-                  <label className="form-label" for="confirm_password">
-                    Confirm Password
-                  </label>
-                  <div className="mb-3 input-group input-group-icon">
-                    <input
-                      type="password"
-                      id="confirm_password"
-                      className="form-control dz-password"
-                      placeholder="Confirm Password"
-                    />
-                    <span className="input-group-text show-pass">
-                      <i className="icon feather icon-eye-off eye-close"></i>
-                      <i className="icon feather icon-eye eye-open"></i>
-                    </span>
-                  </div>
+                  <Input
+                    label="Password"
+                    id="confirm_password"
+                    type="password"
+                    placeholder="Confirm Password "
+                  />
                 </div>
                 <div className="form-check mb-4">
                   <input
