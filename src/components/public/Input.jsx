@@ -50,9 +50,9 @@ export default function Input({
           title={showPassword ? "مخفی کردن پسورد" : "نمایش پسورد"}
         >
           {showPassword ? (
-            <i className="icon feather icon-eye-off eye-close"></i>
-          ) : (
             <i className="icon feather icon-eye eye-open"></i>
+          ) : (
+            <i className="icon feather icon-eye-off eye-close"></i>
           )}
         </span>
       )}

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Input from "../components/public/Input";
 
 export default function Login() {
   return (
@@ -7,7 +8,11 @@ export default function Login() {
         <div className="account-box">
           <div className="container">
             <div className="logo-area">
-              <img className="logo-dark" src="/images/logos/light/logo1.svg" alt="" />
+              <img
+                className="logo-dark"
+                src="/images/logos/light/logo1.svg"
+                alt=""
+              />
               <img
                 className="logo-light"
                 src="/images/logos/light/logo1.svg"
@@ -20,42 +25,25 @@ export default function Login() {
             </div>
             <div className="account-area">
               <form>
-                <div className="mb-3">
-                  <label className="form-label" for="name">
-                    Username
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="form-control"
-                    placeholder="Type Username Here"
-                  />
-                </div>
+                <Input
+                  label="Username"
+                  id="name"
+                  type="text"
+                  placeholder="Type Username Here"
+                />
                 <div>
-                  <label className="form-label" for="password">
-                    Password
-                  </label>
-                  <div className="mb-3 input-group input-group-icon">
-                    <input
-                      type="password"
-                      id="password"
-                      className="form-control dz-password"
-                      placeholder="Type Password Here"
-                    />
-                    <span className="input-group-text show-pass">
-                      <i className="icon feather icon-eye-off eye-close"></i>
-                      <i className="icon feather icon-eye eye-open"></i>
-                    </span>
-                  </div>
+                  <Input
+                    label="Password"
+                    id="password"
+                    type="password"
+                    placeholder="Type Password Here"
+                  />
                 </div>
                 <div className="d-flex justify-content-between align-items-center mb-4">
                   <Link to="/forgetPassword" className="btn-link text-primary">
                     Forgot password?
                   </Link>
-                  <Link
-                    to="/forgetPassword"
-                    className="btn-link text-primary"
-                  >
+                  <Link to="/forgetPassword" className="btn-link text-primary">
                     Reset Here
                   </Link>
                 </div>
