@@ -16,16 +16,12 @@ import OrderPage from "./components/profile/order/OrderPage";
 import Coupon from "./components/profile/coupon/Coupon";
 import Login from "./public/Login";
 import Welcome from "./public/Welcome";
-import Register from "./public/Register";
-import ForgetPassword from "./public/ForgetPassword";
-import FAQ from "./components/profile/HelpCenter/Help";
-import Address from "./components/profile/address/Address";
-import CheckOut from "./components/profile/address/checkout";
 
 
 function App() {
   return (
     <>
+     
       <BrowserRouter>
         <MenuBar />
         <Routes>
@@ -36,6 +32,37 @@ function App() {
           <Route path="/EditProfile" element={<EditProfile />} />
           <Route path="/CartPage" element={<CartPage />} />
           <Route path="/WishListPage" element={<WishListPage />} />
+          <Route path="/ComponentPage" element={<ComponentPage/>}/>
+        <Route path="/ui-accordion" element={<Accordion/>}/>
+        <Route path="/ui-alert" element={<Alert/>}/>
+        <Route path="/ui-avatar" element={<Avatar/>}/>
+        <Route path="/ui-badge" element={<Badge/>}/>
+        <Route path="/ui-breadcrumb" element={<Breadcrumb/>}/>
+        <Route path="/ui-button" element={<Button/>}/>
+        <Route path="/ui-button-group" element={<ButtonGroup/>}/>
+        <Route path="/ui-card" element={<Card1/>}/>
+        <Route path="/ui-inputs" element={<Inputs1/>}/>
+        <Route path="/ui-dropdown" element={<Dropdown/>}/>
+        <Route path="/ui-collapse" element={<Collapse/>}/>
+        <Route path="/ui-radio" element={<Radio/>}/>
+        <Route path="/ui-timeline" element={<Timeline/>}/>
+        <Route path="/ui-list-group" element={<ListGroup/>}/>
+        <Route path="/ui-tab" element={<Tab/>}/>
+        <Route path="/ui-divider" element={<Divider/>}/>
+        <Route path="/ui-stepper" element={<Stepper/>}/>
+        <Route path="/ui-offcanva" element={<Offcanvas/>}/>
+        <Route path="/ui-pagination" element={<Pagination/>}/>
+        <Route path="/ui-placeholder" element={<Placeholder/>}/>
+        <Route path="/ui-progress" element={<Progress/>}/>
+        <Route path="/ui-popover" element={<Popover/>}/>
+        <Route path="/ui-scrollspy" element={<Scrollspy/>}/>
+        <Route path="/ui-spinners" element={<Spinners/>}/>
+        <Route path="/ui-toast" element={<Toast/>}/>
+        <Route path="/ui-typography" element={<Typography/>}/>
+        <Route path="/ui-lightgallery" element={<Lightgallery/>}/>
+     
+
+
           <Route path="/OrderPage" element={<OrderPage />} />
           <Route path="/coupon" element={<Coupon />} />
           <Route path="/login" element={<Login />} />
@@ -50,7 +77,9 @@ function App() {
         </Routes>
       </BrowserRouter>
     </>
+   
   );
+  
 }
 
 export default App;

@@ -27,12 +27,12 @@ export default function SideBar({ isOpen }) {
           </Link>
         </li>
         <li>
-          <a className="nav-link active" href="index.html">
+          <Link to="/ComponentPage" className="nav-link active" href="index.html">
             <span className="dz-icon">
               <i className="icon feather icon-grid"></i>
             </span>
             <span>Components</span>
-          </a>
+          </Link>
         </li>
         <li>
           <a className="nav-link active" href="index.html">
