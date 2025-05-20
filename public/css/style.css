@@ -21397,10 +21397,11 @@ button:focus {
 }
 
 .dz-list.style-1 ul li :hover {
-  background-color: #fff;
+  background-color: wheat;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transform: translateY(-2px);
   border-radius: 5px;
+  padding-left: 10px;
 }
 
 .dz-list.style-1 ul li a {

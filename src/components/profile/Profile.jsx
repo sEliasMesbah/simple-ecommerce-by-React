@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function Profile() {
+
     return <>
         <div class="page-wrapper">
             <header class="header shadow header-fixed border-0">
@@ -34,10 +35,7 @@ export default function Profile() {
                                     cursor: "pointer", maxWidth: "100px",
                                     borderRadius: "50%"
                                 }} />
-                                <div id="imgModal" class="img-modal">
-                                    <span class="close">&times;</span>
-                                    <img class="img-modal-content" id="modal-img" />
-                                </div>
+        
 
                             </div>
                             <div className="profile-detail">
@@ -245,6 +243,6 @@ export default function Profile() {
             </div>
 
         </div>
-        
+
     </>
 }
