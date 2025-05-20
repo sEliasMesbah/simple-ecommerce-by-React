@@ -21397,10 +21397,7 @@ button:focus {
 }
 
 .dz-list.style-1 ul li :hover {
-<<<<<<< HEAD
-=======
   background-color: wheat;
->>>>>>> 8b732ccd5c97f9790667b917ff9c0e08a9a755b8
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transform: translateY(-2px);
   border-radius: 5px;
