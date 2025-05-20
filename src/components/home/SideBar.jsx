@@ -65,7 +65,7 @@ export default function SideBar({ isOpen }) {
         </div>
       </a>
 
-      <ul className="nav navbar-nav">
+      <ul className="nav navbar-nav dark-icon-black">
         <li><Link to="/" className="nav-link active"><i className="feather icon-home"></i> Home</Link></li>
         <li><Link to="/wishlist" className="nav-link active"><i className="feather icon-heart"></i> Wishlist</Link></li>
         <li><Link to="/OrderPage" className="nav-link active"><i className="feather icon-repeat"></i> Orders</Link></li>

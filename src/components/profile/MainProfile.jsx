@@ -57,7 +57,7 @@ export default function MainProfile(){
 				<div className="title-bar">
 					<h6 className="title mb-0 font-w700">Account Settings</h6>
 				</div>
-				<div className="dz-list style-1">
+				<div className="dz-list style-1 hovering">
 					<ul>
 						<li>
 							<a href="edit-profile.html" className="item-content item-link">

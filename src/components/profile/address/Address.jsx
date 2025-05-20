@@ -22,7 +22,7 @@ export default function Address() {
             </header>
 
             <div className="page-content space-top p-b80">
-                <div className="container">
+                <div className="container hovering">
                     <Link to='/checkout' className="btn btn-outline-primary btn-block mb-3">
                         + Add New Address
                     </Link>
