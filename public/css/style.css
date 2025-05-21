@@ -19899,6 +19899,7 @@ a[class*="badge-outline-"]:hover {
 .btn.btn-danger,
 .btn.btn-info {
   color: var(--theme-text-color);
+  margin-top: 10px;
 }
 
 .btn.btn-lg,
@@ -21397,7 +21398,7 @@ button:focus {
 }
 
 .dz-list.style-1 ul li :hover {
-  background-color: wheat;
+  background-color: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transform: translateY(-2px);
   border-radius: 5px;
@@ -25830,7 +25831,7 @@ label input {
 }
 
 .item-bookmark svg path {
-  stroke: var(--primary);
+  color: #ff586e;
 }
 
 .item-bookmark.active i {
@@ -26378,9 +26379,11 @@ label input {
   color: var(--title);
   font-weight: 600;
 }
-.content-box ul li a:hover{
+
+.content-box ul li a:hover {
   background-color: wheat;
 }
+
 .card.address-card {
   border-radius: 0;
   box-shadow: var(--box-shadow);
@@ -26413,6 +26416,7 @@ label input {
   font-weight: 700;
   color: var(--title);
   font-family: var(--font-family-title);
+  border: 2px solid black;
 }
 
 .dz-offer-coupon {
@@ -26734,15 +26738,6 @@ label input {
   /* بالا و پایین فاصله بگیره */
 }
 
-p {
-  color: black;
-  font-size: 12px;
-}
-
-a {
-  color: black !important;
-}
-
 .swiper-wrap {
   display: flex;
   overflow: auto;
@@ -26766,7 +26761,7 @@ a {
   text-align: center;
   padding: 12px 10px;
   text-decoration: none;
-  color: #333;
+  /* color: #333; */
   width: 218.222px;
   margin-right: 12px;
   margin-top: 13px;
@@ -26816,8 +26811,9 @@ a {
   width: 100%;
   right: 13px;
 }
-.footer{
-/* >>>>>>> dev */
+
+.footer {
+  /* >>>>>>> dev */
   bottom: 66px !important;
   z-index: 2 !important;
   opacity: 1 !important;
@@ -26838,12 +26834,15 @@ a {
 .gear3:hover {
   color: var(--primary-hover) !important;
 }
+
 /* استایل عمومی دکمه‌ها */
 .nav-tabs .nav-link {
-  color: #000; /* رنگ معمولی */
+  color: #000;
+  /* رنگ معمولی */
   background: transparent;
   border: none;
-  transition: color 0.3s ease; /* ترنزیشن رنگ متن */
+  transition: color 0.3s ease;
+  /* ترنزیشن رنگ متن */
 }
 
 /* وقتی دکمه فعال است، رنگش سبز شود */
@@ -26861,7 +26860,7 @@ a {
   border-bottom: 2px solid #0d775e;
 }
 body.dark-mode {
-  background-color: #121212 !important;
+  background-color: #121212ba !important;
   color: white !important;
 }
 
@@ -26891,9 +26890,10 @@ body.dark-mode .menubar-area{
    color: white !important;
 
 }
-body.dark-mode h5,.a-title {
+body.dark-mode h5,.a-title,h4,h3 {
   color: white !important;
 }
+
 body.dark-mode .swiper-slide{
   /* background-color: silver; */
   background-color: white;
@@ -27044,6 +27044,8 @@ body.dark-mode .dark-icon-black li a i{
   color:black !important;
   margin-right: 5px;
 }
-
+body.dark-mode .price-area h3,h6{
+  color: white !important;
+}
 
 
