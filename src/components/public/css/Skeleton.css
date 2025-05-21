@@ -1,0 +1,51 @@
+.skeleton-loader {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--base-color);
+  line-height: 1;
+}
+
+.skeleton-loader::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--highlight-color) 50%,
+    transparent 100%
+  );
+  animation: skeleton-wave var(--animation-duration) infinite;
+}
+
+@keyframes skeleton-wave {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* انواع پیشفرض */
+.skeleton-loader.rect {
+  border-radius: 4px;
+}
+
+.skeleton-loader.circle {
+  border-radius: 50%;
+}
+
+.skeleton-loader.text {
+  height: 1em;
+}
+
+.skeleton-loader.title {
+  height: 1.5em;
+  width: 70%;
+}
+
+.skeleton-loader.avatar {
+  width: 40px;
+  height: 40px;
+}
