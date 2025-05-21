@@ -5,88 +5,123 @@ import Skeleton from "../public/Skeleton";
 
 export default function CategoryMain(){
     const [categories, setCategories] = useState([]);
+    const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
-    useEffect(() => {
-        const fetchCategoriesAndProducts = async () => {
-        try {
-            const catRes = await axios.get("http://localhost:3001/categories");
-            const prodRes = await axios.get("http://localhost:3001/products");
-            setTimeout(function(){
-                const categoriesData = catRes.data;
-                const productsData = prodRes.data;
-                // محاسبه تعداد محصولات برای هر دسته
-                const updatedCategories = categoriesData.map((category) => {
-                    const count = productsData.filter(
-                        (p) => p.categoryId === category.id
-                    ).length;
-                    return { ...category, count }; // اضافه کردن count به هر دسته
-                });
-    
-                setCategories(updatedCategories);
+    function fetchCategoriesAndProducts(){
+        setLoading(true);
+        setError(null);
+        axios.get("http://localhost:3001/categories")
+            .then(catRes => {
+                axios.get("http://localhost:3001/products")
+                    .then(prodRes => {
+                        setTimeout(() => {
+                            const categoriesData = catRes.data;
+                            const productsData = prodRes.data;
+                            const updatedCategories = categoriesData.map(category => {
+                                const count = productsData.filter(p => p.categoryId === category.id).length;
+                                return { ...category, count };
+                            });
+                            setCategories(updatedCategories);
+                            setLoading(false);
+                        }, 2000);
+                    })
+                    .catch(err => {
+                        console.error("Error receiving products", err);
+                        setError(`${err}`);
+                        setLoading(false);
+                    });
+            })
+            .catch(err => {
+                console.error("Error retrieving categories", err);
+                setError(`${err}`);
                 setLoading(false);
-            },2000)
-
-
-        } catch (err) {
-            console.error("خطا در دریافت اطلاعات:", err);
-            setLoading(false);
-        }
-        };
-
+        });
+    };
+    useEffect(() => {
         fetchCategoriesAndProducts();
     }, []);
-    if (loading) {
-    return (
-        <Banner>
-            {Array.from({ length: 4 }).map((_, index) => (
-                <div className="col-12 m-b15" key={index}>
+    if (error) {
+        return (
+            <Banner>
+                <div className="col-12 m-b15">
                     <div className="dz-category-card skeleton-wrapper">
-                        <div className="category-image">
+                        <div
+                            className="category-image"
+                            style={{ backgroundImage: `linear-gradient(150deg,rgba(255, 255, 255, 0.5), transparent 100%), url("https://img.freepik.com/free-photo/red-warning-alert-risk-danger-sign-icon-symbol-illustration-isolated-red-background-3d-rendering_56104-1222.jpg?t=st=1747861081~exp=1747864681~hmac=45e7d1389262f86fc67d1f4671c23477df25c12372bcf042cdf3c5292868df34&w=1800")` }}>
                             <Skeleton
                                 type="rect"
                                 height="100%"
                                 width="100%"
                                 color="rgba(130, 130, 130, 0.2)"
-                                highlight="rgba(130, 130, 130, 0.1)"
+                                highlight="rgba(255, 0, 0, 0.397)"
                                 borderRadius="0"
-                                style={{
-                                    background: `linear-gradient(150deg,
-                                        rgba(255, 255, 255, 0.15),
-                                        transparent 100%)`
-                                }}
                             />
                         </div>
                         <div className="category-content">
-                            <Skeleton
-                                type="text"
-                                width="60%"
-                                height="28px"
-                                style={{ marginBottom: "15px" }}
-                                color="#cfcfcf"
-                            />
-                            <Skeleton
-                                type="text"
-                                width="40%"
-                                height="18px"
-                                style={{ marginBottom: "20px" }}
-                                color="#cfcfcf"
-                            />
+                            <h3 className="title text-danger">{error}</h3>
                             <div className="shop-btn">
-                                <Skeleton
-                                    type="rect"
-                                    width="100px"
-                                    height="34px"
-                                    borderRadius="20px"
-                                    color="#cfcfcf"
-                                />
+                                <button className="btn btn-danger mt-2" onClick={fetchCategoriesAndProducts}>
+                                    Try again 🔁
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-            ))}
-        </Banner>
-    );
-}
+            </Banner>
+        );
+    }
+    if (loading) {
+        return (
+            <Banner>
+                {Array.from({ length: 1 }).map((_, index) => (
+                    <div className="col-12 m-b15" key={index}>
+                        <div className="dz-category-card skeleton-wrapper">
+                            <div className="category-image">
+                                <Skeleton
+                                    type="rect"
+                                    height="100%"
+                                    width="100%"
+                                    color="rgba(130, 130, 130, 0.2)"
+                                    highlight="rgba(130, 130, 130, 0.1)"
+                                    borderRadius="0"
+                                    style={{
+                                        background: `linear-gradient(150deg,
+                                            rgba(255, 255, 255, 0.15),
+                                            transparent 100%)`
+                                    }}
+                                />
+                            </div>
+                            <div className="category-content">
+                                <Skeleton
+                                    type="text"
+                                    width="60%"
+                                    height="28px"
+                                    style={{ marginBottom: "15px" }}
+                                    color="#cfcfcf"
+                                />
+                                <Skeleton
+                                    type="text"
+                                    width="40%"
+                                    height="18px"
+                                    style={{ marginBottom: "20px" }}
+                                    color="#cfcfcf"
+                                />
+                                <div className="shop-btn">
+                                    <Skeleton
+                                        type="rect"
+                                        width="100px"
+                                        height="34px"
+                                        borderRadius="20px"
+                                        color="#cfcfcf"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </Banner>
+        );
+    }
 
     return <>
         <Banner>
