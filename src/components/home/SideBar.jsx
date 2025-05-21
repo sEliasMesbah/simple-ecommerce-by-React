@@ -12,9 +12,9 @@ export default function SideBar({ isOpen }) {
 
     if (savedTheme === "dark") {
       setIsDarkMode(true);
-      document.body.classList.add("dark-mode");
+      document.body.classList.add("theme-dark");
     } else {
-      document.body.classList.remove("dark-mode");
+      document.body.classList.remove("theme-dark");
     }
 
     if (savedColor) {
@@ -42,10 +42,10 @@ export default function SideBar({ isOpen }) {
     const newMode = !isDarkMode;
     setIsDarkMode(newMode);
     if (newMode) {
-      document.body.classList.add("dark-mode");
+      document.body.classList.add("theme-dark");
       localStorage.setItem("theme", "dark");
     } else {
-      document.body.classList.remove("dark-mode");
+      document.body.classList.remove("theme-dark");
       localStorage.setItem("theme", "light");
     }
   };
