@@ -1,19 +1,35 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "reza",
-      "password": "123456"
+      "password": "123456",
+      "phone": "09123456789",
+      "email": "reza@example.com",
+      "location": "Tehran, Iran"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "ali",
-      "password": "abcdef"
+      "password": "abcdef",
+      "phone": "09351234567",
+      "email": "ali@example.com",
+      "location": "Shiraz, Iran"
     },
     {
       "id": "1f8b",
       "name": "R.Z.M.S25004",
-      "password": "rzms25004"
+      "password": "rzms25004",
+      "phone": "09991234567",
+      "email": "rzms@example.com",
+      "location": "Tabriz, Iran"
+    },
+    {
+      "name": "رضا معصومی فرد",
+      "phone": "09966746716",
+      "email": "reza.masoumifard84@gmail.com",
+      "location": "قم.نیروگاه.حافظ 9.پلاک 13",
+      "id": "bbd6"
     }
   ],
   "products": [
