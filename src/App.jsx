@@ -22,35 +22,36 @@ import FAQ from "./components/profile/HelpCenter/Help";
 import Address from "./components/profile/address/Address";
 import CheckOut from "./components/profile/address/checkout";
 import { AuthProvider } from "./context/AuthContext";
+import { AddressProvider } from "./components/profile/address/AddressContext";
 
 
 function App() {
   return (
     <>
-    <AuthProvider>
-      <BrowserRouter>
-        <MenuBar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/categori" element={<CategoriPage />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/wishlist" element={<WishListPage />} />
-          <Route path="/EditProfile" element={<EditProfile />} />
-          <Route path="/CartPage" element={<CartPage />} />
-          <Route path="/WishListPage" element={<WishListPage />} />
-          <Route path="/OrderPage" element={<OrderPage />} />
-          <Route path="/coupon" element={<Coupon />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/welcome" element={<Welcome />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/forgetPassword" element={<ForgetPassword />} />
-          <Route path="/help" element={<FAQ/>} />
-          <Route path="/address" element={<Address/>} />
-          <Route path="/checkout" element={<CheckOut/>} />
-          
-
-        </Routes>
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <MenuBar />
+          <AddressProvider  >
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/categori" element={<CategoriPage />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/wishlist" element={<WishListPage />} />
+              <Route path="/EditProfile" element={<EditProfile />} />
+              <Route path="/CartPage" element={<CartPage />} />
+              <Route path="/WishListPage" element={<WishListPage />} />
+              <Route path="/OrderPage" element={<OrderPage />} />
+              <Route path="/coupon" element={<Coupon />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/welcome" element={<Welcome />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/forgetPassword" element={<ForgetPassword />} />
+              <Route path="/help" element={<FAQ />} />
+              <Route path="/address" element={<Address />} />
+              <Route path="/checkout" element={<CheckOut />} />
+            </Routes>
+          </AddressProvider>
+        </BrowserRouter>
       </AuthProvider>
     </>
   );

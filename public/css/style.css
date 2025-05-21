@@ -19899,6 +19899,7 @@ a[class*="badge-outline-"]:hover {
 .btn.btn-danger,
 .btn.btn-info {
   color: var(--theme-text-color);
+  margin-top: 10px;
 }
 
 .btn.btn-lg,
@@ -21397,7 +21398,7 @@ button:focus {
 }
 
 .dz-list.style-1 ul li :hover {
-  background-color: wheat;
+  background-color: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transform: translateY(-2px);
   border-radius: 5px;
@@ -25830,7 +25831,7 @@ label input {
 }
 
 .item-bookmark svg path {
-  stroke: var(--primary);
+  color: #ff586e;
 }
 
 .item-bookmark.active i {
@@ -26378,9 +26379,11 @@ label input {
   color: var(--title);
   font-weight: 600;
 }
-.content-box ul li a:hover{
+
+.content-box ul li a:hover {
   background-color: wheat;
 }
+
 .card.address-card {
   border-radius: 0;
   box-shadow: var(--box-shadow);
@@ -26413,6 +26416,7 @@ label input {
   font-weight: 700;
   color: var(--title);
   font-family: var(--font-family-title);
+  border: 2px solid black;
 }
 
 .dz-offer-coupon {
@@ -26816,8 +26820,9 @@ a {
   width: 100%;
   right: 13px;
 }
-.footer{
-/* >>>>>>> dev */
+
+.footer {
+  /* >>>>>>> dev */
   bottom: 66px !important;
   z-index: 2 !important;
   opacity: 1 !important;
@@ -26838,12 +26843,15 @@ a {
 .gear3:hover {
   color: var(--primary-hover) !important;
 }
+
 /* استایل عمومی دکمه‌ها */
 .nav-tabs .nav-link {
-  color: #000; /* رنگ معمولی */
+  color: #000;
+  /* رنگ معمولی */
   background: transparent;
   border: none;
-  transition: color 0.3s ease; /* ترنزیشن رنگ متن */
+  transition: color 0.3s ease;
+  /* ترنزیشن رنگ متن */
 }
 
 /* وقتی دکمه فعال است، رنگش سبز شود */
@@ -26860,6 +26868,7 @@ a {
 .nav-tabs .nav-item.active-tab {
   border-bottom: 2px solid #0d775e;
 }
+
 body.dark-mode {
   background-color: #121212ba !important;
   color: white !important;
@@ -26869,48 +26878,59 @@ body.dark-mode .sidebar {
   background-color: #121212 !important;
 
 }
+
 body.dark-mode i {
   color: white !important;
 }
+
 body.dark-mode span {
   color: black !important;
 }
+
 /* body.dark-mode h6 {
   color: white !important;
 } */
-body.dark-mode .header{
+body.dark-mode .header {
   background-color: black;
   border-bottom: 1px solid white !important;
 }
-body.dark-mode .badge{
+
+body.dark-mode .badge {
   color: white !important;
 }
 
-body.dark-mode .menubar-area{
-  background-color: black !important; 
-   color: white !important;
+body.dark-mode .menubar-area {
+  background-color: black !important;
+  color: white !important;
 
 }
-body.dark-mode h5,.a-title,h4,h3 {
+
+body.dark-mode h5,
+.a-title,
+h4,
+h3 {
   color: white !important;
 }
 
-body.dark-mode .swiper-slide{
+body.dark-mode .swiper-slide {
   /* background-color: silver; */
   background-color: white;
 
 }
-body.dark-mode .category-swiper div div{
+
+body.dark-mode .category-swiper div div {
   /* background-color: silver; */
   background-color: #2c2c2c !important;
 
 }
-body.dark-mode .nav-link span{
+
+body.dark-mode .nav-link span {
   /* background-color: silver; */
   color: white !important;
 
 }
-body.dark-mode .cart-box{
+
+body.dark-mode .cart-box {
   background-color: #2c2c2c !important;
   color: white !important;
   /* border: 1px solid white; */
@@ -26919,37 +26939,44 @@ body.dark-mode .cart-box{
 
 
 
-body.dark-mode .dz-content{
+body.dark-mode .dz-content {
   padding: 8px !important;
 }
-body.dark-mode .category-swiper{
+
+body.dark-mode .category-swiper {
   /* background-color: black; */
   background-color: #2c2c2c;
 
 }
-body.dark-mode .category-btn:hover{
+
+body.dark-mode .category-btn:hover {
   background-color: gray;
 
 }
-.category-image{
+
+.category-image {
   background-color: silver;
 
 }
-body.dark-mode .dz-inner .title{
+
+body.dark-mode .dz-inner .title {
   color: white !important;
 }
-body.dark-mode .sidebar{
+
+body.dark-mode .sidebar {
   background-image: unset !important;
   background-color: black;
 }
 
-*{
+* {
   transition: background-color 0.6s ease, color 0.6s ease;
 
 }
-body.dark-mode .side-icon{
+
+body.dark-mode .side-icon {
   color: black !important;
 }
+
 body.dark-mode .auth-container {
   background-color: #2c2c2c;
   color: white;
@@ -26965,88 +26992,111 @@ body.dark-mode .auth-container button {
 body.dark-mode .auth-container button:hover {
   background-color: #666;
 }
-body.dark-mode .cart-box .cart-content h6 a{
+
+body.dark-mode .cart-box .cart-content h6 a {
   color: white !important;
 }
-body.dark-mode .cart-box .cart-content span{
+
+body.dark-mode .cart-box .cart-content span {
   color: white !important;
 }
-body.dark-mode .cart-box .cart-content div h6{
+
+body.dark-mode .cart-box .cart-content div h6 {
   color: white !important;
 }
-body.dark-mode .cart-box .cart-content div h6 del{
+
+body.dark-mode .cart-box .cart-content div h6 del {
   color: white !important;
 }
-body.dark-mode .bootstrap-touchspin-injected span button{
+
+body.dark-mode .bootstrap-touchspin-injected span button {
   color: white !important;
   background-color: gray !important;
   border: none !important;
 }
-body.dark-mode .bootstrap-touchspin-injected input{
+
+body.dark-mode .bootstrap-touchspin-injected input {
   color: white !important;
   /* background-color: gray !important; */
   border: none !important;
 }
-body.dark-mode .coupon-bx div i{
+
+body.dark-mode .coupon-bx div i {
   color: black !important;
 }
-body.dark-mode .coupon-bx{
+
+body.dark-mode .coupon-bx {
   color: black !important;
   border: 1px white dotted !important;
   background-color: silver !important;
 }
-body.dark-mode .view-cart{
+
+body.dark-mode .view-cart {
   color: white !important;
   /* border: 1px white dotted !important; */
   background-color: #2c2c2c !important;
 }
-body.dark-mode .view-cart ul li span{
+
+body.dark-mode .view-cart ul li span {
   color: white !important;
 }
-.view-cart{
+
+.view-cart {
   padding: 10px;
 }
-body.dark-mode .profile-detail h6{
+
+body.dark-mode .profile-detail h6 {
   color: white !important;
 }
-body.dark-mode .profile-detail span{
+
+body.dark-mode .profile-detail span {
   color: white !important;
 }
-body.dark-mode .title-bar h6{
+
+body.dark-mode .title-bar h6 {
   color: white !important;
 }
-body.dark-mode .content-box ul li a div i{
+
+body.dark-mode .content-box ul li a div i {
   color: black !important;
 }
-body.dark-mode .item-content:hover div{
+
+body.dark-mode .item-content:hover div {
   color: black !important;
 }
-body.dark-mode .header-content div a{
+
+body.dark-mode .header-content div a {
   color: white !important;
 }
-body.dark-mode .header-content div h6{
+
+body.dark-mode .header-content div h6 {
   color: white !important;
 }
-body.dark-mode .form-label{
+
+body.dark-mode .form-label {
   color: white !important;
 }
-body.dark-mode .fixed{
+
+body.dark-mode .fixed {
   background-color: black !important;
 }
-body.dark-mode .hovering a{
+
+body.dark-mode .hovering a {
   background-color: gray !important;
-  color:  white;
+  color: white;
 }
-body.dark-mode .hovering h6{
+
+body.dark-mode .hovering h6 {
   /* background-color: gray !important; */
-  color:  white !important;
-}
-body.dark-mode .dark-icon-black li a i{
-  color:black !important;
-  margin-right: 5px;
-}
-body.dark-mode .price-area h3,h6{
   color: white !important;
 }
 
+body.dark-mode .dark-icon-black li a i {
+  color: black !important;
+  margin-right: 5px;
+}
 
+body.dark-mode .price-area h3,
+h6 {
+  color: black !important;
+}

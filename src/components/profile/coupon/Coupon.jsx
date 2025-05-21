@@ -7,12 +7,10 @@ export default function Coupon() {
 		<header className="header shadow header-fixed border-0">
 			<div className="container">
 				<div className="header-content">
-					<div className="left-content">
-						<a href="javascript:void(0);">
-							<Link to="/profile" className="back-btn">
+					<div className="left-content">ّ
+						<Link to="/profile" className="back-btn">
 							<i className="icon feather icon-chevron-left"></i>
 							</Link>
-						</a>
 						<h6 className="title">My Coupons</h6>
 					</div>
 					<div className="mid-content">
