@@ -9,6 +9,9 @@ export default function Register() {
     name: "",
     password: "",
     confirm_password: "",
+    phone: "",
+    email: "",
+    location: "",
   });
   const [error, setError] = useState("");
 
@@ -22,9 +25,10 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { name, password, confirm_password } = formData;
+    const { name, password, confirm_password, phone, email, location } = formData;
 
-    if (!name || !password || !confirm_password) {
+    // اعتبارسنجی فیلدها
+    if (!name || !password || !confirm_password || !phone || !email || !location) {
       setError("لطفاً همه فیلدها را پر کنید.");
       return;
     }
@@ -35,6 +39,7 @@ export default function Register() {
     }
 
     try {
+      // بررسی اینکه نام کاربری وجود نداشته باشد
       const existingUser = await axios.get(
         `http://localhost:3001/users?name=${name}`
       );
@@ -43,9 +48,13 @@ export default function Register() {
         return;
       }
 
+      // ثبت نام با ارسال همه اطلاعات
       await axios.post("http://localhost:3001/users", {
         name,
         password,
+        phone,
+        email,
+        location,
       });
 
       navigate("/login");
@@ -101,6 +110,31 @@ export default function Register() {
                 type="password"
                 placeholder="Confirm Password"
                 value={formData.confirm_password}
+                onChange={handleChange}
+              />
+
+              <Input
+                label="Mobile Number"
+                id="phone"
+                type="tel"
+                placeholder="Type Mobile Number Here"
+                value={formData.phone}
+                onChange={handleChange}
+              />
+              <Input
+                label="Email"
+                id="email"
+                type="email"
+                placeholder="Type Email Here"
+                value={formData.email}
+                onChange={handleChange}
+              />
+              <Input
+                label="Location"
+                id="location"
+                type="text"
+                placeholder="Type Location Here"
+                value={formData.location}
                 onChange={handleChange}
               />
 
