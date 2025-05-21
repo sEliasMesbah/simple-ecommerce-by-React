@@ -12,7 +12,7 @@ export default function CartFinalPrice({ total }) {
 				<div className="total-cart">
 					<div className="price-area">
 						<h3 className="price text-secondary">${finalTotal.toFixed(2)}</h3>
-						<span>View price details</span>
+						<h6>View price details</h6>
 					</div>
 					<a href="checkout.html" className="btn btn-primary">Checkout</a>
 				</div>

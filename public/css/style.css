@@ -26861,7 +26861,7 @@ a {
   border-bottom: 2px solid #0d775e;
 }
 body.dark-mode {
-  background-color: #121212 !important;
+  background-color: #121212ba !important;
   color: white !important;
 }
 
@@ -26891,9 +26891,10 @@ body.dark-mode .menubar-area{
    color: white !important;
 
 }
-body.dark-mode h5,.a-title {
+body.dark-mode h5,.a-title,h4,h3 {
   color: white !important;
 }
+
 body.dark-mode .swiper-slide{
   /* background-color: silver; */
   background-color: white;
@@ -27044,6 +27045,8 @@ body.dark-mode .dark-icon-black li a i{
   color:black !important;
   margin-right: 5px;
 }
-
+body.dark-mode .price-area h3,h6{
+  color: white !important;
+}
 
 

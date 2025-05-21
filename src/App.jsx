@@ -21,11 +21,13 @@ import ForgetPassword from "./public/ForgetPassword";
 import FAQ from "./components/profile/HelpCenter/Help";
 import Address from "./components/profile/address/Address";
 import CheckOut from "./components/profile/address/checkout";
+import { AuthProvider } from "./context/AuthContext";
 
 
 function App() {
   return (
     <>
+    <AuthProvider>
       <BrowserRouter>
         <MenuBar />
         <Routes>
@@ -49,6 +51,7 @@ function App() {
 
         </Routes>
       </BrowserRouter>
+      </AuthProvider>
     </>
   );
 }
