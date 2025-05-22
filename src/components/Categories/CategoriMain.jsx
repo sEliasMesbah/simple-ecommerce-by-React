@@ -1,45 +1,42 @@
-import { useState , useEffect, Children } from "react";
+import { useState, useEffect, Children } from "react";
 import axios from "axios";
-import CategoriCard from "./CategoryCard"
+import CategoriCard from "./CategoryCard";
 import Skeleton from "../public/Skeleton";
 
-export default function CategoryMain(){
+export default function CategoryMain() {
     const [categories, setCategories] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
-    function fetchCategoriesAndProducts(){
+
+    function fetchCategoriesAndProducts() {
         setLoading(true);
         setError(null);
-        axios.get("http://localhost:3001/categories")
-            .then(catRes => {
-                axios.get("http://localhost:3001/products")
-                    .then(prodRes => {
-                        setTimeout(() => {
-                            const categoriesData = catRes.data;
-                            const productsData = prodRes.data;
-                            const updatedCategories = categoriesData.map(category => {
-                                const count = productsData.filter(p => p.categoryId === category.id).length;
-                                return { ...category, count };
-                            });
-                            setCategories(updatedCategories);
-                            setLoading(false);
-                        }, 2000);
-                    })
-                    .catch(err => {
-                        console.error("Error receiving products", err);
-                        setError(`${err}`);
-                        setLoading(false);
-                    });
-            })
-            .catch(err => {
-                console.error("Error retrieving categories", err);
-                setError(`${err}`);
-                setLoading(false);
+
+        Promise.all([
+            axios.get("http://localhost:3001/categories"),
+            axios.get("http://localhost:3001/products")
+        ])
+        .then(([catRes, prodRes]) => {
+            const categoriesData = catRes.data;
+            const productsData = prodRes.data;
+            const updatedCategories = categoriesData.map(category => {
+                const count = productsData.filter(p => p.categoryId === category.id).length;
+                return { ...category, count };
+            });
+            setCategories(updatedCategories);
+            setLoading(false);
+        })
+        .catch(err => {
+            console.error("Error fetching data", err);
+            setError(`${err}`);
+            setLoading(false);
         });
     };
+
     useEffect(() => {
         fetchCategoriesAndProducts();
     }, []);
+
     if (error) {
         return (
             <Banner>
@@ -47,7 +44,7 @@ export default function CategoryMain(){
                     <div className="dz-category-card skeleton-wrapper">
                         <div
                             className="category-image"
-                            style={{ backgroundImage: `linear-gradient(150deg,rgba(255, 255, 255, 0.5), transparent 100%), url("https://img.freepik.com/free-photo/red-warning-alert-risk-danger-sign-icon-symbol-illustration-isolated-red-background-3d-rendering_56104-1222.jpg?t=st=1747861081~exp=1747864681~hmac=45e7d1389262f86fc67d1f4671c23477df25c12372bcf042cdf3c5292868df34&w=1800")` }}>
+                            style={{ backgroundImage: `linear-gradient(150deg,rgba(255, 255, 255, 0.5), transparent 100%), url("https://img.freepik.com/free-photo/red-warning-alert-risk-danger-sign-icon-symbol-illustration-isolated-red-background-3d-rendering_56104-1222.jpg")` }}>
                             <Skeleton
                                 type="rect"
                                 height="100%"
@@ -70,10 +67,11 @@ export default function CategoryMain(){
             </Banner>
         );
     }
+
     if (loading) {
         return (
             <Banner>
-                {Array.from({ length: 1 }).map((_, index) => (
+                {Array.from({ length: 4 }).map((_, index) => (
                     <div className="col-12 m-b15" key={index}>
                         <div className="dz-category-card skeleton-wrapper">
                             <div className="category-image">
@@ -123,15 +121,16 @@ export default function CategoryMain(){
         );
     }
 
-    return <>
+    return (
         <Banner>
-            {categories.map((data)=>(
-                <CategoriCard data={data} />
+            {categories.map((data) => (
+                <CategoriCard key={data.id} data={data} />
             ))}
         </Banner>
-    </>
+    );
 }
-export function Banner({children}) {
+
+export function Banner({ children }) {
     return (
         <div className="page-content space-top p-b60">
             <div className="container">
@@ -140,5 +139,5 @@ export function Banner({children}) {
                 </div>
             </div>
         </div>
-    )
+    );
 }
