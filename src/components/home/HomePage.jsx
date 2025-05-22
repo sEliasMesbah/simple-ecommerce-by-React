@@ -9,16 +9,19 @@ export default function HomePage() {
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
   const closeSidebar = () => setIsSidebarOpen(false);
-  return <>
-    <Header onToggleSidebar={toggleSidebar} />
-    <SideBar isOpen={isSidebarOpen} />
-    {isSidebarOpen && (
-      <div
-        className="overlay"
-        onClick={closeSidebar}
-      ></div>
-    )}
-    <Main />
-    {/* <MenuBar /> */}
-  </>
+
+  return (
+    <>
+      <Header onToggleSidebar={toggleSidebar} />
+      <SideBar isOpen={isSidebarOpen} onClose={closeSidebar} />
+      {isSidebarOpen && (
+        <div
+          className="overlay"
+          onClick={closeSidebar}
+        ></div>
+      )}
+      <Main />
+      {/* <MenuBar /> */}
+    </>
+  );
 }

@@ -1,5 +1,3 @@
-import { useState } from "react";
-import Header from "./components/home/HomeHeader";
 import MenuBar from "./components/MenuBar";
 import SideBar from "./components/home/SideBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
