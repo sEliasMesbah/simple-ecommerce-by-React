@@ -77,36 +77,36 @@ export default function SideBar({ isOpen, onClose }) {
       <ul className="nav navbar-nav dark-icon-black">
         <li>
           <Link to="/home" className="nav-link active" onClick={handleNav}>
-            <i className="feather icon-home"></i> Home
+            <i className="feather icon-home" style={{marginRight:"5px"}}></i> Home
           </Link>
         </li>
         <li>
           <Link to="/wishlist" className="nav-link active" onClick={handleNav}>
-            <i className="feather icon-heart"></i> Wishlist
+            <i className="feather icon-heart" style={{marginRight:"5px"}}></i> Wishlist
           </Link>
         </li>
         <li>
           <Link to="/OrderPage" className="nav-link active" onClick={handleNav}>
-            <i className="feather icon-repeat"></i> Orders
+            <i className="feather icon-repeat" style={{marginRight:"5px"}}></i> Orders
           </Link>
         </li>
         <li>
           <Link to="/profile" className="nav-link active" onClick={handleNav}>
-            <i className="feather icon-user"></i> Profile
+            <i className="feather icon-user" style={{marginRight:"5px"}}></i> Profile
           </Link>
         </li>
 
         {user ? (
           <li onClick={handleLogout}>
             <Link className="nav-link active" style={{ cursor: "pointer" }}>
-              <i className="feather icon-log-out"></i> Logout
+              <i className="feather icon-log-out" style={{marginRight:"5px"}}></i> Logout
             </Link>
           </li>
         ) : (
           <>
             <li>
               <Link to="/login" className="nav-link active" onClick={handleNav}>
-                <i className="feather icon-log-in"></i> Login
+                <i className="feather icon-log-in"  style={{marginRight:"5px"}}></i> Login
               </Link>
             </li>
           </>

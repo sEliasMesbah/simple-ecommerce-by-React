@@ -62,7 +62,7 @@ export default function Welcome() {
             </div>
             <div className="bottom-btn container">
               {/* <a href="login.html" className="btn btn-primary w-100">Get Started</a> */}
-              <Link to="/home" className="btn btn-primary w-100">
+              <Link to="/login" className="btn btn-primary w-100">
                 Get Started
               </Link>
             </div>
