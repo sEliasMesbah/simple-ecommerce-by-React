@@ -56,9 +56,6 @@ function App() {
         <MenuBar />
         <Routes>
          
-     
-
-
           <Route path="/OrderPage" element={<OrderPage />} />
           <Route path="/coupon" element={<Coupon />} />
           <Route path="/login" element={<Login />} />
@@ -68,8 +65,6 @@ function App() {
           <Route path="/help" element={<FAQ/>} />
           <Route path="/address" element={<Address/>} />
           <Route path="/checkout" element={<CheckOut/>} />
-          
-
         </Routes>
       </BrowserRouter>
     </>
