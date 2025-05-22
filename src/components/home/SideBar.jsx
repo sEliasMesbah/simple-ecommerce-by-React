@@ -74,135 +74,44 @@ export default function SideBar({ isOpen, onClose }) {
         </div>
       </Link>
 
-      <ul className="nav navbar-nav">
-        <li>
-          <Link to="/" className="nav-link active" href="index.html">
-            <span className="dz-icon">
-              <i className="icon feather icon-home"></i>
-            </span>
-            <span>Home</span>
-          </Link>
-        </li>
-        <li>
-          <Link to="/ComponentPage" className="nav-link active" href="index.html">
-            <span className="dz-icon">
-              <i className="icon feather icon-grid"></i>
-            </span>
-            <span>Components</span>
-          </Link>
-        </li>
-        <li>
-          <a className="nav-link active" href="index.html">
-            <span className="dz-icon">
-              <i className="icon feather icon-grid"></i>
-            </span>
-            <span>Pages</span>
-          </a>
-        </li>
-        <li>
-          <a className="nav-link active" href="index.html">
-            <span className="dz-icon">
-              <i className="icon feather icon-list"></i>
-            </span>
-            <span>Featured</span>
-          </a>
-        </li>
-        <li>
-          <Link to="/wishlist" className="nav-link active" href="index.html">
-            <span className="dz-icon">
-              <i className="icon feather icon-heart"></i>
-            </span>
-            <span>Wishlist</span>
-          </Link>
-        </li>
-        <li>
-          <Link to="/OrderPage" className="nav-link active" href="index.html">
-            <span className="dz-icon">
-              <i className="icon feather icon-repeat"></i>
-            </span>
-            <span>Orders</span>
-          </Link>
-        </li>
-        <li>
-          <a className="nav-link active" href="index.html">
-            <span className="dz-icon">
-              <i className="icon feather icon-shopping-cart"></i>
-            </span>
-            <span>My Cart</span>
-          </a>
-        </li>
-        <li>
-          <Link to="/profile" className="nav-link active" href="index.html">
-            <span className="dz-icon">
-              <i className="icon feather icon-user"></i>
-            </span>
-            <span>Profile</span>
-          </Link>
-        </li>
-        <li>
-          <Link to="/welcome" className="nav-link active" href="index.html">
-            <span className="dz-icon">
-              <i className="icon feather icon-log-out"></i>
-            </span>
-            <span>Logout</span>
-          </Link>
-          {/* <a className="nav-link active" href="index.html">
-            <span className="dz-icon">
-              <i className="icon feather icon-log-out"></i>
-            </span>
-            <span>Logout</span>
-          </a> */}
-        </li>
-        {/* بقیه آیتم‌ها همینطور ادامه دارن */}
-      </ul>
       <ul className="nav navbar-nav dark-icon-black">
-  <li>
-    <Link to="/home" className="nav-link active" onClick={handleNav}>
-      <i className="feather icon-home"></i> Home
-    </Link>
-  </li>
+        <li>
+          <Link to="/home" className="nav-link active" onClick={handleNav}>
+            <i className="feather icon-home"></i> Home
+          </Link>
+        </li>
+        <li>
+          <Link to="/wishlist" className="nav-link active" onClick={handleNav}>
+            <i className="feather icon-heart"></i> Wishlist
+          </Link>
+        </li>
+        <li>
+          <Link to="/OrderPage" className="nav-link active" onClick={handleNav}>
+            <i className="feather icon-repeat"></i> Orders
+          </Link>
+        </li>
+        <li>
+          <Link to="/profile" className="nav-link active" onClick={handleNav}>
+            <i className="feather icon-user"></i> Profile
+          </Link>
+        </li>
 
-  <li>
-    <Link
-      to={user ? "/wishlist" : "/login"}
-      className="nav-link active"
-      onClick={handleNav}
-    >
-      <i className="feather icon-heart"></i> Wishlist
-    </Link>
-  </li>
-
-  <li>
-    <Link
-      to={user ? "/OrderPage" : "/login"}
-      className="nav-link active"
-      onClick={handleNav}
-    >
-      <i className="feather icon-repeat"></i> Orders
-    </Link>
-  </li>
-
-  <li>
-    <Link to="/profile" className="nav-link active" onClick={handleNav}>
-      <i className="feather icon-user"></i> Profile
-    </Link>
-  </li>
-
-  {user ? (
-    <li onClick={handleLogout}>
-      <Link className="nav-link active" style={{ cursor: "pointer" }}>
-        <i className="feather icon-log-out"></i> Logout
-      </Link>
-    </li>
-  ) : (
-    <li>
-      <Link to="/login" className="nav-link active" onClick={handleNav}>
-        <i className="feather icon-log-in"></i> Login
-      </Link>
-    </li>
-  )}
-</ul>
-
+        {user ? (
+          <li onClick={handleLogout}>
+            <Link className="nav-link active" style={{ cursor: "pointer" }}>
+              <i className="feather icon-log-out"></i> Logout
+            </Link>
+          </li>
+        ) : (
+          <>
+            <li>
+              <Link to="/login" className="nav-link active" onClick={handleNav}>
+                <i className="feather icon-log-in"></i> Login
+              </Link>
+            </li>
+          </>
+        )}
+      </ul>
 
       <div className="sidebar-bottom">
         <ul className="app-setting">
