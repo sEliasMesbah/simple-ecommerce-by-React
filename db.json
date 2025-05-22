@@ -17,12 +17,11 @@
       "location": "LH-12, East Wally USA"
     },
     {
-      "id": "1f63",
-      "name": "sajjad",
-      "password": "123456789",
+      "name": "kian",
       "phone": "09790497872",
       "email": "kian2@gmail.com",
-      "location": "qom"
+      "location": "qom",
+      "id": "1f63"
     }
   ],
   "products": [

@@ -8481,7 +8481,7 @@ fieldset:disabled .btn {
 }
 
 .end-0 {
-  right: 0 !important;
+  right: 10px !important;
 }
 
 .end-50 {
@@ -26417,6 +26417,11 @@ label input {
   color: var(--title);
   font-family: var(--font-family-title);
   border: 2px solid black;
+  transition: .5s ease-in-out;
+}
+
+.card.address-card .card-footer .footer-link:hover {
+  background-color: var(--primary);
 }
 
 .dz-offer-coupon {
@@ -26859,6 +26864,11 @@ label input {
 .nav-tabs .nav-item.active-tab {
   border-bottom: 2px solid #0d775e;
 }
-.navbar-nav li{
+
+.navbar-nav li {
   cursor: pointer;
+}
+
+body.dark-mod .dz-list.style-1 ul li:hover {
+  color: red;
 }
