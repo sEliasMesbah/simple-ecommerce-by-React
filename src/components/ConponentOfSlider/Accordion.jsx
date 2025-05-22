@@ -5,8 +5,6 @@ export default function Accordion(){
 	
     return<>
     <div className="page-wrapper">
-    
-	
 		<header className="header shadow header-fixed border-0 onepage">
 			<div className="container">
 				<div className="header-content">
@@ -29,7 +27,10 @@ export default function Accordion(){
 
 	<div className="page-content space-top">
 		<div className="container">
-	<div className="card dz-card style-1" style={{backgroundimage:" url('/images/bg-shape.png');"}}>				
+			<div 
+				className="card dz-card style-1" 
+				style={{backgroundImage: "url('/images/bg-shape.png')"}}
+			>
 				<div className="card-body">
 					<div className="dz-media dz-flex-box">
 						<img src="/images/bootstrap-logo.png" alt=""/>

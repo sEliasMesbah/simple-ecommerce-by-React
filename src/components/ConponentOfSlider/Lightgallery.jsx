@@ -3,13 +3,6 @@ import { Link } from "react-router-dom";
 export default function Lightgallery(){
     return<>
     <div className="page-wrapper">
-    
-	<div id="preloader">
-		<div className="loader">
-			<div className="load-circle"><div></div><div></div></div>
-		</div>
-	</div>
-
 		<header className="header shadow header-fixed border-0 onepage">
 			<div className="container">
 				<div className="header-content">
