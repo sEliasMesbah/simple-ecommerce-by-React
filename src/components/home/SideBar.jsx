@@ -75,43 +75,53 @@ export default function SideBar({ isOpen, onClose }) {
       </Link>
 
       <ul className="nav navbar-nav dark-icon-black">
-        <li>
-          <Link to="/home" className="nav-link active" onClick={handleNav}>
-            <i className="feather icon-home"></i> Home
-          </Link>
-        </li>
-        <li>
-          <Link to="/wishlist" className="nav-link active" onClick={handleNav}>
-            <i className="feather icon-heart"></i> Wishlist
-          </Link>
-        </li>
-        <li>
-          <Link to="/OrderPage" className="nav-link active" onClick={handleNav}>
-            <i className="feather icon-repeat"></i> Orders
-          </Link>
-        </li>
-        <li>
-          <Link to="/profile" className="nav-link active" onClick={handleNav}>
-            <i className="feather icon-user"></i> Profile
-          </Link>
-        </li>
+  <li>
+    <Link to="/home" className="nav-link active" onClick={handleNav}>
+      <i className="feather icon-home"></i> Home
+    </Link>
+  </li>
 
-        {user ? (
-          <li onClick={handleLogout}>
-            <Link className="nav-link active" style={{ cursor: "pointer" }}>
-              <i className="feather icon-log-out"></i> Logout
-            </Link>
-          </li>
-        ) : (
-          <>
-            <li>
-              <Link to="/login" className="nav-link active" onClick={handleNav}>
-                <i className="feather icon-log-in"></i> Login
-              </Link>
-            </li>
-          </>
-        )}
-      </ul>
+  <li>
+    <Link
+      to={user ? "/wishlist" : "/login"}
+      className="nav-link active"
+      onClick={handleNav}
+    >
+      <i className="feather icon-heart"></i> Wishlist
+    </Link>
+  </li>
+
+  <li>
+    <Link
+      to={user ? "/OrderPage" : "/login"}
+      className="nav-link active"
+      onClick={handleNav}
+    >
+      <i className="feather icon-repeat"></i> Orders
+    </Link>
+  </li>
+
+  <li>
+    <Link to="/profile" className="nav-link active" onClick={handleNav}>
+      <i className="feather icon-user"></i> Profile
+    </Link>
+  </li>
+
+  {user ? (
+    <li onClick={handleLogout}>
+      <Link className="nav-link active" style={{ cursor: "pointer" }}>
+        <i className="feather icon-log-out"></i> Logout
+      </Link>
+    </li>
+  ) : (
+    <li>
+      <Link to="/login" className="nav-link active" onClick={handleNav}>
+        <i className="feather icon-log-in"></i> Login
+      </Link>
+    </li>
+  )}
+</ul>
+
 
       <div className="sidebar-bottom">
         <ul className="app-setting">
