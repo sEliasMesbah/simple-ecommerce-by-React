@@ -21,7 +21,7 @@ export default function Login() {
     e.preventDefault();
     const success = await login(formData.name, formData.password);
     if (success) {
-      navigate("/"); // یا "/dashboard"
+      navigate("/home"); // یا "/dashboard"
     } else {
       setError("نام کاربری یا رمز عبور اشتباه است.");
     }

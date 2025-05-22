@@ -70,7 +70,7 @@ export default function SideBar({ isOpen }) {
         <li><Link to="/wishlist" className="nav-link active"><i className="feather icon-heart"></i> Wishlist</Link></li>
         <li><Link to="/OrderPage" className="nav-link active"><i className="feather icon-repeat"></i> Orders</Link></li>
         <li><Link to="/profile" className="nav-link active"><i className="feather icon-user"></i> Profile</Link></li>
-        <li><Link to="/welcome" className="nav-link active"><i className="feather icon-log-out"></i> Logout</Link></li>
+        <li><Link to="/" className="nav-link active"><i className="feather icon-log-out"></i> Logout</Link></li>
       </ul>
 
       <div className="sidebar-bottom">
