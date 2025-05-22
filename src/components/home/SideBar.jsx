@@ -57,8 +57,6 @@ export default function SideBar({ isOpen, onClose }) {
 
   const handleLogout = () => {
     logout();
-    // onClose رو حذف کردیم تا سایدبار بسته نشه
-    // if (onClose) onClose();
   };
 
   return (
@@ -100,20 +98,15 @@ export default function SideBar({ isOpen, onClose }) {
 
         {user ? (
           <li onClick={handleLogout}>
-            <span className="nav-link active" style={{ cursor: "pointer" }}>
+            <Link className="nav-link active" style={{ cursor: "pointer" }}>
               <i className="feather icon-log-out"></i> Logout
-            </span>
+            </Link>
           </li>
         ) : (
           <>
             <li>
               <Link to="/login" className="nav-link active" onClick={handleNav}>
                 <i className="feather icon-log-in"></i> Login
-              </Link>
-            </li>
-            <li>
-              <Link to="/register" className="nav-link active" onClick={handleNav}>
-                <i className="feather icon-user-plus"></i> Register
               </Link>
             </li>
           </>

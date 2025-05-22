@@ -6,7 +6,7 @@ export default function CartHeader(){
 		<div className="container">
 			<div className="header-content">
 				<div className="left-content">
-					<Link to="/" className="back-btn">
+					<Link to="/home" className="back-btn">
 						<i className="icon feather icon-chevron-left"></i>
 					</Link>
 				</div>

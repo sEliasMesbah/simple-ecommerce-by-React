@@ -1,8 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
 export default function Profile() {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const checkLoginAndNavigate = (e, path) => {
+    if (!user) {
+      e.preventDefault();
+      navigate("/login");
+    }
+  };
+
+  const handleLogout = () => {
+    logout();
+  };
 
   return (
     <div className="page-wrapper">
@@ -11,7 +23,7 @@ export default function Profile() {
         <div className="container">
           <div className="header-content d-flex justify-content-between align-items-center">
             <div className="left-content">
-              <Link to="/" className="back-btn" aria-label="Back to Home">
+              <Link to="/home" className="back-btn" aria-label="Back to Home">
                 <i className="icon feather icon-chevron-left"></i>
               </Link>
             </div>
@@ -19,7 +31,6 @@ export default function Profile() {
               <h6 className="title">Profile</h6>
             </div>
             <div className="right-content">
-              {/* اگر گزینه More قرار است کار خاصی کند، این لینک را اصلاح کن */}
               <Link to="/profile" aria-label="More options">
                 <i className="icon feather icon-more-vertical"></i>
               </Link>
@@ -51,7 +62,12 @@ export default function Profile() {
                 <h6 className="name mb-0">{user?.name || "Guest"}</h6>
                 <small className="font-12 text-muted">ID: {user?.id || "-"}</small>
               </div>
-              <Link to="/EditProfile" className="edit-profile" aria-label="Edit Profile">
+              <Link
+                to="/EditProfile"
+                className="edit-profile"
+                aria-label="Edit Profile"
+                onClick={(e) => checkLoginAndNavigate(e, "/EditProfile")}
+              >
                 <i className="icon feather icon-edit-2"></i>
               </Link>
             </div>
@@ -60,7 +76,11 @@ export default function Profile() {
             <div className="content-box mb-4">
               <ul className="row g-2">
                 <li className="col-6">
-                  <Link to="/OrderPage" className="d-flex flex-column align-items-center text-center">
+                  <Link
+                    to="/OrderPage"
+                    className="d-flex flex-column align-items-center text-center"
+                    onClick={(e) => checkLoginAndNavigate(e, "/OrderPage")}
+                  >
                     <div className="dz-icon-box mb-1">
                       <i className="icon feather icon-package"></i>
                     </div>
@@ -68,7 +88,11 @@ export default function Profile() {
                   </Link>
                 </li>
                 <li className="col-6">
-                  <Link to="/WishListPage" className="d-flex flex-column align-items-center text-center">
+                  <Link
+                    to="/WishListPage"
+                    className="d-flex flex-column align-items-center text-center"
+                    onClick={(e) => checkLoginAndNavigate(e, "/WishListPage")}
+                  >
                     <div className="dz-icon-box mb-1">
                       <i className="icon feather icon-heart"></i>
                     </div>
@@ -76,7 +100,11 @@ export default function Profile() {
                   </Link>
                 </li>
                 <li className="col-6">
-                  <Link to="/coupon" className="d-flex flex-column align-items-center text-center">
+                  <Link
+                    to="/coupon"
+                    className="d-flex flex-column align-items-center text-center"
+                    onClick={(e) => checkLoginAndNavigate(e, "/coupon")}
+                  >
                     <div className="dz-icon-box mb-1">
                       <i className="icon feather icon-gift"></i>
                     </div>
@@ -84,7 +112,10 @@ export default function Profile() {
                   </Link>
                 </li>
                 <li className="col-6">
-                  <Link to="/help" className="d-flex flex-column align-items-center text-center">
+                  <Link
+                    to="/help"
+                    className="d-flex flex-column align-items-center text-center"
+                  >
                     <div className="dz-icon-box mb-1">
                       <i className="icon feather icon-headphones"></i>
                     </div>
@@ -102,7 +133,11 @@ export default function Profile() {
             <div className="dz-list style-1">
               <ul>
                 <li>
-                  <Link to="/EditProfile" className="item-content item-link d-flex align-items-center">
+                  <Link
+                    to="/EditProfile"
+                    className="item-content item-link d-flex align-items-center"
+                    onClick={(e) => checkLoginAndNavigate(e, "/EditProfile")}
+                  >
                     <div className="dz-icon me-3">
                       <i className="icon feather icon-user"></i>
                     </div>
@@ -110,7 +145,11 @@ export default function Profile() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/address" className="item-content item-link d-flex align-items-center">
+                  <Link
+                    to="/address"
+                    className="item-content item-link d-flex align-items-center"
+                    onClick={(e) => checkLoginAndNavigate(e, "/address")}
+                  >
                     <div className="dz-icon me-3">
                       <i className="icon feather icon-map-pin"></i>
                     </div>
@@ -118,79 +157,67 @@ export default function Profile() {
                   </Link>
                 </li>
                 <li>
-                  <button
-                    type="button"
-                    className="item-content item-link d-flex align-items-center btn btn-link p-0"
+                  <Link
+                    to="#"
+                    className="item-content item-link d-flex align-items-center"
                     data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasLang"
                     aria-controls="offcanvasLang"
                     aria-label="Select Language"
-                    style={{ textDecoration: "none" }}
                   >
                     <div className="dz-icon me-3">
                       <i className="icon feather icon-type"></i>
                     </div>
                     <span className="title select-lang">Select Language</span>
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  {/* فرض کردم Notification Setting در حال حاضر لینک ندارد */}
-                  <button
-                    type="button"
-                    className="item-content item-link d-flex align-items-center btn btn-link p-0 position-relative"
+                  <Link
+                    to="#"
+                    className="item-content item-link d-flex align-items-center position-relative"
                     aria-label="Notification Settings"
-                    style={{ textDecoration: "none" }}
                   >
                     <div className="dz-icon me-3">
                       <i className="icon feather icon-bell"></i>
                     </div>
                     <span className="title">Notification Setting</span>
                     <div className="badge badge-primary position-absolute end-0 me-3">5</div>
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/welcome" className="item-content item-link d-flex align-items-center">
-                    <div className="dz-icon me-3">
-                      <i className="icon feather icon-log-out"></i>
-                    </div>
-                    <span className="title">Log Out</span>
-                  </Link>
+                  {user ? (
+                    <Link
+                      to="/profile"
+                      className="item-content item-link d-flex align-items-center"
+                      onClick={handleLogout}
+                    >
+                      <div className="dz-icon me-3">
+                        <i className="icon feather icon-log-out"></i>
+                      </div>
+                      <span className="title">Log Out</span>
+                    </Link>
+                  ) : (
+                    <>
+                      <Link to="/login" className="item-content item-link d-flex align-items-center">
+                        <div className="dz-icon me-3">
+                          <i className="icon feather icon-log-out"></i>
+                        </div>
+                        <span className="title">Login</span>
+                      </Link>
+                      <Link to="/register" className="item-content item-link d-flex align-items-center">
+                        <div className="dz-icon me-3">
+                          <i className="icon feather icon-log-out"></i>
+                        </div>
+                        <span className="title">Register</span>
+                      </Link>
+                    </>
+                  )}
                 </li>
               </ul>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Footer Menubar */}
-      <nav className="menubar-area footer-fixed rounded-0">
-        <div className="toolbar-inner menubar-nav d-flex justify-content-around">
-          <Link to="/home" className="nav-link active" aria-current="page">
-            <i className="icon feather icon-home"></i>
-            <span>Home</span>
-          </Link>
-          <Link to="/categori" className="nav-link">
-            <i className="icon feather icon-grid"></i>
-            <span>Categories</span>
-          </Link>
-          <Link to="/CartPage" className="nav-link cart-handle position-relative">
-            <div className="hexad-menu">
-              <img src="/images/menu-shape-dark.svg" className="shape-dark" alt="" />
-              <img src="/images/menu-shape-light.svg" className="shape-light" alt="" />
-              <i className="icon feather icon-shopping-bag"></i>
-              {/* اینجا اگر می‌خوای تعداد کالاهای سبد رو نشون بدی، می‌تونی Badge اضافه کنی */}
-            </div>
-          </Link>
-          <Link to="/WishListPage" className="nav-link">
-            <i className="icon feather icon-heart"></i>
-            <span>Wishlist</span>
-          </Link>
-          <Link to="/profile" className="nav-link">
-            <i className="icon feather icon-user"></i>
-            <span>Profile</span>
-          </Link>
-        </div>
-      </nav>
 
       {/* Language Selection Offcanvas */}
       <div
