@@ -13,6 +13,8 @@ export default function Address() {
         }
     };
 
+    
+
     // حذف آدرس
     const handleRemove = (index) => {
         if (window.confirm("Are you sure you want to remove this address?")) {

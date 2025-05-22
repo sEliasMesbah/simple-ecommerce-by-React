@@ -16,29 +16,34 @@ import Address from "../components/profile/address/Address";
 import CheckOut from "../components/profile/address/checkout";
 import ProductDetails from "../components/product/ProductDetails";
 import Layout from "../pages/Layout"; // اضافه‌شده
+import { AddressProvider } from "../components/profile/address/AddressContext";
 
 const Routes = () => {
   return (
     <Layout>
-      <Router>
-        <Route path="/" element={<Welcome />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/categori" element={<CategoriPage />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/wishlist" element={<WishListPage />} />
-        <Route path="/EditProfile" element={<EditProfile />} />
-        <Route path="/CartPage" element={<CartPage />} />
-        <Route path="/WishListPage" element={<WishListPage />} />
-        <Route path="/OrderPage" element={<OrderPage />} />
-        <Route path="/coupon" element={<Coupon />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/forgetPassword" element={<ForgetPassword />} />
-        <Route path="/help" element={<FAQ />} />
-        <Route path="/address" element={<Address />} />
-        <Route path="/checkout" element={<CheckOut />} />
-        <Route path="/product/:id" element={<ProductDetails />} />
-      </Router>
+      <AddressProvider>
+        <Router>
+          <Route path="/" element={<Welcome />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/categori" element={<CategoriPage />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/wishlist" element={<WishListPage />} />
+          <Route path="/EditProfile" element={<EditProfile />} />
+          <Route path="/CartPage" element={<CartPage />} />
+          <Route path="/WishListPage" element={<WishListPage />} />
+          <Route path="/OrderPage" element={<OrderPage />} />
+          <Route path="/coupon" element={<Coupon />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgetPassword" element={<ForgetPassword />} />
+          <Route path="/help" element={<FAQ />} />
+
+          <Route path="/address" element={<Address />} />
+          <Route path="/checkout" element={<CheckOut />} />
+
+          <Route path="/product/:id" element={<ProductDetails />} />
+        </Router>
+      </AddressProvider>
     </Layout>
   );
 };
