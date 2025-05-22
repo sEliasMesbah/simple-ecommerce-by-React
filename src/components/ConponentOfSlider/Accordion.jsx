@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { Link } from "react-router-dom"
-
+import DAccordion from "../ConponentOfSlider/DAccordion"
 export default function Accordion(){
 	
     return<>
@@ -29,7 +29,7 @@ export default function Accordion(){
 
 	<div className="page-content space-top">
 		<div className="container">
-	<div className="card dz-card style-1" style={{backgroundimage:" url('assets/images/bg-shape.png');"}}>				
+	<div className="card dz-card style-1" style={{backgroundimage:" url('/images/bg-shape.png');"}}>				
 				<div className="card-body">
 					<div className="dz-media dz-flex-box">
 						<img src="/images/bootstrap-logo.png" alt=""/>
@@ -51,31 +51,42 @@ export default function Accordion(){
 						</div>	
 						<div className="card-body">
 							<div className="accordion accordion-primary" id="accordion-one">
-							  <div className="accordion-item">
-								<div className="accordion-header  " id="headingOne" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-controls="collapseOne" aria-expanded="true" role="button">
-									<span className="accordion-header-icon"></span>
-								  <span className="accordion-header-text">Accordion Header One</span>
-								  <span className="accordion-header-indicator"></span>
-								</div>
-								<div id="collapseOne" className="collapse show" aria-labelledby="headingOne" data-bs-parent="#accordion-one">
-								  <div className="accordion-body-text">
-									 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-								  </div>
-								</div>
-							  </div>
-							  <div className="accordion-item">
-								<div className="accordion-header collapsed " id="headingTwo" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-controls="collapseTwo" role="button" aria-expanded="true">
-								  <span className="accordion-header-text">Accordion Header Two</span>
+								<DAccordion>
+								<div className="accordion-item">
+							 
+							 <div className="accordion-header" id="headingOne"  data-bs-target="#collapseOne" aria-controls="collapseOne" aria-expanded="true" role="button">
+								   <span className="accordion-header-icon"></span>
+								 <span className="accordion-header-text">Accordion Header One</span>
 								 <span className="accordion-header-indicator"></span>
-								</div>
-								<div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion-one">
-								  <div className="accordion-body-text">
-									 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-								  </div>
-								</div>
+							   </div>
+							   <div id="collapseOne" className="collapse show" aria-labelledby="headingOne" data-bs-parent="#accordion-one">
+								 <div className="accordion-body-text">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+								 </div>
+							   </div>
+							
+							   
+							 </div>
+								</DAccordion>
+							 <DAccordion>
+							 <div className="accordion-item">
+						
+						<div className="accordion-header collapsed " id="headingTwo" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-controls="collapseTwo" role="button" aria-expanded="true">
+							  <span className="accordion-header-text">Accordion Header Two</span>
+							 <span className="accordion-header-indicator"></span>
+							</div>
+							<div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion-one">
+							  <div className="accordion-body-text">
+								 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
 							  </div>
-							  <div className="accordion-item">
-								<div className="accordion-header collapsed " id="headingThree" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-controls="collapseThree" role="button" aria-expanded="true">
+							</div>
+						
+						  </div>
+							 </DAccordion>
+							 <DAccordion>
+							 <div className="accordion-item">
+							
+							<div className="accordion-header collapsed " id="headingThree" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-controls="collapseThree" role="button" aria-expanded="true">
 								  <span className="accordion-header-text">Accordion Header Three</span>
 								  <span className="accordion-header-indicator"></span>
 								</div>
@@ -84,106 +95,17 @@ export default function Accordion(){
 									 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
 								  </div>
 								</div>
+							
 							  </div>
+							 </DAccordion>
+							 
+							
 							</div>
 						</div>	
 					</div>	
 				</div>	
 			
-				<div className="col-12">
-					<div className="card">
-						<div className="card-header">
-							<h5 className="card-title">Accordion Bordered</h5>
-						</div>	
-						<div className="card-body">
-							<div className="accordion accordion-danger-solid" id="accordion-two">
-							  <div className="accordion-item">
-								<div className="accordion-header " id="accord-2One" data-bs-toggle="collapse" data-bs-target="#collapse2One" aria-controls="collapse2One" aria-expanded="true" role="button">
-								  <span className="accordion-header-text">Accordion Header One</span>
-								  <span className="accordion-header-indicator"></span>
-								</div>
-								<div id="collapse2One" className="collapse accordion__body show" aria-labelledby="accord-2One" data-bs-parent="#accordion-two">
-								  <div className="accordion-body-text">
-									 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-								  </div>
-								</div>
-							  </div>
-							  <div className="accordion-item">
-								<div className="accordion-header collapsed" id="accord-2Two" data-bs-toggle="collapse" data-bs-target="#collapse2Two" aria-controls="collapse2Two" aria-expanded="true" role="button">
-								  <span className="accordion-header-text">Accordion Header Two</span>
-								 <span className="accordion-header-indicator"></span>
-								</div>
-								<div id="collapse2Two" className="collapse accordion__body" aria-labelledby="accord-2Two" data-bs-parent="#accordion-two">
-								  <div className="accordion-body-text">
-									 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-								  </div>
-								</div>
-							  </div>
-							  <div className="accordion-item">
-								<div className="accordion-header collapsed " id="accord-2Three" data-bs-toggle="collapse" data-bs-target="#collapse2Three" aria-controls="collapse2Three" aria-expanded="true" role="button">
-								  <span className="accordion-header-text">Accordion Header Three</span>
-								 <span className="accordion-header-indicator"></span>
-								</div>
-								<div id="collapse2Three" className="collapse accordion__body" aria-labelledby="accord-2Three" data-bs-parent="#accordion-two">
-								  <div className="accordion-body-text">
-									 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-								  </div>
-								</div>
-							  </div>
-							</div>
-						</div>	
-					</div>	
-				</div>	
-				
-				<div className="col-12">
-					<div className="card">
-						<div className="card-header">
-							<h5 className="card-title">Accordion Header Background</h5>
-						</div>	
-						<div className="card-body">
-							<div className="accordion accordion-header-bg accordion-bordered" id="accordion-seven">
-							  <div className="accordion-item">
-								<div className="accordion-header  " id="accord-7One" data-bs-toggle="collapse" data-bs-target="#collapse7One" aria-controls="collapse7One" aria-expanded="true" role="button">
-									<span className="accordion-header-icon"></span>
-								  <span className="accordion-header-text">Accordion Header One</span>
-								  <span className="accordion-header-indicator"></span>
-								</div>
-								<div id="collapse7One" className="collapse accordion__body show" aria-labelledby="accord-7One" data-bs-parent="#accordion-seven">
-								  <div className="accordion-body-text">
-									 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-								  </div>
-								</div>
-							  </div>
-							  <div className="accordion-item">
-								<div className="accordion-header collapsed " id="accord-7Two" data-bs-toggle="collapse" data-bs-target="#collapse7Two" aria-controls="collapse7Two" aria-expanded="true" role="button">
-									<span className="accordion-header-icon"></span>
-								  <span className="accordion-header-text">Accordion Header Two</span>
-								  <span className="accordion-header-indicator"></span>
-								</div>
-								<div id="collapse7Two" className="collapse accordion__body" aria-labelledby="accord-7Two" data-bs-parent="#accordion-seven">
-								  <div className="accordion-body-text">
-									 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-								  </div>
-								</div>
-							  </div>
-							  <div className="accordion-item">
-								<div className="accordion-header collapsed " id="accord-7Three" data-bs-toggle="collapse" data-bs-target="#collapse7Three" aria-controls="collapse7Three" aria-expanded="true" role="button">
-									<span className="accordion-header-icon"></span>
-								  <span className="accordion-header-text">Accordion Header Three</span>
-								   <span className="accordion-header-indicator"></span>
-								</div>
-								<div id="collapse7Three" className="collapse accordion__body" aria-labelledby="accord-7Three" data-bs-parent="#accordion-seven">
-								  <div className="accordion-body-text">
-									 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-								  </div>
-								</div>
-							  </div>
-							</div>
-						</div>	
-					</div>	
-				</div>	
-				
-				
+			
 			</div>
 		</div>
 	</div>
