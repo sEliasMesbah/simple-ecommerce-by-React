@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 export default function Alert(){
     return<>
@@ -35,7 +34,7 @@ export default function Alert(){
 	
 	<div className="page-content space-top">
 		<div className="container">
-			<div className="card dz-card style-1" style={{backgroundimage: "url('assets/images/bg-shape.png');"}}>				
+			<div className="card dz-card style-1" style="background-image: url('assets/images/bg-shape.png');">				
 				<div className="card-body">
 					<div className="dz-media dz-flex-box">
 						<img src="/images/bootstrap-logo.png" alt=""/>
