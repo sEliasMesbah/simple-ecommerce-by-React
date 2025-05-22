@@ -19,14 +19,20 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const success = await login(formData.name, formData.password);
+  
+    if (!formData.name.trim() || !formData.password.trim()) {
+      setError("لطفاً همه فیلدها را پر کنید.");
+      return;
+    }
+  
+    const success = await login(formData.name.trim(), formData.password.trim());
+  
     if (success) {
-      navigate("/home"); // یا "/dashboard"
+      navigate("/home");
     } else {
       setError("نام کاربری یا رمز عبور اشتباه است.");
     }
   };
-
   return (
     <div className="page-content">
       <div className="account-box">

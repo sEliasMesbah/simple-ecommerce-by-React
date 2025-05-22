@@ -26859,3 +26859,6 @@ label input {
 .nav-tabs .nav-item.active-tab {
   border-bottom: 2px solid #0d775e;
 }
+.navbar-nav li{
+  cursor: pointer;
+}

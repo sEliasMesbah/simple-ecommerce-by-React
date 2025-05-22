@@ -1,25 +1,23 @@
-// src/context/UserContext.js
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
-const UserContext = createContext(null);
+const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  // اختیاری: لود اطلاعات لاگین شده از localStorage
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) setUser(JSON.parse(storedUser));
+    const savedUser = JSON.parse(localStorage.getItem("user"));
+    if (savedUser) setUser(savedUser);
   }, []);
 
   const login = (userData) => {
-    setUser(userData);
     localStorage.setItem("user", JSON.stringify(userData));
+    setUser(userData);
   };
 
   const logout = () => {
-    setUser(null);
     localStorage.removeItem("user");
+    setUser(null);
   };
 
   return (

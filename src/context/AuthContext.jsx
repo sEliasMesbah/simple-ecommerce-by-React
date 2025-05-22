@@ -10,9 +10,18 @@ export const AuthProvider = ({ children }) => {
   });
 
   const login = async (name, password) => {
+    // بررسی اولیه خالی نبودن فیلدها
+    if (!name.trim() || !password.trim()) {
+      console.warn("نام کاربری یا رمز عبور وارد نشده است.");
+      return false;
+    }
+
     try {
-      const res = await axios.get(`http://localhost:3001/users?name=${name}&password=${password}`);
-      if (res.data.length) {
+      const res = await axios.get(
+        `http://localhost:3001/users?name=${encodeURIComponent(name)}&password=${encodeURIComponent(password)}`
+      );
+
+      if (res.data.length > 0) {
         const loggedInUser = res.data[0];
         setUser(loggedInUser);
         localStorage.setItem("user", JSON.stringify(loggedInUser));

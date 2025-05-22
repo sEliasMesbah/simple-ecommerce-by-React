@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
-export default function SideBar({ isOpen }) {
+export default function SideBar({ isOpen, onClose }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [selectedColor, setSelectedColor] = useState("#007bff");
 
-  // بارگذاری تم و رنگ ذخیره‌شده در زمان لود
+  const { user, logout } = useAuth();
+
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     const savedColor = localStorage.getItem("themeColor");
@@ -23,13 +25,11 @@ export default function SideBar({ isOpen }) {
     }
   }, []);
 
-  // اعمال رنگ دلخواه
   const applyCustomColor = (color) => {
     document.documentElement.style.setProperty("--user-color", color);
     document.body.classList.add("custom-theme");
   };
 
-  // تغییر رنگ توسط کاربر
   const handleColorChange = (e) => {
     const newColor = e.target.value;
     setSelectedColor(newColor);
@@ -37,7 +37,6 @@ export default function SideBar({ isOpen }) {
     applyCustomColor(newColor);
   };
 
-  // تغییر دارک مود
   const toggleDarkMode = () => {
     const newMode = !isDarkMode;
     setIsDarkMode(newMode);
@@ -50,50 +49,113 @@ export default function SideBar({ isOpen }) {
     }
   };
 
+  const handleNav = () => {
+    if (onClose) {
+      onClose();
+    }
+  };
+
+  const handleLogout = () => {
+    logout();
+    // onClose رو حذف کردیم تا سایدبار بسته نشه
+    // if (onClose) onClose();
+  };
+
   return (
     <div
       className={`sidebar ${isOpen ? "show" : ""}`}
       style={{ backgroundImage: "url('images/background/bg3.png')" }}
     >
-      <a href="profile.html" className="author-box">
+      <Link to="/profile" className="author-box" onClick={handleNav}>
         <div className="dz-media">
           <img src="images/user-profile.jpg" alt="author" />
         </div>
         <div className="dz-info">
-          <h5 className="name">John Doe</h5>
-          <span>example@gmail.com</span>
+          <h5 className="name">{user ? user.name : "Guest"}</h5>
+          <span>{user ? user.email : "Please login"}</span>
         </div>
-      </a>
+      </Link>
 
       <ul className="nav navbar-nav dark-icon-black">
-        <li><Link to="/" className="nav-link active"><i className="feather icon-home"></i> Home</Link></li>
-        <li><Link to="/wishlist" className="nav-link active"><i className="feather icon-heart"></i> Wishlist</Link></li>
-        <li><Link to="/OrderPage" className="nav-link active"><i className="feather icon-repeat"></i> Orders</Link></li>
-        <li><Link to="/profile" className="nav-link active"><i className="feather icon-user"></i> Profile</Link></li>
-        <li><Link to="/" className="nav-link active"><i className="feather icon-log-out"></i> Logout</Link></li>
+        <li>
+          <Link to="/home" className="nav-link active" onClick={handleNav}>
+            <i className="feather icon-home"></i> Home
+          </Link>
+        </li>
+        <li>
+          <Link to="/wishlist" className="nav-link active" onClick={handleNav}>
+            <i className="feather icon-heart"></i> Wishlist
+          </Link>
+        </li>
+        <li>
+          <Link to="/OrderPage" className="nav-link active" onClick={handleNav}>
+            <i className="feather icon-repeat"></i> Orders
+          </Link>
+        </li>
+        <li>
+          <Link to="/profile" className="nav-link active" onClick={handleNav}>
+            <i className="feather icon-user"></i> Profile
+          </Link>
+        </li>
+
+        {user ? (
+          <li onClick={handleLogout}>
+            <span className="nav-link active" style={{ cursor: "pointer" }}>
+              <i className="feather icon-log-out"></i> Logout
+            </span>
+          </li>
+        ) : (
+          <>
+            <li>
+              <Link to="/login" className="nav-link active" onClick={handleNav}>
+                <i className="feather icon-log-in"></i> Login
+              </Link>
+            </li>
+            <li>
+              <Link to="/register" className="nav-link active" onClick={handleNav}>
+                <i className="feather icon-user-plus"></i> Register
+              </Link>
+            </li>
+          </>
+        )}
       </ul>
 
       <div className="sidebar-bottom">
         <ul className="app-setting">
-          {/* انتخاب رنگ */}
           <li className="nav-color pb-2">
-            <label htmlFor="colorPicker" className="d-flex align-items-center" style={{ cursor: "pointer" }}>
-              <span className="dz-icon"><i className="feather icon-droplet"></i></span>
+            <label
+              htmlFor="colorPicker"
+              className="d-flex align-items-center"
+              style={{ cursor: "pointer" }}
+            >
+              <span className="dz-icon">
+                <i className="feather icon-droplet"></i>
+              </span>
               <span>Color Theme</span>
               <input
                 type="color"
                 id="colorPicker"
                 value={selectedColor}
                 onChange={handleColorChange}
-                style={{ marginLeft: "auto", width: "40px", height: "30px", border: "none", background: "none" }}
+                style={{
+                  marginLeft: "auto",
+                  width: "40px",
+                  height: "30px",
+                  border: "none",
+                  background: "none",
+                }}
               />
             </label>
           </li>
 
-          {/* دارک مود */}
           <li>
-            <div className="mode d-flex align-items-center" style={{ cursor: "pointer" }}>
-              <span className="dz-icon"><i className="feather icon-moon"></i></span>
+            <div
+              className="mode d-flex align-items-center"
+              style={{ cursor: "pointer" }}
+            >
+              <span className="dz-icon">
+                <i className="feather icon-moon"></i>
+              </span>
               <span>Dark Mode</span>
               <div className="custom-switch ms-auto">
                 <input
@@ -103,7 +165,10 @@ export default function SideBar({ isOpen }) {
                   checked={isDarkMode}
                   onChange={toggleDarkMode}
                 />
-                <label className="custom-switch-label" htmlFor="toggle-dark-menu"></label>
+                <label
+                  className="custom-switch-label"
+                  htmlFor="toggle-dark-menu"
+                ></label>
               </div>
             </div>
           </li>

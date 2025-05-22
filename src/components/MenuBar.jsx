@@ -4,7 +4,7 @@ export default function MenuBar() {
 	return <>
 		<div className="menubar-area footer-fixed rounded-0">
 			<div className="toolbar-inner menubar-nav">
-				<Link to="/" className="nav-link active">
+				<Link to="/home" className="nav-link active">
 					<i className="icon feather icon-home"></i>
 					<span>Home</span>
 				</Link>
