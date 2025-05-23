@@ -16679,7 +16679,7 @@ section {
 }
 
 .header.header-fixed {
-  position: fixed;
+  position: relative;
   width: 100%;
   top: 0;
 }
@@ -26873,6 +26873,7 @@ label input {
 body.dark-mod .dz-list.style-1 ul li:hover {
   color: red;
 }
+
 /* حالت‌های مود نوری */
 /* ۱. حالت پیش‌فرض (لایت مود) */
 :root {
@@ -26934,7 +26935,7 @@ body.dark-mode {
   transition: color 0.3s ease;
 }
 
-.width{
+.width {
   width: 25%;
   height: auto;
   display: flex;
@@ -26960,6 +26961,7 @@ body.dark-mode {
   flex-direction: column;
   align-items: center;
 }
+
 .nav-link.active,
 button.nav-link.active {
   background-color: wheat !important;
@@ -26976,4 +26978,43 @@ button.nav-link.active {
 .nav-link.active i,
 button.nav-link.active i {
   color: #0b775d;
+}
+
+.setting-container {
+  background-color: #fff;
+  color: var(--primary);
+  box-shadow: 0 0 8px #fff;
+  width: 150px;
+  height: 80px;
+  text-align: center;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  position: absolute;
+  top: 25px;
+  left: 100%;
+  margin-left: -150px;
+  display: none;
+}
+
+.setting-container ul li {
+  padding-top: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.setting-container ul li:hover{
+  background-color: wheat;
+}
+.right-content {
+  position: relative;
+}
+
+.LogOut-btn {
+  border-top: 2px solid var(--primary);
+
+}
+
+.right-content button:focus + .setting-container,
+.right-content button:hover + .setting-container {
+  display: block;
 }
