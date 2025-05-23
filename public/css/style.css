@@ -27018,6 +27018,19 @@ button.nav-link.active i {
 .right-content button:hover + .setting-container {
   display: block;
 }
+
+@keyframes pulse-shadow {
+  0% {
+    box-shadow: inset 0 0 25px 10px rgba(255, 215, 0, 0.2);
+  }
+  50% {
+    box-shadow: inset 0 0 35px 15px rgba(255, 215, 0, 0.5);
+  }
+  100% {
+    box-shadow: inset 0 0 25px 10px rgba(255, 215, 0, 0.2);
+  }
+}
+
 .preloader-wrapper {
   position: fixed;
   top: 0;
@@ -27034,6 +27047,8 @@ button.nav-link.active i {
   transition: opacity 0.5s ease;
   box-shadow: inset 0 0 25px 10px rgba(255, 215, 0, 0.35);
   pointer-events: all;
+
+  animation: pulse-shadow 3s ease-in-out infinite;
 }
 
 .preloader-wrapper.hidden {
@@ -27041,6 +27056,7 @@ button.nav-link.active i {
   pointer-events: none;
   /* display: none;  اینو نذار چون باعث حذف ناگهانی میشه */
 }
+
 .fade-in {
   opacity: 0;
   transform: translateY(10px);
@@ -27059,3 +27075,5 @@ button.nav-link.active i {
 .page-wrapper.fade-out {
   opacity: 0;
 }
+
+
