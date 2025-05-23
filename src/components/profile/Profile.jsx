@@ -130,7 +130,7 @@ export default function Profile() {
               <h6 className="title mb-0 font-w700">Account Settings</h6>
             </div>
 
-            <div className="dz-list style-1">
+            <div className="dz-list style-1 profile-setting">
               <ul>
                 <li>
                   <Link
