@@ -26873,3 +26873,107 @@ label input {
 body.dark-mod .dz-list.style-1 ul li:hover {
   color: red;
 }
+/* حالت‌های مود نوری */
+/* ۱. حالت پیش‌فرض (لایت مود) */
+:root {
+  --menubar-bg: white;
+  --menubar-text: black;
+  --menubar-active-bg: white;
+  --menubar-active-shadow: rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode {
+  --menubar-bg: #111111 !important;
+  --menubar-text: white;
+  --menubar-active-bg: #1c212e;
+  --menubar-active-shadow: rgba(28, 33, 46, 0.6);
+}
+
+.nav-link.active {
+  background-color: var(--menubar-active-bg) !important;
+  color: var(--menubar-text) !important;
+  padding: 10px 14px;
+  box-shadow: 0 -4px 12px var(--menubar-active-shadow) !important;
+  z-index: 5;
+  border-radius: 22px 22px 0 0;
+  width: 33% !important;
+  margin: -55px 0 0 0;
+  position: relative;
+}
+
+
+
+.menubar-area {
+  background-color: var(--menubar-bg);
+  padding: 5px 0;
+  box-shadow: 0 -1px 4px #1c212e;
+}
+
+.menubar-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  position: relative;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #2c2c2c;
+  font-size: 13px;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.nav-link i {
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.width{
+  width: 25%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* حالت فعال */
+
+
+.nav-link.active i {
+  color: var(--menubar-text);
+}
+
+.nav-link span {
+  margin-top: 3px;
+  font-size: 11px;
+}
+
+/* icon wrapper برای صاف موندن دکمه‌ها */
+.icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav-link.active,
+button.nav-link.active {
+  background-color: wheat !important;
+  color: #0b775d !important;
+  padding: 10px 14px;
+  box-shadow: 0 0 13px wheat;
+  z-index: 5;
+  border-radius: 50%;
+  width: 34% !important;
+  margin: -55px 0 0 0;
+  position: relative;
+}
+
+.nav-link.active i,
+button.nav-link.active i {
+  color: #0b775d;
+}
