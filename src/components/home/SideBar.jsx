@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
 export default function SideBar({ isOpen, onClose }) {
@@ -64,7 +64,7 @@ export default function SideBar({ isOpen, onClose }) {
       className={`sidebar ${isOpen ? "show" : ""}`}
       style={{ backgroundImage: "url('images/background/bg3.png')" }}
     >
-      <Link to="/profile" className="author-box" onClick={handleNav}>
+      <NavLink to="/profile" className="author-box" onClick={handleNav}>
         <div className="dz-media">
           <img src="images/user-profile.jpg" alt="author" />
         </div>
@@ -72,42 +72,68 @@ export default function SideBar({ isOpen, onClose }) {
           <h5 className="name">{user ? user.name : "Guest"}</h5>
           <span>{user ? user.email : "Please login"}</span>
         </div>
-      </Link>
+      </NavLink>
 
       <ul className="nav navbar-nav dark-icon-black">
         <li>
-          <Link to="/home" className="nav-link active" onClick={handleNav}>
-            <i className="feather icon-home" style={{marginRight:"5px"}}></i> Home
-          </Link>
+          <NavLink to="/home" className="nav-NavLink" onClick={handleNav}>
+            <span className="dz-icon">
+              <i className="icon feather icon-home" />
+            </span>
+            <span>Home</span>
+          </NavLink>
         </li>
         <li>
-          <Link to="/wishlist" className="nav-link active" onClick={handleNav}>
-            <i className="feather icon-heart" style={{marginRight:"5px"}}></i> Wishlist
-          </Link>
+          <NavLink className="nav-NavLink" to="/components" onClick={handleNav}>
+            <span className="dz-icon">
+              <i className="icon feather icon-grid" />
+            </span>
+            <span>Components</span>
+          </NavLink>
         </li>
         <li>
-          <Link to="/OrderPage" className="nav-link active" onClick={handleNav}>
-            <i className="feather icon-repeat" style={{marginRight:"5px"}}></i> Orders
-          </Link>
+          <NavLink to="/wishlist" className="nav-NavLink" onClick={handleNav}>
+            <span className="dz-icon">
+              <i className="icon feather icon-heart" />
+            </span>
+            <span>Wishlist</span>
+          </NavLink>
         </li>
         <li>
-          <Link to="/profile" className="nav-link active" onClick={handleNav}>
-            <i className="feather icon-user" style={{marginRight:"5px"}}></i> Profile
-          </Link>
+          <NavLink to="/OrderPage" className="nav-NavLink" onClick={handleNav}>
+            <span className="dz-icon">
+              <i className="icon feather icon-repeat" />
+            </span>
+            <span>Orders</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/profile" className="nav-NavLink" onClick={handleNav}>
+            <span className="dz-icon">
+              <i className="icon feather icon-user" />
+            </span>
+            <span>Profile</span>
+          </NavLink>
         </li>
 
         {user ? (
           <li onClick={handleLogout}>
-            <Link className="nav-link active" style={{ cursor: "pointer" }}>
-              <i className="feather icon-log-out" style={{marginRight:"5px"}}></i> Logout
-            </Link>
+            <NavLink className="nav-NavLink active" style={{ cursor: "pointer" }}>
+              <span className="dz-icon">
+                <i className="icon feather icon-log-out" />
+              </span>
+              <span>Logout</span>
+            </NavLink>
           </li>
         ) : (
           <>
             <li>
-              <Link to="/login" className="nav-link active" onClick={handleNav}>
-                <i className="feather icon-log-in"  style={{marginRight:"5px"}}></i> Login
-              </Link>
+              <NavLink to="/login" className="nav-NavLink" onClick={handleNav}>
+                <span className="dz-icon">
+                  <i className="icon feather icon-log-in" />
+                </span>
+                <span>Login</span>
+              </NavLink>
             </li>
           </>
         )}

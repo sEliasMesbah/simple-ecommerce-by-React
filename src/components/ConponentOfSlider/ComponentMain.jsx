@@ -4,7 +4,7 @@ export default function ComponentMain(){
     	<div  className="page-content space-top">
 		<div  className="container">
 			<div  className="dz-list style-2">
-				<ul>
+				<ul style={{paddingBottom:"4.5rem"}}>
 					<li>
 						<Link to="/ui-accordion"  className="item-content item-link">
 							<div  className="dz-icon style-2">
@@ -196,7 +196,7 @@ export default function ComponentMain(){
 						</Link>
 					</li>
 					<li>
-						<Link to="ui-stepper" className="item-content item-link">
+						<Link to="/ui-stepper" className="item-content item-link">
 							<div  className="dz-icon style-2">
 								<i  className="icon feather icon-heart"></i> 
 							</div>

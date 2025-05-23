@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext"; // مسیر را درست تنظیم کن
 
 export default function MenuBar() {
@@ -23,14 +23,14 @@ export default function MenuBar() {
   return (
     <div className="menubar-area footer-fixed rounded-0">
       <div className="toolbar-inner menubar-nav">
-        <Link to="/home" className="nav-link active">
+        <NavLink to="/home" className="nav-link">
           <i className="icon feather icon-home"></i>
           <span>Home</span>
-        </Link>
-        <Link to="/categori" className="nav-link">
+        </NavLink>
+        <NavLink to="/categori" className="nav-link">
           <i className="icon feather icon-grid"></i>
           <span>Categories</span>
-        </Link>
+        </NavLink>
         <button
           className="nav-link cart-handle"
           onClick={handleCartClick}
@@ -65,10 +65,10 @@ export default function MenuBar() {
           <i className="icon feather icon-heart"></i>
           <span>Wishlist</span>
         </button>
-        <Link to="/profile" className="nav-link">
+        <NavLink to="/profile" className="nav-link">
           <i className="icon feather icon-user"></i>
           <span>Profile</span>
-        </Link>
+        </NavLink>
       </div>
     </div>
   );
