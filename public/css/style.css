@@ -27032,7 +27032,12 @@ button.nav-link.active i {
 
   opacity: 1;
   transition: opacity 0.5s ease;
-
-  /* سایه داخلی طلایی ملایم */
   box-shadow: inset 0 0 25px 10px rgba(255, 215, 0, 0.35);
+  pointer-events: all;
+}
+
+.preloader-wrapper.hidden {
+  opacity: 0;
+  pointer-events: none;
+  /* display: none;  اینو نذار چون باعث حذف ناگهانی میشه */
 }

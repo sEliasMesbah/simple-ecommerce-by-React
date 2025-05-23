@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-// import "./Preloader.css";
 
 export default function Preloader({ onFinish }) {
   const videoRef = useRef(null);
   const [show, setShow] = useState(true);
+  const [shouldRender, setShouldRender] = useState(true);
 
   useEffect(() => {
     const minDuration = 2000;
@@ -16,8 +16,9 @@ export default function Preloader({ onFinish }) {
       setTimeout(() => {
         setShow(false);
         setTimeout(() => {
+          setShouldRender(false);
           onFinish();
-        }, 500); // wait for fade out transition
+        }, 500); // مدت انیمیشن fade out
       }, remaining);
     };
 
@@ -32,6 +33,8 @@ export default function Preloader({ onFinish }) {
       }
     };
   }, [onFinish]);
+
+  if (!shouldRender) return null;
 
   return (
     <div className={`preloader-wrapper ${show ? "visible" : "hidden"}`}>
