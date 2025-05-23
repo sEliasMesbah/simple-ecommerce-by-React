@@ -55,7 +55,7 @@ const Routes = () => {
       <AddressProvider>
 
         <Router>
-          <Route path="/" element={<Welcome />} />
+          {/* <Route path="/" element={<Welcome />} /> */}
           <Route path="/home" element={<HomePage />} />
           <Route path="/categori" element={<CategoriPage />} />
           <Route path="/profile" element={<Profile />} />

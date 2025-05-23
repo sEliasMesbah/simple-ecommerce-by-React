@@ -27018,3 +27018,25 @@ button.nav-link.active i {
 .right-content button:hover + .setting-container {
   display: block;
 }
+/* Preloader.css */
+
+.preloader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.preloader-video {
+  width: 60vw;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+}
