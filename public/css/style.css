@@ -27041,3 +27041,21 @@ button.nav-link.active i {
   pointer-events: none;
   /* display: none;  اینو نذار چون باعث حذف ناگهانی میشه */
 }
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.page-wrapper {
+  opacity: 1;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.page-wrapper.fade-out {
+  opacity: 0;
+}

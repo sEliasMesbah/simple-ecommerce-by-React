@@ -8,6 +8,7 @@
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.9.0",
+    "framer-motion": "^12.12.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.0",
@@ -19,8 +20,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "db.json":"npx json-server --watch db.json --port 3001",
-    "json":"npx json-server --watch db.json --port 3001",
+    "db.json": "npx json-server --watch db.json --port 3001",
+    "json": "npx json-server --watch db.json --port 3001",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

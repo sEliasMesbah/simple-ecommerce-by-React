@@ -1,14 +1,25 @@
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 
-export default function Welcome() {
-  const navigate = useNavigate();
+export default function Welcome({ onStart }) {
+  const [fadeOut, setFadeOut] = useState(false);
+
+  // وقتی fadeOut فعال شد، بعد 600ms onStart را اجرا کن
+  useEffect(() => {
+    if (fadeOut) {
+      const timer = setTimeout(() => {
+        onStart();
+      }, 600);
+
+      return () => clearTimeout(timer);
+    }
+  }, [fadeOut, onStart]);
 
   const handleStart = () => {
-    navigate("/home");
+    setFadeOut(true);
   };
 
   return (
-    <div className="page-wrapper">
+    <div className={`page-wrapper ${fadeOut ? "fade-out" : ""}`}>
       <div className="content-body">
         <div
           className="welcome-area bg-image"
@@ -24,9 +35,9 @@ export default function Welcome() {
                         Welcome to W3Cart – Your Shopping Partner
                       </h3>
                       <p>
-                        Join us now and embark on a fulfilling shopping
-                        adventure with W3Cart. Enjoy a seamless and secure
-                        shopping journey with us.
+                        Join us now and embark on a fulfilling shopping adventure
+                        with W3Cart. Enjoy a seamless and secure shopping journey
+                        with us.
                       </p>
                     </div>
                   </div>
@@ -38,9 +49,9 @@ export default function Welcome() {
                         Enter the World of Online Shopping
                       </h3>
                       <p>
-                        Explore curated collections, exclusive deals, and
-                        seasonal specials to make your shopping experience
-                        truly unforgettable.
+                        Explore curated collections, exclusive deals, and seasonal
+                        specials to make your shopping experience truly
+                        unforgettable.
                       </p>
                     </div>
                   </div>

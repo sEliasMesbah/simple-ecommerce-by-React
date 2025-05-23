@@ -1,10 +1,10 @@
 import MenuBar from "./components/MenuBar";
-import { useState } from 'react';
+import { useState } from "react";
 import { BrowserRouter, Routes as ReactRoutes, Route } from "react-router-dom";
-import Preloader from './components/Preloader/Preloader';
-import Welcome from "./public/Welcome";
+import Preloader from "./components/Preloader/Preloader";
+import WelcomeWrapper from "./components/WelcomeWrapper";
 import { AuthProvider } from "./context/AuthContext";
-import Routes from "./utils/Routes"; // این باید صفحه‌های داخلی سایتت باشن مثل Home، Product، etc.
+import Routes from "./utils/Routes";
 
 function App() {
   const [preloading, setPreloading] = useState(true);
@@ -21,7 +21,10 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <ReactRoutes>
-          <Route path="/" element={<Welcome />} />
+          {/* فقط اینجا WelcomeWrapper رو بذار */}
+          <Route path="/" element={<WelcomeWrapper />} />
+
+          {/* بقیه سایت داخل Layout و MenuBar */}
           <Route
             path="/*"
             element={
