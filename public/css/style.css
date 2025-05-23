@@ -14218,10 +14218,6 @@ svg.text-dark path {
   margin-bottom: 0;
 }
 
-.page-content.space-top {
-  margin-top: 50px;
-}
-
 .flex-1 {
   flex: 1;
 }
@@ -27075,5 +27071,17 @@ button.nav-link.active i {
 .page-wrapper.fade-out {
   opacity: 0;
 }
+.page-wrapper.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-wrapper {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
 
-
+.fade-wrapper.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
