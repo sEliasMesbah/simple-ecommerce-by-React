@@ -26686,7 +26686,7 @@ label input {
   height: 100%;
   background-color: white;
   transition: left 0.3s ease;
-  z-index: 1000;
+  z-index: 10000000;
 }
 
 .show {
@@ -26813,7 +26813,10 @@ label input {
   width: 100%;
   right: 13px;
 }
-
+.footer.f0 {
+  bottom: 0 !important;
+  z-index: 999 !important;
+}
 .footer {
   /* >>>>>>> dev */
   bottom: 66px !important;
@@ -26840,19 +26843,15 @@ label input {
 /* استایل عمومی دکمه‌ها */
 .nav-tabs .nav-link {
   color: #000;
-  /* رنگ معمولی */
   background: transparent;
   border: none;
   transition: color 0.3s ease;
-  /* ترنزیشن رنگ متن */
 }
 
-/* وقتی دکمه فعال است، رنگش سبز شود */
 .nav-tabs .nav-link.active {
   color: #0d775e !important;
 }
 
-/* li فعال بردر پایین سبز داشته باشد */
 .nav-tabs .nav-item {
   border-bottom: 2px solid transparent;
   transition: border-color 0.3s ease;
@@ -26870,8 +26869,6 @@ body.dark-mod .dz-list.style-1 ul li:hover {
   color: red;
 }
 
-/* حالت‌های مود نوری */
-/* ۱. حالت پیش‌فرض (لایت مود) */
 :root {
   --menubar-bg: white;
   --menubar-text: black;
@@ -26886,24 +26883,15 @@ body.dark-mode {
   --menubar-active-shadow: rgba(28, 33, 46, 0.6);
 }
 
-.nav-link.active {
-  background-color: var(--menubar-active-bg) !important;
-  color: var(--menubar-text) !important;
-  padding: 10px 14px;
-  box-shadow: 0 -4px 12px var(--menubar-active-shadow) !important;
-  z-index: 5;
-  border-radius: 22px 22px 0 0;
-  width: 33% !important;
-  margin: -55px 0 0 0;
-  position: relative;
-}
-
-
-
+/* مهم: فقط این قسمت اضافه شد */
 .menubar-area {
+  position: fixed;  /* منوبار ثابت در پایین صفحه */
+  bottom: 0;
+  width: 100%;
+  z-index: 10;     /* مقدار کم تر از سایدبار و اورلی */
   background-color: var(--menubar-bg);
   padding: 5px 0;
-  box-shadow: 0 -1px 4px #1c212e;
+  box-shadow: 0 -1px 4px rgba(28, 33, 46, 0.2);
 }
 
 .menubar-nav {
@@ -26923,7 +26911,7 @@ body.dark-mode {
   text-decoration: none;
   position: relative;
   transition: all 0.3s ease;
-  z-index: 1;
+  z-index: 1;  /* مقدار کم */
 }
 
 .nav-link i {
@@ -26939,35 +26927,17 @@ body.dark-mode {
   align-items: center;
 }
 
-/* حالت فعال */
-
-
-.nav-link.active i {
-  color: var(--menubar-text);
-}
-
-.nav-link span {
-  margin-top: 3px;
-  font-size: 11px;
-}
-
-/* icon wrapper برای صاف موندن دکمه‌ها */
-.icon-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
+/* اینجا حالت اکتیو رو دقیقا نگه داشته‌ام */
 .nav-link.active,
 button.nav-link.active {
   background-color: wheat !important;
   color: #0b775d !important;
   padding: 10px 14px;
   box-shadow: 0 0 13px wheat;
-  z-index: 5;
+  z-index: auto; /* حالت قبل */
   border-radius: 50%;
   width: 34% !important;
-  margin: -55px 0 0 0;
+  margin: -50px 0 0 0;
   position: relative;
 }
 
@@ -26976,6 +26946,23 @@ button.nav-link.active i {
   color: #0b775d;
 }
 
+.nav-link.active {
+  background-color: var(--menubar-active-bg) !important;
+  color: var(--menubar-text) !important;
+  padding: 10px 14px;
+  box-shadow: 0 -4px 12px var(--menubar-active-shadow) !important;
+  border-radius: 22px 22px 0 0;
+  width: 33% !important;
+  margin: -50px 0 0 0;
+  position: relative;
+  z-index: auto; /* حالت قبل */
+}
+
+.nav-link.active i {
+  color: var(--menubar-text);
+}
+
+/* بقیه استایل‌ها مثل قبل بدون تغییر */
 .setting-container {
   background-color: #fff;
   color: var(--primary);
@@ -26997,18 +26984,18 @@ button.nav-link.active i {
   text-decoration: none;
 }
 
-.setting-container ul li:hover{
+.setting-container ul li:hover {
   background-color: wheat;
   background-size: 100% ;
  
 }
+
 .right-content {
   position: relative;
 }
 
 .LogOut-btn {
   border-top: 2px solid var(--primary);
-
 }
 
 .right-content button:focus + .setting-container,
@@ -27051,9 +27038,8 @@ button.nav-link.active i {
 .preloader-wrapper.hidden {
   opacity: 0;
   pointer-events: none;
-  /* display: none;  اینو نذار چون باعث حذف ناگهانی میشه */
 }
-
+/* 
 .fade-in {
   opacity: 0;
   transform: translateY(10px);
@@ -27063,7 +27049,8 @@ button.nav-link.active i {
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
-}
+} */
+
 .page-wrapper {
   opacity: 1;
   transition: opacity 0.6s ease-in-out;
@@ -27072,10 +27059,12 @@ button.nav-link.active i {
 .page-wrapper.fade-out {
   opacity: 0;
 }
+
 .page-wrapper.fade-in {
   opacity: 1;
   transform: translateY(0);
 }
+
 .fade-wrapper {
   opacity: 0;
   transform: translateY(10px);

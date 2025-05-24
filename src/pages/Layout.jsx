@@ -1,17 +1,34 @@
-// components/Layout.jsx
-import { useLocation } from "react-router-dom";
+import { useLocation, Outlet, matchPath } from "react-router-dom";
 import MenuBar from "../components/MenuBar";
 
-export default function Layout({ children }) {
+export default function Layout() {
   const location = useLocation();
 
-  // مسیرهایی که نباید MenuBar نمایش داده بشه
-  const hideMenu = ["/", "/login", "/register"].includes(location.pathname);
+  // لیست مسیرهایی که نباید MenuBar نمایش داده شود
+  const hideMenuPaths = [
+    "/",
+    "/login",
+    "/register",
+    "/product/:id" // اضافه کردن مسیر داینامیک
+  ];
+
+  // بررسی تطابق مسیر فعلی با الگوها
+  const hideMenu = hideMenuPaths.some((path) => 
+    matchPath({ path, end: true }, location.pathname)
+  );
 
   return (
-    <>
-      {!hideMenu && <MenuBar />}
-      {children}
-    </>
+    <div className="relative">
+      {!hideMenu && (
+        <div className="relative z-10">
+          <MenuBar />
+        </div>
+      )}
+
+      {/* محتوای صفحات */}
+      <main className="relative z-0">
+        <Outlet />
+      </main>
+    </div>
   );
 }
