@@ -26813,10 +26813,12 @@ label input {
   width: 100%;
   right: 13px;
 }
+
 .footer.f0 {
   bottom: 0 !important;
   z-index: 999 !important;
 }
+
 .footer {
   /* >>>>>>> dev */
   bottom: 66px !important;
@@ -26885,10 +26887,12 @@ body.dark-mode {
 
 /* مهم: فقط این قسمت اضافه شد */
 .menubar-area {
-  position: fixed;  /* منوبار ثابت در پایین صفحه */
+  position: fixed;
+  /* منوبار ثابت در پایین صفحه */
   bottom: 0;
   width: 100%;
-  z-index: 10;     /* مقدار کم تر از سایدبار و اورلی */
+  z-index: 10;
+  /* مقدار کم تر از سایدبار و اورلی */
   background-color: var(--menubar-bg);
   padding: 5px 0;
   box-shadow: 0 -1px 4px rgba(28, 33, 46, 0.2);
@@ -26911,7 +26915,8 @@ body.dark-mode {
   text-decoration: none;
   position: relative;
   transition: all 0.3s ease;
-  z-index: 1;  /* مقدار کم */
+  z-index: 1;
+  /* مقدار کم */
 }
 
 .nav-link i {
@@ -26934,7 +26939,8 @@ button.nav-link.active {
   color: #0b775d !important;
   padding: 10px 14px;
   box-shadow: 0 0 13px wheat;
-  z-index: auto; /* حالت قبل */
+  z-index: auto;
+  /* حالت قبل */
   border-radius: 50%;
   width: 34% !important;
   margin: -50px 0 0 0;
@@ -26955,7 +26961,8 @@ button.nav-link.active i {
   width: 33% !important;
   margin: -50px 0 0 0;
   position: relative;
-  z-index: auto; /* حالت قبل */
+  z-index: auto;
+  /* حالت قبل */
 }
 
 .nav-link.active i {
@@ -26974,7 +26981,7 @@ button.nav-link.active i {
   position: absolute;
   top: 25px;
   left: 100%;
-  margin-left: -150px;
+  margin-left: -160px;
   display: none;
 }
 
@@ -26986,8 +26993,8 @@ button.nav-link.active i {
 
 .setting-container ul li:hover {
   background-color: wheat;
-  background-size: 100% ;
- 
+  background-size: 100%;
+
 }
 
 .right-content {
@@ -26998,8 +27005,8 @@ button.nav-link.active i {
   border-top: 2px solid var(--primary);
 }
 
-.right-content button:focus + .setting-container,
-.right-content button:hover + .setting-container {
+.right-content button:focus+.setting-container,
+.right-content button:hover+.setting-container {
   display: block;
 }
 
@@ -27007,9 +27014,11 @@ button.nav-link.active i {
   0% {
     box-shadow: inset 0 0 25px 10px rgba(255, 215, 0, 0.2);
   }
+
   50% {
     box-shadow: inset 0 0 35px 15px rgba(255, 215, 0, 0.5);
   }
+
   100% {
     box-shadow: inset 0 0 25px 10px rgba(255, 215, 0, 0.2);
   }
@@ -27039,6 +27048,7 @@ button.nav-link.active i {
   opacity: 0;
   pointer-events: none;
 }
+
 /* 
 .fade-in {
   opacity: 0;
@@ -27075,3 +27085,4 @@ button.nav-link.active i {
   opacity: 1;
   transform: translateY(0);
 }
+
