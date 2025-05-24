@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import React from 'react';
 export default function Setting() {
+  
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText('www.sargarme.com');
