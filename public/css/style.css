@@ -26975,7 +26975,7 @@ button.nav-link.active i {
   color: var(--primary);
   box-shadow: 0 0 8px #fff;
   width: 150px;
-  height: 80px;
+  height: 115px;
   text-align: center;
   font-size: 1.2rem;
   position: absolute;
@@ -27003,6 +27003,7 @@ button.nav-link.active i {
 
 .LogOut-btn {
   border-top: 2px solid var(--primary);
+  border-bottom: 2px solid var(--primary);
 }
 
 .right-content button:focus+.setting-container,
