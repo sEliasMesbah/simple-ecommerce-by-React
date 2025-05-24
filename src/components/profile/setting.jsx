@@ -1,22 +1,51 @@
-import React from "react";
-import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
+import React from "react";
 
-export default function Setting({ onClose }) {
+export default function Setting() {
+  const navigate = useNavigate();
   const { logout } = useAuth();
-  const navigate = useNavigate(); // اینجا از هوک استفاده می‌کنیم
 
   const handleLogout = () => {
-    logout();      // اول لاگ اوت
-    onClose();     // بعد منو رو ببند
-    navigate("/login");  // سپس ریدایرکت کن
+    logout();                // پاک کردن اطلاعات کاربر
+    navigate("/login");      // هدایت به صفحه لاگین
+  };
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText("www.sargarme.com");
+      alert("متن با موفقیت کپی شد!");
+    } catch (err) {
+      alert("خطا در کپی کردن متن: " + err);
+    }
   };
 
   return (
     <div className="setting-dropdown">
       <ul>
         <li>
-          <button onClick={handleLogout}>Log Out</button>
+          Setting
+          <i style={{ color: 'var(--primary)', padding: '0 10px' }} className="fa fa-cog" />
+        </li>
+
+        <li className="LogOut-btn">
+          <button
+            onClick={handleLogout}
+            style={{ background: "none", border: "none", cursor: "pointer", color: "inherit" }}
+          >
+            Log Out
+            <i className="fa fa-sign-out" style={{ color: 'var(--primary)', padding: '0 10px' }} />
+          </button>
+        </li>
+
+        <li className="copyBtn">
+          <button
+            onClick={handleCopy}
+            style={{ background: "none", border: "none", cursor: "pointer", color: "inherit" }}
+          >
+            Copy Link
+            <i className="fa fa-clone" style={{ color: 'var(--primary)', padding: '0 10px' }} />
+          </button>
         </li>
       </ul>
     </div>
