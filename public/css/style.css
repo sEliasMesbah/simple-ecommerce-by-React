@@ -26813,7 +26813,10 @@ label input {
   width: 100%;
   right: 13px;
 }
-
+.footer.f0 {
+  bottom: 0 !important;
+  z-index: 999 !important;
+}
 .footer {
   /* >>>>>>> dev */
   bottom: 66px !important;
