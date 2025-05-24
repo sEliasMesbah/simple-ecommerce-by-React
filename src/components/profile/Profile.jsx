@@ -23,7 +23,7 @@ export default function Profile() {
   };
 
   const handleLogout = () => {
-    logout();
+
   };
 
   return (
@@ -41,12 +41,19 @@ export default function Profile() {
               <h6 className="title">Profile</h6>
             </div>
             <div className="right-content">
-              <button className="profile-btn" style={{border:'unset' ,  backgroundColor: 'unset'}} onClick={toggleSettingVisibility} aria-label="More options">
-                <Setting />
-                <i className="icon feather icon-more-vertical"></i>
-              </button>
-              {isSettingVisible && <Setting />}
-            </div>
+            <button
+  className="profile-btn"
+  style={{ border: "unset", backgroundColor: "unset" }}
+  onClick={toggleSettingVisibility}
+  aria-label="More options"
+>
+  <i className="icon feather icon-more-vertical"></i>
+</button>
+
+{isSettingVisible && (
+  <Setting onClose={() => setIsSettingVisible(false)} />
+)}
+</div>
           </div>
         </div>
 
