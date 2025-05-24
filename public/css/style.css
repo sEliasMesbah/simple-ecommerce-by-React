@@ -26984,7 +26984,6 @@ button.nav-link.active i {
   height: 80px;
   text-align: center;
   font-size: 1.2rem;
-  border-radius: 10px;
   position: absolute;
   top: 25px;
   left: 100%;
@@ -27000,6 +26999,8 @@ button.nav-link.active i {
 
 .setting-container ul li:hover{
   background-color: wheat;
+  background-size: 100% ;
+ 
 }
 .right-content {
   position: relative;

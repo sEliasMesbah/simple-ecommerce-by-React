@@ -24,12 +24,11 @@
       "id": "1f63"
     },
     {
-      "id": "d945",
-      "name": "sajjad",
-      "password": "123456789",
+      "name": "سجاد",
       "phone": "09790497872",
       "email": "amirmohamadsafa2@gmail.com",
-      "location": "qom"
+      "location": "qom",
+      "id": "d945"
     }
   ],
   "products": [
