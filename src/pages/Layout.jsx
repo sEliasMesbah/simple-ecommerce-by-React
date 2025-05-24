@@ -1,11 +1,21 @@
-import { useLocation, Outlet } from "react-router-dom";
+import { useLocation, Outlet, matchPath } from "react-router-dom";
 import MenuBar from "../components/MenuBar";
 
 export default function Layout() {
   const location = useLocation();
 
-  // مسیرهایی که در آنها نمی‌خواهیم MenuBar نمایش داده شود
-  const hideMenu = ["/", "/login", "/register"].includes(location.pathname);
+  // لیست مسیرهایی که نباید MenuBar نمایش داده شود
+  const hideMenuPaths = [
+    "/",
+    "/login",
+    "/register",
+    "/product/:id" // اضافه کردن مسیر داینامیک
+  ];
+
+  // بررسی تطابق مسیر فعلی با الگوها
+  const hideMenu = hideMenuPaths.some((path) => 
+    matchPath({ path, end: true }, location.pathname)
+  );
 
   return (
     <div className="relative">

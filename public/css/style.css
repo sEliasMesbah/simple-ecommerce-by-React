@@ -26891,7 +26891,7 @@ body.dark-mode {
   z-index: 10;     /* مقدار کم تر از سایدبار و اورلی */
   background-color: var(--menubar-bg);
   padding: 5px 0;
-  box-shadow: 0 -1px 4px #1c212e;
+  box-shadow: 0 -1px 4px rgba(28, 33, 46, 0.2);
 }
 
 .menubar-nav {

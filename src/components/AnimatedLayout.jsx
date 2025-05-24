@@ -8,9 +8,6 @@ export default function Layout() {
 
   return (
     <>
-      {/* منوبار با z-index بالا */}
-      {!hideMenu && <MenuBar style={{ position: "relative", zIndex: 50 }} />}
-      
       {/* محتوای اصلی زیر منوبار */}
       <main className="relative z-0">
         <Outlet />
