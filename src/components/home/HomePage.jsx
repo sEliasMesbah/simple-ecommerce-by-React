@@ -6,17 +6,32 @@ import { useState, useEffect } from "react";
 export default function HomePage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [shouldAnimate, setShouldAnimate] = useState(true);
 
   const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
   const closeSidebar = () => setIsSidebarOpen(false);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsVisible(true), 50);
-    return () => clearTimeout(timeout);
+    // فعال کردن visible پس از ۵۰ms
+    const visibleTimer = setTimeout(() => setIsVisible(true), 50);
+    
+    // غیرفعال کردن انیمیشن پس از ۶۰۰ms (همان مدت انیمیشن)
+    const animationTimer = setTimeout(() => {
+      setShouldAnimate(false);
+    }, 600);
+
+    return () => {
+      clearTimeout(visibleTimer);
+      clearTimeout(animationTimer);
+    };
   }, []);
 
   return (
-    <div className={`home-page-wrapper fade-in ${isVisible ? "visible" : ""}`}>
+    <div 
+      className={`home-page-wrapper 
+        ${shouldAnimate ? "fade-in" : ""} 
+        ${isVisible ? "visible" : ""}`
+      }>
       <Header onToggleSidebar={toggleSidebar} />
       <SideBar isOpen={isSidebarOpen} onClose={closeSidebar} />
       {isSidebarOpen && (

@@ -27038,7 +27038,7 @@ button.nav-link.active i {
   opacity: 0;
   pointer-events: none;
 }
-/* 
+
 .fade-in {
   opacity: 0;
   transform: translateY(10px);
@@ -27048,7 +27048,7 @@ button.nav-link.active i {
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
-} */
+}
 
 .page-wrapper {
   opacity: 1;
