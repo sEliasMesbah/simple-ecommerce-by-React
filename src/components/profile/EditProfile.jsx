@@ -146,12 +146,14 @@ export default function EditProfile() {
               required={true}
               onChange={handleChange}
             />
+            <br />
             <Input
               label="موقعیت"
               id="location"
               value={formData.location}
               onChange={handleChange}
             />
+            <br /><br /><br /><br /><br /><b><br /><br /></b>
           </div>
         </div>
         <div className="footer fixed">
