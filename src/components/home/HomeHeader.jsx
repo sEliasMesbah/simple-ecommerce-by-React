@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Header({ onToggleSidebar }) {
 	return (
 	  <header className="header shadow header-fixed border-0">
@@ -8,14 +10,14 @@ export default function Header({ onToggleSidebar }) {
 				<i className="icon feather icon-menu cursor openside menu-toggler" onClick={onToggleSidebar}></i>
 			</div>
 			<div className="mid-content header-logo">
-			  <span href="index.html">
+			  <Link to="/">
 				<img className="logo app-logo" src="/images/logos/light/logo1.svg" alt="logo" />
-			  </span>
+			  </Link>
 			</div>
 			<div className="right-content">
-			  <a href="search.html" className="search-icon">
+			  <Link to="/search" className="search-icon">
 				<i className="icon feather icon-search"></i>
-			  </a>
+			  </Link>
 			</div>
 		  </div>
 		</div>

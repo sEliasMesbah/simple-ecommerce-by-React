@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
 export default function SideBar({ isOpen, onClose }) {
@@ -64,7 +64,7 @@ export default function SideBar({ isOpen, onClose }) {
       className={`sidebar ${isOpen ? "show" : ""}`}
       style={{ backgroundImage: "url('images/background/bg3.png')" }}
     >
-      <Link to="/profile" className="author-box" onClick={handleNav}>
+      <NavLink to="/profile" className="author-box" onClick={handleNav}>
         <div className="dz-media">
           <img src="images/user-profile.jpg" alt="author" />
         </div>
@@ -72,137 +72,72 @@ export default function SideBar({ isOpen, onClose }) {
           <h5 className="name">{user ? user.name : "Guest"}</h5>
           <span>{user ? user.email : "Please login"}</span>
         </div>
-      </Link>
+      </NavLink>
 
-      <ul className="nav navbar-nav">
+      <ul className="nav navbar-nav dark-icon-black">
         <li>
-          <Link to="/" className="nav-link active" href="index.html">
+          <NavLink to="/home" className="nav-NavLink" onClick={handleNav}>
             <span className="dz-icon">
-              <i className="icon feather icon-home"></i>
+              <i className="icon feather icon-home" />
             </span>
             <span>Home</span>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/ComponentPage" className="nav-link active" href="index.html">
+          <NavLink className="nav-NavLink" to="/components" onClick={handleNav}>
             <span className="dz-icon">
-              <i className="icon feather icon-grid"></i>
+              <i className="icon feather icon-grid" />
             </span>
             <span>Components</span>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <a className="nav-link active" href="index.html">
+          <NavLink to="/wishlist" className="nav-NavLink" onClick={handleNav}>
             <span className="dz-icon">
-              <i className="icon feather icon-grid"></i>
-            </span>
-            <span>Pages</span>
-          </a>
-        </li>
-        <li>
-          <a className="nav-link active" href="index.html">
-            <span className="dz-icon">
-              <i className="icon feather icon-list"></i>
-            </span>
-            <span>Featured</span>
-          </a>
-        </li>
-        <li>
-          <Link to="/wishlist" className="nav-link active" href="index.html">
-            <span className="dz-icon">
-              <i className="icon feather icon-heart"></i>
+              <i className="icon feather icon-heart" />
             </span>
             <span>Wishlist</span>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/OrderPage" className="nav-link active" href="index.html">
+          <NavLink to="/OrderPage" className="nav-NavLink" onClick={handleNav}>
             <span className="dz-icon">
-              <i className="icon feather icon-repeat"></i>
+              <i className="icon feather icon-repeat" />
             </span>
             <span>Orders</span>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <a className="nav-link active" href="index.html">
+          <NavLink to="/profile" className="nav-NavLink" onClick={handleNav}>
             <span className="dz-icon">
-              <i className="icon feather icon-shopping-cart"></i>
-            </span>
-            <span>My Cart</span>
-          </a>
-        </li>
-        <li>
-          <Link to="/profile" className="nav-link active" href="index.html">
-            <span className="dz-icon">
-              <i className="icon feather icon-user"></i>
+              <i className="icon feather icon-user" />
             </span>
             <span>Profile</span>
-          </Link>
+          </NavLink>
         </li>
-        <li>
-          <Link to="/welcome" className="nav-link active" href="index.html">
-            <span className="dz-icon">
-              <i className="icon feather icon-log-out"></i>
-            </span>
-            <span>Logout</span>
-          </Link>
-          {/* <a className="nav-link active" href="index.html">
-            <span className="dz-icon">
-              <i className="icon feather icon-log-out"></i>
-            </span>
-            <span>Logout</span>
-          </a> */}
-        </li>
-        {/* بقیه آیتم‌ها همینطور ادامه دارن */}
+
+        {user ? (
+          <li onClick={handleLogout}>
+            <NavLink className="nav-NavLink active" style={{ cursor: "pointer" }}>
+              <span className="dz-icon">
+                <i className="icon feather icon-log-out" />
+              </span>
+              <span>Logout</span>
+            </NavLink>
+          </li>
+        ) : (
+          <>
+            <li>
+              <NavLink to="/login" className="nav-NavLink" onClick={handleNav}>
+                <span className="dz-icon">
+                  <i className="icon feather icon-log-in" />
+                </span>
+                <span>Login</span>
+              </NavLink>
+            </li>
+          </>
+        )}
       </ul>
-      <ul className="nav navbar-nav dark-icon-black">
-  <li>
-    <Link to="/home" className="nav-link active" onClick={handleNav}>
-      <i className="feather icon-home"></i> Home
-    </Link>
-  </li>
-
-  <li>
-    <Link
-      to={user ? "/wishlist" : "/login"}
-      className="nav-link active"
-      onClick={handleNav}
-    >
-      <i className="feather icon-heart"></i> Wishlist
-    </Link>
-  </li>
-
-  <li>
-    <Link
-      to={user ? "/OrderPage" : "/login"}
-      className="nav-link active"
-      onClick={handleNav}
-    >
-      <i className="feather icon-repeat"></i> Orders
-    </Link>
-  </li>
-
-  <li>
-    <Link to="/profile" className="nav-link active" onClick={handleNav}>
-      <i className="feather icon-user"></i> Profile
-    </Link>
-  </li>
-
-  {user ? (
-    <li onClick={handleLogout}>
-      <Link className="nav-link active" style={{ cursor: "pointer" }}>
-        <i className="feather icon-log-out"></i> Logout
-      </Link>
-    </li>
-  ) : (
-    <li>
-      <Link to="/login" className="nav-link active" onClick={handleNav}>
-        <i className="feather icon-log-in"></i> Login
-      </Link>
-    </li>
-  )}
-</ul>
-
 
       <div className="sidebar-bottom">
         <ul className="app-setting">

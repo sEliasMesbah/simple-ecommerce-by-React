@@ -1,7 +1,17 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import React, { useState } from 'react';
+import Setting from "./setting";
 
 export default function Profile() {
+
+  const [isSettingVisible, setIsSettingVisible] = useState(false);
+
+  const toggleSettingVisibility = () => {
+    setIsSettingVisible(prevState => !prevState);
+  };
+
+
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
@@ -13,7 +23,7 @@ export default function Profile() {
   };
 
   const handleLogout = () => {
-    logout();
+
   };
 
   return (
@@ -31,12 +41,22 @@ export default function Profile() {
               <h6 className="title">Profile</h6>
             </div>
             <div className="right-content">
-              <Link to="/profile" aria-label="More options">
-                <i className="icon feather icon-more-vertical"></i>
-              </Link>
-            </div>
+            <button
+  className="profile-btn"
+  style={{ border: "unset", backgroundColor: "unset" }}
+  onClick={toggleSettingVisibility}
+  aria-label="More options"
+>
+  <i className="icon feather icon-more-vertical"></i>
+</button>
+
+{isSettingVisible && (
+  <Setting onClose={() => setIsSettingVisible(false)} />
+)}
+</div>
           </div>
         </div>
+
       </header>
 
       {/* Main Content */}
@@ -130,7 +150,7 @@ export default function Profile() {
               <h6 className="title mb-0 font-w700">Account Settings</h6>
             </div>
 
-            <div className="dz-list style-1">
+            <div className="dz-list style-1 profile-setting">
               <ul>
                 <li>
                   <Link
@@ -184,7 +204,7 @@ export default function Profile() {
                     <div className="badge badge-primary position-absolute end-0 me-3">5</div>
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   {user ? (
                     <Link
                       to="/profile"
@@ -212,13 +232,12 @@ export default function Profile() {
                       </Link>
                     </>
                   )}
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>
         </div>
       </div>
-
       {/* Language Selection Offcanvas */}
       <div
         className="offcanvas offcanvas-bottom m-3 rounded"

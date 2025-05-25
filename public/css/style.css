@@ -8481,7 +8481,7 @@ fieldset:disabled .btn {
 }
 
 .end-0 {
-  right: 0 !important;
+  right: 10px !important;
 }
 
 .end-50 {
@@ -14218,10 +14218,6 @@ svg.text-dark path {
   margin-bottom: 0;
 }
 
-.page-content.space-top {
-  margin-top: 50px;
-}
-
 .flex-1 {
   flex: 1;
 }
@@ -16679,7 +16675,7 @@ section {
 }
 
 .header.header-fixed {
-  position: fixed;
+  position: relative;
   width: 100%;
   top: 0;
 }
@@ -21398,11 +21394,12 @@ button:focus {
 }
 
 .dz-list.style-1 ul li :hover {
-  background-color: #fff;
+  background-color: gray;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transform: translateY(-2px);
   border-radius: 5px;
   padding-left: 10px;
+  /* color: red !important; */
 }
 
 
@@ -26417,6 +26414,11 @@ label input {
   color: var(--title);
   font-family: var(--font-family-title);
   border: 2px solid black;
+  transition: .5s ease-in-out;
+}
+
+.card.address-card .card-footer .footer-link:hover {
+  background-color: var(--primary);
 }
 
 .dz-offer-coupon {
@@ -26684,7 +26686,7 @@ label input {
   height: 100%;
   background-color: white;
   transition: left 0.3s ease;
-  z-index: 1000;
+  z-index: 10000000;
 }
 
 .show {
@@ -26812,6 +26814,11 @@ label input {
   right: 13px;
 }
 
+.footer.f0 {
+  bottom: 0 !important;
+  z-index: 999 !important;
+}
+
 .footer {
   /* >>>>>>> dev */
   bottom: 66px !important;
@@ -26838,19 +26845,15 @@ label input {
 /* استایل عمومی دکمه‌ها */
 .nav-tabs .nav-link {
   color: #000;
-  /* رنگ معمولی */
   background: transparent;
   border: none;
   transition: color 0.3s ease;
-  /* ترنزیشن رنگ متن */
 }
 
-/* وقتی دکمه فعال است، رنگش سبز شود */
 .nav-tabs .nav-link.active {
   color: #0d775e !important;
 }
 
-/* li فعال بردر پایین سبز داشته باشد */
 .nav-tabs .nav-item {
   border-bottom: 2px solid transparent;
   transition: border-color 0.3s ease;
@@ -26859,6 +26862,227 @@ label input {
 .nav-tabs .nav-item.active-tab {
   border-bottom: 2px solid #0d775e;
 }
-.navbar-nav li{
+
+.navbar-nav li {
   cursor: pointer;
 }
+
+body.dark-mod .dz-list.style-1 ul li:hover {
+  color: red;
+}
+
+:root {
+  --menubar-bg: white;
+  --menubar-text: black;
+  --menubar-active-bg: white;
+  --menubar-active-shadow: rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode {
+  --menubar-bg: #111111 !important;
+  --menubar-text: white;
+  --menubar-active-bg: #1c212e;
+  --menubar-active-shadow: rgba(28, 33, 46, 0.6);
+}
+
+/* مهم: فقط این قسمت اضافه شد */
+.menubar-area {
+  position: fixed;
+  /* منوبار ثابت در پایین صفحه */
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+  /* مقدار کم تر از سایدبار و اورلی */
+  background-color: var(--menubar-bg);
+  padding: 5px 0;
+  box-shadow: 0 -1px 4px rgba(28, 33, 46, 0.2);
+}
+
+.menubar-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  position: relative;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #2c2c2c;
+  font-size: 13px;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+  z-index: 1;
+  /* مقدار کم */
+}
+
+.nav-link i {
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.width {
+  width: 25%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* اینجا حالت اکتیو رو دقیقا نگه داشته‌ام */
+.nav-link.active,
+button.nav-link.active {
+  background-color: wheat !important;
+  color: #0b775d !important;
+  padding: 10px 14px;
+  box-shadow: 0 0 13px wheat;
+  z-index: auto;
+  /* حالت قبل */
+  border-radius: 50%;
+  width: 34% !important;
+  margin: -50px 0 0 0;
+  position: relative;
+}
+
+.nav-link.active i,
+button.nav-link.active i {
+  color: #0b775d;
+}
+
+.nav-link.active {
+  background-color: var(--menubar-active-bg) !important;
+  color: var(--menubar-text) !important;
+  padding: 10px 14px;
+  box-shadow: 0 -4px 12px var(--menubar-active-shadow) !important;
+  border-radius: 22px 22px 0 0;
+  width: 33% !important;
+  margin: -50px 0 0 0;
+  position: relative;
+  z-index: auto;
+  /* حالت قبل */
+}
+
+.nav-link.active i {
+  color: var(--menubar-text);
+}
+
+/* بقیه استایل‌ها مثل قبل بدون تغییر */
+.setting-container {
+  background-color: #fff;
+  color: var(--primary);
+  box-shadow: 0 0 8px #fff;
+  width: 150px;
+  height: 115px;
+  text-align: center;
+  font-size: 1.2rem;
+  position: absolute;
+  top: 25px;
+  left: 100%;
+  margin-left: -160px;
+  display: none;
+}
+
+.setting-container ul li {
+  padding-top: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.setting-container ul li:hover {
+  background-color: wheat;
+  background-size: 100%;
+
+}
+
+.right-content {
+  position: relative;
+}
+
+.LogOut-btn {
+  border-top: 2px solid var(--primary);
+  border-bottom: 2px solid var(--primary);
+}
+
+.right-content button:focus+.setting-container,
+.right-content button:hover+.setting-container {
+  display: block;
+}
+
+@keyframes pulse-shadow {
+  0% {
+    box-shadow: inset 0 0 25px 10px rgba(255, 215, 0, 0.2);
+  }
+
+  50% {
+    box-shadow: inset 0 0 35px 15px rgba(255, 215, 0, 0.5);
+  }
+
+  100% {
+    box-shadow: inset 0 0 25px 10px rgba(255, 215, 0, 0.2);
+  }
+}
+
+.preloader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  box-shadow: inset 0 0 25px 10px rgba(255, 215, 0, 0.35);
+  pointer-events: all;
+
+  animation: pulse-shadow 3s ease-in-out infinite;
+}
+
+.preloader-wrapper.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-wrapper {
+  opacity: 1;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.page-wrapper.fade-out {
+  opacity: 0;
+}
+
+.page-wrapper.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-wrapper {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-wrapper.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
