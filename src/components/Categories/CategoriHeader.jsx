@@ -14,9 +14,9 @@ export default function CategoriHeader(){
 					<div className="mid-content">
 					</div>
 					<div className="right-content">
-						<a href="search.html" className="search-icon">
+						<Link to="/search" className="search-icon">
 							<i className="icon feather icon-search"></i>
-						</a>
+						</Link>
 					</div>
 				</div>
 			</div>

@@ -9,6 +9,7 @@ export default function Layout() {
     "/",
     "/login",
     "/register",
+    "/search",
     "/product/:id" // اضافه کردن مسیر داینامیک
   ];
 

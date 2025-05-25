@@ -49,6 +49,7 @@ import Avatar from "../components/ConponentOfSlider/ui-avatar";
 import Layout from "../pages/Layout";
 import AnimatedLayout from "../components/AnimatedLayout";
 import { AddressProvider } from "../components/profile/address/AddressContext";
+import Search from "../components/home/Search";
 
 const Routes = () => {
   const location = useLocation();
@@ -66,6 +67,7 @@ const Routes = () => {
           </AddressProvider>}>
             {/* صفحه‌های اصلی */}
             <Route path="/home" element={<HomePage />} />
+            <Route path="/search" element={<Search />} />
             <Route path="/categori" element={<CategoriPage />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/wishlist" element={<WishListPage />} />
