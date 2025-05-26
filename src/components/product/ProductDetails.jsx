@@ -6,8 +6,9 @@ import { FreeMode, Thumbs } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/thumbs';
-
 import { AuthContext } from '../../context/AuthContext';
+
+
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -18,15 +19,17 @@ const ProductDetails = () => {
   const [selectedColor, setSelectedColor] = useState('#24262B');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
   const { user } = useContext(AuthContext);
   const [liked, setLiked] = useState(false);
+
+  const [cartCount, setCartCount] = useState(0);
+
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        
+
         // Fetch Product Data
         const productResponse = await axios.get(`http://localhost:3001/products/${id}`);
         setProduct(productResponse.data);
@@ -135,14 +138,16 @@ const ProductDetails = () => {
   if (error) return <div>Error: {error}</div>;
   if (!product) return <div>Product not found</div>;
 
+
+
   return (
     <Base rightHeaderContent={
       <button
         onClick={toggleLike}
         className="item-bookmark btn btn-link p-0"
-        style={{ 
-          border: "none", 
-          background: "transparent", 
+        style={{
+          border: "none",
+          background: "transparent",
           cursor: "pointer"
         }}
         title={liked ? "Remove from wishlist" : "Add to wishlist"}
@@ -207,7 +212,7 @@ const ProductDetails = () => {
               <span className="brand-tag">{category.name}</span>
               <h5>{product.name}</h5>
             </div>
-            
+
             <div className="dz-review-meta mb-3">
               <h4 className="price">
                 {
@@ -304,9 +309,54 @@ const ProductDetails = () => {
                 }
               </h3>
             </div>
-            <a href="cart.html" className="btn btn-primary">
-              Add Cart
-            </a>
+            <div className="footer fixed f0 bg-white border-top">
+              <div className="container py-2">
+                <div className="total-cart">
+                  <div className="price-area">
+                    <span>Price</span>
+                    <h3 className="price">
+                      {
+                        product?.offer ? (
+                          <>
+                            <h6 className="price">${getDiscountedPrice(product?.price, product?.offer).toLocaleString()}
+                              <del>${product?.price}</del>
+                            </h6>
+                          </>
+                        ) : (
+                          <>
+                            <span>${product?.price}</span>
+                          </>
+                        )
+                      }
+                    </h3>
+                  </div>
+                  {cartCount === 0 ? (
+                    <button
+                      className="btn btn-primary"
+                      onClick={() => setCartCount(1)}
+                    >
+                      Add Cart
+                    </button>
+                  ) : (
+                    <div className="btn btn-primary d-flex align-items-center">
+                      <button
+                        onClick={() => setCartCount(prev => (prev > 0 ? prev - 1 : 0))}
+                        style={{ marginRight: 10, padding: "0 8px" }}
+                      >
+                        -
+                      </button>
+                      <span>{cartCount}</span>
+                      <button
+                        onClick={() => setCartCount(prev => prev + 1)}
+                        style={{ marginLeft: 10, padding: "0 8px" }}
+                      >
+                        +
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -315,10 +365,10 @@ const ProductDetails = () => {
 };
 
 export default ProductDetails;
-export function Base({children, rightHeaderContent}) {
-  return(
+export function Base({ children, rightHeaderContent }) {
+  return (
     <>
-      <header className="header shadow header-fixed border-0" 
+      <header className="header shadow header-fixed border-0"
         style={{
           position: "fixed"
         }}
