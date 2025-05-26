@@ -30,7 +30,7 @@ export default function Card({ data }) {
 		e.stopPropagation();
 
 		if (!user) {
-			alert("برای افزودن به علاقه‌مندی‌ها لطفا وارد حساب خود شوید.");
+			alert("Please log in to add to favorites.");
 			return;
 		}
 
@@ -52,7 +52,7 @@ export default function Card({ data }) {
 				});
 
 				if (!postRes.ok) {
-					alert("مشکل در ایجاد لیست علاقه‌مندی‌ها");
+					alert("Problem creating wishlist");
 					return;
 				}
 
@@ -60,7 +60,7 @@ export default function Card({ data }) {
 			} else if (res.ok) {
 				wishlist = await res.json();
 			} else {
-				alert("خطا در دریافت لیست علاقه‌مندی‌ها");
+				alert("Error retrieving wishlist");
 				return;
 			}
 
@@ -85,10 +85,10 @@ export default function Card({ data }) {
 			});
 
 			if (patchRes.ok) setLiked(!liked);
-			else alert("خطا در به‌روزرسانی لیست علاقه‌مندی‌ها");
+			else alert("Error updating wishlist");
 		} catch (err) {
 			console.error(err);
-			alert("خطا در اتصال به سرور");
+			alert("Error connecting to server");
 		}
 	};
 
@@ -100,7 +100,7 @@ export default function Card({ data }) {
 						<img
 							src={data.images[0]}
 							alt={data.name}
-							style={{ maxHeight: "100%", margin: "0 auto", display: "block", width: "inherit" }}
+							style={{ maxHeight: "100%", margin: "0 auto", display: "block", width: "auto", padding: "36px 0 0" }}
 						/>
 					</Link>
 
@@ -108,7 +108,7 @@ export default function Card({ data }) {
 						onClick={toggleLike}
 						className="item-bookmark btn btn-link p-0 position-absolute top-0 end-0 m-2"
 						style={{ border: "none", background: "transparent", cursor: "pointer" }}
-						title={liked ? "حذف از علاقه‌مندی‌ها" : "افزودن به علاقه‌مندی‌ها"}
+						title={liked ? "Remove from wishlist" : "Add to wishlist"}
 						aria-label={liked ? "Remove from wishlist" : "Add to wishlist"}
 					>
 						<svg

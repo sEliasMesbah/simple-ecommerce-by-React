@@ -37,6 +37,14 @@
       "phone": "09790497872",
       "email": "amirmohamadsafa2@gmail.com",
       "location": "qom"
+    },
+    {
+      "id": "0c12",
+      "name": "mmd80519",
+      "password": "09123456789",
+      "phone": "09034737295",
+      "email": "MBGmohammad@yahoo.com",
+      "location": "Qom, 20th Motahari Street, Alley 38"
     }
   ],
   "products": [
@@ -296,6 +304,36 @@
           "describe": "",
           "offerprice": 161,
           "price": 179.99
+        }
+      ]
+    },
+    {
+      "id": "0c12",
+      "userId": "0c12",
+      "items": [
+        {
+          "id": "af108c30-9d4h-6c0e-be5f-456789012cde",
+          "name": "Pakshoma washing machine model TFU-84406, capacity 8 kg",
+          "url": "https://dkstatics-public.digikala.com/digikala-products/74aa2a17e35c0466ebd03130e0a4f6f44d8d51e5_1602747387.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/format,webp/quality,q_90",
+          "describe": "",
+          "offerprice": 215,
+          "price": 215.99
+        },
+        {
+          "id": "9e0f7b20-8c3g-5b9d-ad4e-345678901bcd",
+          "name": "Snowa 24-foot refrigerator and freezer model SN4-2024SW",
+          "url": "https://dkstatics-public.digikala.com/digikala-products/dae0ea19f710e52b5f8534f559f4597a841feded_1714571226.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/format,webp/quality,q_90",
+          "describe": "",
+          "offerprice": 449,
+          "price": 449
+        },
+        {
+          "id": "c132ae50-1f6j-8e20-dg71-678901234ef0",
+          "name": "Samsung Galaxy S24 Ultra Dual SIM 256GB 12GB RAM - Vietnam",
+          "url": "https://dkstatics-public.digikala.com/digikala-products/c23b49b0be1c4ae5b2a3d7a3281d2f1731065243_1726037574.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/format,webp/quality,q_90",
+          "describe": "",
+          "offerprice": 796,
+          "price": 875
         }
       ]
     }

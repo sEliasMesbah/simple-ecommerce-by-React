@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -6,6 +6,8 @@ import { FreeMode, Thumbs } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/thumbs';
+
+import { AuthContext } from '../../context/AuthContext';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -16,6 +18,9 @@ const ProductDetails = () => {
   const [selectedColor, setSelectedColor] = useState('#24262B');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const { user } = useContext(AuthContext);
+  const [liked, setLiked] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,12 +51,118 @@ const ProductDetails = () => {
   const getDiscountedPrice = (price, offer) => {
     return Math.floor(price * (1 - offer / 100));
   };
+  useEffect(() => {
+    if (!user || !product) {
+      setLiked(false);
+      return;
+    }
+
+    fetch(`http://localhost:3001/wishlists/${user.id}`)
+      .then(res => res.json())
+      .then(wishlist => {
+        const exists = wishlist.items?.some(item => item.id === product.id);
+        setLiked(exists);
+      })
+      .catch(() => setLiked(false));
+  }, [user, product?.id]);
+  const toggleLike = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (!user) {
+      alert("Please log in to add to favorites.");
+      return;
+    }
+
+    try {
+      let wishlist;
+      let res = await fetch(`http://localhost:3001/wishlists/${user.id}`);
+
+      if (res.status === 404) {
+        const newWishlist = {
+          id: user.id,
+          userId: user.id,
+          items: []
+        };
+
+        const postRes = await fetch(`http://localhost:3001/wishlists`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newWishlist),
+        });
+
+        if (!postRes.ok) {
+          alert("Problem creating wishlist");
+          return;
+        }
+
+        wishlist = newWishlist;
+      } else if (res.ok) {
+        wishlist = await res.json();
+      } else {
+        alert("Error retrieving wishlist");
+        return;
+      }
+
+      let updatedItems = [];
+      if (liked) {
+        updatedItems = wishlist.items.filter(item => item.id !== product.id);
+      } else {
+        updatedItems = [...(wishlist.items || []), {
+          id: product.id,
+          name: product.name,
+          url: product.images[0],
+          describe: product.description || "",
+          offerprice: getDiscountedPrice(product.price, product.offer),
+          price: product.price
+        }];
+      }
+
+      const patchRes = await fetch(`http://localhost:3001/wishlists/${user.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items: updatedItems })
+      });
+
+      if (patchRes.ok) setLiked(!liked);
+      else alert("Error updating wishlist");
+    } catch (err) {
+      console.error(err);
+      alert("Error connecting to server");
+    }
+  };
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
   if (!product) return <div>Product not found</div>;
 
   return (
-    <Base>
+    <Base rightHeaderContent={
+      <button
+        onClick={toggleLike}
+        className="item-bookmark btn btn-link p-0"
+        style={{ 
+          border: "none", 
+          background: "transparent", 
+          cursor: "pointer"
+        }}
+        title={liked ? "Remove from wishlist" : "Add to wishlist"}
+        aria-label={liked ? "Remove from wishlist" : "Add to wishlist"}
+      >
+        <svg
+          width={24}
+          height={24}
+          viewBox="0 0 24 24"
+          fill={liked ? "red" : "none"}
+          stroke="currentColor"
+          strokeWidth={2}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="feather feather-heart"
+        >
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
+      </button>
+    }>
       <div className="container p-0 pb-4">
         <div className="dz-product-preview">
           {/* Main Swiper */}
@@ -204,7 +315,7 @@ const ProductDetails = () => {
 };
 
 export default ProductDetails;
-export function Base({children}) {
+export function Base({children, rightHeaderContent}) {
   return(
     <>
       <header className="header shadow header-fixed border-0" 
@@ -223,21 +334,7 @@ export function Base({children}) {
               <h6 className="title">Product Detail</h6>
             </div>
             <div className="right-content">
-              <a className="item-bookmark">
-                <svg
-                  width={24}
-                  height={24}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="feather feather-heart"
-                >
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                </svg>
-              </a>
+              {rightHeaderContent}
             </div>
           </div>
         </div>
