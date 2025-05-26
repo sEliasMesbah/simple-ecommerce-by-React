@@ -17346,7 +17346,8 @@ section {
   width: 25%;
   padding: 0 0;
   font-size: 18px;
-}
+  border-radius: 50%;
+  }
 
 .menubar-area .toolbar-inner .nav-link svg,
 .menubar-area .toolbar-inner .menu-toggler svg {
@@ -26942,7 +26943,7 @@ button.nav-link.active {
   z-index: auto;
   /* حالت قبل */
   border-radius: 50%;
-  width: 34% !important;
+  width: 35% !important;
   margin: -50px 0 0 0;
   position: relative;
 }
