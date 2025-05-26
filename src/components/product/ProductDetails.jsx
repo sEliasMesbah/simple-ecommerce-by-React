@@ -344,14 +344,14 @@ const ProductDetails = () => {
                       color: "#fff"
                     }}
                       className="btn btn-primary d-flex align-items-center">
-                      <button
+                      <button className='hover-reduce-count-btn'
                         onClick={() => setCartCount(prev => (prev > 0 ? prev - 1 : 0))}
                         style={{ marginRight: 10, padding: "0 8px" }}
                       >
                         -
                       </button>
                       <span>{cartCount}</span>
-                      <button
+                      <button className='hover-increase-count-btn'
                         onClick={() => setCartCount(prev => prev + 1)}
                         style={{ marginLeft: 10, padding: "0 8px" }}
                       >

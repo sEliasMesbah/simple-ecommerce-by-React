@@ -17347,7 +17347,7 @@ section {
   padding: 0 0;
   font-size: 18px;
   border-radius: 50%;
-  }
+}
 
 .menubar-area .toolbar-inner .nav-link svg,
 .menubar-area .toolbar-inner .menu-toggler svg {
@@ -27114,3 +27114,13 @@ button.nav-link.active i {
   transition: transform 0.3s ease;
 }
 
+.hover-reduce-count-btn:hover {
+  background-color:#c4c4c4 ;
+  transition: ease-in .5s;
+
+}
+
+.hover-increase-count-btn:hover {
+  background-color: rgba(255, 0, 0, 0.2);
+  transition: ease-in .5s;
+}
