@@ -340,7 +340,7 @@ const ProductDetails = () => {
                   ) : (
                     <div
                     style={{
-                      background: "linear-gradient(90deg, red, #fff)", // رنگ دلخواه
+                      background: "linear-gradient(90deg, red, #fff)", 
                       color: "#fff"
                     }}
                       className="btn btn-primary d-flex align-items-center">
