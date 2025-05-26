@@ -27124,3 +27124,17 @@ button.nav-link.active i {
   background-color: rgba(255, 0, 0, 0.2);
   transition: ease-in .5s;
 }
+.videocutter{
+  overflow: hidden;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 89vw;
+  height: 80vh;
+  max-width: 670px;
+}
+.preloader-video{
+  width:90% ;
+}
