@@ -6,7 +6,7 @@ export default function Preloader({ onFinish }) {
   const [shouldRender, setShouldRender] = useState(true);
 
   useEffect(() => {
-    const minDuration = 2000;
+    const minDuration = 200000;
     const start = Date.now();
 
     const handleLoaded = () => {
@@ -38,6 +38,7 @@ export default function Preloader({ onFinish }) {
 
   return (
     <div className={`preloader-wrapper ${show ? "visible" : "hidden"}`}>
+      <div className="videocutter">
       <video
         ref={videoRef}
         src="/f.mp4"
@@ -45,7 +46,9 @@ export default function Preloader({ onFinish }) {
         muted
         playsInline
         className="preloader-video"
+        
       />
+      </div>
     </div>
   );
 }

@@ -4403,7 +4403,7 @@ fieldset:disabled .btn {
   text-decoration: none;
   background: none;
   border: 0;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  transition:0.5s ease-in-out;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -26907,6 +26907,7 @@ body.dark-mode {
 }
 
 .nav-link {
+  background-color: var(--menubar-bg) !important;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26915,14 +26916,17 @@ body.dark-mode {
   font-size: 13px;
   text-decoration: none;
   position: relative;
-  transition: all 0.3s ease;
+  /* transition: 1s; */
+  transition: transform 0.3s ease !important;
   z-index: 1;
   /* مقدار کم */
 }
 
 .nav-link i {
+  transition: transform 0.3s ease;
   font-size: 20px;
-  transition: color 0.3s ease;
+  transition: 1s;
+
 }
 
 .width {
@@ -26954,10 +26958,10 @@ button.nav-link.active i {
 }
 
 .nav-link.active {
-  background-color: var(--menubar-active-bg) !important;
-  color: var(--menubar-text) !important;
+  /* background-color: var(--menubar-active-bg) !important; */
+  /* color: var(--menubar-text) !important; */
   padding: 10px 14px;
-  box-shadow: 0 -4px 12px var(--menubar-active-shadow) !important;
+  /* box-shadow: 0 -4px 12px var(--menubar-active-shadow) !important; */
   border-radius: 22px 22px 0 0;
   width: 33% !important;
   margin: -50px 0 0 0;
@@ -26966,9 +26970,7 @@ button.nav-link.active i {
   /* حالت قبل */
 }
 
-.nav-link.active i {
-  color: var(--menubar-text);
-}
+
 
 /* .setting-dropdownn{
   background-color: #fff;
@@ -27085,6 +27087,31 @@ button.nav-link.active i {
   opacity: 1;
   transform: translateY(0);
 }
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.nav-link.active {
+  transform: translateY(-6px);
+}
+
+.hexad-menu {
+  position: relative;
+  z-index: 10;
+  width: 60px;
+  height: 60px;
+  margin-top: -20px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
 
 .hover-reduce-count-btn:hover {
   background-color:#c4c4c4 ;
@@ -27095,4 +27122,18 @@ button.nav-link.active i {
 .hover-increase-count-btn:hover {
   background-color: rgba(255, 0, 0, 0.2);
   transition: ease-in .5s;
+}
+.videocutter{
+  overflow: hidden;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 89vw;
+  height: 80vh;
+  max-width: 670px;
+}
+.preloader-video{
+  width:90% ;
 }
