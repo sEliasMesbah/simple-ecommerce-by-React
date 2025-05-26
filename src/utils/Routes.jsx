@@ -50,12 +50,14 @@ import Layout from "../pages/Layout";
 import AnimatedLayout from "../components/AnimatedLayout";
 import { AddressProvider } from "../components/profile/address/AddressContext";
 import Search from "../components/home/Search";
+import { WishlistProvider } from "../context/WishlistContext";
 
 const Routes = () => {
   const location = useLocation();
 
   return (
     <AnimatePresence mode="wait" initial={false}>
+        <WishlistProvider>
       <Router location={location} key={location.pathname}>
         {/* صفحه خوش آمدگویی بدون Layout و MenuBar */}
         <Route path="/" element={<WelcomeWrapper />} />
@@ -116,6 +118,7 @@ const Routes = () => {
           </Route>
         </Route>
       </Router>
+        </WishlistProvider>
     </AnimatePresence>
   );
 };

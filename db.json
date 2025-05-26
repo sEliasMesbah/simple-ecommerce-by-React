@@ -261,5 +261,43 @@
     {
       "id": "6afc"
     }
+  ],
+  "wishlists": [
+    {
+      "id": 1,
+      "userId": 1,
+      "items": [
+        {
+          "id": 101,
+          "name": "محصول ۱",
+          "url": "/images/product1.jpg",
+          "describe": "توضیح محصول ۱",
+          "offerprice": 100,
+          "price": 120
+        }
+      ]
+    },
+    {
+      "id": "dbb4",
+      "userId": "dbb4",
+      "items": [
+        {
+          "id": "c132ae50-1f6j-8e20-dg71-678901234ef0",
+          "name": "Samsung Galaxy S24 Ultra Dual SIM 256GB 12GB RAM - Vietnam",
+          "url": "https://dkstatics-public.digikala.com/digikala-products/c23b49b0be1c4ae5b2a3d7a3281d2f1731065243_1726037574.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/format,webp/quality,q_90",
+          "describe": "",
+          "offerprice": 796,
+          "price": 875
+        },
+        {
+          "id": "d243bf60-2g7k-9f31-eh82-789012345f01",
+          "name": "Apple iPhone 16 Pro Max ZAA Dual SIM 256GB 8GB RAM",
+          "url": "https://dkstatics-public.digikala.com/digikala-products/48daaebd4cb7706cce21ce8b5e485d6fdafa6bd1_1736598863.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/format,webp/quality,q_90",
+          "describe": "",
+          "offerprice": 161,
+          "price": 179.99
+        }
+      ]
+    }
   ]
 }

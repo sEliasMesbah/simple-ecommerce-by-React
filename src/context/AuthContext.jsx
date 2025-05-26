@@ -10,7 +10,6 @@ export const AuthProvider = ({ children }) => {
   });
 
   const login = async (name, password) => {
-    // بررسی اولیه خالی نبودن فیلدها
     if (!name.trim() || !password.trim()) {
       console.warn("نام کاربری یا رمز عبور وارد نشده است.");
       return false;
@@ -50,3 +49,6 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => useContext(AuthContext);
+
+// 🔧 این خط رو اضافه کن برای حل مشکل ایمپورت مستقیم:
+export { AuthContext };
