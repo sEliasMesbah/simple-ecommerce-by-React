@@ -338,7 +338,12 @@ const ProductDetails = () => {
                       Add Cart
                     </button>
                   ) : (
-                    <div className="btn btn-primary d-flex align-items-center">
+                    <div
+                    style={{
+                      background: "linear-gradient(90deg, red, #fff)", // رنگ دلخواه
+                      color: "#fff"
+                    }}
+                      className="btn btn-primary d-flex align-items-center">
                       <button
                         onClick={() => setCartCount(prev => (prev > 0 ? prev - 1 : 0))}
                         style={{ marginRight: 10, padding: "0 8px" }}
