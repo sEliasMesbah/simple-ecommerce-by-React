@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import React, { useState } from 'react';
-import Setting from "./setting";
+import Setting from "../../components/profile/setting";
 
 export default function Profile() {
 

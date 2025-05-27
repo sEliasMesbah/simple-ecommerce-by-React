@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import MenuBar from "../MenuBar";
-import CategoriHeader from "./CategoriHeader";
-import CategoriMain from "./CategoriMain";
+import MenuBar from "../../components/MenuBar";
+import CategoriHeader from "../../components/Categories/CategoriHeader";
+import CategoriMain from "../../components/Categories/CategoriMain";
 
 export default function CategoriPage() {
   const [isVisible, setIsVisible] = useState(false);
