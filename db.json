@@ -346,17 +346,7 @@
   "carts": [
     {
       "id": "dbb4",
-      "items": [
-        {
-          "id": "d243bf60-2g7k-9f31-eh82-789012345f01",
-          "name": "Apple iPhone 16 Pro Max ZAA Dual SIM 256GB 8GB RAM",
-          "describe": "",
-          "price": 179.99,
-          "offerprice": 161,
-          "url": "https://dkstatics-public.digikala.com/digikala-products/48daaebd4cb7706cce21ce8b5e485d6fdafa6bd1_1736598863.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/format,webp/quality,q_90",
-          "quantity": 1
-        }
-      ]
+      "items": []
     }
   ]
 }

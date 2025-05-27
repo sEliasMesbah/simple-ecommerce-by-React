@@ -7,6 +7,9 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/thumbs';
 import { AuthContext } from '../../context/AuthContext';
+// import { useState } from 'react';
+// import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Thumbs } from 'swiper/modules';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -308,123 +311,96 @@ const ProductDetails = () => {
   }
 
   return (
-    <section className="product-details py-4">
-      <div className="container">
-        <nav aria-label="breadcrumb" className="mb-3">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item">
-              <Link to="/">خانه</Link>
-            </li>
-            {category && (
-              <li className="breadcrumb-item">
-                <Link to={`/category/${category.id}`}>{category.name}</Link>
-              </li>
-            )}
-            <li className="breadcrumb-item active" aria-current="page">
-              {product.name}
-            </li>
-          </ol>
-        </nav>
+ <section className="product-details py-4">
+  <div className="container">
+    <nav aria-label="breadcrumb" className="mb-3">
+      <ol className="breadcrumb">
+        <li className="breadcrumb-item"><Link to="/">خانه</Link></li>
+        {category && (
+          <li className="breadcrumb-item">
+            <Link to={`/category/${category.id}`}>{category.name}</Link>
+          </li>
+        )}
+        <li className="breadcrumb-item active" aria-current="page">{product.name}</li>
+      </ol>
+    </nav>
 
-        <div className="row">
-          <aside className="col-md-6">
-            <Swiper
-              style={{ '--swiper-navigation-color': '#fff', '--swiper-pagination-color': '#fff' }}
-              loop={true}
-              spaceBetween={10}
-              thumbs={{ swiper: thumbsSwiper }}
-              modules={[FreeMode, Thumbs]}
-              className="main-swiper"
-            >
-              {product.images && product.images.map((image, index) => (
-                <SwiperSlide key={index}>
-                  <img src={image} alt={`${product.name} ${index + 1}`} className="img-fluid" />
-                </SwiperSlide>
-              ))}
-            </Swiper>
+    {/* تصاویر محصول */}
+    <div className="product-image-wrapper mb-4">
+  <Swiper
+    style={{ '--swiper-navigation-color': '#fff', '--swiper-pagination-color': '#fff' }}
+    loop={true}
+    spaceBetween={10}
+    thumbs={{ swiper: thumbsSwiper }}
+    modules={[FreeMode, Thumbs]}
+    className="main-swiper"
+  >
+    {product.images && product.images.map((image, index) => (
+      <SwiperSlide key={index}>
+        <img src={image} alt={`${product.name} ${index + 1}`} className="img-fluid rounded shadow w-100" />
+      </SwiperSlide>
+    ))}
+  </Swiper>
 
-            <Swiper
-              onSwiper={setThumbsSwiper}
-              spaceBetween={10}
-              slidesPerView={4}
-              freeMode={true}
-              watchSlidesProgress={true}
-              modules={[FreeMode, Thumbs]}
-              className="thumbs-swiper mt-3"
-            >
-              {product.images && product.images.map((image, index) => (
-                <SwiperSlide key={index}>
-                  <img src={image} alt={`${product.name} thumbnail ${index + 1}`} className="img-fluid" />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </aside>
+  <Swiper
+    onSwiper={setThumbsSwiper}
+    spaceBetween={8}
+    slidesPerView={5}
+    freeMode={true}
+    watchSlidesProgress={true}
+    modules={[FreeMode, Thumbs]}
+    className="thumbs-swiper"
+  >
+    {product.images && product.images.map((image, index) => (
+      <SwiperSlide key={index}>
+        <img src={image} alt={`thumb ${index + 1}`} />
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</div>
 
-          <aside className="col-md-6">
-            <h1>{product.name}</h1>
-            <p className="text-muted mb-1">{product.description}</p>
 
-            <div className="price mb-3">
-              {product.offer > 0 ? (
-                <>
-                  <span className="text-danger fw-bold fs-4">
-                    {getDiscountedPrice(product.price, product.offer).toLocaleString()} تومان
-                  </span>
-                  <del className="text-muted me-2">{product.price.toLocaleString()} تومان</del>
-                </>
-              ) : (
-                <span className="fw-bold fs-4">{product.price.toLocaleString()} تومان</span>
-              )}
-            </div>
+    {/* اطلاعات محصول */}
+    <div className="product-info text-center">
+      <h1 className="fw-bold mb-3">{product.name}</h1>
+      <p className="text-muted mb-3">{product.description}</p>
 
-            {showQuantity && (
-              <div className="cart-quantity mb-3 d-flex align-items-center gap-3">
-                <button
-                  className="btn btn-outline-danger"
-                  onClick={() => updateCartQuantity(cartCount - 1)}
-                  aria-label="کاهش تعداد"
-                >
-                  -
-                </button>
-                <span>{cartCount}</span>
-                <button
-                  className="btn btn-outline-success"
-                  onClick={() => updateCartQuantity(cartCount + 1)}
-                  aria-label="افزایش تعداد"
-                >
-                  +
-                </button>
-
-                <button
-                  className="btn btn-outline-secondary ms-3"
-                  onClick={removeFromCart}
-                  aria-label="حذف از سبد خرید"
-                >
-                  حذف
-                </button>
-              </div>
-            )}
-
-            {!showQuantity && (
-              <button className="btn btn-primary" onClick={handleAddToCart}>
-                افزودن به سبد خرید
-              </button>
-            )}
-
-            {message && <p className="mt-2 text-success">{message}</p>}
-
-            <button
-              className={`btn btn-outline-danger mt-3 ${liked ? 'liked' : ''}`}
-              onClick={toggleLike}
-              aria-pressed={liked}
-              aria-label={liked ? "حذف از علاقه‌مندی‌ها" : "افزودن به علاقه‌مندی‌ها"}
-            >
-              {liked ? "♥" : "♡"} علاقه‌مندی
-            </button>
-          </aside>
-        </div>
+      <div className="price mb-3">
+        {product.offer > 0 ? (
+          <>
+            <span className="text-danger fw-bold fs-4">
+              {getDiscountedPrice(product.price, product.offer).toLocaleString()} تومان
+            </span>
+            <del className="text-muted me-2">{product.price.toLocaleString()} تومان</del>
+          </>
+        ) : (
+          <span className="fw-bold fs-4">{product.price.toLocaleString()} تومان</span>
+        )}
       </div>
-    </section>
+
+      {showQuantity ? (
+        <div className="cart-quantity mb-3 d-flex justify-content-center align-items-center gap-3">
+          <button className="btn btn-outline-danger" onClick={() => updateCartQuantity(cartCount - 1)}>-</button>
+          <span>{cartCount}</span>
+          <button className="btn btn-outline-success" onClick={() => updateCartQuantity(cartCount + 1)}>+</button>
+          <button className="btn btn-outline-secondary ms-3" onClick={removeFromCart}>حذف</button>
+        </div>
+      ) : (
+        <button className="btn btn-primary mb-3" onClick={handleAddToCart}>افزودن به سبد خرید</button>
+      )}
+
+      {message && <p className="text-success">{message}</p>}
+
+      <button
+        className={`btn btn-outline-danger mt-3 ${liked ? 'liked' : ''}`}
+        onClick={toggleLike}
+      >
+        {liked ? "♥" : "♡"} علاقه‌مندی
+      </button>
+    </div>
+  </div>
+</section>
+
   );
 };
 
