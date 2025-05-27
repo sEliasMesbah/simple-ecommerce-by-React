@@ -1,7 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import React, { useState } from 'react';
-import Setting from "./setting";
+import Option from "./option";
+// import Setting from "./setting";
 
 export default function Profile() {
 
@@ -51,7 +52,7 @@ export default function Profile() {
               </button>
 
               {isSettingVisible && (
-                <Setting onClose={() => setIsSettingVisible(false)} />
+                <Option onClose={() => setIsSettingVisible(false)} />
               )}
             </div>
           </div>
