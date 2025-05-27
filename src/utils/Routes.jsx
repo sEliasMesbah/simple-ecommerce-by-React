@@ -51,12 +51,14 @@ import AnimatedLayout from "../components/AnimatedLayout";
 import { AddressProvider } from "../components/profile/address/AddressContext";
 import Search from "../components/home/Search";
 import { WishlistProvider } from "../context/WishlistContext";
+import { CartProvider } from "../context/CartContext";
 
 const Routes = () => {
   const location = useLocation();
 
   return (
     <AnimatePresence mode="wait" initial={false}>
+      <CartProvider>
         <WishlistProvider>
       <Router location={location} key={location.pathname}>
         {/* صفحه خوش آمدگویی بدون Layout و MenuBar */}
@@ -119,6 +121,7 @@ const Routes = () => {
         </Route>
       </Router>
         </WishlistProvider>
+        </CartProvider>
     </AnimatePresence>
   );
 };

@@ -18,6 +18,7 @@ function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+      
         <Routes />
       </BrowserRouter>
     </AuthProvider>

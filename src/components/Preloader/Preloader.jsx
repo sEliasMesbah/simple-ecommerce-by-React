@@ -6,7 +6,7 @@ export default function Preloader({ onFinish }) {
   const [shouldRender, setShouldRender] = useState(true);
 
   useEffect(() => {
-    const minDuration = 200000;
+    const minDuration = 2000;
     const start = Date.now();
 
     const handleLoaded = () => {

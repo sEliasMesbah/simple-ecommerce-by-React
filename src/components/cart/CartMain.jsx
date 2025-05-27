@@ -1,56 +1,105 @@
-import { useState } from "react"
-import CartCard from "./CartCard"
-import CartCoupon from "./CartCoupon"
-import CartFinalPrice from "./CartFinalPrice"
-import CartMathPrice from "./CartMathPrice"
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import CartCard from "./CartCard";
+import CartCoupon from "./CartCoupon";
+import CartFinalPrice from "./CartFinalPrice";
+import CartMathPrice from "./CartMathPrice";
 
 export default function CartMain() {
-	const [cartItems, setCartItems] = useState([
-		{ id: 1, url: "/images/product/pic8.jpg", title: "this is first test title", describe: "this is first test describe", price: 350, offerprice: 315, quantity: 0 },
-		{ id: 2, url: "/images/product/pic8.jpg", title: "this is second test title", describe: "this is second test describe", price: 180, offerprice: 160, quantity: 0 },
-		{ id: 3, url: "/images/product/pic8.jpg", title: "this is third test title", describe: "this is third test describe", price: 300, offerprice: 269, quantity: 0 },
-	]);
+  const { user } = useContext(AuthContext);
+  const [cartItems, setCartItems] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-	// Handle quantity change
-	const updateQuantity = (id, delta) => {
-		const updatedItems = cartItems.map(item =>
-			item.id === id ? { ...item, quantity: Math.max(0, item.quantity + delta) } : item
-		);
-		setCartItems(updatedItems);
-	};
+  // دریافت سبد خرید از سرور
+  useEffect(() => {
+    if (!user) return;
 
-	// Total price calculation
-	const totalPrice = cartItems.reduce((total, item) => total + item.offerprice * item.quantity, 0);
+    fetch(`http://localhost:3001/carts/${user.id}`)
+      .then((res) => {
+        if (res.status === 404) {
+          setCartItems([]);
+          setLoading(false);
+          return;
+        }
+        return res.json();
+      })
+      .then((cart) => {
+        if (cart && cart.items) setCartItems(cart.items);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("خطا در دریافت سبد خرید:", err);
+        setLoading(false);
+      });
+  }, [user]);
 
-	return (
-		<>
-			<div className="page-content space-top p-b50">
-				<div className="container">
-					<div className="user-status m-b15">
-						<div className="d-flex align-items-center">
-							<div className="media media-35 rounded-circle me-2">
-								<img src="/images/user.png" alt="" />
-							</div>
-							<h6 className="mb-0 font-14 font-w400">Delivery to Tushar</h6>
-						</div>
-						<h6 className="mb-0 font-14 font-w500 text-primary">
-							<a href="javascript:void(0);" className="d-flex align-items-center">
-								Ram krishan, puram
-								<i className="icon feather icon-chevron-down font-16"></i>
-							</a>
-						</h6>
-					</div>
+  // تغییر تعداد کالا (افزایش/کاهش) و ذخیره در سرور
+  const updateQuantity = (id, delta) => {
+    const updatedItems = cartItems.map((item) =>
+      item.id === id
+        ? { ...item, quantity: Math.max(0, item.quantity + delta) }
+        : item
+    );
 
-					{cartItems.map(item => (
-						<CartCard key={item.id} data={item} onQuantityChange={updateQuantity} />
-					))}
+    setCartItems(updatedItems);
 
-					<CartCoupon />
-					<CartMathPrice total={totalPrice} />
-					<br /><br /><br /><br /><br />
-					<CartFinalPrice total={totalPrice} />
-				</div>
-			</div>
-		</>
-	);
+    // ذخیره در سرور
+    fetch(`http://localhost:3001/carts/${user.id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ items: updatedItems }),
+    }).catch((err) => console.error("خطا در ذخیره سبد:", err));
+  };
+
+  const totalPrice = cartItems.reduce(
+    (total, item) => total + item.offerprice * item.quantity,
+    0
+  );
+
+  if (!user) {
+    return <div className="text-center mt-5">لطفاً ابتدا وارد حساب کاربری شوید.</div>;
+  }
+
+  if (loading) {
+    return <div className="text-center mt-5">در حال بارگذاری سبد خرید...</div>;
+  }
+
+  return (
+    <div className="page-content space-top p-b50">
+      <div className="container">
+        {/* بخش وضعیت کاربر */}
+        <div className="user-status m-b15">
+          <div className="d-flex align-items-center">
+            <div className="media media-35 rounded-circle me-2">
+              <img src="/images/user.png" alt="User" />
+            </div>
+            <h6 className="mb-0 font-14 font-w400">تحویل به: {user.name}</h6>
+          </div>
+          <h6 className="mb-0 font-14 font-w500 text-primary">
+            <a href="#!" className="d-flex align-items-center">
+              آدرس ثبت‌شده
+              <i className="icon feather icon-chevron-down font-16"></i>
+            </a>
+          </h6>
+        </div>
+
+        {/* لیست کالاها */}
+        {cartItems.map((item) => (
+          <CartCard
+            key={`${item.id}-${item.color}-${item.size}`}
+            data={item}
+            onQuantityChange={updateQuantity}
+          />
+        ))}
+
+        {/* کد تخفیف */}
+        <CartCoupon />
+
+        {/* قیمت محاسباتی و نهایی */}
+        <CartMathPrice total={totalPrice} />
+        <br /><br /><br />
+        <CartFinalPrice total={totalPrice} />
+      </div>
+    </div>
+  );
 }

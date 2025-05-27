@@ -8,8 +8,6 @@ import 'swiper/css/free-mode';
 import 'swiper/css/thumbs';
 import { AuthContext } from '../../context/AuthContext';
 
-
-
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -21,9 +19,8 @@ const ProductDetails = () => {
   const [error, setError] = useState(null);
   const { user } = useContext(AuthContext);
   const [liked, setLiked] = useState(false);
-
   const [cartCount, setCartCount] = useState(0);
-
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,9 +48,11 @@ const ProductDetails = () => {
 
     fetchData();
   }, [id]);
+
   const getDiscountedPrice = (price, offer) => {
     return Math.floor(price * (1 - offer / 100));
   };
+
   useEffect(() => {
     if (!user || !product) {
       setLiked(false);
@@ -68,6 +67,7 @@ const ProductDetails = () => {
       })
       .catch(() => setLiked(false));
   }, [user, product?.id]);
+
   const toggleLike = async (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -134,43 +134,125 @@ const ProductDetails = () => {
       alert("Error connecting to server");
     }
   };
+
+  // ----- بخش اضافه شده: افزودن به سبد خرید -----
+  const handleAddToCart = async () => {
+    if (!user) {
+      alert("برای افزودن به سبد خرید باید وارد شوید.");
+      return;
+    }
+
+    try {
+      // سبد خرید کاربر را دریافت کن
+      const res = await fetch(`http://localhost:3001/carts/${user.id}`);
+      let cart;
+
+      if (res.status === 404) {
+        // سبد خرید وجود نداره، بسازش
+        cart = {
+          id: user.id,
+          items: [
+            {
+              id: product.id,
+              name: product.name,
+              describe: product.description || "",
+              price: product.price,
+              offerprice: getDiscountedPrice(product.price, product.offer),
+              url: product.images[0],
+              quantity: cartCount > 0 ? cartCount : 1,
+              size: selectedSize,
+              color: selectedColor,
+            },
+          ],
+        };
+
+        await fetch(`http://localhost:3001/carts`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(cart),
+        });
+
+        setMessage("سبد خرید ساخته شد و محصول اضافه شد.");
+      } else {
+        // سبد خرید وجود داره، آپدیتش کن
+        cart = await res.json();
+
+        // بررسی وجود محصول در سبد
+        const existingItem = cart.items.find(item => 
+          item.id === product.id &&
+          item.size === selectedSize &&
+          item.color === selectedColor
+        );
+
+        if (existingItem) {
+          existingItem.quantity += (cartCount > 0 ? cartCount : 1);
+        } else {
+          cart.items.push({
+            id: product.id,
+            name: product.name,
+            describe: product.description || "",
+            price: product.price,
+            offerprice: getDiscountedPrice(product.price, product.offer),
+            url: product.images[0],
+            quantity: cartCount > 0 ? cartCount : 1,
+            size: selectedSize,
+            color: selectedColor,
+          });
+        }
+
+        await fetch(`http://localhost:3001/carts/${user.id}`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ items: cart.items }),
+        });
+
+        setMessage("محصول به سبد خرید اضافه شد.");
+      }
+
+      // ریست تعداد بعد از اضافه شدن
+      setCartCount(0);
+    } catch (err) {
+      console.error(err);
+      alert("خطا در افزودن به سبد خرید");
+    }
+  };
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
   if (!product) return <div>Product not found</div>;
 
-
-
   return (
-    <Base rightHeaderContent={
-      <button
-        onClick={toggleLike}
-        className="item-bookmark btn btn-link p-0"
-        style={{
-          border: "none",
-          background: "transparent",
-          cursor: "pointer"
-        }}
-        title={liked ? "Remove from wishlist" : "Add to wishlist"}
-        aria-label={liked ? "Remove from wishlist" : "Add to wishlist"}
-      >
-        <svg
-          width={24}
-          height={24}
-          viewBox="0 0 24 24"
-          fill={liked ? "red" : "none"}
-          stroke="currentColor"
-          strokeWidth={2}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="feather feather-heart"
+    <Base
+      rightHeaderContent={
+        <button
+          onClick={toggleLike}
+          className="item-bookmark btn btn-link p-0"
+          style={{
+            border: "none",
+            background: "transparent",
+            cursor: "pointer"
+          }}
+          title={liked ? "Remove from wishlist" : "Add to wishlist"}
+          aria-label={liked ? "Remove from wishlist" : "Add to wishlist"}
         >
-          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-        </svg>
-      </button>
-    }>
+          <svg
+            width={24}
+            height={24}
+            viewBox="0 0 24 24"
+            fill={liked ? "red" : "none"}
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="feather feather-heart"
+          >
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+          </svg>
+        </button>
+      }
+    >
       <div className="container p-0 pb-4">
         <div className="dz-product-preview">
-          {/* Main Swiper */}
           <Swiper
             spaceBetween={10}
             thumbs={{ swiper: thumbsSwiper }}
@@ -186,7 +268,6 @@ const ProductDetails = () => {
             ))}
           </Swiper>
 
-          {/* Thumbnail Swiper */}
           <Swiper
             onSwiper={setThumbsSwiper}
             spaceBetween={10}
@@ -209,7 +290,7 @@ const ProductDetails = () => {
         <div className="container">
           <div className="dz-product-detail">
             <div className="detail-content">
-              <span className="brand-tag">{category.name}</span>
+              <span className="brand-tag">{category?.name}</span>
               <h5>{product.name}</h5>
             </div>
 
@@ -218,13 +299,13 @@ const ProductDetails = () => {
                 {
                   product?.offer ? (
                     <>
-                      <h6 className="price">${getDiscountedPrice(product?.price, product?.offer).toLocaleString()}
-                        <del>${product?.price}</del>
+                      <h6 className="price">${getDiscountedPrice(product.price, product.offer).toLocaleString()}
+                        <del>${product.price}</del>
                       </h6>
                     </>
                   ) : (
                     <>
-                      <span>${product?.price}</span>
+                      <span>${product.price}</span>
                     </>
                   )
                 }
@@ -271,97 +352,54 @@ const ProductDetails = () => {
                     <input
                       className="form-check-input"
                       type="radio"
-                      name="radioNoLabel"
-                      id={`radioNoLabel${index + 1}`}
-                      value={color}
+                      name="color"
+                      id={`color${index}`}
                       checked={selectedColor === color}
-                      onChange={(e) => setSelectedColor(e.target.value)}
+                      onChange={() => setSelectedColor(color)}
                     />
-                    <span style={{ backgroundColor: color }}></span>
+                    <label className="form-check-label" htmlFor={`color${index}`}>
+                      <span
+                        className="color-swatch"
+                        style={{ backgroundColor: color }}
+                      />
+                    </label>
                   </div>
                 ))}
               </div>
             </div>
 
-            <h6>Description:</h6>
-            <p>{product.description || 'No description available'}</p>
-          </div>
-        </div>
-      </div>
-      <div className="footer fixed f0 bg-white border-top">
-        <div className="container py-2">
-          <div className="total-cart">
-            <div className="price-area">
-              <span>Price</span>
-              <h3 className="price">
-                {
-                  product?.offer ? (
-                    <>
-                      <h6 className="price">${getDiscountedPrice(product?.price, product?.offer).toLocaleString()}
-                        <del>${product?.price}</del>
-                      </h6>
-                    </>
-                  ) : (
-                    <>
-                      <span>${product?.price}</span>
-                    </>
-                  )
-                }
-              </h3>
+            {/* Quantity Input */}
+            <div className="mb-3 mt-3">
+              <label htmlFor="quantity" className="form-label">Quantity:</label>
+              <input
+                id="quantity"
+                type="number"
+                min={0}
+                className="form-control"
+                style={{ maxWidth: "120px" }}
+                value={cartCount}
+                onChange={e => setCartCount(parseInt(e.target.value) || 0)}
+              />
             </div>
-            <div className="footer fixed f0 bg-white border-top">
-              <div className="container py-2">
-                <div className="total-cart">
-                  <div className="price-area">
-                    <span>Price</span>
-                    <h3 className="price">
-                      {
-                        product?.offer ? (
-                          <>
-                            <h6 className="price">${getDiscountedPrice(product?.price, product?.offer).toLocaleString()}
-                              <del>${product?.price}</del>
-                            </h6>
-                          </>
-                        ) : (
-                          <>
-                            <span>${product?.price}</span>
-                          </>
-                        )
-                      }
-                    </h3>
-                  </div>
-                  {cartCount === 0 ? (
-                    <button
-                      className="btn btn-primary"
-                      onClick={() => setCartCount(1)}
-                    >
-                      Add Cart
-                    </button>
-                  ) : (
-                    <div
-                    style={{
-                      background: "linear-gradient(90deg, red, #fff)", 
-                      color: "#fff"
-                    }}
-                      className="btn btn-primary d-flex align-items-center">
-                      <button className='hover-reduce-count-btn'
-                        onClick={() => setCartCount(prev => (prev > 0 ? prev - 1 : 0))}
-                        style={{ marginRight: 10, padding: "0 8px" }}
-                      >
-                        -
-                      </button>
-                      <span>{cartCount}</span>
-                      <button className='hover-increase-count-btn'
-                        onClick={() => setCartCount(prev => prev + 1)}
-                        style={{ marginLeft: 10, padding: "0 8px" }}
-                      >
-                        +
-                      </button>
-                    </div>
-                  )}
-                </div>
-              </div>
+
+            {/* Add to Cart Button */}
+            <div className="d-flex gap-3 mb-4">
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={handleAddToCart}
+              >
+                Add to Cart
+              </button>
+              <Link to="/CartPage" className="btn btn-outline-primary">
+                View Cart
+              </Link>
             </div>
+
+            {/* Success/Error message */}
+            {message && <div className="alert alert-success">{message}</div>}
+
+            <p className="my-4">{product.description}</p>
           </div>
         </div>
       </div>
