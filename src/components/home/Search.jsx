@@ -71,9 +71,16 @@ export default function Search() {
   const debouncedFetchSuggestions = debounce(fetchSuggestions, 2000);
 
   const handleInputChange = (e) => {
+    setInvisibleSuggestions(false);
     const query = e.target.value;
     setSearchQuery(query);
     fetchSuggestions(query);
+  };
+  const handleKeyDown = (event) => {
+    setInvisibleSuggestions(false);
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
   };
   function textSendToSearch(text) {
     setSearchQuery(text);
@@ -83,11 +90,6 @@ export default function Search() {
     const updatedSearches = recentSearches.filter(searchItem => searchItem !== itemToDelete);
     setRecentSearches(updatedSearches);
     localStorage.setItem("recentSearches", JSON.stringify(updatedSearches));
-  };
-  const handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
-      handleSearch();
-    }
   };
 
   return (
