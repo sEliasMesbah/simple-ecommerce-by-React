@@ -3,11 +3,11 @@ import { AnimatePresence } from "framer-motion";
 
 import WelcomeWrapper from "../components/WelcomeWrapper";
 import HomePage from "../components/home/HomePage";
-import CategoriPage from "../components/Categories/CategoriPage";
-import Profile from "../components/profile/Profile";
-import WishListPage from "../components/Wishlist/WishListPage";
+import CategoriPage from "../pages/category/CategoryPage";
+import Profile from "../pages/profile/Profile";
+import WishListPage from "../pages/wishlists/WishListPage";
 import EditProfile from "../components/profile/EditProfile";
-import CartPage from "../components/cart/CartPage";
+import CartPage from "../pages/cart/CartPage";
 import OrderPage from "../components/profile/order/OrderPage";
 import Coupon from "../components/profile/coupon/Coupon";
 import Login from "../public/Login";
@@ -16,7 +16,7 @@ import ForgetPassword from "../public/ForgetPassword";
 import FAQ from "../components/profile/HelpCenter/Help";
 import Address from "../components/profile/address/Address";
 import CheckOut from "../components/profile/address/checkout";
-import ProductDetails from "../components/product/ProductDetails";
+import ProductDetails from "../pages/products/ProductDetails";
 import ComponentPage from "../components/ConponentOfSlider/ComponentPage";
 import Accordion from "../components/ConponentOfSlider/Accordion";
 import Alert from "../components/ConponentOfSlider/Alert";
@@ -52,6 +52,7 @@ import { AddressProvider } from "../components/profile/address/AddressContext";
 import Search from "../components/home/Search";
 import { WishlistProvider } from "../context/WishlistContext";
 import { CartProvider } from "../context/CartContext";
+import Products from "../pages/products/products";
 
 const Routes = () => {
   const location = useLocation();
@@ -72,7 +73,8 @@ const Routes = () => {
             {/* صفحه‌های اصلی */}
             <Route path="/home" element={<HomePage />} />
             <Route path="/search" element={<Search />} />
-            <Route path="/categori" element={<CategoriPage />} />
+            <Route path="/category" element={<CategoriPage />} />
+            <Route path="/products" element={<Products/>}/>
             <Route path="/profile" element={<Profile />} />
             <Route path="/wishlist" element={<WishListPage />} />
             <Route path="/EditProfile" element={<EditProfile />} />
@@ -87,6 +89,7 @@ const Routes = () => {
             <Route path="/address" element={<Address />} />
             <Route path="/checkout" element={<CheckOut />} />
             <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/category/:id" element={<ProductDetails />} />
 
             {/* صفحات دموی کامپوننت‌ها */}
             <Route path="/components" element={<ComponentPage />} />
