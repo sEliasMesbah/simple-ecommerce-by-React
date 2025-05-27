@@ -1,105 +1,153 @@
-import { useState, useEffect, useContext } from "react";
-import { AuthContext } from "../../context/AuthContext";
-import CartCard from "./CartCard";
-import CartCoupon from "./CartCoupon";
-import CartFinalPrice from "./CartFinalPrice";
-import CartMathPrice from "./CartMathPrice";
+import React, { useEffect, useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 
-export default function CartMain() {
+const CartMain = () => {
   const { user } = useContext(AuthContext);
-  const [cartItems, setCartItems] = useState([]);
+  const navigate = useNavigate();
+  const [cart, setCart] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // دریافت سبد خرید از سرور
-  useEffect(() => {
-    if (!user) return;
+  const fetchCart = async () => {
+    if (!user) {
+      setCart(null);
+      setLoading(false);
+      return;
+    }
 
-    fetch(`http://localhost:3001/carts/${user.id}`)
-      .then((res) => {
-        if (res.status === 404) {
-          setCartItems([]);
-          setLoading(false);
-          return;
-        }
-        return res.json();
-      })
-      .then((cart) => {
-        if (cart && cart.items) setCartItems(cart.items);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("خطا در دریافت سبد خرید:", err);
-        setLoading(false);
-      });
-  }, [user]);
-
-  // تغییر تعداد کالا (افزایش/کاهش) و ذخیره در سرور
-  const updateQuantity = (id, delta) => {
-    const updatedItems = cartItems.map((item) =>
-      item.id === id
-        ? { ...item, quantity: Math.max(0, item.quantity + delta) }
-        : item
-    );
-
-    setCartItems(updatedItems);
-
-    // ذخیره در سرور
-    fetch(`http://localhost:3001/carts/${user.id}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ items: updatedItems }),
-    }).catch((err) => console.error("خطا در ذخیره سبد:", err));
+    try {
+      setLoading(true);
+      const res = await fetch(`http://localhost:3001/carts/${user.id}`);
+      if (res.ok) {
+        const data = await res.json();
+        setCart(data);
+      } else {
+        setCart({ id: user.id, items: [] });
+      }
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+      setCart(null);
+      setLoading(false);
+    }
   };
 
-  const totalPrice = cartItems.reduce(
-    (total, item) => total + item.offerprice * item.quantity,
-    0
-  );
+  useEffect(() => {
+    fetchCart();
+  }, [user]);
 
-  if (!user) {
-    return <div className="text-center mt-5">لطفاً ابتدا وارد حساب کاربری شوید.</div>;
-  }
+  const updateQuantity = async (index, newQuantity) => {
+    if (newQuantity < 1) return;
 
-  if (loading) {
-    return <div className="text-center mt-5">در حال بارگذاری سبد خرید...</div>;
-  }
+    const updatedItems = [...cart.items];
+    updatedItems[index].quantity = newQuantity;
+
+    try {
+      await fetch(`http://localhost:3001/carts/${user.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items: updatedItems }),
+      });
+      setCart(prev => ({ ...prev, items: updatedItems }));
+    } catch (err) {
+      alert("خطا در به‌روزرسانی تعداد");
+    }
+  };
+
+  const removeItem = async (index) => {
+    const updatedItems = [...cart.items];
+    updatedItems.splice(index, 1);
+
+    try {
+      await fetch(`http://localhost:3001/carts/${user.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items: updatedItems }),
+      });
+      setCart(prev => ({ ...prev, items: updatedItems }));
+    } catch (err) {
+      alert("خطا در حذف محصول");
+    }
+  };
+
+  if (loading) return <div>Loading...</div>;
+
+  if (!cart || !cart.items.length) return <div>سبد خرید شما خالی است.</div>;
 
   return (
-    <div className="page-content space-top p-b50">
-      <div className="container">
-        {/* بخش وضعیت کاربر */}
-        <div className="user-status m-b15">
-          <div className="d-flex align-items-center">
-            <div className="media media-35 rounded-circle me-2">
-              <img src="/images/user.png" alt="User" />
+    <div className="container p-0 pb-4">
+      <h4 className="mb-4">سبد خرید شما</h4>
+      {cart.items.map((item, index) => (
+        <div
+          key={`${item.id}-${item.size}-${item.color}`}
+          className="card cart-item mb-3"
+          onClick={() => navigate(`/products/${item.id}`)}
+          style={{ cursor: 'pointer' }}
+        >
+          <div className="row g-0 align-items-center">
+            <div className="col-4 col-md-2">
+              <img src={item.url} alt={item.name} className="img-fluid" />
             </div>
-            <h6 className="mb-0 font-14 font-w400">تحویل به: {user.name}</h6>
+            <div className="col-8 col-md-5">
+              <h6>{item.name}</h6>
+              <p className="mb-1">{item.describe}</p>
+              <small>سایز: {item.size} - رنگ: <span style={{backgroundColor: item.color, padding: '0 8px', borderRadius: '4px'}}></span></small>
+            </div>
+            <div className="col-12 col-md-3 d-flex align-items-center">
+              <div className="input-group quantity" style={{ maxWidth: '120px' }}>
+                <button
+                  className="btn btn-outline-secondary"
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    const newQuantity = item.quantity - 1;
+                    if (newQuantity < 1) {
+                      removeItem(index);
+                    } else {
+                      updateQuantity(index, newQuantity);
+                    }
+                  }}
+                >-</button>
+                <input
+                  type="number"
+                  className="form-control"
+                  value={item.quantity}
+                  min={1}
+                  onClick={e => e.stopPropagation()}
+                  onChange={(e) => {
+                    const val = parseInt(e.target.value);
+                    if (!isNaN(val) && val > 0) updateQuantity(index, val);
+                  }}
+                />
+                <button
+                  className="btn btn-outline-secondary"
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    updateQuantity(index, item.quantity + 1);
+                  }}
+                >+</button>
+              </div>
+            </div>
+            <div className="col-12 col-md-2 text-end">
+              <div>
+                <span className="fw-bold fs-6">
+                  ${item.offerprice?.toLocaleString() || item.price?.toLocaleString()}
+                </span>
+              </div>
+              <button
+                className="btn btn-danger btn-sm mt-2"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  removeItem(index);
+                }}
+              >حذف</button>
+            </div>
           </div>
-          <h6 className="mb-0 font-14 font-w500 text-primary">
-            <a href="#!" className="d-flex align-items-center">
-              آدرس ثبت‌شده
-              <i className="icon feather icon-chevron-down font-16"></i>
-            </a>
-          </h6>
         </div>
-
-        {/* لیست کالاها */}
-        {cartItems.map((item) => (
-          <CartCard
-            key={`${item.id}-${item.color}-${item.size}`}
-            data={item}
-            onQuantityChange={updateQuantity}
-          />
-        ))}
-
-        {/* کد تخفیف */}
-        <CartCoupon />
-
-        {/* قیمت محاسباتی و نهایی */}
-        <CartMathPrice total={totalPrice} />
-        <br /><br /><br />
-        <CartFinalPrice total={totalPrice} />
-      </div>
+      ))}
     </div>
   );
-}
+};
+
+export default CartMain;

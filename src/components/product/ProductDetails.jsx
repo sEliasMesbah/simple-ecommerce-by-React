@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Thumbs } from 'swiper/modules';
 import 'swiper/css';
@@ -10,6 +10,9 @@ import { AuthContext } from '../../context/AuthContext';
 
 const ProductDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
+
   const [product, setProduct] = useState(null);
   const [category, setCategory] = useState(null);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -17,9 +20,11 @@ const ProductDetails = () => {
   const [selectedColor, setSelectedColor] = useState('#24262B');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { user } = useContext(AuthContext);
   const [liked, setLiked] = useState(false);
-  const [cartCount, setCartCount] = useState(0);
+
+  // تعداد پیش فرض 1، و باکس تعداد فقط بعد از افزودن ظاهر میشه
+  const [showQuantity, setShowQuantity] = useState(false);
+  const [cartCount, setCartCount] = useState(1);
   const [message, setMessage] = useState('');
 
   useEffect(() => {
@@ -27,11 +32,9 @@ const ProductDetails = () => {
       try {
         setLoading(true);
 
-        // Fetch Product Data
         const productResponse = await axios.get(`http://localhost:3001/products/${id}`);
         setProduct(productResponse.data);
 
-        // Fetch Category Data using categoryId
         if (productResponse.data.categoryId) {
           const categoryResponse = await axios.get(
             `http://localhost:3001/categories/${productResponse.data.categoryId}`
@@ -47,6 +50,8 @@ const ProductDetails = () => {
     };
 
     fetchData();
+    setShowQuantity(false);
+    setCartCount(1);
   }, [id]);
 
   const getDiscountedPrice = (price, offer) => {
@@ -135,7 +140,6 @@ const ProductDetails = () => {
     }
   };
 
-  // ----- بخش اضافه شده: افزودن به سبد خرید -----
   const handleAddToCart = async () => {
     if (!user) {
       alert("برای افزودن به سبد خرید باید وارد شوید.");
@@ -143,12 +147,11 @@ const ProductDetails = () => {
     }
 
     try {
-      // سبد خرید کاربر را دریافت کن
+      // دریافت سبد خرید کاربر
       const res = await fetch(`http://localhost:3001/carts/${user.id}`);
       let cart;
 
       if (res.status === 404) {
-        // سبد خرید وجود نداره، بسازش
         cart = {
           id: user.id,
           items: [
@@ -159,7 +162,7 @@ const ProductDetails = () => {
               price: product.price,
               offerprice: getDiscountedPrice(product.price, product.offer),
               url: product.images[0],
-              quantity: cartCount > 0 ? cartCount : 1,
+              quantity: cartCount,
               size: selectedSize,
               color: selectedColor,
             },
@@ -174,18 +177,16 @@ const ProductDetails = () => {
 
         setMessage("سبد خرید ساخته شد و محصول اضافه شد.");
       } else {
-        // سبد خرید وجود داره، آپدیتش کن
         cart = await res.json();
 
-        // بررسی وجود محصول در سبد
-        const existingItem = cart.items.find(item => 
+        const existingItem = cart.items.find(item =>
           item.id === product.id &&
           item.size === selectedSize &&
           item.color === selectedColor
         );
 
         if (existingItem) {
-          existingItem.quantity += (cartCount > 0 ? cartCount : 1);
+          existingItem.quantity += cartCount;
         } else {
           cart.items.push({
             id: product.id,
@@ -194,7 +195,7 @@ const ProductDetails = () => {
             price: product.price,
             offerprice: getDiscountedPrice(product.price, product.offer),
             url: product.images[0],
-            quantity: cartCount > 0 ? cartCount : 1,
+            quantity: cartCount,
             size: selectedSize,
             color: selectedColor,
           });
@@ -209,8 +210,8 @@ const ProductDetails = () => {
         setMessage("محصول به سبد خرید اضافه شد.");
       }
 
-      // ریست تعداد بعد از اضافه شدن
-      setCartCount(0);
+      setShowQuantity(true);
+      setCartCount(1);
     } catch (err) {
       console.error(err);
       alert("خطا در افزودن به سبد خرید");
@@ -341,65 +342,66 @@ const ProductDetails = () => {
             {/* Color Selection */}
             <div className="meta-content d-flex align-items-center">
               <h6 className="mb-0 me-4">Color:</h6>
-              <div className="d-flex align-items-center color-filter">
-                {[
-                  '#24262B',
-                  '#8CB2D1',
-                  '#0D775E',
-                  '#C7D1CF',
-                ].map((color, index) => (
-                  <div className="form-check" key={color}>
+              <div className="btn-group product-color mb-0">
+                {['#24262B', '#A7A8AA', '#27292D', '#6B6C6E'].map((color) => (
+                  <React.Fragment key={color}>
                     <input
-                      className="form-check-input"
                       type="radio"
-                      name="color"
-                      id={`color${index}`}
+                      className="btn-check"
+                      name="btncolor1"
+                      id={`btncolor1${color.replace('#', '')}`}
                       checked={selectedColor === color}
                       onChange={() => setSelectedColor(color)}
                     />
-                    <label className="form-check-label" htmlFor={`color${index}`}>
-                      <span
-                        className="color-swatch"
-                        style={{ backgroundColor: color }}
-                      />
-                    </label>
-                  </div>
+                    <label
+                      className="btn"
+                      htmlFor={`btncolor1${color.replace('#', '')}`}
+                      style={{ backgroundColor: color }}
+                    ></label>
+                  </React.Fragment>
                 ))}
               </div>
             </div>
 
-            {/* Quantity Input */}
-            <div className="mb-3 mt-3">
-              <label htmlFor="quantity" className="form-label">Quantity:</label>
-              <input
-                id="quantity"
-                type="number"
-                min={0}
-                className="form-control"
-                style={{ maxWidth: "120px" }}
-                value={cartCount}
-                onChange={e => setCartCount(parseInt(e.target.value) || 0)}
-              />
-            </div>
-
-            {/* Add to Cart Button */}
-            <div className="d-flex gap-3 mb-4">
+            {/* Add to Cart and Quantity */}
+            <div className="mt-4">
               <button
                 type="button"
                 className="btn btn-primary"
                 onClick={handleAddToCart}
               >
-                Add to Cart
+                افزودن به سبد خرید
               </button>
-              <Link to="/CartPage" className="btn btn-outline-primary">
-                View Cart
-              </Link>
+
+              {showQuantity && (
+                <div className="input-group quantity mt-3" style={{ maxWidth: '130px' }}>
+                  <button
+                    className="btn btn-outline-secondary"
+                    type="button"
+                    onClick={() => setCartCount(prev => Math.max(1, prev - 1))}
+                  >-</button>
+
+                  <input
+                    type="number"
+                    className="form-control"
+                    value={cartCount}
+                    min={1}
+                    onChange={(e) => {
+                      const val = parseInt(e.target.value);
+                      if (!isNaN(val) && val >= 1) setCartCount(val);
+                    }}
+                  />
+
+                  <button
+                    className="btn btn-outline-secondary"
+                    type="button"
+                    onClick={() => setCartCount(prev => prev + 1)}
+                  >+</button>
+                </div>
+              )}
+
+              {message && <p className="text-success mt-2">{message}</p>}
             </div>
-
-            {/* Success/Error message */}
-            {message && <div className="alert alert-success">{message}</div>}
-
-            <p className="my-4">{product.description}</p>
           </div>
         </div>
       </div>
