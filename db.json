@@ -346,7 +346,17 @@
   "carts": [
     {
       "id": "dbb4",
-      "items": []
+      "items": [
+        {
+          "id": "c132ae50-1f6j-8e20-dg71-678901234ef0",
+          "name": "Samsung Galaxy S24 Ultra Dual SIM 256GB 12GB RAM - Vietnam",
+          "describe": "",
+          "price": 875,
+          "offerprice": 796,
+          "url": "https://dkstatics-public.digikala.com/digikala-products/c23b49b0be1c4ae5b2a3d7a3281d2f1731065243_1726037574.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/format,webp/quality,q_90",
+          "quantity": 1
+        }
+      ]
     }
   ]
 }
