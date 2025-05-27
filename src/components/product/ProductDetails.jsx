@@ -315,7 +315,7 @@ const ProductDetails = () => {
   <div className="container">
     <nav aria-label="breadcrumb" className="mb-3">
       <ol className="breadcrumb">
-        <li className="breadcrumb-item"><Link to="/">خانه</Link></li>
+        <li className="breadcrumb-item"><Link to="/home">خانه</Link></li>
         {category && (
           <li className="breadcrumb-item">
             <Link to={`/category/${category.id}`}>{category.name}</Link>
