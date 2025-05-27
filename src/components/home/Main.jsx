@@ -16,6 +16,9 @@ export default function Main() {
           <ProductCards />
           <TitleBar title={"Trending Now"}/>
           <DownSlider />
+          <br />
+          <br />
+          {/* <br /> */}
         </div>
       </div>
     </>

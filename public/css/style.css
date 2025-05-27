@@ -593,6 +593,7 @@ textarea {
   line-height: inherit;
 }
 
+
 button,
 select {
   text-transform: none;
@@ -16675,10 +16676,11 @@ section {
 }
 
 .header.header-fixed {
-  position: relative;
+  position: fixed;
   width: 100%;
   top: 0;
 }
+
 
 .header.bg-img {
   background-image: url(../../page-error-404.html);
@@ -27190,4 +27192,7 @@ button.nav-link.active i {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.space-top{
+  padding-top: 50px;
 }
