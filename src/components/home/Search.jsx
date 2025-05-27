@@ -3,16 +3,17 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import debounce from "lodash/debounce";
 import { useNavigate } from "react-router-dom";
+import Skeleton from "../public/Skeleton";
 export default function Search() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [recentSearches, setRecentSearches] = useState([
-    "boat earbuds",
-    "mobile phones",
-  ]);
+  const [recentSearches, setRecentSearches] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
+  const [hasSearchResults, setHasSearchResults] = useState(true);
   const [loadingSuggestions, setLoadingSuggestions] = useState(false);
+  const [invisibleSuggestions, setInvisibleSuggestions] = useState(false);
 
   const navigate = useNavigate();
+  
   useEffect(() => {
     const savedSearches = localStorage.getItem("recentSearches");
     if (savedSearches) {
@@ -21,40 +22,50 @@ export default function Search() {
   }, []);
 
   const handleSearch = () => {
-    if (searchQuery.trim() === "") return;
-    setRecentSearches((prev) => [...prev, searchQuery]);
-    localStorage.setItem(
-      "recentSearches",
-      JSON.stringify([...recentSearches, searchQuery])
-    );
-    setSearchQuery("");
-    setSuggestions([]);
-  };
+      if (searchQuery.trim() === "") return;
+      setRecentSearches((prev) => [...prev, searchQuery]);
+      localStorage.setItem(
+        "recentSearches",
+        JSON.stringify([...recentSearches, searchQuery])
+      );
+      setSearchQuery("");
+      setSuggestions([]);
+    };
 
-  const fetchSuggestions = async (query) => {
-  if (query.trim() === "") {
-    setSuggestions([]);
-    return;
-  }
+    const fetchSuggestions = async (query) => {
+    if (query.trim() === "") {
+      setSuggestions([]);
+      setInvisibleSuggestions(false);
+      return;
+    }
 
-  try {
-    setLoadingSuggestions(true);
-    const response = await axios.get("http://localhost:3001/products");
-    const products = response.data;
-
-    // فقط فیلتر کن بعد از ۲ ثانیه و نشون بده
-    setTimeout(() => {
-      const filtered = products.filter((product) =>
+    try {
+      setInvisibleSuggestions(true);
+      setLoadingSuggestions(true);
+      
+      // شروع همزمان دو فرآیند
+      const [response] = await Promise.all([
+        axios.get("http://localhost:3001/products"),
+        new Promise(resolve => setTimeout(resolve, 2000)) // تایمر ثابت ۲ ثانیه
+      ]);
+      
+      // فیلتر کردن پس از دریافت داده
+      const filtered = response.data.filter(product =>
         product.name.toLowerCase().includes(query.toLowerCase())
       );
+      if (filtered.length === 0) {
+        setHasSearchResults(false); // اگر هیچ محصولی یافت نشد، state را false می‌کنیم
+      } else {
+        setHasSearchResults(true); // در غیر این صورت، true
+      }
+      
       setSuggestions(filtered);
+    } catch (error) {
+      console.error("خطا در دریافت محصولات:", error);
+    } finally {
       setLoadingSuggestions(false);
-    }, 2000);
-  } catch (error) {
-    console.error("خطا در دریافت محصولات:", error);
-    setLoadingSuggestions(false);
-  }
-};
+    }
+  };
 
 
   const debouncedFetchSuggestions = debounce(fetchSuggestions, 2000);
@@ -62,7 +73,21 @@ export default function Search() {
   const handleInputChange = (e) => {
     const query = e.target.value;
     setSearchQuery(query);
-    debouncedFetchSuggestions(query);
+    fetchSuggestions(query);
+  };
+  function textSendToSearch(text) {
+    setSearchQuery(text);
+    fetchSuggestions(text);
+  }
+  const handleDeleteSearch = (itemToDelete) => {
+    const updatedSearches = recentSearches.filter(searchItem => searchItem !== itemToDelete);
+    setRecentSearches(updatedSearches);
+    localStorage.setItem("recentSearches", JSON.stringify(updatedSearches));
+  };
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
   };
 
   return (
@@ -96,6 +121,7 @@ export default function Search() {
                 className="form-control main-in"
                 value={searchQuery}
                 onChange={handleInputChange}
+                onKeyDown={handleKeyDown}
               />
             </div>
           </div>
@@ -104,25 +130,57 @@ export default function Search() {
 
       <div className="page-content space-top p-b50">
         <div className="container">
-          {suggestions.length > 0 && (
+          {invisibleSuggestions && (
             <div className="recent-search-list suggestions-list">
               <ul>
-                {suggestions.map((product) => (
-                  <li key={product.id}>
-                    <Link
-                      to={`/product/${product.id}`}
-                      className="search-content"
-                    >
-                      <i className="icon feather icon-search me-2"></i>
-                      <img
-                        src={`${product?.images[0]}`}
-                        style={{ width: "20px", marginRight: "10px" }}
-                      />
-                      <span>{product.name}</span>
-                      <i className="icon feather icon-arrow-up-left"></i>
-                    </Link>
-                  </li>
-                ))}
+                {loadingSuggestions ? (
+                  // حالت لودینگ
+                  Array(5).fill().map((_, index) => (
+                    <li key={index}>
+                      <div className="search-content">
+                        <Skeleton type="circle" width="20px" height="20px" color="#dbdbdb" style={{ marginRight: "10px" }} />
+                        <Skeleton width="20px" height="20px" color="#dbdbdb" style={{ marginRight: "10px" }} />
+                        <Skeleton type="rect" width="60%" height="20px" color="#dbdbdb" style={{ marginRight: "10px" }} />
+                        <Skeleton type="circle" width="20px" height="20px" color="#dbdbdb" />
+                      </div>
+                    </li>
+                  ))
+                ) : (
+                  // حالت نمایش نتایج
+                  suggestions.length === 0 ? (
+                    <li className="no-results">
+                      <Skeleton
+                        type="rect"
+                        width="100%"
+                        height="24px"
+                        color="#ffcccc"
+                        highlight="#ff6666"
+                        borderRadius="4px"
+                        style={{display: "inline-flex", alignItems: "center", justifyContent: "center", height: "50px"}}
+                      >
+                        <span>× No products found related to "{searchQuery}". Do more searches. ×</span>
+                      </Skeleton>
+                    </li>
+                  ) : (
+                    suggestions.map((product) => (
+                      <li key={product.id}>
+                        <Link
+                          to={`/product/${product.id}`}
+                          className="search-content"
+                        >
+                          <i className="icon feather icon-search me-2"></i>
+                          <img
+                            src={product?.images?.[0] || '/default-image.png'}
+                            style={{ width: "20px", marginRight: "10px" }}
+                            alt={product.name}
+                          />
+                          <span>{product.name}</span>
+                          <i className="icon feather icon-arrow-up-left"></i>
+                        </Link>
+                      </li>
+                    ))
+                  )
+                )}
               </ul>
             </div>
           )}
@@ -130,11 +188,23 @@ export default function Search() {
             <ul>
               {recentSearches.map((search, index) => (
                 <li key={index}>
-                  <a href={`/product/${search}`} className="search-content">
+                  <span className="search-content" title={`Text insertion search " ${search} "`} onClick={() => textSendToSearch(search)}>
                     <i className="icon feather icon-clock me-2"></i>
                     <span>{search}</span>
-                    <i className="icon feather icon-arrow-up-left"></i>
-                  </a>
+                    <div>
+                      <i
+                        className="icon feather icon-delete"
+                        style={{ marginRight: "20px" }}
+                        title={`remove as search " ${search} "`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleDeleteSearch(search);
+                        }}
+                      ></i>
+                      <i className="icon feather icon-arrow-up-left"></i>
+                    </div>
+                  </span>
                 </li>
               ))}
             </ul>
