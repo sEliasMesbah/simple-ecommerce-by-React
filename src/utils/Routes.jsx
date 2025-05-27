@@ -53,6 +53,7 @@ import Search from "../components/home/Search";
 import { WishlistProvider } from "../context/WishlistContext";
 import { CartProvider } from "../context/CartContext";
 import Products from "../pages/products/products";
+import CategoryId from "../pages/category/CategoryId";
 
 const Routes = () => {
   const location = useLocation();
@@ -89,7 +90,7 @@ const Routes = () => {
             <Route path="/address" element={<Address />} />
             <Route path="/checkout" element={<CheckOut />} />
             <Route path="/product/:id" element={<ProductDetails />} />
-            <Route path="/category/:id" element={<ProductDetails />} />
+            <Route path="/category/:categoryId" element={<CategoryId />} />
 
             {/* صفحات دموی کامپوننت‌ها */}
             <Route path="/components" element={<ComponentPage />} />
