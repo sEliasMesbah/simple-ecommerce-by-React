@@ -26947,7 +26947,7 @@ button.nav-link.active {
   z-index: auto;
   /* حالت قبل */
   border-radius: 50%;
-  width: 35% !important;
+  width: 69px !important;
   margin: -50px 0 0 0;
   position: relative;
 }
@@ -26963,7 +26963,7 @@ button.nav-link.active i {
   padding: 10px 14px;
   /* box-shadow: 0 -4px 12px var(--menubar-active-shadow) !important; */
   border-radius: 22px 22px 0 0;
-  width: 33% !important;
+  width: 69px !important;
   margin: -50px 0 0 0;
   position: relative;
   z-index: auto;
