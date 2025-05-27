@@ -26379,7 +26379,7 @@ label input {
 }
 
 .content-box ul li a:hover {
-  background-color: wheat;
+  background-color: gray;
 }
 
 .card.address-card {
@@ -26972,31 +26972,37 @@ button.nav-link.active i {
 
 
 
-/* .setting-dropdownn{
-  background-color: #fff;
-  color: var(--primary);
-  box-shadow: 0 0 8px #fff;
-  width: 150px;
-  height: 115px;
-  text-align: center;
-  font-size: 1.2rem;
+.setting-dropdown {
   position: absolute;
-  top: 25px;
-  left: 100%;
-  margin-left: -160px;
-  display: none;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 170px;
+  height: 170px;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  padding: 10px 0;
+  z-index: 1000;
 }
 
-.setting-container ul li {
-  padding-top: 5px;
-  cursor: pointer;
-  text-decoration: none;
-} */
+.setting-dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0,
+}
+
+.setting-dropdown ul li {
+  padding: 10px 20px;
+  border-bottom: 1px solid #eee;
+  font-weight: bold;
+  color: #333;
+  transition: .5s;
+  font-size: 1.2rem;
+}
 
 .setting-dropdown ul li:hover {
   background-color: wheat;
   background-size: 100%;
-
 }
 
 .right-content {
