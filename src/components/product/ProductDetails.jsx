@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Thumbs } from 'swiper/modules';
 import 'swiper/css';
@@ -10,22 +10,18 @@ import { AuthContext } from '../../context/AuthContext';
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
   const { user } = useContext(AuthContext);
 
   const [product, setProduct] = useState(null);
   const [category, setCategory] = useState(null);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const [selectedSize, setSelectedSize] = useState('S');
-  const [selectedColor, setSelectedColor] = useState('#24262B');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [liked, setLiked] = useState(false);
-
-  // تعداد پیش فرض 1، و باکس تعداد فقط بعد از افزودن ظاهر میشه
   const [showQuantity, setShowQuantity] = useState(false);
   const [cartCount, setCartCount] = useState(1);
   const [message, setMessage] = useState('');
+  const [cartItem, setCartItem] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -52,15 +48,15 @@ const ProductDetails = () => {
     fetchData();
     setShowQuantity(false);
     setCartCount(1);
+    setCartItem(null);
   }, [id]);
-
-  const getDiscountedPrice = (price, offer) => {
-    return Math.floor(price * (1 - offer / 100));
-  };
 
   useEffect(() => {
     if (!user || !product) {
       setLiked(false);
+      setCartItem(null);
+      setShowQuantity(false);
+      setCartCount(1);
       return;
     }
 
@@ -73,12 +69,54 @@ const ProductDetails = () => {
       .catch(() => setLiked(false));
   }, [user, product?.id]);
 
+  useEffect(() => {
+    if (!user || !product) {
+      setCartItem(null);
+      setShowQuantity(false);
+      setCartCount(1);
+      return;
+    }
+
+    const fetchCartItem = async () => {
+      try {
+        const res = await fetch(`http://localhost:3001/carts/${user.id}`);
+        if (res.ok) {
+          const cart = await res.json();
+          const existingItem = cart.items.find(item => item.id === product.id);
+          if (existingItem) {
+            setCartItem(existingItem);
+            setShowQuantity(true);
+            setCartCount(existingItem.quantity);
+          } else {
+            setCartItem(null);
+            setShowQuantity(false);
+            setCartCount(1);
+          }
+        } else {
+          setCartItem(null);
+          setShowQuantity(false);
+          setCartCount(1);
+        }
+      } catch {
+        setCartItem(null);
+        setShowQuantity(false);
+        setCartCount(1);
+      }
+    };
+
+    fetchCartItem();
+  }, [user, product]);
+
+  const getDiscountedPrice = (price, offer) => {
+    return Math.floor(price * (1 - offer / 100));
+  };
+
   const toggleLike = async (e) => {
     e.preventDefault();
     e.stopPropagation();
 
     if (!user) {
-      alert("Please log in to add to favorites.");
+      alert("لطفا وارد شوید تا بتوانید محصول را به علاقه‌مندی‌ها اضافه کنید.");
       return;
     }
 
@@ -100,7 +138,7 @@ const ProductDetails = () => {
         });
 
         if (!postRes.ok) {
-          alert("Problem creating wishlist");
+          alert("مشکل در ایجاد لیست علاقه‌مندی‌ها");
           return;
         }
 
@@ -108,7 +146,7 @@ const ProductDetails = () => {
       } else if (res.ok) {
         wishlist = await res.json();
       } else {
-        alert("Error retrieving wishlist");
+        alert("خطا در دریافت لیست علاقه‌مندی‌ها");
         return;
       }
 
@@ -133,10 +171,10 @@ const ProductDetails = () => {
       });
 
       if (patchRes.ok) setLiked(!liked);
-      else alert("Error updating wishlist");
+      else alert("خطا در به‌روزرسانی لیست علاقه‌مندی‌ها");
     } catch (err) {
       console.error(err);
-      alert("Error connecting to server");
+      alert("خطا در ارتباط با سرور");
     }
   };
 
@@ -147,7 +185,6 @@ const ProductDetails = () => {
     }
 
     try {
-      // دریافت سبد خرید کاربر
       const res = await fetch(`http://localhost:3001/carts/${user.id}`);
       let cart;
 
@@ -163,8 +200,6 @@ const ProductDetails = () => {
               offerprice: getDiscountedPrice(product.price, product.offer),
               url: product.images[0],
               quantity: cartCount,
-              size: selectedSize,
-              color: selectedColor,
             },
           ],
         };
@@ -179,11 +214,7 @@ const ProductDetails = () => {
       } else {
         cart = await res.json();
 
-        const existingItem = cart.items.find(item =>
-          item.id === product.id &&
-          item.size === selectedSize &&
-          item.color === selectedColor
-        );
+        const existingItem = cart.items.find(item => item.id === product.id);
 
         if (existingItem) {
           existingItem.quantity += cartCount;
@@ -196,8 +227,6 @@ const ProductDetails = () => {
             offerprice: getDiscountedPrice(product.price, product.offer),
             url: product.images[0],
             quantity: cartCount,
-            size: selectedSize,
-            color: selectedColor,
           });
         }
 
@@ -212,231 +241,191 @@ const ProductDetails = () => {
 
       setShowQuantity(true);
       setCartCount(1);
+      setCartItem({
+        id: product.id,
+        quantity: cartCount,
+      });
     } catch (err) {
       console.error(err);
       alert("خطا در افزودن به سبد خرید");
     }
   };
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
-  if (!product) return <div>Product not found</div>;
+  const updateCartQuantity = async (newQuantity) => {
+    if (!user || !product) return;
 
-  return (
-    <Base
-      rightHeaderContent={
-        <button
-          onClick={toggleLike}
-          className="item-bookmark btn btn-link p-0"
-          style={{
-            border: "none",
-            background: "transparent",
-            cursor: "pointer"
-          }}
-          title={liked ? "Remove from wishlist" : "Add to wishlist"}
-          aria-label={liked ? "Remove from wishlist" : "Add to wishlist"}
-        >
-          <svg
-            width={24}
-            height={24}
-            viewBox="0 0 24 24"
-            fill={liked ? "red" : "none"}
-            stroke="currentColor"
-            strokeWidth={2}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="feather feather-heart"
-          >
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-          </svg>
-        </button>
+    try {
+      const res = await fetch(`http://localhost:3001/carts/${user.id}`);
+      if (!res.ok) return;
+
+      const cart = await res.json();
+      let updatedItems = cart.items.map(item => {
+        if (item.id === product.id) {
+          return { ...item, quantity: newQuantity };
+        }
+        return item;
+      });
+
+      updatedItems = updatedItems.filter(item => item.quantity > 0);
+
+      const patchRes = await fetch(`http://localhost:3001/carts/${user.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items: updatedItems }),
+      });
+
+      if (patchRes.ok) {
+        setCartCount(newQuantity > 0 ? newQuantity : 1);
+        setShowQuantity(newQuantity > 0);
+        setCartItem(newQuantity > 0 ? updatedItems.find(i => i.id === product.id) : null);
+        setMessage(newQuantity > 0 ? "تعداد سبد خرید به‌روزرسانی شد." : "محصول از سبد حذف شد.");
       }
-    >
-      <div className="container p-0 pb-4">
-        <div className="dz-product-preview">
-          <Swiper
-            spaceBetween={10}
-            thumbs={{ swiper: thumbsSwiper }}
-            modules={[FreeMode, Thumbs]}
-            className="product-detail-swiper-2"
-          >
-            {product.images.map((img, index) => (
-              <SwiperSlide key={index}>
-                <div className="dz-media">
-                  <img src={img} alt={`Product ${index + 1}`} />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+    } catch {
+      alert("خطا در به‌روزرسانی سبد خرید");
+    }
+  };
 
-          <Swiper
-            onSwiper={setThumbsSwiper}
-            spaceBetween={10}
-            slidesPerView={13}
-            freeMode={true}
-            watchSlidesProgress={true}
-            modules={[FreeMode, Thumbs]}
-            className="product-detail-swiper"
-          >
-            {product.images.map((img, index) => (
-              <SwiperSlide key={index}>
-                <div className="dz-media">
-                  <img src={img} alt={`Thumbnail ${index + 1}`} />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+  const removeFromCart = () => {
+    updateCartQuantity(0);
+  };
 
-        <div className="container">
-          <div className="dz-product-detail">
-            <div className="detail-content">
-              <span className="brand-tag">{category?.name}</span>
-              <h5>{product.name}</h5>
-            </div>
+  if (loading) {
+    return (
+      <div className="container py-4">
+        <div className="text-center">در حال بارگذاری محصول...</div>
+      </div>
+    );
+  }
 
-            <div className="dz-review-meta mb-3">
-              <h4 className="price">
-                {
-                  product?.offer ? (
-                    <>
-                      <h6 className="price">${getDiscountedPrice(product.price, product.offer).toLocaleString()}
-                        <del>${product.price}</del>
-                      </h6>
-                    </>
-                  ) : (
-                    <>
-                      <span>${product.price}</span>
-                    </>
-                  )
-                }
-              </h4>
-              <h6 className="review">
-                <i className="fa-solid fa-star me-1"></i>
-                4.5 <span>(2.6k review)</span>
-              </h6>
-            </div>
-
-            {/* Size Selection */}
-            <div className="d-flex align-items-center mb-4">
-              <h6 className="mb-0 me-4">Size:</h6>
-              <div className="btn-group product-size mb-0">
-                {['S', 'M', 'L', 'XL'].map((size) => (
-                  <React.Fragment key={size}>
-                    <input
-                      type="radio"
-                      className="btn-check"
-                      name="btnsize1"
-                      id={`btnradio1${size}`}
-                      checked={selectedSize === size}
-                      onChange={() => setSelectedSize(size)}
-                    />
-                    <label className="btn" htmlFor={`btnradio1${size}`}>
-                      {size}
-                    </label>
-                  </React.Fragment>
-                ))}
-              </div>
-            </div>
-
-            {/* Color Selection */}
-            <div className="meta-content d-flex align-items-center">
-              <h6 className="mb-0 me-4">Color:</h6>
-              <div className="btn-group product-color mb-0">
-                {['#24262B', '#A7A8AA', '#27292D', '#6B6C6E'].map((color) => (
-                  <React.Fragment key={color}>
-                    <input
-                      type="radio"
-                      className="btn-check"
-                      name="btncolor1"
-                      id={`btncolor1${color.replace('#', '')}`}
-                      checked={selectedColor === color}
-                      onChange={() => setSelectedColor(color)}
-                    />
-                    <label
-                      className="btn"
-                      htmlFor={`btncolor1${color.replace('#', '')}`}
-                      style={{ backgroundColor: color }}
-                    ></label>
-                  </React.Fragment>
-                ))}
-              </div>
-            </div>
-
-            {/* Add to Cart and Quantity */}
-            <div className="mt-4">
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={handleAddToCart}
-              >
-                افزودن به سبد خرید
-              </button>
-
-              {showQuantity && (
-                <div className="input-group quantity mt-3" style={{ maxWidth: '130px' }}>
-                  <button
-                    className="btn btn-outline-secondary"
-                    type="button"
-                    onClick={() => setCartCount(prev => Math.max(1, prev - 1))}
-                  >-</button>
-
-                  <input
-                    type="number"
-                    className="form-control"
-                    value={cartCount}
-                    min={1}
-                    onChange={(e) => {
-                      const val = parseInt(e.target.value);
-                      if (!isNaN(val) && val >= 1) setCartCount(val);
-                    }}
-                  />
-
-                  <button
-                    className="btn btn-outline-secondary"
-                    type="button"
-                    onClick={() => setCartCount(prev => prev + 1)}
-                  >+</button>
-                </div>
-              )}
-
-              {message && <p className="text-success mt-2">{message}</p>}
-            </div>
-          </div>
+  if (error || !product) {
+    return (
+      <div className="container py-4">
+        <div className="text-center text-danger">
+          خطا در بارگذاری محصول. لطفا دوباره تلاش کنید.
         </div>
       </div>
-    </Base>
+    );
+  }
+
+  return (
+    <section className="product-details py-4">
+      <div className="container">
+        <nav aria-label="breadcrumb" className="mb-3">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
+              <Link to="/">خانه</Link>
+            </li>
+            {category && (
+              <li className="breadcrumb-item">
+                <Link to={`/category/${category.id}`}>{category.name}</Link>
+              </li>
+            )}
+            <li className="breadcrumb-item active" aria-current="page">
+              {product.name}
+            </li>
+          </ol>
+        </nav>
+
+        <div className="row">
+          <aside className="col-md-6">
+            <Swiper
+              style={{ '--swiper-navigation-color': '#fff', '--swiper-pagination-color': '#fff' }}
+              loop={true}
+              spaceBetween={10}
+              thumbs={{ swiper: thumbsSwiper }}
+              modules={[FreeMode, Thumbs]}
+              className="main-swiper"
+            >
+              {product.images && product.images.map((image, index) => (
+                <SwiperSlide key={index}>
+                  <img src={image} alt={`${product.name} ${index + 1}`} className="img-fluid" />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            <Swiper
+              onSwiper={setThumbsSwiper}
+              spaceBetween={10}
+              slidesPerView={4}
+              freeMode={true}
+              watchSlidesProgress={true}
+              modules={[FreeMode, Thumbs]}
+              className="thumbs-swiper mt-3"
+            >
+              {product.images && product.images.map((image, index) => (
+                <SwiperSlide key={index}>
+                  <img src={image} alt={`${product.name} thumbnail ${index + 1}`} className="img-fluid" />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </aside>
+
+          <aside className="col-md-6">
+            <h1>{product.name}</h1>
+            <p className="text-muted mb-1">{product.description}</p>
+
+            <div className="price mb-3">
+              {product.offer > 0 ? (
+                <>
+                  <span className="text-danger fw-bold fs-4">
+                    {getDiscountedPrice(product.price, product.offer).toLocaleString()} تومان
+                  </span>
+                  <del className="text-muted me-2">{product.price.toLocaleString()} تومان</del>
+                </>
+              ) : (
+                <span className="fw-bold fs-4">{product.price.toLocaleString()} تومان</span>
+              )}
+            </div>
+
+            {showQuantity && (
+              <div className="cart-quantity mb-3 d-flex align-items-center gap-3">
+                <button
+                  className="btn btn-outline-danger"
+                  onClick={() => updateCartQuantity(cartCount - 1)}
+                  aria-label="کاهش تعداد"
+                >
+                  -
+                </button>
+                <span>{cartCount}</span>
+                <button
+                  className="btn btn-outline-success"
+                  onClick={() => updateCartQuantity(cartCount + 1)}
+                  aria-label="افزایش تعداد"
+                >
+                  +
+                </button>
+
+                <button
+                  className="btn btn-outline-secondary ms-3"
+                  onClick={removeFromCart}
+                  aria-label="حذف از سبد خرید"
+                >
+                  حذف
+                </button>
+              </div>
+            )}
+
+            {!showQuantity && (
+              <button className="btn btn-primary" onClick={handleAddToCart}>
+                افزودن به سبد خرید
+              </button>
+            )}
+
+            {message && <p className="mt-2 text-success">{message}</p>}
+
+            <button
+              className={`btn btn-outline-danger mt-3 ${liked ? 'liked' : ''}`}
+              onClick={toggleLike}
+              aria-pressed={liked}
+              aria-label={liked ? "حذف از علاقه‌مندی‌ها" : "افزودن به علاقه‌مندی‌ها"}
+            >
+              {liked ? "♥" : "♡"} علاقه‌مندی
+            </button>
+          </aside>
+        </div>
+      </div>
+    </section>
   );
 };
 
 export default ProductDetails;
-export function Base({ children, rightHeaderContent }) {
-  return (
-    <>
-      <header className="header shadow header-fixed border-0"
-        style={{
-          position: "fixed"
-        }}
-      >
-        <div className="container">
-          <div className="header-content">
-            <div className="left-content">
-              <Link to={"/home"} className="back-btn">
-                <i className="icon feather icon-chevron-left" />
-              </Link>
-            </div>
-            <div className="mid-content">
-              <h6 className="title">Product Detail</h6>
-            </div>
-            <div className="right-content">
-              {rightHeaderContent}
-            </div>
-          </div>
-        </div>
-      </header>
-      <div className='mt-5 pt-3 pb-5'>
-        {children}
-      </div>
-    </>
-  )
-}
