@@ -44,7 +44,7 @@ export default function MenuBar() {
           </NavLink>
         </div>
         <div className="width">
-          <NavLink to="/categori" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
+          <NavLink to="/category" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
             <div className="icon-wrapper">
               <i className="icon feather icon-grid"></i>
               <span>Categories</span>
