@@ -7,9 +7,6 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/thumbs';
 import { AuthContext } from '../../context/AuthContext';
-// import { useState } from 'react';
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import { Thumbs } from 'swiper/modules';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -281,10 +278,10 @@ const ProductDetails = () => {
         setCartCount(newQuantity > 0 ? newQuantity : 1);
         setShowQuantity(newQuantity > 0);
         setCartItem(newQuantity > 0 ? updatedItems.find(i => i.id === product.id) : null);
-        setMessage(newQuantity > 0 ? "تعداد سبد خرید به‌روزرسانی شد." : "محصول از سبد حذف شد.");
+        setMessage(newQuantity > 0 ? "Cart count updated." : "Product removed from cart.");
       }
     } catch {
-      alert("خطا در به‌روزرسانی سبد خرید");
+      alert("Error updating shopping cart");
     }
   };
 
@@ -311,96 +308,133 @@ const ProductDetails = () => {
   }
 
   return (
- <section className="product-details py-4">
-  <div className="container">
-    <nav aria-label="breadcrumb" className="mb-3">
-      <ol className="breadcrumb">
-        <li className="breadcrumb-item"><Link to="/home">خانه</Link></li>
-        {category && (
-          <li className="breadcrumb-item">
-            <Link to={`/category/${category.id}`}>{category.name}</Link>
-          </li>
-        )}
-        <li className="breadcrumb-item active" aria-current="page">{product.name}</li>
-      </ol>
-    </nav>
+    <>
+      <Header liked={liked} toggleLike={toggleLike}/>
+      <section className="product-details pt-5 pm-5">
+        <div className="container pt-5">
+          <nav aria-label="breadcrumb" className="mb-3">
+            <ol className="breadcrumb">
+              <li className="breadcrumb-item"><Link to="/home"> Home </Link></li>
+              {category && (
+                <li className="breadcrumb-item">
+                  <Link to={`/category/${category.id}`}>{category.name}</Link>
+                </li>
+              )}
+              <li className="breadcrumb-item active" aria-current="page">{product.name}</li>
+            </ol>
+          </nav>
 
-    {/* تصاویر محصول */}
-    <div className="product-image-wrapper mb-4">
-  <Swiper
-    style={{ '--swiper-navigation-color': '#fff', '--swiper-pagination-color': '#fff' }}
-    loop={true}
-    spaceBetween={10}
-    thumbs={{ swiper: thumbsSwiper }}
-    modules={[FreeMode, Thumbs]}
-    className="main-swiper"
-  >
-    {product.images && product.images.map((image, index) => (
-      <SwiperSlide key={index}>
-        <img src={image} alt={`${product.name} ${index + 1}`} className="img-fluid rounded shadow w-100" />
-      </SwiperSlide>
-    ))}
-  </Swiper>
+          {/* تصاویر محصول */}
+          <div className="product-image-wrapper mb-4">
+        <Swiper
+          style={{ '--swiper-navigation-color': '#fff', '--swiper-pagination-color': '#fff' }}
+          loop={true}
+          spaceBetween={10}
+          thumbs={{ swiper: thumbsSwiper }}
+          modules={[FreeMode, Thumbs]}
+          className="main-swiper"
+        >
+          {product.images && product.images.map((image, index) => (
+            <SwiperSlide key={index}>
+              <img src={image} alt={`${product.name} ${index + 1}`} className="img-fluid rounded shadow w-100" />
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
-  <Swiper
-    onSwiper={setThumbsSwiper}
-    spaceBetween={8}
-    slidesPerView={5}
-    freeMode={true}
-    watchSlidesProgress={true}
-    modules={[FreeMode, Thumbs]}
-    className="thumbs-swiper"
-  >
-    {product.images && product.images.map((image, index) => (
-      <SwiperSlide key={index}>
-        <img src={image} alt={`thumb ${index + 1}`} />
-      </SwiperSlide>
-    ))}
-  </Swiper>
-</div>
-
-
-    {/* اطلاعات محصول */}
-    <div className="product-info text-center">
-      <h1 className="fw-bold mb-3">{product.name}</h1>
-      <p className="text-muted mb-3">{product.description}</p>
-
-      <div className="price mb-3">
-        {product.offer > 0 ? (
-          <>
-            <span className="text-danger fw-bold fs-4">
-              {getDiscountedPrice(product.price, product.offer).toLocaleString()} تومان
-            </span>
-            <del className="text-muted me-2">{product.price.toLocaleString()} تومان</del>
-          </>
-        ) : (
-          <span className="fw-bold fs-4">{product.price.toLocaleString()} تومان</span>
-        )}
+        <Swiper
+          onSwiper={setThumbsSwiper}
+          spaceBetween={8}
+          slidesPerView={5}
+          freeMode={true}
+          watchSlidesProgress={true}
+          modules={[FreeMode, Thumbs]}
+          className="thumbs-swiper"
+        >
+          {product.images && product.images.map((image, index) => (
+            <SwiperSlide key={index}>
+              <img src={image} alt={`thumb ${index + 1}`} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
 
-      {showQuantity ? (
-        <div className="cart-quantity mb-3 d-flex justify-content-center align-items-center gap-3">
-          <button className="btn btn-outline-danger" onClick={() => updateCartQuantity(cartCount - 1)}>-</button>
-          <span>{cartCount}</span>
-          <button className="btn btn-outline-success" onClick={() => updateCartQuantity(cartCount + 1)}>+</button>
-          <button className="btn btn-outline-secondary ms-3" onClick={removeFromCart}>حذف</button>
+
+          {/* اطلاعات محصول */}
+          <div className="product-info text-center">
+            <h1 className="fw-bold mb-3">{product.name}</h1>
+            <p className="text-muted mb-3">{product.description}</p>
+
+            <div className="price mb-3">
+              {product.offer ? (
+                <>
+                  <h6 className="price">
+                    ${getDiscountedPrice(product.price, product.offer).toLocaleString()}
+                    <del>${product.price}</del>
+                  </h6>
+                </>
+              ) : (
+                <>
+                  <span>${product.price}</span>
+                </>
+              )}
+            </div>
+
+            {showQuantity ? (
+              <div className="cart-quantity mb-3 d-flex justify-content-center align-items-center gap-3">
+                <button className="btn btn-outline-danger" onClick={() => updateCartQuantity(cartCount - 1)}>-</button>
+                <span>{cartCount}</span>
+                <button className="btn btn-outline-success" onClick={() => updateCartQuantity(cartCount + 1)}>+</button>
+                <button className="btn btn-outline-secondary ms-3" onClick={removeFromCart}>حذف</button>
+              </div>
+            ) : (
+              <button className="btn btn-primary mb-3" onClick={handleAddToCart}>افزودن به سبد خرید</button>
+            )}
+
+            {message && <p className="text-success">{message}</p>}
+          </div>
         </div>
-      ) : (
-        <button className="btn btn-primary mb-3" onClick={handleAddToCart}>افزودن به سبد خرید</button>
-      )}
+      </section>
+    </>
+  );
+};
 
-      {message && <p className="text-success">{message}</p>}
-
-      <button
-        className={`btn btn-outline-danger mt-3 ${liked ? 'liked' : ''}`}
-        onClick={toggleLike}
-      >
-        {liked ? "♥" : "♡"} علاقه‌مندی
-      </button>
-    </div>
-  </div>
-</section>
-
+export const Header = ({ liked, toggleLike }) => {
+  return (
+    <header className="header shadow header-fixed border-0" style={{ position: "fixed", top: "0" }}>
+      <div className="container">
+        <div className="header-content">
+          <div className="left-content">
+            <Link to="/" className="back-btn">
+              <i className="icon feather icon-chevron-left"></i>
+            </Link>
+          </div>
+          <div className="mid-content">
+            <h6 className="title">Product Detail</h6>
+          </div>
+          <div className="right-content">
+            <button
+              onClick={toggleLike}
+              className="item-bookmark btn btn-link p-0"
+              style={{ border: "none", background: "transparent", cursor: "pointer" }}
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill={liked ? "red" : "none"}
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="feather feather-heart"
+              >
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
   );
 };
 
