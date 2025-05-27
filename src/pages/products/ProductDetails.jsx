@@ -116,7 +116,7 @@ const ProductDetails = () => {
     e.stopPropagation();
 
     if (!user) {
-      alert("لطفا وارد شوید تا بتوانید محصول را به علاقه‌مندی‌ها اضافه کنید.");
+      alert("Please log in to add the product to your favorites.");
       return;
     }
 
@@ -138,7 +138,7 @@ const ProductDetails = () => {
         });
 
         if (!postRes.ok) {
-          alert("مشکل در ایجاد لیست علاقه‌مندی‌ها");
+          alert("Problem creating wishlist");
           return;
         }
 
@@ -146,7 +146,7 @@ const ProductDetails = () => {
       } else if (res.ok) {
         wishlist = await res.json();
       } else {
-        alert("خطا در دریافت لیست علاقه‌مندی‌ها");
+        alert("Error retrieving wishlist");
         return;
       }
 
@@ -171,16 +171,16 @@ const ProductDetails = () => {
       });
 
       if (patchRes.ok) setLiked(!liked);
-      else alert("خطا در به‌روزرسانی لیست علاقه‌مندی‌ها");
+      else alert("Error updating wishlist");
     } catch (err) {
       console.error(err);
-      alert("خطا در ارتباط با سرور");
+      alert("Error communicating with the server");
     }
   };
 
   const handleAddToCart = async () => {
     if (!user) {
-      alert("برای افزودن به سبد خرید باید وارد شوید.");
+      alert("You must be logged in to add to cart.");
       return;
     }
 
@@ -210,7 +210,7 @@ const ProductDetails = () => {
           body: JSON.stringify(cart),
         });
 
-        setMessage("سبد خرید ساخته شد و محصول اضافه شد.");
+        setMessage("Cart created and product added.");
       } else {
         cart = await res.json();
 
@@ -236,7 +236,7 @@ const ProductDetails = () => {
           body: JSON.stringify({ items: cart.items }),
         });
 
-        setMessage("محصول به سبد خرید اضافه شد.");
+        setMessage("Product added to cart.");
       }
 
       setShowQuantity(true);
@@ -247,7 +247,7 @@ const ProductDetails = () => {
       });
     } catch (err) {
       console.error(err);
-      alert("خطا در افزودن به سبد خرید");
+      alert("Error adding to cart");
     }
   };
 
@@ -310,8 +310,8 @@ const ProductDetails = () => {
   return (
     <>
       <Header liked={liked} toggleLike={toggleLike}/>
-      <section className="product-details pt-5 pm-5">
-        <div className="container pt-5">
+      <section className="product-details pt-5 pm-5 mb-5">
+        <div className="container py-5">
           <nav aria-label="breadcrumb" className="mb-3">
             <ol className="breadcrumb">
               <li className="breadcrumb-item"><Link to="/home"> Home </Link></li>
@@ -361,39 +361,50 @@ const ProductDetails = () => {
 
           {/* اطلاعات محصول */}
           <div className="product-info text-center">
+            <Link to={`/category/${category.id}`}>{category.name}</Link>
             <h1 className="fw-bold mb-3">{product.name}</h1>
             <p className="text-muted mb-3">{product.description}</p>
 
-            <div className="price mb-3">
-              {product.offer ? (
-                <>
-                  <h6 className="price">
-                    ${getDiscountedPrice(product.price, product.offer).toLocaleString()}
-                    <del>${product.price}</del>
-                  </h6>
-                </>
-              ) : (
-                <>
-                  <span>${product.price}</span>
-                </>
-              )}
-            </div>
-
-            {showQuantity ? (
-              <div className="cart-quantity mb-3 d-flex justify-content-center align-items-center gap-3">
-                <button className="btn btn-outline-danger" onClick={() => updateCartQuantity(cartCount - 1)}>-</button>
-                <span>{cartCount}</span>
-                <button className="btn btn-outline-success" onClick={() => updateCartQuantity(cartCount + 1)}>+</button>
-                <button className="btn btn-outline-secondary ms-3" onClick={removeFromCart}>حذف</button>
-              </div>
-            ) : (
-              <button className="btn btn-primary mb-3" onClick={handleAddToCart}>افزودن به سبد خرید</button>
-            )}
-
-            {message && <p className="text-success">{message}</p>}
+            
           </div>
         </div>
       </section>
+      <div className="footer f0 fixed bg-white border-top">
+        <div className="container py-2">
+          <div className="total-cart">
+            <div className="price-area">
+              <span>Price</span>
+              <h3 className="price">
+                {product.offer ? (
+                  <>
+                    <h6 className="price">
+                      ${getDiscountedPrice(product.price, product.offer).toLocaleString()}
+                      <del>${product.price}</del>
+                    </h6>
+                  </>
+                ) : (
+                  <>
+                    <span>${product.price}</span>
+                  </>
+                )}
+              </h3>
+            </div>
+            <div style={{display: "flex", gap: "1rem", alignItems: "center"}}>
+              {message && <p className="text-success" style={{margin: "0"}}>{message}</p>}
+              {showQuantity ? (
+                <div className="cart-quantity my-2 d-flex justify-content-center align-items-center gap-3">
+                  <button className="btn btn-outline-danger" onClick={() => updateCartQuantity(cartCount - 1)}>-</button>
+                  <span>{cartCount}</span>
+                  <button className="btn btn-outline-success" onClick={() => updateCartQuantity(cartCount + 1)}>+</button>
+                  <button className="btn btn-outline-secondary" onClick={removeFromCart}>Delete</button>
+                </div>
+              ) : (
+                <button className="btn btn-primary mb-1" onClick={handleAddToCart} style={{marginBottom: "0px!important"}}> Add to Cart </button>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
@@ -404,7 +415,7 @@ export const Header = ({ liked, toggleLike }) => {
       <div className="container">
         <div className="header-content">
           <div className="left-content">
-            <Link to="/" className="back-btn">
+            <Link to="/home" className="back-btn">
               <i className="icon feather icon-chevron-left"></i>
             </Link>
           </div>
