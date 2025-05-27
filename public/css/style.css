@@ -26972,8 +26972,7 @@ button.nav-link.active i {
 
 
 
-/* بقیه استایل‌ها مثل قبل بدون تغییر */
-.setting-container {
+/* .setting-dropdownn{
   background-color: #fff;
   color: var(--primary);
   box-shadow: 0 0 8px #fff;
@@ -26992,9 +26991,9 @@ button.nav-link.active i {
   padding-top: 5px;
   cursor: pointer;
   text-decoration: none;
-}
+} */
 
-.setting-container ul li:hover {
+.setting-dropdown ul li:hover {
   background-color: wheat;
   background-size: 100%;
 
