@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import React from "react";
 
-export default function Option() {
+export default function Setting() {
   const handleCopy = async (e) => {
     e.preventDefault();
     try {
