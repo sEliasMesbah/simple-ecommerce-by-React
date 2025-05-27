@@ -1,8 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import React, { useState } from 'react';
-import Setting from "../../components/profile/Setting";
-// import Setting from "./setting";
+import Setting from "./Setting";
+
 
 export default function Profile() {
 
@@ -205,6 +205,7 @@ export default function Profile() {
                     <div className="badge badge-primary position-absolute end-0 me-3">5</div>
                   </Link>
                 </li>
+
                 {/* <li>
                   {user ? (
                     <Link

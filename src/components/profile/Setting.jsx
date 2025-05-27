@@ -3,21 +3,22 @@ import React from "react";
 
 export default function Setting() {
   const handleCopy = async (e) => {
-    e.preventDefault(); // جلوگیری از رفرش صفحه
+    e.preventDefault();
     try {
-      await navigator.clipboard.writeText("www.sargarme.com");
-      alert("متن با موفقیت کپی شد!");
+      await navigator.clipboard.writeText('http://localhost:3000');
+      alert("The link of the site is copied succesfully!");
     } catch (err) {
-      alert("خطا در کپی کردن متن: " + err);
+      alert("خطا در کپی کردن آدرس سایت: " + err);
     }
   };
+
 
   return (
     <div
       className="setting-dropdown"
       style={{
         position: "absolute",
-        top: "calc(100% + 8px)", // فاصله کمی پایین‌تر از دکمه
+        top: "calc(100% + 8px)",
         right: 0,
         width: "220px",
         backgroundColor: "white",
@@ -42,17 +43,16 @@ export default function Setting() {
             borderBottom: "1px solid #eee",
             fontWeight: "bold",
             color: "#333",
-            transition: '.5s'
-
+            transition: '.5s',
+            fontSize: '1.2rem'
           }}
         >
-          Setting
-          <Link to="#" style={{ float: "right", color: "var(--primary)"  }}>
-            <i
-              className="fa fa-cog"
-              aria-hidden="true"
-              style={{ fontSize: "16px" , color: "var(--primary)"  }}
-            ></i>
+          Contact
+          <Link to="#" style={{ float: "right", color: "var(--primary)" }}>
+            <i class="fa fa-address-book" aria-hidden="true"
+              style={{ fontSize: "16px", color: "var(--primary)" }}
+            >
+            </i>
           </Link>
         </li>
 
@@ -61,7 +61,8 @@ export default function Setting() {
           style={{
             padding: "10px 20px",
             borderBottom: "1px solid #eee",
-            transition:'.5s'
+            transition: '.5s',
+            fontSize: '1.2rem',
 
           }}
         >
@@ -79,13 +80,15 @@ export default function Setting() {
             <i
               className="fa fa-sign-out"
               aria-hidden="true"
-              style={{ color: "var(--primary)", fontSize: "16px"  
-               }}
+              style={{
+                color: "var(--primary)", fontSize: "16px"
+
+              }}
             ></i>
           </Link>
         </li>
 
-        <li className="copyBtn" style={{ padding: "10px 20px" , transition:'.5s' }}>
+        <li className="copyBtn" style={{ padding: "10px 20px", transition: '.5s' }}>
           <Link
             to="#"
             onClick={handleCopy}
@@ -96,6 +99,7 @@ export default function Setting() {
               justifyContent: "space-between",
               alignItems: "center",
               cursor: "pointer",
+              fontSize: '1.2rem'
             }}
           >
             Copy Link
