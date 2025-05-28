@@ -4,6 +4,8 @@ import Preloader from "./components/Preloader/Preloader";
 import { AuthProvider } from "./context/AuthContext";
 import Routes from "./utils/Routes";
 
+import TrailCursor from "./components/TrailCursor"; // اضافه کن
+
 function App() {
   const [preloading, setPreloading] = useState(true);
 
@@ -16,13 +18,14 @@ function App() {
   }
 
   return (
-    <AuthProvider>
-      <BrowserRouter>
-      
-        <Routes />
-      </BrowserRouter>
-    </AuthProvider>
+    <>
+      <AuthProvider>
+        <BrowserRouter>
+          <TrailCursor />
+          <Routes />
+        </BrowserRouter>
+      </AuthProvider>
+    </>
   );
 }
-
 export default App;
