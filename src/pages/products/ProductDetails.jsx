@@ -7,6 +7,11 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/thumbs';
 import { AuthContext } from '../../context/AuthContext';
+import SocialIcons from '../../components/public/socialIcons';
+import Modal from '../../components/public/Modal';
+import CopyToClipboard from '../../components/public/CopyToClipboard';
+import Synchronization, { SwiperItem } from '../../components/public/Synchronization';
+import Tooltip from '../../components/public/Tooltip';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -22,6 +27,40 @@ const ProductDetails = () => {
   const [cartCount, setCartCount] = useState(1);
   const [message, setMessage] = useState('');
   const [cartItem, setCartItem] = useState(null);
+
+  const currentUrl = window.location.href;
+  const platforms = [
+    {
+      name: 'Whatsapp',
+      url: `https://wa.me/?text=${encodeURIComponent(currentUrl)}`,
+      icon: <SocialIcons whatsapp size={"35px"} />,
+      class: "whatsapp"
+    },
+    {
+      name: 'Telegram',
+      url: `https://t.me/share/url?url=${encodeURIComponent(currentUrl)}`,
+      icon: <SocialIcons telegram size={"35px"} />,
+      class: "telegram"
+    },
+    {
+      name: 'Twitter (X)',
+      url: `https://x.com/intent/tweet?url=${encodeURIComponent(currentUrl)}`,
+      icon: <SocialIcons x size={"35px"} />,
+      class: "x"
+    },
+    {
+      name: 'Facebook',
+      url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`,
+      icon: <SocialIcons facebook size={"35px"} />,
+      class: "facebook"
+    },
+    {
+      name: 'Eitaa',
+      url: `https://eitaa.com/share/url?url=${encodeURIComponent(currentUrl)}`,
+      icon: <SocialIcons eitaa size={"35px"} />,
+      class: "eita"
+    },
+  ];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -325,7 +364,53 @@ const ProductDetails = () => {
           </nav>
 
           {/* تصاویر محصول */}
-          <div className="product-image-wrapper mb-4">
+          <div className="product-image-wrapper mb-4 p_side">
+            <div className='side_icon'>
+              <Modal
+                title="Page Sharing"
+                buttonType="circle"
+                buttonIcon={<><SocialIcons share/>share link</>}
+                buttonSticky={true}
+                buttonPosition="top"
+                buttonOffset="60px"
+              >
+                <div className="d-flex flex-column gap-3">
+                  <div className="d-flex flex-wrap gap-2">
+                    <Synchronization title="Synchronization">
+                      {platforms.map((p, i) => (
+                        <>
+                              <SwiperItem>
+                                <Tooltip
+                                  content={`link share ${p.name}`}
+                                  position='top'
+                                >
+                                  <a 
+                                    key={i} 
+                                    href={p.url}
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className={`link_social ${p.class}`}
+                                  >
+                                    {p.icon}
+                                    <span>{p.name}</span>
+                                  
+                                </a>
+                                </Tooltip>
+                          </SwiperItem>
+                        </>
+                      ))}
+                    </Synchronization>
+                  </div>
+
+                  <div className="mt-3 p-2 border rounded d-flex align-items-center justify-content-between">
+                    <span className="text-truncate" style={{ width: "fit-content", maxWidth: '90%', fontSize: "calc(100% - 3px)" }}>
+                      {currentUrl}
+                    </span>
+                    <CopyToClipboard text={currentUrl} />
+                  </div>
+                </div>
+              </Modal>
+            </div>
         <Swiper
           style={{ '--swiper-navigation-color': '#fff', '--swiper-pagination-color': '#fff' }}
           loop={true}
