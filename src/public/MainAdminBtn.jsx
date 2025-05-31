@@ -2,13 +2,16 @@ import { Link, useLocation } from 'react-router-dom';
 import BtnIcon from "../components/public/BtnIcon";
 import SocialIcons from "../components/public/socialIcons";
 import { isAdmin } from "../utils/auth";
+
 const MainAdminBtn = () => {
   const location = useLocation();
+  
   if (!isAdmin()) return null;
 
   return (
     <div className="fixed-admin-btn">
-      {location.pathname === '/home' && (
+      {/* نمایش دکمه ادمین در همه مسیرها به جز /admin */}
+      {!location.pathname.startsWith('/admin') && (
         <Link to="/admin">
           <BtnIcon 
             icon={<SocialIcons admin size="25px" />}
@@ -18,7 +21,8 @@ const MainAdminBtn = () => {
         </Link>
       )}
 
-      {location.pathname === '/admin' && (
+      {/* نمایش دکمه خانه فقط در مسیر /admin */}
+      {location.pathname.startsWith('/admin') && (
         <Link to="/home">
           <BtnIcon 
             icon={<SocialIcons home size="25px" />}
