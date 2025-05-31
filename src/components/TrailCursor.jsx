@@ -35,13 +35,12 @@ const TrailCursor = () => {
       trail.current.push({ x: mouse.current.x, y: mouse.current.y });
       if (trail.current.length > 80) trail.current.shift();
 
-      // 40% اول دنباله سفید، بقیه زرد
       for (let i = 0; i < trail.current.length; i++) {
         const p = trail.current[i];
         const alpha = i / trail.current.length;
 
         let fillColor;
-        if (i <= trail.current.length * 0.5) {
+        if (i >= trail.current.length * 0.6) {
           fillColor = `rgba(255, 255, 255, ${alpha * 0.7})`;
         } else {
           fillColor = `rgba(255, 238, 0, ${alpha * 0.7})`;
@@ -53,12 +52,11 @@ const TrailCursor = () => {
         ctx.fill();
       }
 
-      // سر آیکون زرد روشن (#ffee00) با سایه کمرنگ خودش
-      ctx.shadowColor = "rgba(255, 238, 0, 0.7)";
-      ctx.shadowBlur = 15;
+      ctx.shadowColor = "rgba(255, 238, 0, 0.6)";
+      ctx.shadowBlur = 12;
       ctx.beginPath();
-      ctx.fillStyle = "rgba(255, 238, 0, 1)";
-      ctx.arc(mouse.current.x, mouse.current.y, 7, 0, Math.PI * 2);
+      ctx.fillStyle = "#ffee00";
+      ctx.arc(mouse.current.x, mouse.current.y, 9, 0, Math.PI * 2);
       ctx.fill();
 
       ctx.shadowColor = "transparent";
@@ -84,7 +82,7 @@ const TrailCursor = () => {
         width: "100vw",
         height: "100vh",
         pointerEvents: "none",
-        zIndex: 9999,
+        zIndex: 99999999,
       }}
     />
   );
