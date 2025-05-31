@@ -27196,6 +27196,11 @@ button.nav-link.active i {
 .space-top{
   padding-top: 50px;
 }
-* {
+/* * {
   cursor: none !important;
+} */
+.row{
+  display: flex;
+  justify-content: center;
+  flex-direction: row !important;
 }

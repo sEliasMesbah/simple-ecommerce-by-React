@@ -26,7 +26,7 @@ function App() {
     <>
       <AuthProvider>
         <BrowserRouter>
-          <TrailCursor />
+          {/* <TrailCursor /> */}
           <Routes />
           <AdminRoutes />
           
