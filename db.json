@@ -1,6 +1,13 @@
 {
   "users": [
     {
+      "id": "adminsupport",
+      "name": "Admin Support",
+      "email": "eccomerce@admin.com",
+      "password": "Admin",
+      "role": "admin"
+    },
+    {
       "id": "dbb4",
       "name": "رضا معصومی فرد",
       "password": "123456789",

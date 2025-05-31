@@ -1,0 +1,6 @@
+.fixed-admin-btn {
+    position: fixed;
+    bottom: 6rem;
+    right: 1rem;
+    display: flex;
+}
