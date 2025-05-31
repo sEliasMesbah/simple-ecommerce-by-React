@@ -26979,10 +26979,9 @@ button.nav-link.active i {
   top: calc(100% + 8px);
   right: 0;
   width: 170px;
-  height: 170px;
+  height: 150px;
   background-color: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  border-radius: 6px;
   padding: 10px 0;
   z-index: 1000;
 }
@@ -26999,7 +26998,7 @@ button.nav-link.active i {
   font-weight: bold;
   color: #333;
   transition: .5s;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .setting-dropdown ul li:hover {
