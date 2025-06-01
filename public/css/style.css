@@ -17954,7 +17954,7 @@ section {
 
 .theme-dark .form-control {
   background: #16192A;
-  color: #fff !important;
+  /* color: #fff !important; */
   border-color: var(--border-color);
 }
 
@@ -18480,7 +18480,7 @@ section {
   padding: 0 10px 0 48px;
 }
 
-.form-control {
+/* .form-control {
   height: 50px;
   border: 1px solid #E3E3E3;
   padding: 10px 15px;
@@ -18490,7 +18490,7 @@ section {
   transition: all 0.3s ease-in-out;
   background: #F8F8F8;
   border-radius: 0;
-}
+} */
 
 .form-control .select {
   padding: 12px 0;
@@ -27206,4 +27206,14 @@ button.nav-link.active i {
 }
 .fixed-admin-btn{
   z-index: 1000;
+}
+
+.theme-dark .admin-wrapper .topbar{
+  background: #6A6A6A !important;
+}
+.color-black{
+  color: black !important;
+}
+.bx-search{
+  color: black !important;
 }
