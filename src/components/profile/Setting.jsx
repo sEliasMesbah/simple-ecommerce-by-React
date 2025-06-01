@@ -19,7 +19,7 @@ export default function Setting() {
       <ul>
         <li>
           Contact
-          <Link to="#" style={{ float: "right", color: "var(--primary)" }}>
+          <Link to="/contact" style={{ float: "right", color: "var(--primary)" }}>
             <i class="fa fa-address-book" aria-hidden="true"
               style={{ fontSize: "16px", color: "var(--primary)" }}
             >
@@ -33,7 +33,7 @@ export default function Setting() {
             padding: "10px 20px",
             borderBottom: "1px solid #eee",
             transition: '.5s',
-            fontSize: '1.2rem',
+            fontSize: '1rem',
 
           }}
         >
@@ -70,7 +70,7 @@ export default function Setting() {
               justifyContent: "space-between",
               alignItems: "center",
               cursor: "pointer",
-              fontSize: '1.2rem'
+              fontSize: '1rem'
             }}
           >
             Copy Link

@@ -54,6 +54,7 @@ import { WishlistProvider } from "../context/WishlistContext";
 import { CartProvider } from "../context/CartContext";
 import Products from "../pages/products/products";
 import CategoryId from "../pages/category/CategoryId";
+import Contact from "../components/profile/Contact";
 
 const Routes = () => {
   const location = useLocation();
@@ -121,6 +122,7 @@ const Routes = () => {
             <Route path="/ui-toast" element={<Toast />} />
             <Route path="/ui-typography" element={<Typography />} />
             <Route path="/ui-avatar" element={<Avatar />} />
+            <Route path="/contact" element={<Contact/>}/>
           </Route>
         </Route>
       </Router>
