@@ -4,13 +4,13 @@
       "id": "adminsupport",
       "name": "Admin Support",
       "email": "eccomerce@admin.com",
-      "password": "Admin",
+      "password": "$2y$04$6wTQ5ZUJkXPKyb9r6ivWGe2mbwExBkPGuzdSF4tdONk0O8WUvu9hu",
       "role": "admin"
     },
     {
       "id": "dbb4",
       "name": "رضا معصومی فرد",
-      "password": "123456789",
+      "password": "$2y$04$BzSu5cGmJl7qoBgLxtWahOCc7Kt4TCt3aHMjNGBAoN2RvGqtuxCgC",
       "phone": "09966746716",
       "email": "reza.masoumifard84@gmail.com",
       "location": "قم.نیروگاه.حافظ 9.پلاک 13"
@@ -18,29 +18,15 @@
     {
       "id": "cf3c",
       "name": "John Doe",
-      "password": "John Doe",
+      "password": "$2y$04$anmZvXBb7tc72qsiYukM0.jNAgbj2l/u1MLH4C236fvjZGUVxfZ5i",
       "phone": "1234567890",
       "email": "Example@gmail.com",
       "location": "LH-12, East Wally USA"
     },
     {
-      "name": "kian",
-      "phone": "09790497872",
-      "email": "kian2@gmail.com",
-      "location": "qom",
-      "id": "1f63"
-    },
-    {
-      "name": "سجاد",
-      "phone": "09790497872",
-      "email": "amirmohamadsafa2@gmail.com",
-      "location": "qom",
-      "id": "d945"
-    },
-    {
       "id": "a346",
       "name": "sajjad",
-      "password": "123456789",
+      "password": "$2y$04$sLKpuN90j5wuIoEXVbmjzeAnT8Ts9WS1.aRrawP4vCU72jjzvaM2G",
       "phone": "09790497872",
       "email": "amirmohamadsafa2@gmail.com",
       "location": "qom"
@@ -48,7 +34,7 @@
     {
       "id": "0c12",
       "name": "mmd80519",
-      "password": "09123456789",
+      "password": "$2y$04$.gjAvEMD62IymH3S3Vt5gez.HmTym2.ypLT/7PlLY85u5Dirudzd2",
       "phone": "09034737295",
       "email": "MBGmohammad@yahoo.com",
       "location": "Qom, 20th Motahari Street, Alley 38"
