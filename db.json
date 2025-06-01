@@ -342,6 +342,11 @@
       "id": "a346",
       "userId": "a346",
       "items": []
+    },
+    {
+      "id": "adminsupport",
+      "userId": "adminsupport",
+      "items": []
     }
   ],
   "carts": [
@@ -369,6 +374,20 @@
           "price": 875,
           "offerprice": 796,
           "url": "https://dkstatics-public.digikala.com/digikala-products/c23b49b0be1c4ae5b2a3d7a3281d2f1731065243_1726037574.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/format,webp/quality,q_90",
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "adminsupport",
+      "items": [
+        {
+          "id": "8d9e6a10-7b2f-4a8c-9c3d-234567890abc",
+          "name": "Pars Khazar Vacuum Cleaner Model Turbo 2500WB",
+          "describe": "",
+          "price": 425.89,
+          "offerprice": 425,
+          "url": "https://dkstatics-public.digikala.com/digikala-products/114919567.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/format,webp/quality,q_90",
           "quantity": 2
         }
       ]
