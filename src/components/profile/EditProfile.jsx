@@ -156,13 +156,14 @@ export default function EditProfile() {
             <br /><br /><br /><br /><br /><b><br /><br /></b>
           </div>
         </div>
-        <div className="footer fixed">
+        <div className="footer fixed spacing-down" style={{bottom:"120px"}}>
           <div className="container">
             <button
               onClick={handleSave}
               className="btn btn-primary w-100"
               type="button"
               disabled={saving}
+              
             >
               {saving ? "Saving" : "save"}
             </button>

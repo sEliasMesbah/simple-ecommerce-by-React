@@ -16677,7 +16677,7 @@ section {
 
 .header.header-fixed {
   position: fixed;
-  width: 100%;
+  width: 100vw;
   top: 0;
 }
 
@@ -17309,7 +17309,7 @@ section {
   bottom: 0;
   left: 0;
   z-index: 9;
-  width: 100%;
+  width: 100vw;
 }
 
 .menubar-area .toolbar-inner {
@@ -26824,7 +26824,7 @@ label input {
 
 .footer {
   /* >>>>>>> dev */
-  bottom: 120px !important;
+  bottom: 76px !important;
   z-index: 2 !important;
   opacity: 1 !important;
 }
@@ -26965,7 +26965,12 @@ button.nav-link.active i {
   padding: 10px 14px;
   /* box-shadow: 0 -4px 12px var(--menubar-active-shadow) !important; */
   border-radius: 22px 22px 0 0;
-  width: 69px !important;
+  width: 8vw !important;
+  max-width: 69px !important;
+  min-width: 45px !important;
+  height: 8vh;
+  max-height: 69px;
+  min-height: 45px;
   margin: -50px 0 0 0;
   position: relative;
   z-index: auto;
@@ -27215,4 +27220,7 @@ button.nav-link.active i {
 }
 .bx-search{
   color: black !important;
+}
+.spacing-down{
+  bottom: 120px !important;
 }

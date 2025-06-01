@@ -7,7 +7,7 @@ export default function AdminHeader(){
 					</div>
 					<div className="search-bar flex-grow-1">
 						<div className="position-relative search-bar-box">
-							<input type="text" className="form-control search-control color-black" placeholder="Type to search..." style={{height:"35px",paddingBottom:"0.7rem"}}/> <span className="position-absolute top-50 search-show translate-middle-y"><i className="bx bx-search"></i></span>
+							<input type="text" className="form-control search-control color-black" placeholder="Type to search..." style={{height:"35px",paddingBottom:"0.54rem"}}/> <span className="position-absolute top-50 search-show translate-middle-y"><i className="bx bx-search"></i></span>
 							<span className="position-absolute top-50 search-close translate-middle-y"><i className="bx bx-x"></i></span>
 						</div>
 					</div>
