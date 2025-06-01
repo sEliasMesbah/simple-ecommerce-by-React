@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
+import bcrypt from "bcryptjs";
 
 const AuthContext = createContext();
 
@@ -16,12 +17,20 @@ export const AuthProvider = ({ children }) => {
     }
 
     try {
+      // فقط نام کاربری رو می‌فرستیم
       const res = await axios.get(
-        `http://localhost:3001/users?name=${encodeURIComponent(name)}&password=${encodeURIComponent(password)}`
+        `http://localhost:3001/users?name=${encodeURIComponent(name)}`
       );
 
       if (res.data.length > 0) {
         const loggedInUser = res.data[0];
+
+        // مقایسه پسورد با هش شده
+        const isMatch = bcrypt.compareSync(password, loggedInUser.password);
+        if (!isMatch) {
+          return false;
+        }
+
         setUser(loggedInUser);
         localStorage.setItem("user", JSON.stringify(loggedInUser));
         localStorage.setItem("userId", loggedInUser.id);
@@ -50,5 +59,5 @@ export const AuthProvider = ({ children }) => {
 
 export const useAuth = () => useContext(AuthContext);
 
-// 🔧 این خط رو اضافه کن برای حل مشکل ایمپورت مستقیم:
+// برای حل مشکل ایمپورت مستقیم:
 export { AuthContext };

@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Input from "../components/public/Input";
 import { useState } from "react";
 import axios from "axios";
+import bcrypt from "bcryptjs";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ export default function Register() {
     }
 
     try {
-      // بررسی اینکه نام کاربری وجود نداشته باشد
+      // بررسی وجود نام کاربری در سرور
       const existingUser = await axios.get(
         `http://localhost:3001/users?name=${name}`
       );
@@ -48,10 +49,14 @@ export default function Register() {
         return;
       }
 
-      // ثبت نام با ارسال همه اطلاعات
+      // هش کردن پسورد قبل از ارسال
+      const salt = bcrypt.genSaltSync(10);
+      const hashedPassword = bcrypt.hashSync(password, salt);
+
+      // ارسال داده‌ها با پسورد هش شده
       await axios.post("http://localhost:3001/users", {
         name,
-        password,
+        password: hashedPassword,
         phone,
         email,
         location,
@@ -72,12 +77,12 @@ export default function Register() {
             <img
               className="logo-dark"
               src="/images/logos/light/logo1.svg"
-              alt=""
+              alt="logo"
             />
             <img
               className="logo-light"
               src="/images/logos/light/logo1.svg"
-              alt=""
+              alt="logo"
             />
           </div>
           <div className="section-head text-center pt-0">
