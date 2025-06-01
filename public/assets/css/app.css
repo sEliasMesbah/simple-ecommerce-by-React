@@ -15,16 +15,16 @@ body {
 	font-family: Roboto, sans-serif
 }
 
-a {
+.admin-wrapper a {
 	text-decoration: none
 }
 
-.wrapper {
+.admin-wrapper .wrapper {
 	width: 100%;
 	position: relative
 }
 
-.sidebar-wrapper {
+.admin-wrapper .sidebar-wrapper {
 	width: 250px;
 	height: 100%;
 	position: fixed;
@@ -38,7 +38,7 @@ a {
 	transition: all .2s ease-out
 }
 
-.sidebar-header {
+.admin-wrapper .sidebar-header {
 	width: 250px;
 	height: 60px;
 	display: flex;
@@ -53,11 +53,11 @@ a {
 	border-bottom: 1px solid #e4e4e4
 }
 
-.logo-icon {
+.admin-wrapper .logo-icon {
 	width: 45px
 }
 
-.logo-text {
+.admin-wrapper .logo-text {
 	font-size: 22px;
 	margin-left: 10px;
 	margin-bottom: 0;
@@ -65,13 +65,13 @@ a {
 	color: #008cff;
 }
 
-.toggle-icon {
+.admin-wrapper .toggle-icon {
 	font-size: 22px;
 	cursor: pointer;
 	color: #008cff
 }
 
-.topbar {
+.admin-wrapper .topbar {
 	position: fixed;
 	top: 0;
 	left: 250px;
@@ -84,25 +84,25 @@ a {
     box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 0px 6px 0 rgb(206 206 238 / 54%);
 }
 
-.topbar .navbar {
+.admin-wrapper .topbar .navbar {
 	width: 100%;
 	height: 60px;
 	padding-left: 30px;
 	padding-right: 30px
 }
 
-.page-wrapper {
+.admin-wrapper .page-wrapper {
 	height: 100%;
 	margin-top: 60px;
 	margin-bottom: 30px;
 	margin-left: 250px
 }
 
-.page-content {
+.admin-wrapper .page-content {
 	padding: 1.5rem 1.5rem 0.7rem 1.5rem
 }
 
-.page-footer {
+.admin-wrapper .page-footer {
 	background: #fff;
 	left: 250px;
 	right: 0;
@@ -115,26 +115,26 @@ a {
 	z-index: 3
 }
 
-.wrapper.toggled .topbar {
+.admin-wrapper .wrapper.toggled .topbar {
 	left: 70px
 }
 
-.wrapper.toggled .page-wrapper {
+.admin-wrapper .wrapper.toggled .page-wrapper {
 	margin-left: 70px
 }
 
-.wrapper.toggled .page-footer {
+.admin-wrapper .wrapper.toggled .page-footer {
 	left: 70px
 }
 
-.sidebar-wrapper ul {
+.admin-wrapper .sidebar-wrapper ul {
 	padding: 0;
 	margin: 0;
 	list-style: none;
 	background: 0 0
 }
 
-.sidebar-wrapper .metismenu {
+.admin-wrapper .sidebar-wrapper .metismenu {
 	background: 0 0;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -147,19 +147,19 @@ a {
 	flex-direction: column
 }
 
-.sidebar-wrapper .metismenu li+li {
+.admin-wrapper .sidebar-wrapper .metismenu li+li {
 	margin-top: 5px
 }
 
-.sidebar-wrapper .metismenu li:first-child {
+.admin-wrapper .sidebar-wrapper .metismenu li:first-child {
 	margin-top: 5px
 }
 
-.sidebar-wrapper .metismenu li:last-child {
+.admin-wrapper .sidebar-wrapper .metismenu li:last-child {
 	margin-bottom: 5px
 }
 
-.sidebar-wrapper .metismenu>li {
+.admin-wrapper .sidebar-wrapper .metismenu>li {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -170,7 +170,7 @@ a {
 	position: relative
 }
 
-.sidebar-wrapper .metismenu a {
+.admin-wrapper .sidebar-wrapper .metismenu a {
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -186,48 +186,48 @@ a {
 	transition: all .3s ease-out
 }
 
-.sidebar-wrapper .metismenu a .parent-icon {
+.admin-wrapper .sidebar-wrapper .metismenu a .parent-icon {
 	font-size: 24px;
 	line-height: 1
 }
 
-.sidebar-wrapper .metismenu a .menu-title {
+.admin-wrapper .sidebar-wrapper .metismenu a .menu-title {
 	margin-left: 10px
 }
 
-.sidebar-wrapper .metismenu ul a {
+.admin-wrapper .sidebar-wrapper .metismenu ul a {
 	padding: 6px 15px 6px 15px;
 	font-size: 15px;
 	border: 0
 }
 
-.sidebar-wrapper .metismenu ul a i {
+.admin-wrapper .sidebar-wrapper .metismenu ul a i {
 	margin-right: 10px
 }
 
-.sidebar-wrapper .metismenu ul {
+.admin-wrapper .sidebar-wrapper .metismenu ul {
 	border: 1px solid #ededed;
 	background: #fff
 }
 
-.sidebar-wrapper .metismenu ul ul a {
+.admin-wrapper .sidebar-wrapper .metismenu ul ul a {
 	padding: 8px 15px 8px 30px
 }
 
-.sidebar-wrapper .metismenu ul ul ul a {
+.admin-wrapper .sidebar-wrapper .metismenu ul ul ul a {
 	padding: 8px 15px 8px 45px
 }
 
-.sidebar-wrapper .metismenu .mm-active>a,
-.sidebar-wrapper .metismenu a:active,
-.sidebar-wrapper .metismenu a:focus,
-.sidebar-wrapper .metismenu a:hover {
+.admin-wrapper .sidebar-wrapper .metismenu .mm-active>a,
+.admin-wrapper .sidebar-wrapper .metismenu a:active,
+.admin-wrapper .sidebar-wrapper .metismenu a:focus,
+.admin-wrapper .sidebar-wrapper .metismenu a:hover {
 	color: #008cff;
 	text-decoration: none;
 	background: rgb(13 110 253 / .12)
 }
 
-.menu-label {
+.admin-wrapper .menu-label {
 	padding: 20px 15px 5px 5px;
 	color: #b0afaf;
 	text-transform: uppercase;
@@ -235,7 +235,7 @@ a {
 	letter-spacing: .5px
 }
 
-.metismenu .has-arrow:after {
+.admin-wrapper .metismenu .has-arrow:after {
 	position: absolute;
 	content: "";
 	width: .5em;
@@ -288,7 +288,7 @@ a {
 }
 
 
-.back-to-top {
+.admin-wrapper .back-to-top {
 	display: none;
 	width: 40px;
 	height: 40px;
@@ -304,22 +304,22 @@ a {
 	z-index: 5
 }
 
-.back-to-top:hover {
+.admin-wrapper .back-to-top:hover {
 	color: #fff;
 	background-color: #000;
 	transition: all .5s
 }
 
-.breadcrumb-title {
+.admin-wrapper .breadcrumb-title {
 	font-size: 20px;
 	border-right: 1.5px solid #aaa4a4
 }
 
-.page-breadcrumb .breadcrumb li.breadcrumb-item {
+.admin-wrapper .page-breadcrumb .breadcrumb li.breadcrumb-item {
 	font-size: 16px
 }
 
-.page-breadcrumb .breadcrumb-item+.breadcrumb-item::before {
+.admin-wrapper .page-breadcrumb .breadcrumb-item+.breadcrumb-item::before {
 	display: inline-block;
 	padding-right: .5rem;
 	color: #6c757d;
@@ -327,7 +327,7 @@ a {
 	content: "\ea5c"
 }
 
-.icon-badge {
+.admin-wrapper .icon-badge {
 	width: 45px;
 	height: 45px;
 	background: #f2f2f2;
@@ -337,7 +337,7 @@ a {
 	border-radius: 50%
 }
 
-#geographic-map-2 {
+.admin-wrapper #geographic-map-2 {
 
 	width: 100%;
 
@@ -345,7 +345,7 @@ a {
 
 }
 
-.product-img-2 {
+.admin-wrapper .product-img-2 {
 	width: 45px;
 	height: 45px;
 	background-color: #fff;
@@ -356,214 +356,214 @@ a {
 	border: 1px solid #e6e6e6
 }
 
-.product-img-2 img {
+.admin-wrapper .product-img-2 img {
 	width: 45px;
 	height: 45px;
 	padding: 1px
 }
 
-.border-light-2 {
+.admin-wrapper .border-light-2 {
     border-color: rgb(255 255 255 / 12%)!important;
 }
 
 
-.font-13 {
+.admin-wrapper .font-13 {
 	font-size: 13px
 }
 
-.font-14 {
+.admin-wrapper .font-14 {
 	font-size: 14px
 }
 
-.font-18 {
+.admin-wrapper .font-18 {
 	font-size: 18px
 }
 
-.font-20 {
+.admin-wrapper .font-20 {
 	font-size: 20px
 }
 
-.font-22 {
+.admin-wrapper .font-22 {
 	font-size: 22px
 }
 
-.font-24 {
+.admin-wrapper .font-24 {
 	font-size: 24px
 }
 
-.font-30 {
+.admin-wrapper .font-30 {
 	font-size: 30px
 }
 
-.font-35 {
+.admin-wrapper .font-35 {
 	font-size: 35px
 }
 
-.font-50 {
+.admin-wrapper .font-50 {
 	font-size: 50px
 }
 
-.font-60 {
+.admin-wrapper .font-60 {
 	font-size: 60px
 }
 
-.radius-30 {
+.admin-wrapper .radius-30 {
 	border-radius: 30px
 }
 
-.radius-10 {
+.admin-wrapper .radius-10 {
 	border-radius: 10px
 }
 
-.cursor-pointer {
+.admin-wrapper .cursor-pointer {
 
 	cursor: pointer
 
 }
 
-.chart-container-0{
+.admin-wrapper .chart-container-0{
 	position:relative;
 	height:320px;
 }
 
-.chart-container-1{
+.admin-wrapper .chart-container-1{
 	position:relative;
 	height:260px;
 }
 
-.chart-container-2{
+.admin-wrapper .chart-container-2{
 	position:relative;
 	height:220px;
 }
 
-.chart-container-3{
+.admin-wrapper .chart-container-3{
 	position:relative;
 	height:188px;
 }
 
-.chart-container-4{
+.admin-wrapper .chart-container-4{
 	position:relative;
 	height:162px;
 }
 
-.chart-container-5{
+.admin-wrapper .chart-container-5{
 	position:relative;
 	height:110px;
 }
 
-.chart-container-6{
+.admin-wrapper .chart-container-6{
 	position:relative;
 	height:205px;
 }
 
-.chart-container-7{
+.admin-wrapper .chart-container-7{
 	position:relative;
 	height:60px;
 }
- .chart-container-8 {
+.admin-wrapper  .chart-container-8 {
    position: relative;
    height: 260px;
 }
-.chart-container-9 {
+.admin-wrapper .chart-container-9 {
    position: relative;
    height: 280px;
 }
-.chart-container-10 {
+.admin-wrapper .chart-container-10 {
    position: relative;
    height: 300px;
    top: 20px;
 }
-.chart-container-11 {
+.admin-wrapper .chart-container-11 {
    position: relative;
    height: 280px;
 }
 
-.chart-container-12 {
+.admin-wrapper .chart-container-12 {
    position: relative;
    height: 160px;
 }
-.chart-container-13 {
+.admin-wrapper .chart-container-13 {
    position: relative;
    height: 240px;
 }
-.chart-container-14{
+.admin-wrapper .chart-container-14{
   position:relative;
   height:40px;
 }
 
-.bg-light-primary {
+.admin-wrapper .bg-light-primary {
 	background-color: rgb(13 110 253 / .11)!important
 }
 
-.bg-light-success {
+.admin-wrapper .bg-light-success {
 	background-color: rgb(23 160 14 / .11)!important
 }
 
-.bg-light-danger {
+.admin-wrapper .bg-light-danger {
 	background-color: rgb(244 17 39 / .11)!important
 }
 
-.bg-light-warning {
+.admin-wrapper .bg-light-warning {
 	background-color: rgb(255 193 7 / .11)!important
 }
 
-.bg-light-info {
+.admin-wrapper .bg-light-info {
 	background-color: rgb(13 202 240 / 18%)!important
 }
 
-.bg-light-transparent {
+.admin-wrapper .bg-light-transparent {
 	background-color: rgb(0 0 0 / 15%)!important
 }
 
 
-.bg-facebook {
+.admin-wrapper .bg-facebook {
 	background-color: #3b5998!important
 }
 
-.bg-twitter {
+.admin-wrapper .bg-twitter {
 	background-color: #55acee!important
 }
 
-.bg-google {
+.admin-wrapper .bg-google {
 	background-color: #e52d27!important
 }
 
-.bg-linkedin {
+.admin-wrapper .bg-linkedin {
 	background-color: #0976b4!important
 }
 
 
 /* Text Color */
 
-.text-option {
+.admin-wrapper .text-option {
 	color: #32393f!important
  }
 
-.section-authentication-signin {
+ .admin-wrapper .section-authentication-signin {
 	height: 100vh
 }
 
-.authentication-forgot {
+.admin-wrapper .authentication-forgot {
 	height: 100vh;
 	padding: 0 1rem
 }
 
-.authentication-reset-password {
+.admin-wrapper .authentication-reset-password {
 	height: 100vh;
 	padding: 0 1rem
 }
 
-.authentication-lock-screen {
+.admin-wrapper .authentication-lock-screen {
 	height: 100vh;
 	padding: 0 1rem
 }
 
-.error-404 {
+.admin-wrapper .error-404 {
 	height: 100vh;
 	padding: 0 1rem
 }
 
-.error-social a {
+.admin-wrapper .error-social a {
 	display: inline-block;
 	width: 40px;
 	height: 40px;
@@ -576,7 +576,7 @@ a {
 	box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075)!important
 }
 
-.bg-login {
+.admin-wrapper .bg-login {
 	background-image: url(../images/login-images/bg-login-img.jpg);
 	background-size: cover;
 	background-position: center;
@@ -584,7 +584,7 @@ a {
 	background-attachment: fixed
 }
 
-.bg-forgot {
+.admin-wrapper .bg-forgot {
 	background-image: url(../images/login-images/bg-forgot-password.jpg);
 	background-size: cover;
 	background-position: center;
@@ -592,7 +592,7 @@ a {
 	background-attachment: fixed
 }
 
-.bg-lock-screen {
+.admin-wrapper .bg-lock-screen {
 	background-image: url(../images/login-images/bg-lock-screen.jpg);
 	background-size: cover;
 	background-position: center;
@@ -600,7 +600,7 @@ a {
 	background-attachment: fixed
 }
 
-.login-separater span {
+.admin-wrapper .login-separater span {
 	position: relative;
 	top: 26px;
 	margin-top: -10px;
@@ -611,7 +611,7 @@ a {
 	z-index: 1
 }
 
-.btn i {
+.admin-wrapper .btn i {
 	vertical-align: middle;
 	font-size: 1.3rem;
 	margin-top: -1em;
@@ -620,92 +620,92 @@ a {
 }
 
 
-.btn-facebook {
+.admin-wrapper .btn-facebook {
 	box-shadow: 0 2px 2px 0 rgba(59, 89, 152, .14), 0 3px 1px -2px rgba(59, 89, 152, .2), 0 1px 5px 0 rgba(59, 89, 152, .12);
 	background-color: #3b5998;
 	border-color: #3b5998;
 	color: #fff
 }
 
-.btn-facebook:hover {
+.admin-wrapper .btn-facebook:hover {
 	color: #fff
 }
 
-.btn-white {
+.admin-wrapper .btn-white {
 	background-color: #fff;
 	border-color: #e7eaf3
 }
 
-.chart-container1 {
+.admin-wrapper .chart-container1 {
 	position: relative;
 	height: 340px
 }
 
-input::placeholder {
+.admin-wrapper input::placeholder {
 	color: #000!important;
 	opacity: .3!important
 }
 
-.form-floating>.form-control::-moz-placeholder {
+.admin-wrapper .form-floating>.form-control::-moz-placeholder {
 	color: transparent!important
 }
-.form-floating>.form-control::placeholder {
+.admin-wrapper .form-floating>.form-control::placeholder {
 	color: transparent!important
 }
 
-.search-bar-box {
+.admin-wrapper .search-bar-box {
 	width: 45%
 }
 
-.search-control {
+.admin-wrapper .search-control {
 	background-color: #f7f7ff !important;
     border: 1px solid #e9e9f6 !important;
 	padding-left: 2.5rem !important;
 }
 
-.search-control-2 {
+.admin-wrapper .search-control-2 {
 	color: #fff;
 	background-color: #212529;
 	border: 1px solid rgb(255 255 255 / 12%)!important;
 	padding-right: 2.5rem
 }
 
-.search-control-2:focus {
+.admin-wrapper .search-control-2:focus {
 	color: #fff;
 	padding-right: 2.5rem;
 	background-color: #212529;
 	box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25)
 }
 
-input.search-control-2::placeholder {
+.admin-wrapper input.search-control-2::placeholder {
 	color: #fff!important;
 	opacity: .5!important
 }
 
-.search-show {
+.admin-wrapper .search-show {
 	font-size: 18px;
 	left: 15px
 }
 
-.search-close {
+.admin-wrapper .search-close {
 	font-size: 24px;
     right: 10px;
 	cursor: pointer;
 	display: none
 }
 
-.topbar .navbar .navbar-nav .nav-link {
+.admin-wrapper .topbar .navbar .navbar-nav .nav-link {
 	padding-right: .8rem;
 	padding-left: .8rem;
 	color: #252323;
 	font-size: 22px
 }
 
-.dropdown-toggle-nocaret:after {
+.admin-wrapper .dropdown-toggle-nocaret:after {
 	display: none
 }
 
-.alert-count {
+.admin-wrapper .alert-count {
 	position: absolute;
 	top: 5px;
 	left: 22px;
@@ -721,7 +721,7 @@ input.search-control-2::placeholder {
 	background: #f62718
 }
 
-.user-img {
+.admin-wrapper .user-img {
 	width: 42px;
 	height: 42px;
 	border-radius: 50%;
@@ -730,18 +730,18 @@ input.search-control-2::placeholder {
 	margin-left: 1rem;
 }
 
-.user-info .user-name {
+.admin-wrapper .user-info .user-name {
 	font-size: 15px;
 	font-weight: 500;
 	color: #413c3c
 }
 
-.user-info .designattion {
+.admin-wrapper .user-info .designattion {
 	font-size: 13px;
 	color: #a9a8a8
 }
 
-.user-box {
+.admin-wrapper .user-box {
 	display: flex;
 	align-items: center;
 	height: 60px;
@@ -749,11 +749,11 @@ input.search-control-2::placeholder {
 	margin-left: 1rem
 }
 
-.dropdown-large {
+.admin-wrapper .dropdown-large {
 	position: relative
 }
 
-.dropdown-large .dropdown-menu {
+.admin-wrapper .dropdown-large .dropdown-menu {
 	width: 360px;
 	border: 0;
 	padding: 0 0;
@@ -761,7 +761,7 @@ input.search-control-2::placeholder {
 	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)
 }
 
-.topbar .navbar .dropdown-large .dropdown-menu::after {
+.admin-wrapper .topbar .navbar .dropdown-large .dropdown-menu::after {
 	content: '';
 	width: 13px;
 	height: 13px;
@@ -774,7 +774,7 @@ input.search-control-2::placeholder {
 	border-left: 1px solid #ddd
 }
 
-.topbar .navbar .dropdown-menu::after {
+.admin-wrapper .topbar .navbar .dropdown-menu::after {
 	content: '';
 	width: 13px;
 	height: 13px;
@@ -787,7 +787,7 @@ input.search-control-2::placeholder {
 	border-left: 1px solid #ddd
 }
 
-.dropdown-large .msg-header {
+.admin-wrapper .dropdown-large .msg-header {
 	padding: .8rem 1rem;
 	border-bottom: 1px solid #ededed;
 	background-clip: border-box;
@@ -799,20 +799,20 @@ input.search-control-2::placeholder {
 	border-top-right-radius: 10px
 }
 
-.dropdown-large .msg-header .msg-header-title {
+.admin-wrapper .dropdown-large .msg-header .msg-header-title {
 	font-size: 15px;
 	color: #1c1b1b;
 	margin-bottom: 0;
 	font-weight: 500
 }
 
-.dropdown-large .msg-header .msg-header-clear {
+.admin-wrapper .dropdown-large .msg-header .msg-header-clear {
 	font-size: 12px;
 	color: #585858;
 	margin-bottom: 0
 }
 
-.dropdown-large .msg-footer {
+.admin-wrapper .dropdown-large .msg-footer {
 	padding: .8rem 1rem;
 	color: #1c1b1b;
 	border-top: 1px solid #ededed;
@@ -824,34 +824,34 @@ input.search-control-2::placeholder {
 	border-bottom-right-radius: .25rem
 }
 
-.dropdown-large .user-online {
+.admin-wrapper .dropdown-large .user-online {
 	position: relative
 }
 
-.dropdown-large .msg-name {
+.admin-wrapper .dropdown-large .msg-name {
 	font-size: 14px;
 	margin-bottom: 0
 }
 
-.dropdown-large .msg-info {
+.admin-wrapper .dropdown-large .msg-info {
 	font-size: 13px;
 	margin-bottom: 0
 }
 
-.dropdown-large .msg-avatar {
+.admin-wrapper .dropdown-large .msg-avatar {
 	width: 45px;
 	height: 45px;
 	border-radius: 50%;
 	margin-right: 15px
 }
 
-.dropdown-large .msg-time {
+.admin-wrapper .dropdown-large .msg-time {
 	font-size: 12px;
 	margin-bottom: 0;
 	color: #919191
 }
 
-.dropdown-large .user-online:after {
+.admin-wrapper .dropdown-large .user-online:after {
 	content: '';
 	position: absolute;
 	bottom: 1px;
@@ -863,24 +863,24 @@ input.search-control-2::placeholder {
 	background: #16e15e
 }
 
-.dropdown-large .dropdown-menu .dropdown-item {
+.admin-wrapper .dropdown-large .dropdown-menu .dropdown-item {
 	padding: .5rem 1.3rem;
 	border-bottom: 1px solid #ededed
 }
 
-.header-message-list {
+.admin-wrapper .header-message-list {
 	position: relative;
 	height: 360px;
 	overflow-y: scroll;
 }
 
-.header-notifications-list {
+.admin-wrapper .header-notifications-list {
 	position: relative;
 	height: 360px;
 	overflow-y: scroll;
 }
 
-.dropdown-large .notify {
+.admin-wrapper .dropdown-large .notify {
 	width: 45px;
 	height: 45px;
 	line-height: 45px;
@@ -891,7 +891,7 @@ input.search-control-2::placeholder {
 	margin-right: 15px
 }
 
-.app-box {
+.admin-wrapper .app-box {
 	width: 45px;
 	height: 45px;
 	display: flex;
@@ -903,16 +903,16 @@ input.search-control-2::placeholder {
 	border: 1px solid #e9ecef;
 }
 
-.app-title {
+.admin-wrapper .app-title {
 	font-size: 14px
 }
 
-.user-box .dropdown-menu i {
+.admin-wrapper .user-box .dropdown-menu i {
 	vertical-align: middle;
 	margin-right: 10px
 }
 
-.dropdown-menu {
+.admin-wrapper .dropdown-menu {
 	-webkit-box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
 	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
 	border: 0 solid #e9ecef;
@@ -920,7 +920,7 @@ input.search-control-2::placeholder {
 	font-size: 14px
 }
 
-.topbar .navbar .dropdown-menu {
+.admin-wrapper .topbar .navbar .dropdown-menu {
 	-webkit-animation: .6s cubic-bezier(.25, .8, .25, 1) 0s normal forwards 1 animdropdown;
 	animation: .6s cubic-bezier(.25, .8, .25, 1) 0s normal forwards 1 animdropdown
 }
@@ -951,11 +951,11 @@ input.search-control-2::placeholder {
 	}
 }
 
-.mobile-search-icon {
+.admin-wrapper .mobile-search-icon {
 	display: none
 }
 
-.mobile-toggle-menu {
+.admin-wrapper .mobile-toggle-menu {
 	display: none;
 	font-size: 26px;
 	color: #404142;
