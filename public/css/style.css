@@ -27005,11 +27005,11 @@ button.nav-link.active i {
   transition: .5s;
   font-size: 1rem;
 }
-
+/* 
 .setting-dropdown ul li:hover {
-  background-color: wheat;
-  background-size: 100%;
-}
+  box-shadow: 0 0 10px;
+  margin: -5px 5px;
+} */
 
 .right-content {
   position: relative;

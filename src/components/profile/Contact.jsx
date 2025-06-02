@@ -179,7 +179,9 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
+            <br /><br /><br />
         </div>
+
     );
 
 };
