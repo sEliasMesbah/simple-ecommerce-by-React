@@ -63,71 +63,71 @@ const Routes = () => {
     <AnimatePresence mode="wait" initial={false}>
       <CartProvider>
         <WishlistProvider>
-      <Router location={location} key={location.pathname}>
-        {/* صفحه خوش آمدگویی بدون Layout و MenuBar */}
-        <Route path="/" element={<WelcomeWrapper />} />
+          <Router location={location} key={location.pathname}>
+            {/* صفحه خوش آمدگویی بدون Layout و MenuBar */}
+            <Route path="/" element={<WelcomeWrapper />} />
 
-        {/* مسیرهای اصلی سایت با Layout و منو بار */}
-        <Route element={<Layout />}>
-          <Route element={<AddressProvider> {/* اگر میخوای Context رو فقط اینجا فعال کنی */}
-            <AnimatedLayout />
-          </AddressProvider>}>
-            {/* صفحه‌های اصلی */}
-            <Route path="/home" element={<HomePage />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="/category" element={<CategoriPage />} />
-            <Route path="/products" element={<Products/>}/>
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/wishlist" element={<WishListPage />} />
-            <Route path="/EditProfile" element={<EditProfile />} />
-            <Route path="/CartPage" element={<CartPage />} />
-            <Route path="/WishListPage" element={<WishListPage />} />
-            <Route path="/OrderPage" element={<OrderPage />} />
-            <Route path="/coupon" element={<Coupon />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/forgetPassword" element={<ForgetPassword />} />
-            <Route path="/help" element={<FAQ />} />
-            <Route path="/address" element={<Address />} />
-            <Route path="/checkout" element={<CheckOut />} />
-            <Route path="/product/:id" element={<ProductDetails />} />
-            <Route path="/category/:categoryId" element={<CategoryId />} />
+            {/* مسیرهای اصلی سایت با Layout و منو بار */}
+            <Route element={<Layout />}>
+              <Route element={<AddressProvider> {/* اگر میخوای Context رو فقط اینجا فعال کنی */}
+                <AnimatedLayout />
+              </AddressProvider>}>
+                {/* صفحه‌های اصلی */}
+                <Route path="/home" element={<HomePage />} />
+                <Route path="/search" element={<Search />} />
+                <Route path="/category" element={<CategoriPage />} />
+                <Route path="/products" element={<Products />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/wishlist" element={<WishListPage />} />
+                <Route path="/EditProfile" element={<EditProfile />} />
+                <Route path="/CartPage" element={<CartPage />} />
+                <Route path="/WishListPage" element={<WishListPage />} />
+                <Route path="/OrderPage" element={<OrderPage />} />
+                <Route path="/coupon" element={<Coupon />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/forgetPassword" element={<ForgetPassword />} />
+                <Route path="/help" element={<FAQ />} />
+                <Route path="/address" element={<Address />} />
+                <Route path="/checkout" element={<CheckOut />} />
+                <Route path="/product/:id" element={<ProductDetails />} />
+                <Route path="/category/:categoryId" element={<CategoryId />} />
 
-            {/* صفحات دموی کامپوننت‌ها */}
-            <Route path="/components" element={<ComponentPage />} />
-            <Route path="/ui-accordion" element={<Accordion />} />
-            <Route path="/ui-alert" element={<Alert />} />
-            <Route path="/ui-badge" element={<Badge />} />
-            <Route path="/ui-breadcrumb" element={<Breadcrumb />} />
-            <Route path="/ui-button" element={<Button />} />
-            <Route path="/ui-button-group" element={<ButtonGroup />} />
-            <Route path="/ui-card1" element={<Card1 />} />
-            <Route path="/ui-collapse" element={<Collapse />} />
-            <Route path="/ui-divider" element={<Divider />} />
-            <Route path="/ui-dropdown" element={<Dropdown />} />
-            <Route path="/ui-inputs1" element={<Inputs1 />} />
-            <Route path="/ui-lightgallery" element={<Lightgallery />} />
-            <Route path="/ui-list-group" element={<ListGroup />} />
-            <Route path="/ui-offcanvas" element={<Offcanvas />} />
-            <Route path="/ui-pagination" element={<Pagination />} />
-            <Route path="/ui-placeholder" element={<Placeholder />} />
-            <Route path="/ui-popover" element={<Popover />} />
-            <Route path="/ui-progress" element={<Progress />} />
-            <Route path="/ui-radio" element={<Radio />} />
-            <Route path="/ui-scrollspy" element={<Scrollspy />} />
-            <Route path="/ui-spinners" element={<Spinners />} />
-            <Route path="/ui-stepper" element={<Stepper />} />
-            <Route path="/ui-tab" element={<Tab />} />
-            <Route path="/ui-timeline" element={<Timeline />} />
-            <Route path="/ui-toast" element={<Toast />} />
-            <Route path="/ui-typography" element={<Typography />} />
-            <Route path="/ui-avatar" element={<Avatar />} />
-            <Route path="/contact" element={<Contact/>}/>
-          </Route>
-        </Route>
-      </Router>
+                {/* صفحات دموی کامپوننت‌ها */}
+                <Route path="/components" element={<ComponentPage />} />
+                <Route path="/ui-accordion" element={<Accordion />} />
+                <Route path="/ui-alert" element={<Alert />} />
+                <Route path="/ui-badge" element={<Badge />} />
+                <Route path="/ui-breadcrumb" element={<Breadcrumb />} />
+                <Route path="/ui-button" element={<Button />} />
+                <Route path="/ui-button-group" element={<ButtonGroup />} />
+                <Route path="/ui-card1" element={<Card1 />} />
+                <Route path="/ui-collapse" element={<Collapse />} />
+                <Route path="/ui-divider" element={<Divider />} />
+                <Route path="/ui-dropdown" element={<Dropdown />} />
+                <Route path="/ui-inputs1" element={<Inputs1 />} />
+                <Route path="/ui-lightgallery" element={<Lightgallery />} />
+                <Route path="/ui-list-group" element={<ListGroup />} />
+                <Route path="/ui-offcanvas" element={<Offcanvas />} />
+                <Route path="/ui-pagination" element={<Pagination />} />
+                <Route path="/ui-placeholder" element={<Placeholder />} />
+                <Route path="/ui-popover" element={<Popover />} />
+                <Route path="/ui-progress" element={<Progress />} />
+                <Route path="/ui-radio" element={<Radio />} />
+                <Route path="/ui-scrollspy" element={<Scrollspy />} />
+                <Route path="/ui-spinners" element={<Spinners />} />
+                <Route path="/ui-stepper" element={<Stepper />} />
+                <Route path="/ui-tab" element={<Tab />} />
+                <Route path="/ui-timeline" element={<Timeline />} />
+                <Route path="/ui-toast" element={<Toast />} />
+                <Route path="/ui-typography" element={<Typography />} />
+                <Route path="/ui-avatar" element={<Avatar />} />
+                <Route path="/contact" element={<Contact />} />
+              </Route>
+            </Route>
+          </Router>
         </WishlistProvider>
-        </CartProvider>
+      </CartProvider>
     </AnimatePresence>
   );
 };
