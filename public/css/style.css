@@ -17300,7 +17300,7 @@ section {
   border-top: 0;
   padding: 0;
   position: unset;
-  background-color: var(--bg-white) !important;
+  background: linear-gradient(45deg,#e4f8ee,lightyellow,wheat) !important;
   border-radius: 18px;
 }
 
@@ -26944,7 +26944,7 @@ body.dark-mode {
 button.nav-link.active {
   background-color: wheat !important;
   color: #0b775d !important;
-  padding: 10px 14px;
+  padding: 14px 14px;
   box-shadow: 0 0 13px wheat;
   z-index: auto;
   /* حالت قبل */
@@ -26968,7 +26968,7 @@ button.nav-link.active i {
   width: 8vw !important;
   max-width: 69px !important;
   min-width: 45px !important;
-  height: 8vh;
+  height: 68px;
   max-height: 69px;
   min-height: 45px;
   margin: -50px 0 0 0;
