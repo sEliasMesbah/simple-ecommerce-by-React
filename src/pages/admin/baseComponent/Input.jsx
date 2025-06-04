@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import CreateRef from "../tools/CreateRef";
+import CreateRefComponent from "../tools/CreateRef";
 
 export default function Input({
   id,
@@ -14,7 +14,10 @@ export default function Input({
 
   const isPassword = type === "password";
   const inputType = isPassword && showPassword ? "text" : type;
+  
+  const crf = CreateRefComponent();
 
+  
   return (
     <div className="mb-3" style={{ position: "relative" }}>
       {label && (
@@ -29,7 +32,7 @@ export default function Input({
         type={inputType}
         placeholder={placeholder}
         {...props}
-        ref={CreateRef(props.refItem)}
+        ref={crf(props.refItem)}
       />
       {isPassword && (
         <span

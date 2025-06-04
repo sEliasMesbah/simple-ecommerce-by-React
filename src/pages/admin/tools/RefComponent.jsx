@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 
-function RefComponent({otherItems}) {
+function RefComponent() {
   let component = {};
 
   [component.state, component.setState] = useState({
     ref: [],
-    errors: {},
-    ...otherItems
+    errors: {}
   })
 
   return component;

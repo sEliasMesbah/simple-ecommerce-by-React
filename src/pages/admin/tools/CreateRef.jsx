@@ -1,7 +1,11 @@
 import React from 'react'
 
-function CreateRef({refItem}) {
- 
-}
+function CreateRefComponent() {
+    const crf = (el) => {
+        //el => [component, 'email']
+        let  {state, setState} = el[0]
+    }
 
-export default CreateRef
+    return crf;
+}
+export default CreateRefComponent

@@ -4,7 +4,7 @@ import RefComponent from '../tools/RefComponent'
 
 function NewProduct() {
 
-    const component = RefComponent();
+    const component = RefComponent();//{state: {ref: [], errors:{}, ...}, setState}
 
     
     
@@ -12,8 +12,8 @@ function NewProduct() {
     <div>
       <Input id={'name'} refItem={[component, 'name']}  />
       <Input id={'description'} refItem={[component, 'description']}  />
-      <Input id={'price'} refItem={[component, 'price']}  />
-      <Input id={'offer'} refItem={[component, 'offer']}  />
+      {/* <Input id={'price'} refItem={[component, 'price']}  />
+      <Input id={'offer'} refItem={[component, 'offer']}  /> */}
     </div>
   )
 }
