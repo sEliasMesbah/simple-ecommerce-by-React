@@ -15,15 +15,13 @@ export default function Setting() {
     // فرض می‌کنیم که کاربر لاگین شده و وضعیت رو ذخیره می‌کنیم
     localStorage.setItem("isLoggedIn", "true");
     setIsLoggedIn(true);
-    alert("شما وارد شدید.");
-    navigate("/"); // به صفحه اصلی یا هر جای دیگه هدایت کن
+    navigate("/login"); // به صفحه اصلی یا هر جای دیگه هدایت کن
   };
 
   const handleLogout = () => {
     localStorage.setItem("isLoggedIn", "false");
     setIsLoggedIn(false);
-    alert("شما خارج شدید.");
-    navigate("/login");
+    navigate("/");
   };
 
   const handleCopy = async (e) => {
