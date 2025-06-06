@@ -27688,12 +27688,14 @@ button.nav-link.active i {
   bottom: 120px !important;
 }
 
-.nav-link.active~.indicator{
-  transform: translateX(calc(70px * 0));
+body.dark-mode .indicator {
+  background-color: #4dabf7 !important;
 }
-.nav-link.active~.indicator{
-  transform: translateX(calc(70px * 1));
+
+body.dark-mode .nav-link {
+  color: #999 !important;
 }
-.nav-link.active~.indicator{
-  transform: translateX(calc(70px * 2));
+
+body.dark-mode .nav-link.active {
+  color: #4dabf7 !important;
 }

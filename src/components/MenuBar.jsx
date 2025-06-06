@@ -9,10 +9,16 @@ export default function MenuBar() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const observerRef = useRef(null);
   const [indicatorStyle, setIndicatorStyle] = useState({});
+  const [showIndicator, setShowIndicator] = useState(true);
 
   // اضافه کردن useEffect برای آپدیت indicator با تغییر مسیر
   useEffect(() => {
-    updateIndicatorPosition();
+    if (location.pathname === "/CartPage") {
+      setShowIndicator(false);
+    } else {
+      setShowIndicator(true);
+      updateIndicatorPosition();
+    }
   }, [location.pathname]);
 
   // تابع آپدیت موقعیت indicator
@@ -106,7 +112,7 @@ export default function MenuBar() {
           className="nav-link cart-handle cart-button"
           onClick={() => {
             handleNavigation("/CartPage");
-            updateIndicatorPosition();
+            setShowIndicator(false);
           }}
           aria-label="Shopping Cart"
         >
@@ -160,10 +166,12 @@ export default function MenuBar() {
           </NavLink>
         </div>
 
-        <div 
-          className="indicator" 
-          style={indicatorStyle}
-        ></div>
+        {showIndicator && (
+          <div 
+            className="indicator" 
+            style={indicatorStyle}
+          ></div>
+        )}
       </div>
     </div>
   );
