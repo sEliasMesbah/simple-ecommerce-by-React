@@ -23,12 +23,12 @@ export default function MenuBar() {
 
   // تابع آپدیت موقعیت indicator
   const updateIndicatorPosition = () => {
-    const activeLink = document.querySelector('.nav-link.active');
+    const activeLink = document.querySelector(".nav-link.active");
     if (activeLink) {
       const { offsetLeft, offsetWidth } = activeLink;
       setIndicatorStyle({
         left: `${offsetLeft}px`,
-        width: `${offsetWidth}px`
+        width: `${offsetWidth}px`,
       });
     }
   };
@@ -39,7 +39,9 @@ export default function MenuBar() {
       "(prefers-color-scheme: dark)"
     ).matches;
     const savedTheme = localStorage.getItem("theme");
-    setIsDarkMode(savedTheme === "dark" || (!savedTheme && prefersDark));
+    const shouldBeDark = savedTheme === "dark" || (!savedTheme && prefersDark);
+    setIsDarkMode(shouldBeDark);
+    document.body.classList.toggle("dark-mode", shouldBeDark);
 
     // نظارت بر تغییرات کلاس‌ها با MutationObserver
     observerRef.current = new MutationObserver(() => {
@@ -52,13 +54,13 @@ export default function MenuBar() {
     });
 
     // اضافه کردن event listener برای resize
-    window.addEventListener('resize', updateIndicatorPosition);
+    window.addEventListener("resize", updateIndicatorPosition);
 
     return () => {
       if (observerRef.current) {
         observerRef.current.disconnect();
       }
-      window.removeEventListener('resize', updateIndicatorPosition);
+      window.removeEventListener("resize", updateIndicatorPosition);
     };
   }, []);
 
@@ -132,23 +134,18 @@ export default function MenuBar() {
         </button>
 
         <div className="width">
-          <button
-            className={
-              "nav-link wishlist-button" +
-              (isWishlistActive ? " active" : "") +
-              (isDarkMode ? " dark" : "")
+          <NavLink
+            to="/wishlist"
+            className={({ isActive }) =>
+              "nav-link" + (isActive ? " active" : "")
             }
-            onClick={() => {
-              handleNavigation("/wishlist");
-              updateIndicatorPosition();
-            }}
-            aria-label="Wishlist"
+            onClick={updateIndicatorPosition}
           >
             <div className="icon-wrapper">
               <i className="icon feather icon-heart"></i>
               <span>Wishlist</span>
             </div>
-          </button>
+          </NavLink>
         </div>
 
         <div className="width">
@@ -167,10 +164,7 @@ export default function MenuBar() {
         </div>
 
         {showIndicator && (
-          <div 
-            className="indicator" 
-            style={indicatorStyle}
-          ></div>
+          <div className="indicator" style={indicatorStyle}></div>
         )}
       </div>
     </div>
