@@ -4131,6 +4131,10 @@ fieldset:disabled .btn {
     right: 0;
     left: auto;
   }
+
+  .wishlist-button.active {
+    transform: translateY(-10px);
+  }
 }
 
 .dropup .dropdown-menu[data-bs-popper] {
@@ -27326,7 +27330,7 @@ body.dark-mode {
   --menubar-text: white;
   --menubar-active-bg: #1c212e;
   --menubar-active-shadow: rgba(28, 33, 46, 0.6);
-  
+
   /* Dark Mode Styles for MenuBar */
   background-color: #000;
   color: #fff;
@@ -27384,7 +27388,7 @@ body.dark-mode .cart-button .icon {
   width: 100%;
   z-index: 10;
   /* مقدار کم تر از سایدبار و اورلی */
-  background-color: var(--menubar-bg);
+  background-image: linear-gradient(45deg, wheat, lightyellow) !important;
   padding: 5px 0;
   box-shadow: 0 -1px 4px rgba(28, 33, 46, 0.2);
 }
@@ -27636,10 +27640,7 @@ button.nav-link.active i {
   border-top: 7px solid transparent;
   border-left: 6.5px solid #f4f4f4;
   border-bottom: 6.5px solid #f4f4f4;
-  /* border-left: 7px solid red;
-  border-bottom: 7px solid red; */
-}
-
+} 
 .hexad-menu {
   position: relative;
   z-index: 10;
@@ -27765,4 +27766,236 @@ body.dark-mode .nav-link {
 
 body.dark-mode .nav-link.active {
   color: #4dabf7 !important;
+}
+
+/* Responsive MenuBar Styles */
+@media (max-width: 768px) {
+  .menubar-area {
+    padding: 8px 0;
+    background: #ffffff;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  body.dark-mode .menubar-area {
+    background: #000;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .menubar-area .toolbar-inner {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .nav-link.active,
+  button.nav-link.active,
+  .wishlist-button.active {
+    background: var(--bg-white);
+    color: #0b775d !important;
+    padding: 14px;
+    border-radius: 50%;
+    width: 65px !important;
+    height: 65px;
+    margin: -45px 0 0 0;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .menubar-area .menubar-nav .nav-link.cart-handle {
+    margin-top: -35px;
+  }
+
+  .menubar-area .menubar-nav .nav-link.cart-handle .hexad-menu {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menubar-area .menubar-nav .nav-link i {
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+
+  .menubar-area .menubar-nav .nav-link span {
+    font-size: 11px;
+  }
+
+  .indicator {
+    width: 65px !important;
+    height: 65px !important;
+    top: -70%;
+    transform: rotate(-45deg) translate(-12%, 3%);
+  }
+}
+
+@media (max-width: 480px) {
+  .menubar-area {
+    padding: 6px 0;
+    background: #ffffff;
+  }
+
+  body.dark-mode .menubar-area {
+    background: #000;
+  }
+
+  .nav-link.active,
+  button.nav-link.active,
+  .wishlist-button.active {
+    width: 55px !important;
+    height: 55px;
+    margin: -40px 0 0 0;
+    padding: 12px;
+  }
+
+  .menubar-area .menubar-nav .nav-link.cart-handle {
+    margin-top: -30px;
+  }
+
+  .menubar-area .menubar-nav .nav-link.cart-handle .hexad-menu {
+    width: 45px;
+    height: 45px;
+  }
+
+  .menubar-area .menubar-nav .nav-link i {
+    font-size: 18px;
+    margin-bottom: 3px;
+  }
+
+  .menubar-area .menubar-nav .nav-link span {
+    font-size: 10px;
+  }
+
+  .indicator {
+    width: 55px !important;
+    height: 55px !important;
+    top: -65%;
+  }
+}
+
+@media (max-width: 360px) {
+  .menubar-area {
+    padding: 4px 0;
+    background: #ffffff;
+  }
+
+  body.dark-mode .menubar-area {
+    background: #000;
+  }
+
+  .nav-link.active,
+  button.nav-link.active,
+  .wishlist-button.active {
+    width: 45px !important;
+    height: 45px;
+    margin: -35px 0 0 0;
+    padding: 10px;
+  }
+
+  .menubar-area .menubar-nav .nav-link.cart-handle {
+    margin-top: -25px;
+  }
+
+  .menubar-area .menubar-nav .nav-link.cart-handle .hexad-menu {
+    width: 40px;
+    height: 40px;
+  }
+
+  .menubar-area .menubar-nav .nav-link i {
+    font-size: 16px;
+    margin-bottom: 2px;
+  }
+
+  .menubar-area .menubar-nav .nav-link span {
+    font-size: 9px;
+  }
+
+  .indicator {
+    width: 55px !important;
+    height: 55px !important;
+    background-size: contain;
+    top: -45%;
+    left: 45px;
+    transform: rotate(-45deg) translate(-12%, -1%);
+    border-right: 4px solid transparent;
+    border-top: 4px solid transparent;
+    border-left: 4px solid #f4f4f4;
+    border-bottom: 4px solid #f4f4f4;
+  }
+  
+}
+
+/* Regular Responsive Styles */
+@media (max-width: 768px) {
+  body.dark-mode .nav-link,
+  body.dark-mode button.nav-link,
+  body.dark-mode .wishlist-button {
+    color: blue !important;
+  }
+
+  body.dark-mode .nav-link i,
+  body.dark-mode button.nav-link i,
+  body.dark-mode .wishlist-button i {
+    color: blue !important;
+  }
+
+  body.dark-mode .nav-link span,
+  body.dark-mode button.nav-link span,
+  body.dark-mode .wishlist-button span {
+    color: blue !important;
+  }
+
+  body.dark-mode .nav-link.active,
+  body.dark-mode button.nav-link.active,
+  body.dark-mode .wishlist-button.active {
+      background: wheat !important;
+      transform: translateY(-16px);
+      color: blue !important;
+  }
+  
+  body.dark-mode .nav-link.active i,
+  body.dark-mode button.nav-link.active i,
+  body.dark-mode .wishlist-button.active i {
+      color: blue !important;
+  }
+
+  body.dark-mode .nav-link.active span,
+  body.dark-mode button.nav-link.active span,
+  body.dark-mode .wishlist-button.active span {
+      color: blue !important;
+  }
+
+  .nav-link.active,
+  button.nav-link.active,
+  .wishlist-button.active {
+    background: wheat !important;
+    color: #003b37 !important;
+    transform: translateY(-15px);
+  }
+
+  .indicator {
+    border-left: 5px solid #f8f9fa !important;
+    border-bottom: 5px solid #f8f9fa !important;
+    transform: rotate(-45deg) translate(-13%, 2%);
+    top: -35px !important;
+    width: 53px !important;
+    height: 53px !important;
+  }
+
+  .menubar-area {
+    background: #000;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-link {
+    color: #666 !important;
+  }
+
+  .nav-link.active {
+    color: #003b37 !important;
+  }
 }
