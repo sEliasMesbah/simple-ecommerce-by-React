@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import Input from '../baseComponent/Input'
 import RefComponent from '../tools/RefComponent'
-import useData from '../tools/data';
+import useData from './../tools/data';
 
 function NewProduct() {
 
