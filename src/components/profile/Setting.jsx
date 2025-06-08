@@ -1,27 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 export default function Setting() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
+  const { user, logout } = useAuth();
 
   useEffect(() => {
     // وقتی کامپوننت لود شد، وضعیت لاگین رو از localStorage می‌خوانیم
     const loggedInStatus = localStorage.getItem("isLoggedIn");
-    setIsLoggedIn(loggedInStatus === "true");
   }, []);
 
   const handleLogin = () => {
     // فرض می‌کنیم که کاربر لاگین شده و وضعیت رو ذخیره می‌کنیم
-    localStorage.setItem("isLoggedIn", "true");
-    setIsLoggedIn(true);
+
     navigate("/login"); // به صفحه اصلی یا هر جای دیگه هدایت کن
   };
 
   const handleLogout = () => {
-    localStorage.setItem("isLoggedIn", "false");
-    setIsLoggedIn(false);
-    navigate("/");
+    logout()
+    navigate("/profile")
   };
 
   const handleCopy = async (e) => {
@@ -63,8 +62,8 @@ export default function Setting() {
         </li>
 
         <li style={{ marginBottom: "10px", backgroundColor: 'unset' }}>
-          {isLoggedIn ? (
-            <button
+          {
+            user ? (            <button
               onClick={handleLogout}
               style={{
                 width: "100%",
@@ -82,9 +81,8 @@ export default function Setting() {
             >
               Log Out
               <i className="fa fa-sign-out" aria-hidden="true" />
-            </button>
-          ) : (
-            <button
+            </button>):(
+              <button
               onClick={handleLogin}
               style={{
                 width: "100%",
@@ -102,8 +100,8 @@ export default function Setting() {
             >
               Login
               <i className="fa fa-sign-in" aria-hidden="true" />
-            </button>
-          )}
+            </button>)
+          }
         </li>
 
         <li>
