@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import { useRef, useState } from 'react'
 
 function RefComponent() {
   let component = {};
 
   [component.state, component.setState] = useState({
-    ref: [],
+    refs: useRef([]),
     errors: {}
   })
 
