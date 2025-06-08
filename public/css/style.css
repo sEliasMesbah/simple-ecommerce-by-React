@@ -27999,3 +27999,6 @@ body.dark-mode .nav-link.active {
     color: #003b37 !important;
   }
 }
+.Toastify__toast {
+  z-index: 999999999999!important;
+}

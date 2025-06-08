@@ -2,6 +2,8 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useEffect, useState, useRef } from "react";
 
+import { useCart } from "../context/CartContext";
+
 export default function MenuBar() {
   const { user } = useAuth();
   const navigate = useNavigate();
@@ -10,6 +12,9 @@ export default function MenuBar() {
   const observerRef = useRef(null);
   const [indicatorStyle, setIndicatorStyle] = useState({});
   const [showIndicator, setShowIndicator] = useState(true);
+
+  const { getTotalItemsCount } = useCart();
+  const totalCount = getTotalItemsCount();
 
   // اضافه کردن useEffect برای آپدیت indicator با تغییر مسیر
   useEffect(() => {
@@ -111,7 +116,7 @@ export default function MenuBar() {
         </div>
 
         <button
-          className="nav-link cart-handle cart-button"
+          className="nav-link cart-handle cart-button position-relative"
           onClick={() => {
             handleNavigation("/CartPage");
             setShowIndicator(false);
@@ -130,6 +135,11 @@ export default function MenuBar() {
               alt="Light theme menu shape"
             />
             <i className="icon feather icon-shopping-bag"></i>
+            {totalCount > 0 && (
+              <div className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {totalCount} Product Number
+              </div>
+            )}
           </div>
         </button>
 
