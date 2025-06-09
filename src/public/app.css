@@ -4,3 +4,41 @@
     right: 1rem;
     display: flex;
 }
+
+.swiper-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 50px; /* برای فضای pagination */
+}
+
+.swiper-pagination {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.swiper-pagination-bullet {
+  background: #999;
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+  background: #000;
+  opacity: 1;
+}
+.noselect {user-select: none}
+.horizontal-pagination {
+    flex-direction: row;
+    gap: 0.5rem;
+}
+.welcome-area .bottom-btn {
+    position: fixed;
+    bottom: 10px!important;
+    width: 100%;
+    left: 50%;
+    z-index: 9;
+    transform: translateX(-50%);
+}
