@@ -1,3 +1,4 @@
+import React from "react";
 import { useLocation, Outlet } from "react-router-dom";
 import MenuBar from "../components/MenuBar";
 

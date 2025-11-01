@@ -1,3 +1,4 @@
+import React from "react";
 export default function CartFinalPrice({ total }) {
 	const taxRate = 0.005;
 	const deliveryRate = 0.008;
