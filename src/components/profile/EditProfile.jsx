@@ -45,7 +45,7 @@ export default function EditProfile() {
       })
       .catch((err) => {
         console.error("Error loading user data:", err);
-        setError("خطا در بارگذاری اطلاعات کاربر");
+        setError("Error loading user data");
       })
       .finally(() => {
         setLoading(false);
@@ -64,7 +64,7 @@ export default function EditProfile() {
     setError("");
 
     if (!formData.email || !formData.name) {
-      setError("لطفا نام و ایمیل را وارد کنید.");
+      setError("please enter the name and email");
       setSaving(false);
       return;
     }
@@ -95,7 +95,7 @@ export default function EditProfile() {
       })
       .catch((err) => {
         console.error("Error updating profile:", err);
-        setError("خطا در ذخیره‌سازی پروفایل: " + err.message);
+        setError("error to save profile: " + err.message);
       })
       .finally(() => {
         setSaving(false);
@@ -103,7 +103,7 @@ export default function EditProfile() {
   };
 
   if (loading) {
-    return <div className="container mt-5 text-center">در حال بارگذاری اطلاعات...</div>;
+    return <div className="container mt-5 text-center">Loading Data</div>;
   }
 
   return (
@@ -116,7 +116,7 @@ export default function EditProfile() {
                 <Link to="/profile" className="back-btn">
                   <i className="icon feather icon-chevron-left"></i>
                 </Link>
-                <h6 className="title">ویرایش پروفایل</h6>
+                <h6 className="title">Edit Profile</h6>
               </div>
               <div className="mid-content"></div>
               <div className="right-content"></div>
@@ -127,20 +127,20 @@ export default function EditProfile() {
           <div className="container">
             {error && <p className="text-danger text-center">{error}</p>}
             <Input
-              label="شماره موبایل"
+              label="Phone Number"
               id="phone"
               type="tel"
               value={formData.phone}
               onChange={handleChange}
             />
             <Input
-              label="نام کامل"
+              label="Full name"
               id="name"
               value={formData.name}
               onChange={handleChange}
             />
             <Input
-              label="ایمیل"
+              label="Email"
               id="email"
               type="email"
               value={formData.email}
@@ -149,7 +149,7 @@ export default function EditProfile() {
             />
             <br />
             <Input
-              label="موقعیت"
+              label="Location"
               id="location"
               value={formData.location}
               onChange={handleChange}
@@ -157,15 +157,16 @@ export default function EditProfile() {
             <br /><br /><br /><br /><br /><b><br /><br /></b>
           </div>
         </div>
-        <div className="footer fixed">
+        <div className="footer fixed spacing-down" style={{bottom:"120px"}}>
           <div className="container">
             <button
               onClick={handleSave}
               className="btn btn-primary w-100"
               type="button"
               disabled={saving}
+              
             >
-              {saving ? "در حال ذخیره..." : "ذخیره"}
+              {saving ? "Saving" : "save"}
             </button>
           </div>
         </div>

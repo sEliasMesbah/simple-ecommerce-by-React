@@ -1,7 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import React, { useState } from 'react';
-import Setting from "./setting";
+import Setting from "./Setting";
+
 
 export default function Profile() {
 
@@ -41,19 +42,19 @@ export default function Profile() {
               <h6 className="title">Profile</h6>
             </div>
             <div className="right-content">
-            <button
-  className="profile-btn"
-  style={{ border: "unset", backgroundColor: "unset" }}
-  onClick={toggleSettingVisibility}
-  aria-label="More options"
->
-  <i className="icon feather icon-more-vertical"></i>
-</button>
+              <button
+                className="profile-btn"
+                style={{ border: "unset", backgroundColor: "unset" }}
+                onClick={toggleSettingVisibility}
+                aria-label="More options"
+              >
+                <i className="icon feather icon-more-vertical"></i>
+              </button>
 
-{isSettingVisible && (
-  <Setting onClose={() => setIsSettingVisible(false)} />
-)}
-</div>
+              {isSettingVisible && (
+                <Setting onClose={() => setIsSettingVisible(false)} />
+              )}
+            </div>
           </div>
         </div>
 
@@ -204,6 +205,7 @@ export default function Profile() {
                     <div className="badge badge-primary position-absolute end-0 me-3">5</div>
                   </Link>
                 </li>
+
                 {/* <li>
                   {user ? (
                     <Link

@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
+import bcrypt from "bcryptjs";
 
 const AuthContext = createContext();
 
@@ -10,19 +11,26 @@ export const AuthProvider = ({ children }) => {
   });
 
   const login = async (name, password) => {
-    // بررسی اولیه خالی نبودن فیلدها
     if (!name.trim() || !password.trim()) {
       console.warn("نام کاربری یا رمز عبور وارد نشده است.");
       return false;
     }
 
     try {
+      // فقط نام کاربری رو می‌فرستیم
       const res = await axios.get(
-        `http://localhost:3001/users?name=${encodeURIComponent(name)}&password=${encodeURIComponent(password)}`
+        `http://localhost:3001/users?name=${encodeURIComponent(name)}`
       );
 
       if (res.data.length > 0) {
         const loggedInUser = res.data[0];
+
+        // مقایسه پسورد با هش شده
+        const isMatch = bcrypt.compareSync(password, loggedInUser.password);
+        if (!isMatch) {
+          return false;
+        }
+
         setUser(loggedInUser);
         localStorage.setItem("user", JSON.stringify(loggedInUser));
         localStorage.setItem("userId", loggedInUser.id);
@@ -50,3 +58,7 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => useContext(AuthContext);
+
+// برای حل مشکل ایمپورت مستقیم:
+export { AuthContext };
+

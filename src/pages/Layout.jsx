@@ -10,7 +10,8 @@ export default function Layout() {
     "/login",
     "/register",
     "/search",
-    "/product/:id" // اضافه کردن مسیر داینامیک
+    "/product/:id",
+    "/category/:categoryId",
   ];
 
   // بررسی تطابق مسیر فعلی با الگوها

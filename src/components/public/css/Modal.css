@@ -1,0 +1,49 @@
+.p_side {
+  position: relative;
+}
+.side_icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  height: 100%;
+}
+.modal {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.modal-content > .modal-body {
+  padding: 1rem;
+}
+
+.modal.fade:not(.show) {
+  opacity: 0;
+}
+
+.modal-dialog {
+  transition: transform 0.3s ease-out;
+  transform: scale(0.8);
+}
+
+.modal.show .modal-dialog {
+  transform: scale(0);
+}
+.btn.rounded-circle {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.91rem!important;
+  font-size: 0.91rem;
+  aspect-ratio: 1/1;
+  max-width: 100px;
+  max-height: 100px;
+}
+.rounded-circle.outline {
+  border: 1px solid green
+}
+.zindex0,
+.footer.f0.zindex0 {
+  z-index: 0!important;
+}

@@ -1,0 +1,207 @@
+.wh-100 {width:100%;height:100%}
+/* Tooltip.css */
+.tooltip-container {
+  transition: none;
+  transform-origin: center;
+  pointer-events: none;
+  max-width: 300px; /* عرض پیش‌فرض */
+}
+
+.tooltip-enter {
+  animation: tooltipAppear 0.2s forwards;
+}
+
+.tooltip-exit {
+  animation: tooltipDisappear 0.2s forwards;
+}
+
+@keyframes tooltipAppear {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+@keyframes tooltipDisappear {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.8);
+  }
+}
+
+.tooltip-inner {
+  background: #333;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  max-width: 100%;
+  word-wrap: break-word; /* شکستن کلمات طولانی */
+  white-space: normal; /* متن چند خطی */
+  position: relative;
+}
+
+/* استایل برای محتوای طولانی */
+.tooltip-scrollable {
+  overflow-y: auto;
+  max-height: 200px; /* حداکثر ارتفاع قبل از اسکرول */
+  padding-right: 15px; /* فضای برای اسکرول بار */
+}
+
+/* افکت محو شدن برای متن‌های طولانی */
+.tooltip-fade-out {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: linear-gradient(to bottom, transparent, #333);
+  pointer-events: none;
+}
+
+/* نشانگر متن طولانی */
+.tooltip-expand-indicator {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #aaa;
+  font-size: 12px;
+  background: rgba(0,0,0,0.5);
+  border-radius: 10px;
+  padding: 0 8px;
+}
+
+/* پیکان‌ها */
+.tooltip-arrow {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #333;
+}
+
+.tooltip-arrow-top {
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.tooltip-arrow-bottom {
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.tooltip-arrow-left {
+  top: 50%;
+  right: -5px;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.tooltip-arrow-right {
+  top: 50%;
+  left: -5px;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* انیمیشن‌های جهت‌های مختلف */
+.tooltip-container[style*="left"] .tooltip-enter {
+  animation: tooltipAppearLeft 0.2s forwards;
+}
+
+.tooltip-container[style*="left"] .tooltip-exit {
+  animation: tooltipDisappearLeft 0.2s forwards;
+}
+
+@keyframes tooltipAppearLeft {
+  0% {
+    opacity: 0;
+    transform: translate(-100%, -50%) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-100%, -50%) scale(1);
+  }
+}
+
+@keyframes tooltipDisappearLeft {
+  0% {
+    opacity: 1;
+    transform: translate(-100%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-100%, -50%) scale(0.8);
+  }
+}
+
+/* ... انیمیشن‌های سایر جهت‌ها مشابه قبل ... */
+
+.tooltip-container[style*="right"] .tooltip-enter {
+  animation: tooltipAppearRight 0.2s forwards;
+}
+
+.tooltip-container[style*="right"] .tooltip-exit {
+  animation: tooltipDisappearRight 0.2s forwards;
+}
+
+@keyframes tooltipAppearRight {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+@keyframes tooltipDisappearRight {
+  0% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.8);
+  }
+}
+
+.tooltip-container[style*="bottom"] .tooltip-enter {
+  animation: tooltipAppearBottom 0.2s forwards;
+}
+
+.tooltip-container[style*="bottom"] .tooltip-exit {
+  animation: tooltipDisappearBottom 0.2s forwards;
+}
+
+@keyframes tooltipAppearBottom {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+@keyframes tooltipDisappearBottom {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.8);
+  }
+}

@@ -1,8 +1,15 @@
 import { useState } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
 import Preloader from "./components/Preloader/Preloader";
 import { AuthProvider } from "./context/AuthContext";
 import Routes from "./utils/Routes";
+import AdminRoutes from "./utils/AdminRoutes";
+
+import TrailCursor from "./components/TrailCursor"; // اضافه کن
+
+import "./public/app.css"
+
+import MainAdminBtn from "./public/MainAdminBtn";
 
 function App() {
   const [preloading, setPreloading] = useState(true);
@@ -16,12 +23,17 @@ function App() {
   }
 
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <Routes />
-      </BrowserRouter>
-    </AuthProvider>
+    <>
+      <AuthProvider>
+        <BrowserRouter>
+          {/* <TrailCursor /> */}
+          <Routes />
+          <AdminRoutes />
+          
+          <MainAdminBtn />
+        </BrowserRouter>
+      </AuthProvider>
+    </>
   );
 }
-
 export default App;

@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-
+import { isAdmin } from "../../utils/auth";
+import BtnIcon from "../public/BtnIcon";
+import SocialIcons from "../public/socialIcons";
 export default function Header({ onToggleSidebar }) {
 	return (
 	  <header className="header shadow header-fixed border-0">

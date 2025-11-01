@@ -1,0 +1,31 @@
+.prev {
+    left: 0rem;
+}
+.next {
+    right: 0rem;
+}
+.link_social {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: inherit!important;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    height: 100%;
+    color: white;
+    border-radius: 1rem;
+}
+.link_social * {
+    fill: white;
+    color: white;
+}
+.h100px {
+    height: 100px;
+    max-height: 100px;
+}
+.whatsapp {background-color:#25d366}
+.telegram {background-color:#30a3e6}
+.facebook {background-color:#0866FF}
+.x {background-color: black}
+.eita {background-color: #ff8100}

@@ -1,0 +1,14 @@
+.BtnIcon {
+    padding: 4px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 0;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    border-radius: 50%;
+}
+@media (max-width:600px) {
+    .BtnIcon > span {
+        display: none
+    }
+}

@@ -1,32 +1,83 @@
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+
+import { useCart } from "../context/CartContext";
 
 export default function MenuBar() {
   const { user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const observerRef = useRef(null);
+  const [indicatorStyle, setIndicatorStyle] = useState({});
+  const [showIndicator, setShowIndicator] = useState(true);
+
+  const { getTotalItemsCount } = useCart();
+  const totalCount = getTotalItemsCount();
+
+  // اضافه کردن useEffect برای آپدیت indicator با تغییر مسیر
+  useEffect(() => {
+    if (location.pathname === "/CartPage") {
+      setShowIndicator(false);
+    } else {
+      setShowIndicator(true);
+      updateIndicatorPosition();
+    }
+  }, [location.pathname]);
+
+  // تابع آپدیت موقعیت indicator
+  const updateIndicatorPosition = () => {
+    const activeLink = document.querySelector(".nav-link.active");
+    if (activeLink) {
+      const { offsetLeft, offsetWidth } = activeLink;
+      setIndicatorStyle({
+        left: `${offsetLeft}px`,
+        width: `${offsetWidth}px`,
+      });
+    }
+  };
 
   useEffect(() => {
-    // بررسی اولیه
-    setIsDarkMode(document.body.classList.contains("dark-mode"));
+    // بررسی اولیه از localStorage یا theme system
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    const savedTheme = localStorage.getItem("theme");
+    const shouldBeDark = savedTheme === "dark" || (!savedTheme && prefersDark);
+    setIsDarkMode(shouldBeDark);
+    document.body.classList.toggle("dark-mode", shouldBeDark);
 
     // نظارت بر تغییرات کلاس‌ها با MutationObserver
-    const observer = new MutationObserver(() => {
+    observerRef.current = new MutationObserver(() => {
       setIsDarkMode(document.body.classList.contains("dark-mode"));
     });
 
-    observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
+    observerRef.current.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
 
-    return () => observer.disconnect();
+    // اضافه کردن event listener برای resize
+    window.addEventListener("resize", updateIndicatorPosition);
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+      window.removeEventListener("resize", updateIndicatorPosition);
+    };
   }, []);
 
-  const handleWishlistClick = () => {
-    if (user) {
-      navigate("/wishlist");
-    } else {
-      navigate("/login");
+  const handleNavigation = (path) => {
+    try {
+      if (user) {
+        navigate(path);
+      } else {
+        navigate("/login");
+      }
+    } catch (error) {
+      console.error("Navigation failed:", error);
     }
   };
 
@@ -36,7 +87,13 @@ export default function MenuBar() {
     <div className="menubar-area footer-fixed rounded-0">
       <div className="toolbar-inner menubar-nav">
         <div className="width">
-          <NavLink to="/home" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
+          <NavLink
+            to="/home"
+            className={({ isActive }) =>
+              "nav-link" + (isActive ? " active" : "")
+            }
+            onClick={updateIndicatorPosition}
+          >
             <div className="icon-wrapper">
               <i className="icon feather icon-home"></i>
               <span>Home</span>
@@ -44,7 +101,13 @@ export default function MenuBar() {
           </NavLink>
         </div>
         <div className="width">
-          <NavLink to="/categori" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
+          <NavLink
+            to="/category"
+            className={({ isActive }) =>
+              "nav-link" + (isActive ? " active" : "")
+            }
+            onClick={updateIndicatorPosition}
+          >
             <div className="icon-wrapper">
               <i className="icon feather icon-grid"></i>
               <span>Categories</span>
@@ -52,49 +115,67 @@ export default function MenuBar() {
           </NavLink>
         </div>
 
-        {/* دکمه سبد خرید بدون تغییر */}
         <button
-          className="nav-link cart-handle"
+          className="nav-link cart-handle cart-button position-relative"
           onClick={() => {
-            if (user) navigate("/CartPage");
-            else navigate("/login");
+            handleNavigation("/CartPage");
+            setShowIndicator(false);
           }}
-          style={{
-            background: "none",
-            border: "none",
-            padding: 0,
-            pointerEvents: "auto",
-            zIndex: "10000",
-          }}
+          aria-label="Shopping Cart"
         >
           <div className="hexad-menu">
-            <img src="images/menu-shape-dark.svg" className="shape-dark" alt="" />
-            <img src="images/menu-shape-light.svg" className="shape-light" alt="" />
+            <img
+              src="images/menu-shape-dark.svg"
+              className="shape-dark"
+              alt="Dark theme menu shape"
+            />
+            <img
+              src="images/menu-shape-light.svg"
+              className="shape-light"
+              alt="Light theme menu shape"
+            />
             <i className="icon feather icon-shopping-bag"></i>
+            {totalCount > 0 && (
+              <div className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {totalCount} Product Number
+              </div>
+            )}
           </div>
         </button>
 
         <div className="width">
-          <button
-            className={"nav-link" + (isWishlistActive ? " active" : "") + (isDarkMode ? " dark" : "")}
-            onClick={handleWishlistClick}
-            style={{ border: "none" }}
+          <NavLink
+            to="/wishlist"
+            className={({ isActive }) =>
+              "nav-link" + (isActive ? " active" : "")
+            }
+            onClick={updateIndicatorPosition}
           >
             <div className="icon-wrapper">
               <i className="icon feather icon-heart"></i>
               <span>Wishlist</span>
             </div>
-          </button>
+          </NavLink>
         </div>
 
         <div className="width">
-          <NavLink to="/profile" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
+          <NavLink
+            to="/profile"
+            className={({ isActive }) =>
+              "nav-link" + (isActive ? " active" : "")
+            }
+            onClick={updateIndicatorPosition}
+          >
             <div className="icon-wrapper">
               <i className="icon feather icon-user"></i>
               <span>Profile</span>
             </div>
           </NavLink>
         </div>
+
+        {showIndicator && (
+          <div className="indicator" style={indicatorStyle}></div>
+        )}
       </div>
     </div>
   );

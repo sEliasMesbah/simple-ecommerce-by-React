@@ -101,7 +101,7 @@ export default function TopCategory() {
       >
         {/* 📦 کتگوری "همه" */}
         <SwiperSlide>
-          <Link to="/categori" className="category-btn w-100 h-100 d-block text-center">
+          <Link to="/category" className="category-btn w-100 h-100 d-block text-center">
             <strong> All </strong>
           </Link>
         </SwiperSlide>
