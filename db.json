@@ -313,6 +313,14 @@
           "describe": "",
           "offerprice": 161,
           "price": 179.99
+        },
+        {
+          "id": "8d9e6a10-7b2f-4a8c-9c3d-234567890abc",
+          "name": "Pars Khazar Vacuum Cleaner Model Turbo 2500WB",
+          "url": "https://dkstatics-public.digikala.com/digikala-products/114919567.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/format,webp/quality,q_90",
+          "describe": "",
+          "offerprice": 425,
+          "price": 425.89
         }
       ]
     },
