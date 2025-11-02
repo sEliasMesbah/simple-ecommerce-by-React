@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function AdminHeader(){
     return<>
     <header>
@@ -14,12 +16,12 @@ export default function AdminHeader(){
 					<div className="top-menu ms-auto">
 						<ul className="navbar-nav align-items-center">
 							<li className="nav-item mobile-search-icon">
-								<a className="nav-link" href="#">	<i className="bx bx-search"></i>
-								</a>
+								<Link className="nav-link" href="#">	<i className="bx bx-search"></i>
+								</Link>
 							</li>
 							<li className="nav-item dropdown dropdown-large">
-								<a className="nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">	<i className="bx bx-category"></i>
-								</a>
+								<Link className="nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">	<i className="bx bx-category"></i>
+								</Link>
 								<div className="dropdown-menu dropdown-menu-end">
 									<div className="row row-cols-3 g-3 p-3">
 										<div className="col text-center">
@@ -56,18 +58,18 @@ export default function AdminHeader(){
 								</div>
 							</li>
 							<li className="nav-item dropdown dropdown-large">
-								<a className="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <span className="alert-count">7</span>
+								<Link className="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <span className="alert-count">7</span>
 									<i className="bx bx-bell"></i>
-								</a>
+								</Link>
 								<div className="dropdown-menu dropdown-menu-end">
-									<a href="javascript:;">
+									<Link>
 										<div className="msg-header">
 											<p className="msg-header-title">Notifications</p>
 											<p className="msg-header-clear ms-auto">Marks all as read</p>
 										</div>
-									</a>
+									</Link>
 									<div className="header-notifications-list">
-										<a className="dropdown-item" href="javascript:;">
+										<Link className="dropdown-item">
 											<div className="d-flex align-items-center">
 												<div className="notify bg-light-primary text-primary"><i className="bx bx-group"></i>
 												</div>
@@ -77,8 +79,8 @@ export default function AdminHeader(){
 													<p className="msg-info">5 new user registered</p>
 												</div>
 											</div>
-										</a>
-										<a className="dropdown-item" href="javascript:;">
+										</Link>
+										<Link className="dropdown-item">
 											<div className="d-flex align-items-center">
 												<div className="notify bg-light-danger text-danger"><i className="bx bx-cart-alt"></i>
 												</div>
@@ -88,8 +90,8 @@ export default function AdminHeader(){
 													<p className="msg-info">You have recived new orders</p>
 												</div>
 											</div>
-										</a>
-										<a className="dropdown-item" href="javascript:;">
+										</Link>
+										<Link className="dropdown-item">
 											<div className="d-flex align-items-center">
 												<div className="notify bg-light-success text-success"><i className="bx bx-file"></i>
 												</div>
@@ -99,8 +101,8 @@ export default function AdminHeader(){
 													<p className="msg-info">The pdf files generated</p>
 												</div>
 											</div>
-										</a>
-										<a className="dropdown-item" href="javascript:;">
+										</Link>
+										<Link className="dropdown-item">
 											<div className="d-flex align-items-center">
 												<div className="notify bg-light-warning text-warning"><i className="bx bx-send"></i>
 												</div>
@@ -110,8 +112,8 @@ export default function AdminHeader(){
 													<p className="msg-info">5.1 min avarage time response</p>
 												</div>
 											</div>
-										</a>
-										<a className="dropdown-item" href="javascript:;">
+										</Link>
+										<Link className="dropdown-item">
 											<div className="d-flex align-items-center">
 												<div className="notify bg-light-info text-info"><i className="bx bx-home-circle"></i>
 												</div>
@@ -120,8 +122,8 @@ export default function AdminHeader(){
 													<p className="msg-info">Your new product has approved</p>
 												</div>
 											</div>
-										</a>
-										<a className="dropdown-item" href="javascript:;">
+										</Link>
+										<Link className="dropdown-item">
 											<div className="d-flex align-items-center">
 												<div className="notify bg-light-danger text-danger"><i className="bx bx-message-detail"></i>
 												</div>
@@ -131,8 +133,8 @@ export default function AdminHeader(){
 													<p className="msg-info">New customer comments recived</p>
 												</div>
 											</div>
-										</a>
-										<a className="dropdown-item" href="javascript:;">
+										</Link>
+										<Link className="dropdown-item">
 											<div className="d-flex align-items-center">
 												<div className="notify bg-light-success text-success"><i className="bx bx-check-square"></i>
 												</div>
@@ -142,8 +144,8 @@ export default function AdminHeader(){
 													<p className="msg-info">Successfully shipped your item</p>
 												</div>
 											</div>
-										</a>
-										<a className="dropdown-item" href="javascript:;">
+										</Link>
+										<Link className="dropdown-item">
 											<div className="d-flex align-items-center">
 												<div className="notify bg-light-primary text-primary"><i className="bx bx-user-pin"></i>
 												</div>
@@ -153,8 +155,8 @@ export default function AdminHeader(){
 													<p className="msg-info">24 new authors joined last week</p>
 												</div>
 											</div>
-										</a>
-										<a className="dropdown-item" href="javascript:;">
+										</Link>
+										<Link className="dropdown-item">
 											<div className="d-flex align-items-center">
 												<div className="notify bg-light-warning text-warning"><i className="bx bx-door-open"></i>
 												</div>
@@ -164,26 +166,26 @@ export default function AdminHeader(){
 													<p className="msg-info">45% less alerts last 4 weeks</p>
 												</div>
 											</div>
-										</a>
+										</Link>
 									</div>
-									<a href="javascript:;">
+									<Link>
 										<div className="text-center msg-footer">View All Notifications</div>
-									</a>
+									</Link>
 								</div>
 							</li>
 							<li className="nav-item dropdown dropdown-large">
-								<a className="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <span className="alert-count">8</span>
+								<Link className="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <span className="alert-count">8</span>
 									<i className="bx bx-comment"></i>
-								</a>
+								</Link>
 								<div className="dropdown-menu dropdown-menu-end">
-									<a href="javascript:;">
+									<Link>
 										<div className="msg-header">
 											<p className="msg-header-title">Messages</p>
 											<p className="msg-header-clear ms-auto">Marks all as read</p>
 										</div>
-									</a>
+									</Link>
 									<div className="header-message-list">
-										<a className="dropdown-item" href="javascript:;">
+										<Link className="dropdown-item">
 											<div className="d-flex align-items-center">
 												<div className="user-online">
 													<img src="assets/images/avatars/avatar-1.png" className="msg-avatar" alt="user avatar" />
@@ -194,8 +196,8 @@ export default function AdminHeader(){
 													<p className="msg-info">The standard chunk of lorem</p>
 												</div>
 											</div>
-										</a>
-										<a className="dropdown-item" href="javascript:;">
+										</Link>
+										<Link className="dropdown-item">
 											<div className="d-flex align-items-center">
 												<div className="user-online">
 													<img src="assets/images/avatars/avatar-2.png" className="msg-avatar" alt="user avatar" />
@@ -206,8 +208,8 @@ export default function AdminHeader(){
 													<p className="msg-info">Many desktop publishing packages</p>
 												</div>
 											</div>
-										</a>
-										<a className="dropdown-item" href="javascript:;">
+										</Link>
+										<Link className="dropdown-item">
 											<div className="d-flex align-items-center">
 												<div className="user-online">
 													<img src="assets/images/avatars/avatar-3.png" className="msg-avatar" alt="user avatar"/>
@@ -218,8 +220,8 @@ export default function AdminHeader(){
 													<p className="msg-info">Various versions have evolved over</p>
 												</div>
 											</div>
-										</a>
-										<a className="dropdown-item" href="javascript:;">
+										</Link>
+										<Link className="dropdown-item">
 											<div className="d-flex align-items-center">
 												<div className="user-online">
 													<img src="assets/images/avatars/avatar-4.png" className="msg-avatar" alt="user avatar"/>
@@ -230,8 +232,8 @@ export default function AdminHeader(){
 													<p className="msg-info">Making this the first true generator</p>
 												</div>
 											</div>
-										</a>
-										<a className="dropdown-item" href="javascript:;">
+										</Link>
+										<Link className="dropdown-item">
 											<div className="d-flex align-items-center">
 												<div className="user-online">
 													<img src="assets/images/avatars/avatar-5.png" className="msg-avatar" alt="user avatar" />
@@ -242,8 +244,8 @@ export default function AdminHeader(){
 													<p className="msg-info">Duis aute irure dolor in reprehenderit</p>
 												</div>
 											</div>
-										</a>
-										<a className="dropdown-item" href="javascript:;">
+										</Link>
+										<Link className="dropdown-item">
 											<div className="d-flex align-items-center">
 												<div className="user-online">
 													<img src="assets/images/avatars/avatar-6.png" className="msg-avatar" alt="user avatar" />
@@ -254,8 +256,8 @@ export default function AdminHeader(){
 													<p className="msg-info">The passage is attributed to an unknown</p>
 												</div>
 											</div>
-										</a>
-										<a className="dropdown-item" href="javascript:;">
+										</Link>
+										<Link className="dropdown-item">
 											<div className="d-flex align-items-center">
 												<div className="user-online">
 													<img src="assets/images/avatars/avatar-7.png" className="msg-avatar" alt="user avatar" />
@@ -266,8 +268,8 @@ export default function AdminHeader(){
 													<p className="msg-info">The point of using Lorem</p>
 												</div>
 											</div>
-										</a>
-										<a className="dropdown-item" href="javascript:;">
+										</Link>
+										<Link className="dropdown-item">
 											<div className="d-flex align-items-center">
 												<div className="user-online">
 													<img src="assets/images/avatars/avatar-8.png" className="msg-avatar" alt="user avatar" />
@@ -278,8 +280,8 @@ export default function AdminHeader(){
 													<p className="msg-info">It was popularised in the 1960s</p>
 												</div>
 											</div>
-										</a>
-										<a className="dropdown-item" href="javascript:;">
+										</Link>
+										<Link className="dropdown-item">
 											<div className="d-flex align-items-center">
 												<div className="user-online">
 													<img src="assets/images/avatars/avatar-9.png" className="msg-avatar" alt="user avatar" />
@@ -290,8 +292,8 @@ export default function AdminHeader(){
 													<p className="msg-info">Various versions have evolved over</p>
 												</div>
 											</div>
-										</a>
-										<a className="dropdown-item" href="javascript:;">
+										</Link>
+										<Link className="dropdown-item">
 											<div className="d-flex align-items-center">
 												<div className="user-online">
 													<img src="assets/images/avatars/avatar-10.png" className="msg-avatar" alt="user avatar"/>
@@ -302,8 +304,8 @@ export default function AdminHeader(){
 													<p className="msg-info">If you are going to use a passage</p>
 												</div>
 											</div>
-										</a>
-										<a className="dropdown-item" href="javascript:;">
+										</Link>
+										<Link className="dropdown-item">
 											<div className="d-flex align-items-center">
 												<div className="user-online">
 													<img src="assets/images/avatars/avatar-11.png" className="msg-avatar" alt="user avatar"/>
@@ -314,38 +316,38 @@ export default function AdminHeader(){
 													<p className="msg-info">All the Lorem Ipsum generators</p>
 												</div>
 											</div>
-										</a>
+										</Link>
 									</div>
-									<a href="javascript:;">
+									<Link>
 										<div className="text-center msg-footer">View All Messages</div>
-									</a>
+									</Link>
 								</div>
 							</li>
 						</ul>
 					</div>
 					<div className="user-box dropdown">
-						<a className="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret rowing" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{flexDirection:"row"}}>
+						<Link className="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret rowing" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{flexDirection:"row"}}>
 							<img src="assets/images/avatars/avatar-2.png" className="user-img" alt="user avatar"/>
 							<div className="user-info ps-3">
 								<p className="user-name mb-0">Pauline Seitz</p>
 								<p className="designattion mb-0">Web Designer</p>
 							</div>
-						</a>
+						</Link>
 						<ul className="dropdown-menu dropdown-menu-end">
-							<li><a className="dropdown-item" href="javascript:;"><i className="bx bx-user"></i><span>Profile</span></a>
+							<li><Link className="dropdown-item"><i className="bx bx-user"></i><span>Profile</span></Link>
 							</li>
-							<li><a className="dropdown-item" href="javascript:;"><i className="bx bx-cog"></i><span>Settings</span></a>
+							<li><Link className="dropdown-item"><i className="bx bx-cog"></i><span>Settings</span></Link>
 							</li>
-							<li><a className="dropdown-item" href="javascript:;"><i className="bx bx-home-circle"></i><span>Dashboard</span></a>
+							<li><Link className="dropdown-item"><i className="bx bx-home-circle"></i><span>Dashboard</span></Link>
 							</li>
-							<li><a className="dropdown-item" href="javascript:;"><i className="bx bx-dollar-circle"></i><span>Earnings</span></a>
+							<li><Link className="dropdown-item"><i className="bx bx-dollar-circle"></i><span>Earnings</span></Link>
 							</li>
-							<li><a className="dropdown-item" href="javascript:;"><i className="bx bx-download"></i><span>Downloads</span></a>
+							<li><Link className="dropdown-item"><i className="bx bx-download"></i><span>Downloads</span></Link>
 							</li>
 							<li>
 								<div className="dropdown-divider mb-0"></div>
 							</li>
-							<li><a className="dropdown-item" href="javascript:;"><i className="bx bx-log-out-circle"></i><span>Logout</span></a>
+							<li><Link className="dropdown-item"><i className="bx bx-log-out-circle"></i><span>Logout</span></Link>
 							</li>
 						</ul>
 					</div>
