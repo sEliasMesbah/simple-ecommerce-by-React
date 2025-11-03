@@ -91,11 +91,14 @@ export default function AdminHeader(){
 										</a>
 										<a className="dropdown-item" href="javascript:;">
 											<div className="d-flex align-items-center">
-												<div className="notify bg-light-success text-success"><i className="bx bx-file"></i>
+												<div className="notify bg-light-success text-success">
+													<i className="bx bx-file"></i>
 												</div>
 												<div className="flex-grow-1">
-													<h6 className="msg-name">24 PDF File<span className="msg-time float-end">19 min
-												ago</span></h6>
+													<h6 className="msg-name">24 PDF File
+														<span className="msg-time float-end">19 min ago
+														</span>
+												    </h6>
 													<p className="msg-info">The pdf files generated</p>
 												</div>
 											</div>
@@ -332,7 +335,22 @@ export default function AdminHeader(){
 							</div>
 						</a>
 						<ul className="dropdown-menu dropdown-menu-end">
-							<li><a className="dropdown-item" href="javascript:;"><i className="bx bx-user"></i><span>Profile</span></a>
+							<li><a className="dropdown-item" href="#"><i className="bx bx-user"></i><span>Profile</span></a>
+							</li>
+							<li><a className="dropdown-item" href="#"><i className="bx bx-cog"></i><span>Settings</span></a>
+							</li>
+							<li><a className="dropdown-item" href="#"><i className="bx bx-home-circle"></i><span>Dashboard</span></a>
+							</li>
+							<li><a className="dropdown-item" href="#"><i className="bx bx-dollar-circle"></i><span>Earnings</span></a>
+							</li>
+							<li><a className="dropdown-item" href="#"><i className="bx bx-download"></i><span>Downloads</span></a>
+							</li>
+							<li>
+								<div className="dropdown-divider mb-0"></div>
+							</li>
+							<li><a className="dropdown-item" href="#"><i className="bx bx-log-out-circle"></i><span>Logout</span></a>
+							</li>
+							{/* <li><a className="dropdown-item" href="javascript:;"><i className="bx bx-user"></i><span>Profile</span></a>
 							</li>
 							<li><a className="dropdown-item" href="javascript:;"><i className="bx bx-cog"></i><span>Settings</span></a>
 							</li>
@@ -346,7 +364,7 @@ export default function AdminHeader(){
 								<div className="dropdown-divider mb-0"></div>
 							</li>
 							<li><a className="dropdown-item" href="javascript:;"><i className="bx bx-log-out-circle"></i><span>Logout</span></a>
-							</li>
+							</li> */}
 						</ul>
 					</div>
 				</nav>
