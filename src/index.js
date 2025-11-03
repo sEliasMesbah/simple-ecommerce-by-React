@@ -14,12 +14,10 @@ import 'react-toastify/dist/ReactToastify.css';
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <AuthProvider>
       <App />
       <ToastContainer
         position="bottom-right"
       />
-    </AuthProvider>
   </React.StrictMode>
 );
 
