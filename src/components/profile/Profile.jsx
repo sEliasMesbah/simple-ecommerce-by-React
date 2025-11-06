@@ -32,7 +32,8 @@ export default function Profile() {
       {/* Header */}
       <header className="header shadow header-fixed border-0">
         <div className="container">
-          <div className="header-content d-flex justify-content-between align-items-center">
+          {/* <div className="header-content d-flex justify-content-between align-items-center"> */}
+          <div className="header-content">
             <div className="left-content">
               <Link to="/home" className="back-btn" aria-label="Back to Home">
                 <i className="icon feather icon-chevron-left"></i>
@@ -41,6 +42,7 @@ export default function Profile() {
             <div className="mid-content">
               <h6 className="title">Profile</h6>
             </div>
+            {/*Ask from Teacher*/}
             <div className="right-content">
               <button
                 className="profile-btn"
@@ -59,8 +61,8 @@ export default function Profile() {
         </div>
 
       </header>
-
-      {/* Main Content */}
+      {/* Header */}
+      {/* Page Content Start */}
       <div className="page-content space-top">
         <div className="container">
           <div className="profile-area">
